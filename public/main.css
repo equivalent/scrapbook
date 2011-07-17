@@ -1,0 +1,114 @@
+html, body {
+	height: 100%;
+}
+
+html body{
+	margin: 0px;
+	padding: 0px;	
+}
+
+
+td th{ text-align:left; vertical-align:top; }
+
+h1 {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+p, div {
+  margin-top: 0px;
+}
+
+div.clear{clear:both;}
+
+
+
+
+
+
+
+/* positioning */
+.main div.container{
+  width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.main div#content{
+  margin-top:50px;
+}
+.main div#content_matroska{
+  margin:  22px;
+}
+
+.main div#content div#left_side{
+  float: left;
+  width: 820px;
+}
+.main div#content div#right_side{
+  float: right;
+  width: 200px;
+  
+}
+
+.main div#content div#right_side .section{
+}
+.main div#content div#right_side div#page_navigation a{
+  display:block;
+  margin-bottom:10px;
+  font-size:14px;
+  text-decoration:none;
+  -moz-border-radius: 15px;
+  border-radius: 15px
+
+}
+
+
+
+.main div.main_heading_margin_top{
+  height: 40px;
+  width: auto;
+}
+
+.main div.main_heading_margin_top h1{
+}
+
+
+/* */
+div.rounded_borders{
+  -moz-border-radius: 15px;
+  border-radius: 15px
+}
+
+/* colors */
+
+body {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #1C1C1C;
+}
+
+
+
+.main .border{
+  border: solid black 1px;
+}
+
+
+.main div.main_heading_margin_top h1{
+  font-family: 'Shadows Into Light', cursive;
+  color: color: #1C1C1C;
+}
+
+
+.main div#content div#right_side div#page_navigation a{
+  background: black;
+  color:silver;
+  font-weight: bold;
+  padding: 10px 20px 10px;
+}
+
+.main div#content div#right_side div#page_navigation a:hover{
+  color:white;
+}
