@@ -3,7 +3,9 @@
   %head
     %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
 
+    %link{"rel" => "stylesheet", "href" => "/purple_skin.css", "type" => "text/css"}
     %link{"rel" => "stylesheet", "href" => "/main.css", "type" => "text/css"}
+    %link{"rel" => "stylesheet", "href" => "/code.css", "type" => "text/css"}
 
     -#%link{ "href"=> 'http://fonts.googleapis.com/css?family=Shadows+Into+Light&v2', 'rel'=> 'stylesheet', 'type'=>'text/css'}
 
@@ -11,7 +13,7 @@
 
     -#change lines as you desire
     %meta{"author" => "Equivalent (eq8.eu)"}  
-    %title Equivalent Scrapbook
+    %title= @title || "#{OWNER_NAME} scrapbook"
     
 
   %body.main

@@ -81,34 +81,4 @@ div.rounded_borders{
   border-radius: 15px
 }
 
-/* colors */
 
-body {
-  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  color: #1C1C1C;
-}
-
-
-
-.main .border{
-  border: solid black 1px;
-}
-
-
-.main div.main_heading_margin_top h1{
-  font-family: 'Shadows Into Light', cursive;
-  color: color: #1C1C1C;
-}
-
-
-.main div#content div#right_side div#page_navigation a{
-  background: black;
-  color:silver;
-  font-weight: bold;
-  padding: 10px 20px 10px;
-}
-
-.main div#content div#right_side div#page_navigation a:hover{
-  color:white;
-}
