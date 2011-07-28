@@ -1,8 +1,0 @@
-
-
-http://pygments.org/download/
-
-sudo apt-get install python-setuptools
-sudo easy_install Pygments
-
-
