@@ -1,0 +1,10 @@
+rails generate scaffold game name:string       
+rails g scaffold game name:string  --no-stylesheet
+rails g scaffold --help                        
+
+
+rails g migration add_vanity_name_to_user  vanity_name:string
+
+
+
+

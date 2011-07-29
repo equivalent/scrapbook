@@ -1,0 +1,53 @@
+def create
+
+rescue Exception => e
+      @msg = e || '404 page not found'
+      
+      render :action=>"/home/generic_error_page",  :layout=>false, :msg => e
+end
+
+
+
+
+
+
+
+
+
+
+
+
+#sorting with array (order with array)
+@sidebar_followed_expert_users.sort{|a,b| b.recent_recommendated_at <=> a.recent_recommendated_at }
+
+
+@sidebar_followed_expert_users = current_user.followed_experts.limit(3).collect(&:user).sort{|a,b| b.recent_recommendated_at <=> a.recent_recommendated_at }
+
+
+
+if request.ssl?    #check if I'm using https
+
+
+
+@taggings.compacte    #remove nil from array
+
+
+sleep 10 # delay 10 seconds
+
+
+protect_from_forgery :except => [:create]
+
+
+
+
+redirect_to :back
+
+render :layout => 'upload'
+render :nothing => true
+
+
+respond_to do |format|
+  format.html {render 'index', :layout=>'listing'} # index.html.erb
+  format.js 
+  format.xml  { render :xml => @friends }
+end

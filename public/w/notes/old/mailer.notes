@@ -1,0 +1,15 @@
+class UserMailer < ActionMailer::Base
+  default :from => "info@my_site.eu"
+
+  def registration_confirmation(recipient)
+    @account = recipient
+    mail :to => @account.email, :subject => "Registration confirmation hirefriends.eu"
+  end
+ 
+end
+
+
+
+
+#app/view/user_mailer.text.erb
+<%= url_for(:host => "my_site.eu", :controller => "activation", :action => "create", :id =>@account.activation_code) %>

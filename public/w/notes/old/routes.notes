@@ -1,0 +1,51 @@
+#rails3
+
+
+
+#method for recognizing paths 
+ruby-1.9.2-p180 :025 > ActionController::Routing::Routes.recognize_path('http://www.lovethis.com/likes/next_reg/6/6&from=reg?_=1309933617696')
+# {:controller=>"fb_likes", :action=>"nextr_likes", :fb_limit=>"6", :fb_offset=>"6&from=reg"} 
+
+
+
+resources :mailing_lists,:only => [:index, :create, :destroy]
+resources :products do
+  resource :category
+
+  member do
+    post :short
+  end
+
+  collection do
+    get :long
+  end
+end
+
+match "/posts/github" => redirect("http://github.com/rails.atom")
+match "logout",:to=>"user_sessions#destroy",:as=>'logout'
+match "account/overview", :to => "account#overview", :via => "get", :via => [:get, :post]
+
+root :to => 'welcome#show'
+
+
+
+
+
+
+
+
+#in wievs 
+<%= mailing_list_path(mailing_list, :code=>mailing_list.destroy_code ) %>
+                   ?code=...
+
+
+
+
+
+
+
+
+
+
+
+

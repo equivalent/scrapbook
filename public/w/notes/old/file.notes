@@ -1,0 +1,42 @@
+!@#file
+
+#search in file
+f = File.new("file.txt")
+ text = f.read
+ if text =~ /string/ then
+ #relevant code
+end
+
+
+
+
+
+@files = Dir.glob("public/files/*.pdf")
+
+
+#listing files
+@files = Dir.glob("#{Rails.root.to_s}/public/images/bestwork/*") #full path
+@files = Dir.glob("public/files/*")  #public path
+<% for file in @files %> 
+<%= image_tag file.gsub("public/images/",'') %>
+<% end %>
+
+
+  Dir.glob("public/w/*.notes").map{|f| f.gsub("public/w/",'').gsub(".notes","") }
+
+
+
+
+
+
+
+
+
+
+    filename_path="public/w/#{params[:file]}.notes"
+
+    if params[:file] and File.exist?(filename_path)
+      file = File.open(filename_path, "r")
+      @file=file.read
+      file.close  
+    else

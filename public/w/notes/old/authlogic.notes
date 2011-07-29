@@ -1,0 +1,171 @@
+gem 'authlogic'
+
+
+
+
+
+
+
+
+
+rails g scaffold user username:string email:string crypted_password:string password_salt:string persistence_token:string curent_login_ip:string  new edit create destroy index
+
+
+
+
+
+
+
+
+
+
+
+#odstran zo _form polozky co tam nemaju byt apridaj
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+#odstran show upraw index
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# models/user.rb
+class User < ActiveRecord::Base
+ acts_as_authentic
+
+ #acts_as_authentic do |c|
+ #   c.login_field = :username
+ #   c.email_field = :usuMail (her your mail field)
+ #   c.maintain_sessions = false
+ #end
+
+end
+
+
+  before_filter :require_user, :except => [:index,:show]
+
+
+
+
+
+# application_controller.rb
+helper_method :current_user
+
+private
+
+def current_user_session
+  return @current_user_session if defined?(@current_user_session)
+  @current_user_session = UserSession.find
+end
+
+def current_user
+  return @current_user if defined?(@current_user)
+  @current_user = current_user_session && current_user_session.record
+end
+def require_user
+      unless current_user
+        store_location
+        flash[:notice] = "You must be logged in to access this page"
+        redirect_to new_user_session_url
+        return false
+      end
+end
+
+def require_no_user
+      if current_user
+        store_location
+        flash[:notice] = "You must be logged out to access this page"
+        redirect_to account_url
+        return false
+      end
+end
+
+
+
+
+
+#app/controller/user_session.rb
+class UserSession < Authlogic::Session::Base
+def to_key
+  new_record? ? nil : [ self.send(self.class.primary_key) ]
+end
+
+def persisted?
+  false
+end
+
+end
+#http://techoctave.com/c7/posts/37-authlogic-and-rails-3-0-solution
+
+
+
+
+
+
+
+
+
+#login
+
+<% form_for @user_session do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+
+
+
+
+
+
+
+
+
+  resources :users
+  resources :user_sessions
+
+  match "logout",:to=>"user_sessions#destroy",:as=>'logout'
+
+
+
+
+#do controllerov pak
+  before_filter :require_user, :except => [:index,:show]
+
+
+
+
+################3
+https://github.com/matthooks/authlogic-activation-tutorial
+
+
+
+
+
+
+@user = User.new(params[:user])
+@user.save_without_session_maintenance

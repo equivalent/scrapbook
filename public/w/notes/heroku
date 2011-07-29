@@ -1,0 +1,29 @@
+!@#git  heroku deployment
+
+heroku config:add TZ=Europe/Oslo
+
+
+
+#heroku new app
+rails mynewapp
+git init
+heroku create mynewapp
+heroku addons:add custom_domains
+heroku domains:add www.example.com
+git push heroku master
+
+
+#heroku sinatra in articles
+
+
+#heroku edit existing 
+heroku info --app mojaapplykacia
+git clone -o heroku git@heroku.com:mojaaplykacia.git
+
+
+#database backup
+  heroku db:pull
+  heroku db:push
+
+
+git clone -o heroku git@heroku.com:appname.git

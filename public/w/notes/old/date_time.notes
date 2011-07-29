@@ -1,0 +1,6 @@
+
+(Date.today..(Date.today + 1.month))					#datum ododnes po 1mesic 
+
+@time_string="Sun Mar 28 14:45:00 -0800 2011".to_time - 2.hour
+distance_of_time_in_words_to_now( @time_string,Time.now)
+		

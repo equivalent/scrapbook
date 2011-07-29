@@ -1,0 +1,21 @@
+add_column :table_name, :column_name, :column_type, {column_options}
+add_column :accounts, :ssl_enabled, :integer, :default => 1
+
+remove_column :table_name, :column_name
+
+
+
+
+mysql -u root -p 
+mysql -u root -p  < some_mysql_dump_file_to_import.db
+mysql -u root -p rails_development < rails.db 
+
+
+show databases;
+show tables;
+use databasename;       #will select the databese to work with
+
+select count(*) from categories;
+
+
+drop database mydatabasename;

@@ -1,0 +1,20 @@
+#dont use sudo on gem install vhen using rvm
+#kazda rubyversion ma vlastny gemlist
+rvm install 1.9.2      #  instalovat verzie ruby priamo z rvm
+
+rvm list               #verzie ruby k dispozici
+rvm 1.9.2              # prepne verziu ruby
+rvm 1.9.2 --deffault   #defaltne systemove nastavi 1.9.2
+rvm system             # prepne systemove ruby
+
+
+#####automat nacitanie
+#.rvmrc
+rvm 1.8.7@netina  #use ruby 1.8.7 and gemset netina /you dont havto specify gemset
+
+
+#create a separat gemset
+rvm 1.9.2@railspre --create
+
+rvm --create use ruby-1.9.2@lovethis
+

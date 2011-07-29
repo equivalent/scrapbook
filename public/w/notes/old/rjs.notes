@@ -1,0 +1,101 @@
+a.parents('li').find('.imageproperties').addClass('selectedimage');
+
+
+alert(foo.toSource())
+
+
+#disable effect on image
+
+$("#img_1").css({opacity:0.5});
+
+
+$(this).attr('id').match(/\d+/)[0])
+
+
+
+gem "jquery-rails"
+bundle install
+rails generate jquery:install
+
+
+$(" div#my_profile_sidebox ul li a.tab-controller").click(function(e) {
+    e.preventDefault();  
+});
+
+          
+
+$(document).ready(function(){
+ 	$('.photo_profile')...
+});
+
+
+
+
+
+ <%= escape_javascript( render :partial => "friends_successfully_invited_from_registration") %>
+
+
+
+
+#form_remote_tag in rails 3 ... will send to index controller 
+<% form_tag products_path, :method => :get, :remote => true do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+
+
+
+
+
+
+
+$("#chat").append('<%= escape_javascript render(@message) %>')  #create.js.erb
+
+
+
+
+
+
+
+#// simulates similar behavior as an HTTP redirect
+window.location.replace("http://stackoverflow.com");
+
+#// simulates similar behavior as clicking on a link
+window.location.href = "http://stackoverflow.com";
+
+
+
+
+alert('Hello from AJAX');  
+
+
+function confirmation() {
+  var answer = confirm("Leave tizag.com?")
+  if (answer){
+    alert("Bye bye!")
+    window.location = "http://www.google.com/";
+  }
+  else{
+    alert("Thanks for sticking around!")
+  }
+}
+
+
+
+#periodically_call_remote rails 3 alternative 
+o(document).ready(
+  function(){
+    setInterval(function(){
+      $('#mydiv').load('/controller/action');
+    }, 3000);
+  });
+
+
+
+
+
+ $(this).find(".hidden_redirector").attr("href"))   // find children of this current div
+

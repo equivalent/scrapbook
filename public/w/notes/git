@@ -1,0 +1,61 @@
+!@#git  gitignore
+
+git rm --cached <filename>          #untrack file, nezmazo z local ale zmaze zo serveru
+git branch -D my_branch             #delete locale branch 
+
+
+
+#za predpokladu ze som na vetve stage a existuje vzdialena vetva "dakabrancha" a localna neexistuje a dam 
+git co dakabrancha    # stiahne vzdialenu vetvu  a prepne ma do nej, nemergne stage vetvu
+git co -b dakabrancha2   #skopiruje stage a vytvori localnu branchu bez prepojenia dakabrancha
+
+
+
+Remote branch
+==============
+#vytvorenie lokal branch
+$ git checkout -b nova_funkce
+$ git branch -d nazav_branch   #zmaze lokal branch
+
+Vytváří se pomocí příkazu:
+$ git push origin origin:refs/heads/remote_branch_name
+
+Vypsání všech remote branch
+$ git branch -r
+
+Přidání a trackování remote branch:
+$ git fetch origin
+$ git checkout --track -b remote_branch_name origin/remote_branch_name
+
+Smazání remote branch (rozdíl je v dvojtečce)
+$ git push origin :remote_branch_name
+
+gitignore 
+=========
+.DS_Store
+log/*.log
+tmp/**/*
+config/database.yml
+db/*.sqlite3
+.gitignore
+tags
+
+
+Heroku
+======
+in heroku.notes
+
+
+
+Github
+======
+#http://help.github.com/fork-a-repo/
+$ git remote add upstream git://github.com/octocat/Spoon-Knife.git #Assigns the original repo to a remote called "upstream"
+$ git fetch upstream
+
+$ git push origin master #Pushes commits to your remote repo stored on GitHub
+
+#setup new github project
+mkdir ... cd. .. git init ... add . ... commit 
+git remote add origin git@github.com:username/Hello-World.git
+git push origin maste

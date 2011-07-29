@@ -1,0 +1,73 @@
+
+Dir[Rails.root.join("spec/factories/**/*.rb")].each {|f| require f}  # requre files in dir
+
+
+require File.expand_path("./config/environment", __FILE__)     #load enviroment in non rails ruby gems or ruby scripts, path is relative to path where script is placed
+
+
+application.rb
+==============
+ENV["RAILS_ASSET_ID] = "" #when set to empty string disables timestamps at end of asset files 
+
+
+
+
+
+gems
+=====
+sudo gem install rubygems-update        #update rubygems
+gem update rails												#update rails
+rake gems:install											  #
+
+enviroment.rb (po novem Gemfile)
+-------------------------------
+gem "will_paginate", ">= 2.3.12", :require => 'ak_sa_require_vola_inak'
+gem "rails", :git => "git://github.com.......git"         #alr3
+gem "rspec", :group => :test                              #alr3, reguire iba pre isty enviroment
+
+
+bundle
+------
+bundle install                      #aj updatuje 
+bundle install --without=test       # nainstaluje gemi okrem tych pre test enwiroment
+bundle check                        #vypiseti gem dependencies
+bundle lock                         #vytvori Gemfile.lock kde su locknute verzie gemov
+                                    # po zmene v gemfile  `bundle install --relock` 
+
+#gemi sa instaluju do `~/.bundle` existuje moznost skopirovania gemov do /vendor/cach  pozri `bundle --pack`
+
+
+
+
+
+
+
+
+
+
+
+
+
+enviroments.rb
+==============
+config.load_paths << "#{RAILS_ROOT}/app/sweepers" #"rails will automaticli include theese files"
+
+
+
+
+
+
+
+
+
+
+
+
+
+Instaling rails3
+=================
+http://web2linux.com/installing-rails-3-on-ubuntu-10-04-lucid-lynx/
+(basket)
+
+
+

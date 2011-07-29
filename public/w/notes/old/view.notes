@@ -1,0 +1,98 @@
+CGI.escape("url")            #correct escape of string to be putted to url
+animal.upcase                #CAT
+animal.downcase              #cat
+
+
+<%= controller.controller_name -%>
+<%= controller.action_name -%>
+
+
+
+
+
+
+views
+=====
+
+#will merge current params with this another one
+link_to "test", params.merge(:my_other_param=>"name") 
+
+#back
+link_to "Back", :back 
+
+link_to "Confirmation link", some_path, :confirm => "Are you sure ?"
+
+link_to "Destroy", @product, :confirmation => "Are you sure ?", :method => :delete
+button_to "Destroy", @product, :confirmation => "Are you sure ?", :method => :delete  #button_to will work without JavasCript enabled (RC205)
+
+
+
+image_tag "rails.png"
+
+
+
+
+<% form_for( @person, :as=>'person', :url=> people_path, :html =>{:method => :post}) %>
+<% form_for(@photo,  :html => { :multipart => true }) do |f| %>
+<%= form_for @post, :as => :post, :url => post_path(@post), :html => { :method => :put, :class => "edit_post", :id => "edit_post_45" } do |f| %>
+  ...
+<% end %>
+
+
+<%= f.select :charge, User.HAIR_TYPES.collect{|s| [I18n.t("hair_types.#{s}"), s] }, {:include_blank => true, :selected => 'blond'} %>
+<%= f.select :anrede,  [["Herr", "herr"], ["Frau", "frau"] ]  %>
+<%= f.select :priority,  [1,2,3,4] %>
+#select from associated projects
+<%= f.collection_select :project_id, Project.all, :id, :name %>
+
+
+
+
+
+layout
+=======
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <link href="/images/favicon.icon" rel="shortcut icon" />  
+
+
+  <title>Projects: <%= controller.action_name %></title>
+  <title>AL4<%= ' - '+ @problem.title if @problem %></title>    
+  <title>Shoppery - <%= yield(:title) || "The Place to Buy Stuff" %></title>
+
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= javascript_include_tag :defaults %>
+
+</head>
+<body>
+
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield %>
+
+</body>
+</html>
+
+
+
+
+
+<%
+# application_helper.rb
+def title(page_title)
+  content_for(:title) { page_title }
+end
+%>
+
+
+
+
+
+
+

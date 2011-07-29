@@ -1,0 +1,42 @@
+
+############################################rails3####################################
+
+
+
+# Article.find(:all, :order => "published_at desc", :limit => 10)
+Article.order("published_at desc").limit(10)
+
+# Article.find(:all, :conditions => ["published_at <= ?", Time.now], :include => :comments)
+Article.where("published_at <= ?", Time.now).includes(:comments)
+
+# Article.find(:first, :order => "published_at desc")
+Article.order("published_at DESC").first
+Article.order("published_at").last
+   
+
+
+
+#metawhere	 
+
+users = users.where(:person => { :address => { :city.matches_any => ['%city1%','%city2%'] } })
+	 
+############################################rails2####################################
+	 
+	 
+@tasks = Task.find_all_by_complete(false,:order => 'created_at DESC')
+
+def self.current_zaznamy
+		find(:all, :conditions => "starts_at <= now() AND ends_at >= now()")
+end
+
+
+
+
+
+ @arbums=@albums.compact.collect{ |album| album if album.is_accessible_by?(current_person) }
+
+
+ a=(1...10).collect{|i| i if i%2==0}.compact
+
+
+

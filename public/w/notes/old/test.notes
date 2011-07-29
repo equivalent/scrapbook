@@ -1,0 +1,256 @@
+*{+}Check versions{+}*
+
+
+rvm notes
+
+
+ruby \-v # ruby 1.9.2p180
+
+rails \-v # Rails 3.0.1
+
+*{+}Github{+}*
+Switch Context > Lovethis
+
+*+[TeamCity]+*
+1. Create a new project
+Administration > Create Project&nbsp; > NEW_PROJECT
+
+2. Copy Configuration from original to new project
+Projects > lovethis dev > rspec > more > Copy Build Configuration > NEW_PROJECT
+
+3. Remove VCS root of the old branch
+
+rspec_your_name > Edit setting > Version Control Settings > VCS root > detach > VCS root name
+
+4. Create a new VCS root for a new branch
+
+Create and attach new VCS root
+Fetch URL: git@github.com/......
+Branch name: new_branch_name
+Authentication Method: Default Private Key
+
+5. Run
+Click run
+Projects > NEW_PROJECT > Run
+
+6. Fixed error by adding database.yml
+
+Go to ssh
+Go to /root/[TeamCity]/buildAgent/work/........./config/database.yml
+
+
+Example: database.yml
+
+development:
+&nbsp;adapter: mysql2
+&nbsp;encoding: utf8
+&nbsp;reconnect: false
+&nbsp;database: lovethis_development
+&nbsp;pool: 5
+&nbsp;username: root
+&nbsp;password:
+&nbsp;socket: /var/run/mysqld/mysqld.sock
+
+test:
+&nbsp; adapter: mysql2
+&nbsp; database: lovethis_test
+&nbsp; pool: 5
+&nbsp; timeout: 5000
+
+production:
+&nbsp; adapter: mysql2
+&nbsp; database: lovethis_production
+&nbsp; pool: 5
+&nbsp; timeout: 5000
+
+
+*{+}Jira{+}*
+
+Lovethis , Default
+Task Borad , Devs startup, All Assignees
+
+Wiki > Dashboard > Development > New > Blog Post
+
+*{+}Servers{+}*
+root@178.79.160.220 &nbsp;(bob) where team city is
+rails@staging.lovethis.com
+rails@lovethis.com
+
+/home/rails/lovedthis
+
+*{+}About Precious.model{+}*
+
+git clone git@github.com:Lovethis/precious_gems.git
+
+You will see this in the code:
+recommendation = Recommendation.last
+recommendation.tag_list = 'xxx, yyy, zzz'
+
+There is no tag model or tag list model.
+
+How does it work?&nbsp;
+Detail here:&nbsp;[Precious Taggable (Recommendation-tag_list)&#124;../../../../../../../../../../display/DEV/2011/06/07/Precious+Taggable+%28Recommendation-tag_list%29&#124;&#124;&#124;&#124;&#124;&#124;&#124;&#124;&#124;&#124;\||]
+
+
+*{+}Auto Ordering?+*
+
+Is it because of Precious? or Rails 3?
+It is normal in Rails and also in&nbsp;[MySQL]
+
+*{+}Window 7{+}*
+
+password: testing123
+
+*{+}Merging{+}*
+
+{color:#000000}git commit \-a{color}
+
+{color:#000000}git pull origin your-branch{color}
+
+{color:#000000}git push origin your-branch{color}
+
+{color:#000000}git co master{color}
+
+{color:#000000}git pull origin master{color}
+
+{color:#000000}git co your-branch{color}
+
+{color:#000000}git rebase master{color}
+
+{color:#000000}git pull origin your-branch{color}
+
+{color:#000000}git push origin your-branch{color}
+
+{color:#000000}\# if everything ok{color}
+
+{color:#000000}git push origin your-branch{color}
+
+{color:#000000}git co master{color}
+
+{color:#000000}git rebase your-branch{color}
+
+{color:#000000}git push origin master{color}
+
+{color:#000000}\# if not, fix conflicts, go back to ok state{color}
+
+{color:#000000}git rebase \--continue{color}
+
+
+*{+}System Admin Hat (what thing do you have to do?)+*
+
+* *set up servers on /etc/hosts*
+
+h4. +Bob+
+
+{color:#000000}check{color}{color:#000000}&nbsp;{color}{color:maroon}\[{color}{color:maroon}[TeamCity]{color}\|[TeamCity]\]&nbsp;{color:#000000}for latest commit and it should be green all the time{color}
+
+Go to @bob server and go to application directroy
+
+bundle exec rake db:migrate RAILS_ENV=test
+RAILS_ENV=test rails c
+
+
+h4. Airbrake (Hoptoad)
+
+[https://lovethis.airbrakeapp.com/]
+Where is Current API key?
+click [LoveThis] > Edit this project > Current API key
+RAILS_ENV=staging rails g hoptoad \--api-key[https://lovethis.airbrakeapp.com/]
+
+Where is Current API key?
+
+click [LoveThis] > Edit this project > Current API key
+
+Changing API key
+
+RAILS_ENV=staging rails g hoptoad \--api-key
+
+h4. *{+}Staging{+}*
+
+git co staging
+
+{color:#000000}git rebase master{color}
+
+git pull origin staging
+
+
+{color:#000000}git push origin staging{color}
+
+{color:#000000}git co master{color}
+
+{color:#000000}cap deploy{color}
+
+*{_}{+}ON STAGING{+}{_}*
+
+ps aux \| grep delayed_job
+
+kill \-9 processing_id
+
+mysqldump \-u root \-p lovethis_staging > lovethis.db
+
+gzip lovethis.db
+
+bundle exec rake db:migrate RAILS_ENV=staging
+
+bundle exec rake lovethis:xxx:xxx&nbsp;RAILS_ENV=staging
+
+RAILS_ENV=staging rails c
+
+{color:#000000}Make a list to do on server (Do migration, run specified rake task, etc ...){color}
+
+{color:#000000}Go through those steps on Server{color}
+
+{color:#000000}{*}{+}Replace dbdump from live to staging{+}{*}{color}
+
+{color:#000000}drop database lovethis_staging{color}
+{color:#000000}mysqladmin \-u root \-p create lovethis_staging{color}
+{color:#000000}gunzip < lovethis.db.gz \| mysql \-u root \-p lovethis_staging{color}
+{color:#000000}scp db@ltdb1:/home/db/lovethis.db.gz .{color}
+
+drop database lovethis_staging
+
+mysqladmin \-u root \-p create lovethis_staging
+
+gunzip < lovethis.db.gz \| mysql \-u root \-p lovethis_staging
+
+
+h4. *{+}Production{+}*
+
+{color:#000000}git co production{color}
+
+
+{color:#000000}git rebase master{color}
+
+
+{color:#000000}git pull origin production{color}
+
+{color:#000000}git push origin production{color}
+
+{color:#000000}cap production deploy{color}
+
+*{_}{+}ON PRODCTION{+}{_}*
+
+{color:#000000}ps aux \| grep delayed_job{color}
+
+{color:#000000}kill \-9 processing_id{color}
+
+{color:#000000}{*}{_}{+}ON SLAVE MACHINE{+}{_}{*}{color}
+
+{color:#000000}before running rake tasks.....backup database from slave server @ltdb1{color}
+
+
+{color:#000000}mysqldump \-u root \-p lovethis_production > lovethis.db{color}
+
+{color:#000000}gzip lovethis.db{color}
+
+scp db@ltdb1:/home/db/lovethis.db.gz .
+
+
+
+{color:#000000}{*}{_}{+}ON PRODCTION{+}{_}{*}{color}
+
+{color:#000000}bundle exec rake db:migrate RAILS_ENV=production&nbsp;# to see error of migration{color}
+
+{color:#000000}bundle exec rake xx:xxx:xxx&nbsp;RAILS_ENV=production{color}
+
+{color:#000000}RAILS_ENV=production rails c{color}

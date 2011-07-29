@@ -1,0 +1,36 @@
+rm -r	filename					#odstranenie priecinku aj so subormi vnutri
+set -o vi
+
+
+
+
+
+scripty
+=======
+
+rsync Ubuntu two na Elegant
+---------------------------
+while true;do echo "start_sync  ";rsync -a --del /home/tomi/Ubuntu\ Two/ /media/Elegant/SYNC/UbuntuTwo/; sleep 6600; done
+
+vytvaranie archivov s datumom
+-------------------------------
+NOW=$(date +"%y-%b-%d_%H:%I_%s");7z a -p /home/tomi/destination  home/tomi/Documents/source
+      z:http://www.cyberciti.biz/tips/shell-scripting-creating-reportlog-file-names-with-date-in-filename.html
+
+dissabling touchpad 
+------------------
+/etc/X11/xorg.conf
+	      Section "InputDevice"
+	        Identifier      "Synaptics Touchpad"
+					Driver          "synaptics"
+					Option          "SendCoreEvents"        "true"
+					Option          "Device"                "/dev/psaux"
+					Option          "Protocol"              "auto-dev"
+					Option          "HorizScrollDelta"      "0"
+					Option          "SHMConfig"             "on"
+				EndSection
+
+	$synclient TouchpadOff=1
+	$synclient TouchpadOff=0
+
+			z:http://embraceubuntu.com/2006/03/24/disable-synaptics-touchpad/

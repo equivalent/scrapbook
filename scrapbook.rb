@@ -70,6 +70,7 @@ protected
         :quick_notes => "Quick Notes",
         :scraps => "Scraps",
         :articles => "Articles",
+        :home => "Home",
         :links => "Links"
 
       }
@@ -105,8 +106,8 @@ get @@render_files_patern do
       @file_content=file.read
       file.close  
       haml params['what'].to_sym
-  rescue Errno::ENOENT
-      haml :not_found
+ # rescue Errno::ENOENT
+  #    haml :not_found
   end
 
 end

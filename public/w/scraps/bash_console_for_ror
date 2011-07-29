@@ -1,0 +1,46 @@
+
+
+
+
+Rake examples
+-------------
+
+~~~bash
+rake db:create:all
+rake routes
+rake db:drop RAILS_ENV=test                       #drop test db 
+rake environment RAILS_ENV=test db:migrate        #migrate test enviroment db
+~~~
+
+
+
+
+Gem options in consale
+~~~bash
+gem list      #instaled gem list
+
+~~~
+
+
+
+Cool settings for your bash
+===========================
+
+print to bash the sql command  that was triggered 
+-------------------------------------------------
+
+in rails console 
+
+~~~ruby
+> ActiveRecord::Base.logger = Logger.new(STDOUT)
+~~~
+
+or put this into your config/enviroment/development.rb
+
+~~~ruby
+  if "irb" == $0
+    ActiveRecord::Base.logger = Logger.new(STDOUT)
+  end
+~~~
+
+the *if "irb"* condition is neceserry if you don't want to display sql in rake

@@ -1,0 +1,13 @@
+rails generate scaffold game name:string
+rails c  #conzola
+rails s  #server
+
+
+
+bundle install
+
+
+@articles.all.to_sql
+
+
+

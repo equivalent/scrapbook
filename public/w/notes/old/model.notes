@@ -1,0 +1,20 @@
+!@#git  scope
+
+  scope :red, where(:color => 'red')
+  scope :dry_clean_only, joins(:washing_instructions).where('washing_instructions.dry_clean_only = ?', true)
+
+ 
+ 
+serialize :params               #converts hash into ymal when saves it and unseriliaz (convert to hash) when takes it from DB sa you cav work with hash all the time
+ 
+ 
+validates_presence_of :relationship_type_other, :if => Proc.new {|r| r.relationship_type_id == RelationshipType.last.id}
+
+
+Person.instance_methods.sort
+Person.validators                 #will list all validators (rail3)
+Person.validators_on(:email)      #will list all validators for spec attribute (rail3)
+
+def validate
+  errors.add(:password_confirmation, "Hesla sa nezhoduju") if  password !=password_confirmation
+end

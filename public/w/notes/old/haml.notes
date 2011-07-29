@@ -1,0 +1,94 @@
+!!! 5
+%html
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+    %link{"rel" => "stylesheet", "href" => "/main.css", "type" => "text/css"}
+    %title My athem
+    
+
+  %body.main
+    %div.contanier#content
+      =yield 
+
+
+
+
+
+
+
+
+
+static
+ %html
+ .class
+ #id
+
+dynamic
+ =output
+ ~output with correct whitespaces
+ -logic
+ -#             #comment
+
+
+
+
+html
+====
+
+- @my_class = "current"
+- @my_array = [1,2,3]
+
+!!! Strict                        #doctype sctrict
+!!! 5                             #doctype html 5
+%html
+  %head
+  %body
+    %h1 hello world
+	  %div.class1.class2#my_id
+	  	%a{:href => "http://someurl"} my link
+
+	  	%a#id_some.other-class{:href => "http://someurl", :class => @my_class} 
+			  my second link
+
+      - @my_array.each do |item|
+				%a{:href=> '#', :id => item}
+					link nuber
+					= item
+		
+
+		.some_div
+		  = render(:partial => 'form')
+
+
+
+     %img{:src => "logo.png"}                 #<img></img>
+     %img{:src => "logo.png"}/                #<img />
+
+     %h1== hello world #{@my_variable}
+
+     %h1
+		   -highlight_first_word stronged but else in normal
+     %h1
+		   %strong
+			   stronged
+			 but else in normal
+
+
+
+
+
+
+
+
+notes: 
+=======
+ its ok to use erb helpers in haml, in fact you should do it 
+ its ok to render erb partials in haml
+ haml xml builder is much faster than rails buildin xml builder
+
+
+xml exampel
+===========
+
+
+!!! XML

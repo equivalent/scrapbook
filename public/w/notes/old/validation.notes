@@ -1,0 +1,32 @@
+#clasic rails generated errors table in views
+
+  <% if @friend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t("errs") %></h2>
+
+      <ul>
+      <% @friend.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+
+#custom validators
+
+
+class EmailFormatValidator < ActiveModel::EachValidator
+  def validate_each(object, attribute, value)
+    unless value =~ /^[0-9a-zA-Z][\w\.-]+@(?:[A-Z0-9\-]+\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum)$/i
+      object.errors[attribute] << (options[:message] || "is not formatted properly") 
+    end
+  end
+end
+
+
+#... in model then
+validates :email, :presence => true, :email_format => true

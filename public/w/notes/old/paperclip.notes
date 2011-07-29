@@ -1,0 +1,80 @@
+  has_attached_file :shoot, :styles => { :small => "100x100#", :original => "900x700>" },
+   :url => ':s3_domain_url/assets/photos/:id/:style/project_photo_:id.:extension',
+  :storage => :s3, 
+  :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+  :s3_protocol => 'http',  
+  :path => "/assets/photos/:id/:style/project_photo_:id.:extension"
+
+
+
+
+
+
+
+has_attached_file :photo, :styles => { :original => "1024x1024>", :thumb => "105x105>", :cut => "105x105#" },
+                    :url  => "/assets/albums/:id/:style/:basename.:extension",
+		                :path => ":rails_root/public/assets/albums/:id/:style/:basename.:extension"
+
+																				
+
+
+  validates_attachment_presence :shoot
+  validates_attachment_content_type :shoot, :content_type => ['image/pjpeg', 'image/jpg', 'image/jpeg', 'image/gif', 'image/png', 'image/x-png']
+  def small
+    photo.url(:small)
+  end
+
+  def large
+    photo.url(:original)
+  end
+
+
+
+
+
+
+
+
+rails g paperclip user photo
+
+
+
+
+
+
+
+
+<%= form_for(@document,  :html => { :multipart => true }) do |f| %>
+
+  <div class="field">
+    <%= f.label :photo, 'Fotka *' %><br />
+    <%= f.file_field :docu %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+#s3.yml
+
+development:
+  bucket:  myproject_development
+  access_key_id: 
+  secret_access_key: 
+
+test:
+  bucket:  myproject_test
+  access_key_id: 
+  secret_access_key: 
+
+production:
+  bucket:  myproject_production
+  access_key_id: 
+  secret_access_key: 
+

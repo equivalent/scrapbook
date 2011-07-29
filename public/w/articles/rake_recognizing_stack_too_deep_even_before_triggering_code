@@ -1,0 +1,71 @@
+
+
+http://stackoverflow.com/questions/6876357/rake-is-trying-to-be-too-smart-and-discover-endless-loop-before-even-triggering-c
+
+Today I was implepenting generator of random uniq strings for user (lets say something like a forgotten password token)
+
+so I build up generator in *user_model*
+
+~~~ruby
+  def generate_random_string
+    random_string = CGI::escape( Base64.encode64(Digest::SHA1.digest("#{rand(1<<128)}/#{Time.now.to_f}/#{Process.pid}")))[0..12].downcase  #I was required it has to have max 12 chars
+    if User.where( 'random_token_string = ?', random_string )
+     #if the string exist generate new one
+     self.generate_random_string 
+    else
+      self.random_token_string = random_string
+    end
+
+    return random_string
+  end
+~~~  
+
+works 100% in console in application for one or for several users
+
+than I builded up a RAKE task too update existing users
+
+~~~ruby
+task :generate_random_string_for_existing_users => :environment do
+  User.all.each do |user|
+    unless user.random_token_string
+      user.generate_random_string
+      p "#{user.id} failed to be updated for some reason !!!" unless user.save!
+    end
+  end
+end
+~~~
+
+from my point of view everithing ok
+
+but when I run that rake 
+
+~~~bash
+RAILS_ENV=development  rake generate_random_string_for_existing_users  --trace
+~~~
+
+I'm getting 
+
+~~~bash
+rake aborted!
+stack level too deep
+/home/tomi/.rvm/gems/ruby-1.9.2-p290@project/gems/activerecord-3.0.1/lib/active_record/connection_adapters/abstract/quoting.rb:10
+~~~
+
+...nothing more nothing less. When I tried to run it from rails console it pass trought seccussfully 
+
+now when I coment out the recursion in the *user_model*
+
+~~~ruby
+    #....
+    if User.where( 'random_token_string = ?', random_string )
+     #self.generate_random_string 
+    else
+    #....
+~~~
+
+...it will pass. So if I understand it correctly RAKE is trying to be smart even before the code is triggered. 
+
+
+##you can comment on this problem on SO
+http://stackoverflow.com/questions/6876357/rake-is-trying-to-be-too-smart-and-discover-endless-loop-before-even-triggering-c
+

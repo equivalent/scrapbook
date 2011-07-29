@@ -1,0 +1,27 @@
+
+
+
+
+
+
+RAILS_ENV=test bundle exec rake db:migrate
+RAILS_ENV=test bundle exec rake db:test:prepare
+
+
+bash rails usefull comands
+==========================
+tail -f log/development.log | egrep 'Rendering|Rendered|Completed|Processing'
+
+alias tailprocesing="tail -f log/development.log | egrep '  Processing'"
+
+ab -n 100 http://localhost:3000/                                        #100 reqeustov a porovnam ich casi
+
+
+
+ActiveRecord::Base.logger = Logger.new(STDOUT)
+
+
+
+
+
+

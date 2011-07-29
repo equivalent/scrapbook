@@ -1,0 +1,17 @@
+#generate documentation 
+gem unpack prawn
+rdoc lib/
++++++++++++++++
+
+Prawn::Document.generate("samle.pdf") do |pdf|
+
+
+  #for slovak language effective solution
+  pdf.font "#{Prawn::BASEDIR}/data/fonts/DejaVuSans.ttf", :size => 11
+
+  pdf.move_down 75
+
+  pdf.table([%w[A B C], %w[D Everything\ under\ the\ sun F]], :width => 300)
+
+
+end

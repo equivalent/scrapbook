@@ -1,0 +1,19 @@
+
+#creating a new PostgreSQL user 
+$ sudo -u postgres createuser -d -R -P <new username>
+
+#Create a new database owned by <username> 
+$ sudo -u postgres createdb -O <usename> <database name>
+
+#Removing a database 
+$ dropdb -U <username> <database name>
+
+#Removing a PostgreSQL user 
+$ sudo -u postgres dropuser <usernamen>
+
+
+
+
+
+
+
