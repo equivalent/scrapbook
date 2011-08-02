@@ -1,0 +1,46 @@
+Scrapbook is a new way of writing notes for your self. From my experience, developers and programers are writing their notes into database based wikies, blogs (private blagspot for ex.) or into word procesing editors like MS word or OpenOffice. (Been there, done it to)
+The main reasons why I find this wrong are:
+
+
+
+
+
+
+
+
+
+Want to run it bether localy ?
+------------------------------
+
+~~~bash
+gem install shotgun
+shotgun scrapbook.rb -p 3008
+~~~
+
+
+
+automatic start after login
+---------------------------
+
+
+In Ubuntu
+System>Preferences>StartupApplications   
+add
+name: scrapbook 
+command:
+~~~bash
+shotgun /home/tomi/rubyrubyruby/heroku/eq8scrapbook/scrapbook.rb -p 3008
+~~~
+(gem shotgun must be installed othervise just add *ruby /home/.../scrapbook.rb* )
+requirements
+============
+
+(on Ubuntu,) Nokogiri gem used by this project will require some lib files. Install them:
+
+~~~bash
+sudo apt-get install libxml2-dev
+sudo apt-get install libxslt-dev
+
+~~~
+
+there shouldn't be any more dificulties 
