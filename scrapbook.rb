@@ -8,14 +8,16 @@ require 'coderay'
 require 'nokogiri'
 
 
-OWNER_NAME = "eq8" 
-@@render_files_patern = "/#{OWNER_NAME}s_:what/on_:name"
-@@markup_path = "public/w/"
-
-
-
+set :owner_name => "eq8"
+set :reder_w_files_patern => "/#{settings.owner_name}s_:what/on_:name" #if you are changing this line, be sure you change the patern in w_path helper
+set :w_files_path => "public/w/"
 
 helpers do
+
+  def w_path(file_string=nil) 
+    file_string.nil? ? "#{settings.w_files_path}#{params[:what]}s/#{params[:name]}" : "#{settings.w_files_path}#{file_string}"
+  end
+
   def link_to(url, text=url, opts={}) 
     attributes = ""
     opts.each { |key,value| attributes << key.to_s << "=\"" << value << "\" "}
@@ -31,7 +33,7 @@ helpers do
   end
 
   def link_to_file(what, file_name)
-    path_to_file = @@render_files_patern.gsub(':what', what.to_s).gsub(':name', file_name.to_s)
+    path_to_file = settings.reder_w_files_patern.gsub(':what', what.to_s).gsub(':name', file_name.to_s)
     link_to path_to_file, convert_to_link_name(file_name)
   end
 
@@ -55,6 +57,17 @@ def syntax_highlighter(html)
 end
 
 
+  def read_w_file(file_name)
+    file = File.open( w_path(file_name) , "r")
+    file_content = file.read
+    file.close
+
+    file_content
+  end
+
+  def dir_w_listing(folder_name)
+      Dir.entries( w_path(folder_name )) - ['.', '..']
+  end
 
 end
 
@@ -78,33 +91,31 @@ protected
   end
 end
 
+before do
+  @sidelinks = read_w_file('links_side')
 
+end
 
 get '/' do
-  public_path = "public/w/"
-
- # File.dirname(__FILE__)
- @articles = Dir.entries("#{@@markup_path}articles/" ) - ['.', '..']
- @notes = Dir.entries("#{@@markup_path}notes/" ) - ['.', '..']
- @scraps = Dir.entries("#{@@markup_path}scraps/" ) - ['.', '..']
- 
+ @articles = dir_w_listing 'articles/'
+ @notes = dir_w_listing 'notes/'
+ @scraps = dir_w_listing 'scraps/'
 
   haml :index 
 end
 
 
 
-get @@render_files_patern do
+get settings.reder_w_files_patern do
   
-  @title= "#{OWNER_NAME} #{params[:what]} on #{convert_to_link_name(params[:name])} "
+  @title= "#{settings.owner_name} #{params[:what]} on #{convert_to_link_name(params[:name])} "
   @h1_name = convert_to_link_name(params[:name]).capitalize
   @h1_what = params[:what]
-  @file_path = "public/w/#{params[:what]}s/#{params[:name]}"
+
+
 
   begin
-      file = File.open(@file_path, "r")
-      @file_content=file.read
-      file.close  
+      @file_content = read_w_file(@file_path)
       haml params['what'].to_sym
  # rescue Errno::ENOENT
   #    haml :not_found

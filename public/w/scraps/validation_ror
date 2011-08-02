@@ -1,0 +1,21 @@
+
+
+
+should not contain any non word chars (like: @#$ @'..) 
+
+~~~ruby
+validates_format_of :vanity_name, :without => /\W/  , :message => 'Can contain only chars numbers and underscore'
+~~~
+
+it should be the same functionality like (should be only word chars like a-zA-Z1-9_)
+*validates_format_of :vanity_name, :with => /\w/  , :message => 'Can contain only chars numbers and underscore'*
+but this one doesn't  work
+
+## validatros on
+
+You can discover if there are any valdiators on object
+
+~~~ruby
+User.validators
+User.validators_on :column_name
+~~~
