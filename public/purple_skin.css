@@ -22,6 +22,9 @@ body {
   color: color: #1C1C1C;
 }
 
+.main div#content .markuped_content h1 { font-size: 18px; }
+.main div#content .markuped_content h2 { font-size: 14px; }
+
 
 .main div#content div#right_side div#page_navigation a{
   background: black;
@@ -33,3 +36,5 @@ body {
 .main div#content div#right_side div#page_navigation a:hover{
   color:white;
 }
+
+

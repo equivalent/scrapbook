@@ -1,0 +1,25 @@
+
+view
+====
+
+layouts
+-------
+
+~~~ruby
+  %link{ :rel=>"icon", :type=>"image/png", :href=>"/favicon.png" }
+~~~
+
+
+
+~~~ruby
+= "print something"
+- some_ruby_code.each do |mmm|
+...
+~~~
+
+
+for markuping use *~* it ignorese hamal formating
+
+~~~ruby
+~ markdown (@file_content)
+~~~
