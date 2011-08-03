@@ -1,5 +1,8 @@
-
-
+http://wiki.apache.org/couchdb/Nginx_As_a_Reverse_Proxy
+https://calomel.org/nginx.html
+hnginx: Password protect a directory:http://www.bradleyproctor.com/nginx-password-protect-a-directory/
+restrict access on nginx:http://wiki.nginx.org/NginxHttpAuthBasicModule#auth_basic_user_file
+Password protect a folder in nginx:http://brunomiranda.com/past/2007/10/29/password_protect_a_folder_in/
 css_box_shadow:http://www.css3.info/preview/box-shadow/
 "rails 500 error page in developement":http://stackoverflow.com/questions/5330290/rails-3-development-errors-in-production-mode
 "roman number convert":http://www.rubyquiz.com/quiz22.html,

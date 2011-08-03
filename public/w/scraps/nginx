@@ -1,0 +1,14 @@
+
+bash~~~
+sudo /etc/init.d/nginx restart
+~~~
+
+restrict access:http://wiki.nginx.org/NginxHttpAuthBasicModule#auth_basic_user_file
+
+
+
+
+
+netstat -anp|grep 3000  
+[emerg]: bind() to unix:/tmp/nginx-staging.sock failed (98: Address already in use)
+
