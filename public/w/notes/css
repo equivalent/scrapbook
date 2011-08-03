@@ -1,0 +1,38 @@
+
+/*outer shadow */
+div{
+  /*rounded corners*/
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+
+  /*rounded shadow */
+  box-shadow: 1px 2px 4px 1px #888888;
+  -moz-box-shadow: 1px 2px 8px #888888;
+  -webkit-box-shadow: 1px 2px 1px #888888;
+}
+
+
+/* inner shodow */
+div{
+  border-radius: 5px;
+  box-shadow:inset 0 0 5px gray;
+
+  -moz-border-radius: 5px;
+  -moz-box-shadow: inset 0 0 5px gray;
+  -webkit-box-shadow: inset 0 0 5px gray;
+}
+
+
+
+
+/*middle*/
+  min-height: 20px;
+  vertical-align:middle;
+  line-height:20px;
+  
+
+
+
+
+
+

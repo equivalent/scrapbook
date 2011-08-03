@@ -1,0 +1,44 @@
+<html>
+<head>
+
+<style>
+a.buttonBlue {
+	font: bold 12px "helvetica neue", arial, sans-serif;
+	padding: 3px 5px;
+	background-color: blue;
+	color: #fff;
+	text-decoration: none;
+	border: 1px solid #0066CC;
+	-webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, #2A79D3),
+    color-stop(0.52, #5EA9E7));
+    background-image: -moz-linear-gradient(
+    center bottom,
+    #2A79D3 0%,
+    #5EA9E7 52%);
+  	text-shadow: 0px 1px 0px #333;
+  	opacity: 0.7;
+}
+a.buttonBlue:hover {
+	opacity: 1;
+}
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+<a href="" class="buttonBlue">Save</a>
+
+</body>
+
+</html>

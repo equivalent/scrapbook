@@ -1,0 +1,281 @@
+h3. inspiration
+
+"toka-koka":http://www.swedishfika.com/2010/04/18/toka-koka-bitches/'
+
+
+
+
+
+
+h3. sinatra
+
+"sinatra helpers and custom methods":http://ididitmyway.heroku.com/past/2010/4/25/sinatra_helpers/
+
+
+
+
+
+
+h3. Api
+
+"social RoR api":http://apidock.com
+
+
+
+
+
+
+h3. Gimp
+
+"screencasts":http://www.5min.com/Tag/gimp?CategoryID=0
+
+
+
+
+
+h3. Rails views
+
+"select form hellper":http://shiningthrough.co.uk/Select-helper-methods-in-Ruby-on-Rails
+
+"partial blocks":http://www.igvita.com/2007/03/15/block-helpers-and-dry-views-in-rails/
+
+h3. Rails3
+
+"stranka ci pluginy budu ficat na R3":http://railsplugins.org/
+"(swf) flash and rails 2.3 solution":http://timmyc.posterous.com/uploadify-on-rails-with-paperclip
+"(swg) )flash and rails 3 solution":tp://metautonomo.us/2010/07/09/uploadify-and-rails-3/
+
+
+
+
+
+
+h3. screen casts
+
+"Conference":http://confreaks.net/events/rubyconf2010?utm_source=rubyweekly&utm_medium=email
+
+"berry":http://vimeo.com/berry
+"webexpo":http://vimeo.com/webexpo
+"prawn":http://prawn.heroku.com/
+
+"css":http://css-tricks.com/video-screencasts/
+
+
+
+
+
+
+
+
+h3. migrations
+
+"cheat sheat":http://www.dizzy.co.uk/ruby_on_rails/cheatsheets/rails-migrations
+
+
+
+
+
+
+
+
+h3. heroku
+
+"automated heroku backup":http://trevorturk.com/2010/04/14/automated-heroku-backups/ ,   "automated heroku backup gem(not in s3 localy)":https://github.com/joemsak/heroku_backup_task
+"autoated heroku backup s3":https://github.com/edavis10/heroku_s3_backup
+
+
+
+
+
+h3. Rspec
+
+"Cheat sheet":http://cheat.errtheblog.com/s/rspec/
+"rails 3 step by step install":http://blog.notahat.com/posts/43
+"rspec should raise_error":http://rspec.rubyforge.org/rspec/1.2.9/classes/Spec/Matchers.html#M000176
+"rspec testing should":http://rubynoobie.wordpress.com/
+
+
+
+
+
+
+
+
+h3. i18n locales
+
+"Locales":https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale
+"en yml on github":https://github.com/rails/rails/blob/master/actionpack/lib/action_view/locale/en.yml#L2
+
+
+
+
+
+
+h3. Vim
+
+"Vim movement cheet sheet":http://localhost:3009/books/vim-quick-reference-movement-card.pdf (stolen from "digilife":http://www.digilife.be/quickreferences/qrc/vim%20quick%20reference%20card.pdf )  |  "Vim tabs":http://www.linux.com/archive/feed/59533
+
+"vim autocompleate css editor":http://www.codeography.com/2010/08/02/how-to-make-vim-a-first-class-css-editor.html
+
+
+h3. Other programing languages
+
+"erlang tutorial":http://learnyousomeerlang.com/content (functional programming language)
+
+
+
+
+
+
+
+
+
+
+
+
+h3. html css templeates
+
+"39 free temp":http://www.hongkiat.com/blog/38-free-elegant-xhtmlcss-website-templates/
+"css template market":http://csstemplatesmarket.com/freecsstemplates/
+"3d text with css":http://markdotto.com/playground/3d-text/
+"html5 boiler plate":http://html5boilerplate.com/
+"css piffy":http://piffle.abdoc.net/
+"colar lover":http://www.colourlovers.com/
+
+h3. html css tricks
+
+"google webfonts fonts":http://www.google.com/webfonts
+"vertical image align":http://ultimorender.com.ar/funkascript/beta/css/vertical_center.htm
+
+
+
+
+h3. jquery javascript
+
+"Portfolio improovers":http://www.designer-daily.com/18-jquery-scripts-and-tutorials-to-improve-your-portfolio-2162:http://www.designer-daily.com/18-jquery-scripts-and-tutorials-to-improve-your-portfolio-2162
+"galery":http://www.webhostingsecretrevealed.com/featured-articles/20-jquery-plugins-for-gallery-and-portfolio-websites/
+"lightbox":http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/
+"zoom image galery":http://addyosmani.com/blog/zoomer-gallery-a-jquery-plugin-for-displaying-images-with-flash-like-zooming-effects/
+
+"js fiddle for inspecting":http://jsfiddle.net/gnarf/qpJWp/
+"jqeury...":http://www.sohtanaka.com/web-design/fancy-thumbnail-hover-effect-w-jquery/
+
+
+
+h3. windows & rails
+
+"quick instal":http://www.rubyinside.com/rails-installer-ruby-and-rails-on-windows-in-a-single-install-4201.html
+
+
+
+
+
+
+
+h3. templates, layouts 
+
+"80 2column templates":http://mashable.com/2007/09/29/2-column-website-templates/
+"40 1column templates":http://mashable.com/2007/09/13/one-column-website-templates/
+"bloger templates":http://mashable.com/2007/09/13/blogger-templates/
+
+
+
+
+
+
+
+h3. gem Gems/plugins
+
+"rails best practices":https://github.com/flyerhzm/rails_best_practices
+"plugin custom-error-msg":https://github.com/gumayunov/custom-err-msg  pluggin most attractieve function is that when you add ^ at the start of translation line your tronslation will apear without anoying 'Column:' 
+"iso countries plugin":https://github.com/SunDawg/country_codes
+"Search solution meta search":http://metautonomo.us/projects/metasearch/
+"Authlogic reset pasword stepbystep":http://www.binarylogic.com/2008/11/16/tutorial-reset-passwords-with-authlogic/
+
+
+
+
+
+
+h3. Beginers tutorials
+
+"rails tutorial":http://railstutorial.org/chapters/beginning#top
+
+
+
+
+h3. server admin
+
+"validate mx email records":http://network-tools.com/default.asp?prog=validate&host=tomi%40eq8.eu
+
+
+
+
+h3. N900 n900 n 900 N
+
+"mms":http://mymaemo.cz/nastaveni-mms-pro-slovenske-operatory-na-nokii-n900/
+
+
+
+h3. Interesting how-to manuals
+
+"S3 amazon git":http://gabrito.com/post/storing-git-repositories-in-amazon-s3-for-high-availability  key: s3
+
+
+
+
+
+
+
+h3. ubuntu manuals
+
+"INSTALING RAILS 3 ON UBUNTU	10.04":http://torqueo.net/installing-ruby-192-and-rails-3-stable-on-ubuntu/
+"Webcam recording":https://help.ubuntu.com/community/Webcam diden't realy solve my problem
+"dissabling touchpad":http://ubuntuguide.net/quickly-enabledisable-laptop-touchpad-with-touchpad-indicator-in-ubuntu-10-10
+
+
+
+
+
+h3. Social programing (facebook twitter ..)
+
+"twitter adv search":http://search.twitter.com/advanced , "twitter adv search":http://dev.twitter.com/doc/get/search, "twitter adv search":http://dev.twitter.com/doc/get/users/lookup
+
+
+
+
+h3. Trash
+
+http://rubynugs.blogspot.com/
+https://github.com/sferik/rails_admin/
+"SK:lacne domeny":http://www.akcnidomeny.cz/category/eu-domeny
+
+
+
+
+
+
+h1. personal
+
+
+h3. realy interesting documentaries
+
+"Battle of world economy":http://topdocumentaryfilms.com/commanding-heights-battle-world-economy/
+
+"The Power of Nightmares 1":http://www.youtube.com/watch?v=Vt-FyuuWlWQ
+"The Power of Nightmares 2":http://www.youtube.com/watch?v=igtonA_Ag8Y
+"The Power of Nightmares 3":http://www.youtube.com/watch?v=5zKhoH6KVgw
+
+
+
+
+
+
+h3. art
+
+"big bang big blue":http://blublu.org/sito/video/bbbb.htm
+
+
+
+
+

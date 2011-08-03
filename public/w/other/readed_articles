@@ -1,0 +1,48 @@
+
+
+css_box_shadow:http://www.css3.info/preview/box-shadow/
+"rails 500 error page in developement":http://stackoverflow.com/questions/5330290/rails-3-development-errors-in-production-mode
+"roman number convert":http://www.rubyquiz.com/quiz22.html,
+"variable to 18n":http://primegap.net/2011/02/28/rails-quicktip-variables-i18n-localized-strings/,
+"git hub fork project":http://help.github.com/fork-a-repo/", 
+rdoc for rails":http://stackoverflow.com/questions/1202060/how-do-i-generate-rdoc-for-all-of-rails ,
+"casandra project presentation (video)":http://cassandra.apache.org/#tab-presentation, 
+"CouchDB and Rails made simple (rublings)":http://www.rublings.com/2010/07/27/couchdb-and-rails-made-simple/ ,
+"link_to Api doc (those coments are realy interesting)":http://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to,
+"periodically_call_remote rails 3":http://stackoverflow.com/questions/3661967/rails-3-equivalent-for-periodically-call-remote,
+"Mongoid on sinatra":http://www.garrensmith.com/2010/09/11/Mongoid-sinatra.html,
+"mongoDBclient reinstal problem on ubuntu":http://groups.google.com/group/mongodb-user/browse_thread/thread/3f2da9c4090e1ed2,
+"sinatra i18n":http://sinefunc.com/sinatra-support/Sinatra/I18nSupport.html,
+"Google & meta keywords":http://googlewebmastercentral.blogspot.com/2009/09/google-does-not-use-keywords-meta-tag.html,
+"prawn":http://prawn.heroku.com/ , 
+"named scopes are dead":http://www.railway.at/2010/03/09/named-scopes-are-dead/
+
+
+
+
+
+stack owerflow
+==============
+
+http://stackoverflow.com/questions/5313105/rspec-test-fails-missing-template-format-issue
+http://stackoverflow.com/questions/470702/css-selector-for-input-type
+
+
+
+
+
+Railscasts episodes 
+===================
+
+"archive":http://railscasts.com/episodes/archive
+
+
+238
+205
+194
+
+
+to be readed
+http://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to
+http://www.slideshare.net/padday/the-real-life-social-network-v2
+http://37signals.com/bootstrapped

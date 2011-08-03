@@ -1,0 +1,15 @@
+
+
+IE7+ supports attribute selectors:
+
+~~~css
+input[type=text]
+input[type=radio]
+...
+input[type^=ra]
+input[type$=io]
+input[type*=d]
+~~~
+
+source:http://stackoverflow.com/questions/470702/css-selector-for-input-type
+
