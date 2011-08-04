@@ -1,0 +1,153 @@
+<c>
+
+</c>
+
+
+
+
+
+
+h3. keywords:
+
+* class-object       # Dave
+* object             
+* instance of object # a=Dave.new
+* ghost object with singleton methods
+
+
+
+
+notebook about theory 
+
+* object oriented programing = you have *state and behavior* in one cluster => object
+   founded by norway programers to define state and behavor of trucks in dockyard
+* in all ruby ther is object class mechanism => Object points on the class that define its behavior
+** if object cals method that counldnt be found in class, it look next to parrent class
+*** string is class that has parrent class "object"
+*** ghost classes, 
+* *self* the current object
+** default receiver == if there isn't specify any Something.method  ruby defaultly takes the current(self) obj
+** instanc @variables are found
+* defined methads are also in a class
+
+
+
+
+
+
+
+h3. everithing in ruby is object, eaven classes 
+
+<c>
+Dave         #its not a class its a constant refrencing to something... ta a class
+puts defined?(Dave)   #constant
+Dave.class            #Class
+</c>
+
+...so Dave is a constant representing object of class
+
+
+
+
+
+
+
+
+h3. everithing can return value, eaven definitions
+
+<c>
+somthing= class Dave
+  #...
+	99
+end
+puts something    
+</c>
+
+??99??
+you can eaven return self
+
+
+
+
+
+
+
+
+
+h3. self
+
+<c>
+puts "Before class definition, self=#{self}"
+class Dave do
+ # ...
+puts "Inside class definition, self=#{self}"
+end
+puts "After class definition, self=#{self}"
+</c>
+
+??Before class definition, self=main
+Before class definition, self=Dave
+Before class definition, self=main??
+
+
+
+
+
+
+
+
+h3. class naming
+
+<c>
+cls = Class.new
+puts cls
+Dave=cls
+puts cls
+</c>
+
+??#<Class:0q8affc>
+Dave??
+
+class is just a object = don't need specific name, when I give it an constant to hadle, then the class will take that name for object name, but she doesn't need name for existance
+
+
+
+
+
+
+
+
+h3. class methods don't exist,theyr are just an ilusion
+
+<c>
+class Dave
+  def self.say_hello
+	  puts "hi"
+	end
+end
+</c>
+
+self.say_hello looks like class metdod, but self is set to class object
+
+<c>
+animal="cat"
+def animal.say_hello
+ puts "miaow"
+end 
+</c>
+!/images/w/rmp1.png!
+so no such things as class methods doesn't exist, there are only singleton method that aro on class objects
+
+
+
+
+
+
+
+
+h3. current class
+
+its something like a pointer of stack to currently opened class
+
+
+

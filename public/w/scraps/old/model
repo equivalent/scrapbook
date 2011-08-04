@@ -1,0 +1,7 @@
+Citanie attributov
+@ @person.forename @
+@ @person.attributes["forename"] @
+@ @person.send(:forename) @
+
+
+http://blog.devinterface.com/2010/11/how-to-send-google-email-from-ruby-on-rails/

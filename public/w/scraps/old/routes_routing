@@ -1,0 +1,23 @@
+
+
+
+
+h2. rake routes
+
+you can list all your routes by runing
+??rake routes??
+
+or for better listing
+??rake routes | grep friends??
+
+
+
+
+
+
+
+
+
+
+
+

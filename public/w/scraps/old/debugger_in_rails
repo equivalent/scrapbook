@@ -1,0 +1,6 @@
+h1. Debugging
+
+You can start rails server with debug option 
+@$ script/server --debugger@
+
+

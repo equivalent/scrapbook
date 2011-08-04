@@ -1,0 +1,38 @@
+h1. mongoDB
+
+
+h2. settup mongoDB in rail3 app
+
+bundle
+
+??gem 'monngoid'??
+
+
+
+
+
+
+
+
+
+h2. instaling mongoDB on Ubntu 10.10
+
+??sudo vim /etc/apt/sources.list??
+
+add this line at the end
+??deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen??
+
+
+??sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+sudo apt-get update
+sudo apt-get install mongodb-10gen??
+
+don't install just @sudo apt-get install mongodb@, you will end up with older 1.4.4 vervion of mongo, wich you will have to uninstall @apt-get remove mongo@ ; @apt-get remove mongodb-clients@
+
+??http://localhost:28017/??
+
+"mongo deb instructions":http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages, "how to install php and mongoDB":http://www.giantflyingsaucer.com/blog/?p=1826
+
+
+
+

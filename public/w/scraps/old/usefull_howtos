@@ -1,0 +1,42 @@
+h3. sync rythmbox playlist winh n900 or any other mediaplayer
+https://launchpad.net/rhythmbox-playlist-sync
+
+h3. Abazon s3 git trought gits3
+# @git clone git://github.com/abdelhalim/gits3.git@
+# install boto and dulwitch libraries from synaptic
+# todo...I abonded this solution
+
+"project home":http://wiki.cs.pdx.edu/oss2009/index/projects/gits3.html
+
+
+h3. Amazon s3 git repositorie
+
+# download "jgit":http://eclipse.org/jgit/download/ 
+# setup jgit config @vim ~/.jgit@
+??accesskey: aws access key
+secretkey: aws secret access key??
+# creat branch and remote it
+??s3cmd mb s3://git-repos
+mkdir chef-recipes
+cd chef-recipes
+git init
+touch README
+git add README
+git commit README
+git remote add origin amazon-s3://.jgit@git-repos/chef-recipes.git
+jgit push origin master??
+
+to clone
+??jgit clone amazon-s3://.jgit@git-repos/chef-recipes.git??
+
+Jgit doesn't support pull or merge so use
+??cd chef-recipes
+jgit fetch
+git merge origin/master??
+
+
+
+"source":http://gabrito.com/post/storing-git-repositories-in-amazon-s3-for-high-availability #"jgit mirror":/w/scripty/org.eclipse.jgit.pgm-0.10.1.sh
+
+beware! jgit is javabased, so it could be buggy, and realy slow (when I was pushing 10G to amazan my triplecore AMD was 100% when compressing)
+

@@ -1,0 +1,14 @@
+POST
+----
+
+If you wan't to post something on FB wall you have to send some params to fb
+
+~~~ruby
+name: "this will be the title of wall post" 
+link: "http/wher to go after click"
+~~~
+
+[graph api, list parameters that I can send/post](https://developers.facebook.com/docs/reference/api/post/)
+
+
+keywords: posting, post

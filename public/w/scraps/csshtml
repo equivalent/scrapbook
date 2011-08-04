@@ -1,6 +1,22 @@
 
 
-IE7+ supports attribute selectors:
+
+###autorefresh page
+
+~~~html
+<meta http-equiv="refresh" content="5" > 
+~~~
+
+
+
+
+
+
+
+
+
+
+###IE7+ supports attribute selectors:
 
 ~~~css
 input[type=text]
@@ -12,4 +28,59 @@ input[type*=d]
 ~~~
 
 source:http://stackoverflow.com/questions/470702/css-selector-for-input-type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###image button css
+
+~~~css
+a.favoriteButton{ 
+  background:  url('/images/favoriteButton.png') no-repeat scroll left top transparent;  
+  width: 79px;
+  height: 22px;
+  display:block;
+}
+a:hover.favoriteButton{ 
+  background:  url('/images/favoriteButton.png') no-repeat scroll left -23px transparent;
+  width: 79px;
+  height: 22px;
+  display:block;
+}
+~~~
+
+
+
+
+
+
+### own font
+
+[source](http://www.html5rocks.com/tutorials/webfonts/quick/)
+
+~~~css
+@font-face {
+  font-family: 'Tagesschrift';
+  src: url('tagesschrift.ttf');
+}
+h1, h2, h3 { font-family: 'Tagesschrift', 'Georgia', serif; }
+~~~
+
+
+
+
+
+
+
+
 

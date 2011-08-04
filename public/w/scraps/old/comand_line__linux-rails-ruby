@@ -1,0 +1,79 @@
+h1. Rails
+
+
+
+
+
+
+
+h2. Prety console output
+
+
+
+h3. Console will output SQL
+
+<c>
+ActiveRecord::Base.logger = Logger.new(STDOUT)
+</c>
+
+add it to @application.rb@ for automatic output
+
+
+
+
+
+
+h3. Hirb, table like console output
+
+"hirb":https://github.com/cldwalker/hirb#readme
+
+Gemfile
+??gem "hirb"?? 
+or ??gem install hirb   
+require "hirb"??
+
+
+
+??Hirb.enable??
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h1. Linux 
+
+
+
+
+
+
+h3. some notes about unix like OSs
+  * everithing is a file (even devices)
+	* system is group of small programs combined together

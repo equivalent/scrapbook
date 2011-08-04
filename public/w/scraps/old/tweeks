@@ -1,0 +1,27 @@
+h1. syntax hilight in console
+
+put this into .bashrc to have hilightet git branch
+
+??function parse_git_branch {
+git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
+function proml {
+local WHITE="\[\033[40;1;37m\]"
+local LIGHT_GRAY="\[\033[47;1;30m\]"
+case $TERM in
+xterm*)
+TITLEBAR='\[\033]0;\u@\h:\w\007\]'
+;;
+*)
+TITLEBAR=""
+;;
+esac
+
+PS1="${TITLEBAR}\
+\w $LIGHT_GRAY\$(parse_git_branch)\
+$WHITE\$ "
+PS2='> '
+PS4='+ '
+}
+proml??

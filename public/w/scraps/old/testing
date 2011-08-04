@@ -1,0 +1,15 @@
+
+h3. Testing emails
+
+see: "email spec":https://github.com/bmabey/email-spec (mainly examples)
+# @gem install email_spec --version '< 1.0.0'@
+# @put @require 'email_spec'@  in @spec/spec_helper.rb@<br> or @config.gem "email_spec", :version => '< 1.0.0'@ in @enviroments/test.rb@ 
+
+if you running rails 2 application and just do @gem install email_spec@, you will run into this error ??no such file to load -- rspec?? you have to instal gem version 0.6.4 ( "read why":https://github.com/bmabey/email-spec/issues#issue/25 )
+??gem install email_spec --version '< 1.0.0'??
+
+
+h3. Migrating test enviroment
+
+If you have problem, that your test enviroment db is not updatede to current migration, try
+??rake environment RAILS_ENV=test db:migrate??

@@ -1,0 +1,16 @@
+
+
+
+h3. custom rake task
+
+<c>
+namespace :events do 
+  namespace :generate do
+    task :future => :environment do
+     p Event.all
+    end
+  end  
+end
+</c>
+
+

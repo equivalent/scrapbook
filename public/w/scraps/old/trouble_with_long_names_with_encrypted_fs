@@ -1,0 +1,22 @@
+h1. Problem with long names on encrypted FS or partition on ubuntu
+
+today I git clone rails project from github and run into problem
+
+??error: git checkout-index: unable to create file precious_app/db/migrate/201    00615125556_update_users_add_encrypted_password_password_salt_remember_token    _remember_created_at_sign_in_count_current_sign_in_at_last_sign_in_at_curren    t_sign_in_ip_and_last_sign_in_ip.rb (File name too long)??
+
+WTF ?? 
+
+I googled an answer: when you have encrypted home you have limited filename length. Way around is to encrypt the home folder (wich I don't wanto do) or...
+
+*create an new partition (if you have the space left) or use usb device(wich I don't recomend)
+*move the folder to the new partition
+*link that new location to the old location (link)
+
+that will do it, however you might run into difficulties (like I had with rvm) 
+
+??t error: command `git reset --hard 3df0f8b7ed1064b8fe83249186fc347755c627a5` in directory /home/tomi/.rvm/gems/ruby-1.9.2-p180@lovethis/bundler/gems/precious_gems-3df0f8b7ed10 has failed.
+If this error persists you could try removing the cache directory '/home/tomi/.rvm/gems/ruby-1.9.2-p180@lovethis/cache/bundler/git/precious_gems-be0d63ba6ae24c05aeb8388922228e13dc627bdd'??
+
+solution:
+*move the .rvm/gems/ruby-1.9.2-p180@lovethis/ to new the new partition created earlyer, and link it into old path
+

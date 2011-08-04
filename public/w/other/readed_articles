@@ -1,6 +1,6 @@
 http://wiki.apache.org/couchdb/Nginx_As_a_Reverse_Proxy
-https://calomel.org/nginx.html
-hnginx: Password protect a directory:http://www.bradleyproctor.com/nginx-password-protect-a-directory/
+https://calomel.org/nginx.html **good one **
+hnginx: Password protect a directory: http://www.bradleyproctor.com/nginx-password-protect-a-directory/
 restrict access on nginx:http://wiki.nginx.org/NginxHttpAuthBasicModule#auth_basic_user_file
 Password protect a folder in nginx:http://brunomiranda.com/past/2007/10/29/password_protect_a_folder_in/
 css_box_shadow:http://www.css3.info/preview/box-shadow/
@@ -26,6 +26,8 @@ rdoc for rails":http://stackoverflow.com/questions/1202060/how-do-i-generate-rdo
 
 stack owerflow
 ==============
+http://stackoverflow.com/questions/928646/how-do-i-tell-git-to-always-select    -my-local-version-for-conflicted-merges-on-a-sp
+http://stackoverflow.com/questions/2920594/tell-git-not-to-merge-binary-file    s-but-to-choose
 
 http://stackoverflow.com/questions/5313105/rspec-test-fails-missing-template-format-issue
 http://stackoverflow.com/questions/470702/css-selector-for-input-type

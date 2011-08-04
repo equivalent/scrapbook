@@ -1,0 +1,125 @@
+h1. sinatra & mnogoid
+
+
+<c>
+require 'rubygems'
+require 'sinatra'
+require 'mongoid'
+
+configure do
+   Mongoid.configure do |config|
+    name = "demo"
+    host = "localhost"
+    config.master = Mongo::Connection.new.db(name)
+    config.slaves = [
+      Mongo::Connection.new(host, 27017, :slave_ok => true).db(name)
+    ]
+    config.persist_in_safe_mode = false
+  end
+end
+
+class Person
+  include Mongoid::Document
+  field :first_name
+  field :middle_initial
+  field :last_name
+end
+
+
+get '/' do
+    
+  #person = Person.new(:first_name => "Ludwig", :last_name => "Beethoven")
+  #person.save
+  person = Person.last
+   
+  "Hello, I am son#{person.first_name} #{person.last_name}"
+end
+
+</c>
+
+source of info: "Mongoid and Sinatra duet":http://www.garrensmith.com/2010/09/11/Mongoid-sinatra.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+h1. peepcode screncast about sinatra notes: 
+
+<c>
+gem install sinatra
+gem install shotgun       #for lunching instance of webrick    
+</c>
+
+??mkdir config lib public tmp views??
+
+
+<c>
+require 'rubygems'
+require 'sinatra'
+
+#before block will be executed before each handler
+before do
+  headers "Content-Type" => "text/html; charset=utf-8"
+end
+
+get '/' do
+  @title
+  erb :fly
+  #erb :fly, :layout=>false   #works as well
+end
+
+get '/hello/:name' do
+  "Hello #{params[:name]}"
+end
+
+get '/this/*/is/*' do
+  params[:splat].join(' ')
+end 
+
+get 'form_example'
+  erb :form
+end
+
+post 'form_example'
+  @title="my name is #{post[first_name]}"
+  erb "erb in front of this quotes tells sinatra tu render layaut + this string"
+end
+
+__END__
+
+@@ layout
+<html>
+  <h1><%= @title %></h1>
+	<%= yield %>
+</html>
+
+@@ fly
+anything under '__END__' is treated like plain text, 
+
+@@ form
+<form action='/form_example' method="post">
+  <input type="text" name="post[first_name]" >
+  <input type="submit" >
+</form>
+</c>
+
+*views* 
+* sinatra automaticly looks for file in views when calling 'erb :something'
+** @views/layout.erb@
+** views/
+* public behaves same way as in rails
+** @public/css/style.css@               #then call <link href="/style.css" ...>
+           
+
+* MYNOTE: dopodrobna poznamkovane peepcode040 sinatra 00:00-21:50 zvysok len namatkovo; od 30:00 file upload a zapis do DB; autorizacia 48:00
+
+* good idea is DataMaper gem for DB curd
+* mongoid works also 

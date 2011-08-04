@@ -1,0 +1,16 @@
+h1. render partial if file exist
+
+<c>
+<%= render :partial => params[:controller]+"/sidebar" if File.exists?(RAILS_ROOT+"/app/views/"+params[:controller]+"/_sidebar.html.erb")%>
+</c>
+
+"source":http://seanbehan.com/programming/render-partial-if-file-exists/
+
+h1. don't rails if  file doesn't exist
+
+<c>
+<%= render :partial => params[:provider] rescue nil %>
+</c>
+
+"source":http://seanbehan.com/programming/render-partial-if-file-exists/
+

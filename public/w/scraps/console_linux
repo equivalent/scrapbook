@@ -1,0 +1,9 @@
+
+
+###list/check permissions  on/in folder
+
+ ~~~bash
+ ls -ld directory
+ ~~~
+
+

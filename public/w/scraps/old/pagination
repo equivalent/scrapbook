@@ -1,0 +1,19 @@
+
+
+h2. will_paginate and metasearch
+
+<c>
+@search = Project.active.search(params[:search])
+@projects = @search.paginate(:page => params[:page], :per_page => 6)
+</c>
+
+
+<c>
+@posts = Post.all.paginate :page => params[:page], :order => 'created_at DESC
+</c>
+
+
+<c>
+<%= will_paginate @posts %>
+</c>
+

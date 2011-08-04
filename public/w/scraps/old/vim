@@ -1,0 +1,61 @@
+h3. Ctags
+
+install ctags from bash or upgrade it (under ubuntu is pretty old)
+
+??apt-get install ctags??
+
+add @tags@ to .gitignore list
+
+??ctags -R --exclude=log * --exclude=.git *??
+
+"screencast source":http://blog.0x82.com/2011/3/2/vim-rails-ctags-powerful-navigation-screencast
+
+
+*Bonus*
+
+add alias to your @~/.bashrc@  (delate old tags, regenerate new tags)
+??alias ctagrails='rm -R ./tags; ctags -R --exclude=log * --exclude=.git *'??
+
+keywords: ctags c tags navigation jump
+
+h3. Adding and removing quotes with vim combos
+
+As you know vim have build-in text editing combos like @di'@ witch will delete text inside @''@, for example:  ??"text"    *di"*  _will resoult to_    ""??. I wanted to be able to add/delete quotes braced on word like ??"text"  *somecombo _will resoult to_* text??. Vim build-in solution doesn't exist, so I had to put into my @.vimrc@ file solution, googled by my college, founded "here":http://vim.wikia.com/wiki/Simple_Macros_to_quote_and_unquote_a_word
+
+??" 'quote' a word
+nnoremap qw :silent! normal mpea'<Esc>bi'<Esc>`pl
+" double "quote" a word
+nnoremap qv :silent! normal mpea"<Esc>bi"<Esc>`pl
+" remove quotes from a word
+nnoremap ciq :silent! normal mpeld bhd `ph<CR>??
+
+Now I have combos 
+??word  *qw*  "word"
+word  *qv*  'word'
+"word"  *ciq*  word??
+
+
+
+h3. How to join middle mouse button clipboard with vim yank/paste
+
+??set clipboard=unnamed?? 
+now when you select text with mouse, it will be avalible in vim paste (hit *p*) or other way when you yank text in vim (*yy*) you can paste it with middle mouse button anywher in your system (in browser for example) 
+
+
+
+
+h3. C tags on vim
+
+"source":http://www.faqs.org/docs/ldev/0130091154_64.htm
+
+To turn any  indent modes on, with the application in Normal mode, type
+:set
+. To turn off an indent mode, simply preface the mode name with the word
+“
+no
+”. For example, to turn on
+??cindent??
+, type:
+??:set cindent??
+To turncindent back off, type:
+@:set nocindent@

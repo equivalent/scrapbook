@@ -1,0 +1,49 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h2. some errors i run to
+
+h3. 16 nov. 2010
+
+Today I meet some troubles in my old 2.3.5 Rail appliation, when I was trying to add some other locale files (internatiolization).  In config/enviroments I uncoment lines 
+
+<c>
+config.i18n.load_path << Dir[File.join(RAILS_ROOT, 'my', 'locales', '*.{rb,yml}')]
+config.i18n.default_locale = :en
+</c>
+
+but I get error
+??TypeError (can't convert Array into String):
+    /vendor/rails/activesupport/lib/active_support/vendor/i18n-0.0.1/i18n/backend/simple.rb:176:in `extname'
+    /vendor/rails/activesupport/lib/active_support/vendor/i18n-0.0.1/i18n/backend/simple.rb:176:in `load_file'
+    /vendor/rails/activesupport/lib/active_support/vendor/i18n-0.0.1/i18n/backend/simple.rb:13:in `load_translations'
+    /vendor/rails/activesupport/lib/active_support/vendor/i18n-0.0.1/i18n/backend/simple.rb:13:in `each'??
+
+
+the solution was to change call of '*<<*' to '*=*' on this line 
+
+<c>
+config.i18n.load_path = Dir[File.join(RAILS_ROOT, 'my', 'locales', '*.{rb,yml}')]
+</c>
+
+
+
+
+
+
+
+

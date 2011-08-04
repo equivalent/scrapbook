@@ -1,0 +1,39 @@
+h1 generate rails doc
+
+best way is to generate own doc rails app
+
+??rails doc_project
+cd doc_project
+rake rails:freeze
+rake doc:rails??
+
+doc will apear in @doc_project/doc/api/@
+
+or download it from "railsbrain":http://www.railsbrain.com/
+
+"source of info":http://stackoverflow.com/questions/1202060/how-do-i-generate-rdoc-for-all-of-rails
+
+note: this was writen to Rails 2.3 but will work to R 3 as well
+
+
+h1 all gems rdoc
+
+??gem server?? 
+
+if you want rails to display in this @sudo gem install rails --rdoc@
+
+
+
+
+
+
+
+
+
+h1 another way to get documentation
+
+??gem unpack prawn
+rdoc lib/??
+
+.... and just open html documentation in that directory (doc)
+BTW when you unpac prawn documentation this way, you will get lot of usefull examples in that directory

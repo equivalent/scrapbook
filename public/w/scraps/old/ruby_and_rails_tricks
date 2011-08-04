@@ -1,0 +1,130 @@
+
+
+h3. random object 
+<c>
+@list = Order.all
+#or
+@list = Order.coments
+
+@list.find(:first, :order => "RAND()")  # only for mysql
+<c>
+
+h3. custom :id in path
+
+in model
+
+<c>
+class Post
+  def to_param
+    "/#{year}/#{month}/#{slug}"
+  end
+end
+</c>
+
+keywords: custom id
+
+
+
+
+
+
+
+h3. unig random string
+
+<c>
+    Digest::SHA1.hexdigest Time.now.to_s
+</c>
+
+however Time and SHA hashing could potentially cause a conflict if the system clock is reset or mis-set.
+
+there is bether soltion to install gem @gem install uuid@ wich generate randm string not only from timpstamp but aslo random source (like /dev/random)
+
+<c>
+require_gem 'uuid'
+uuid = UUID.new
+10.times do
+  p uuid.generate(:compact)
+end
+</c>
+
+"documentation":http://rubydoc.info/gems/uuid/2.3.1/frames
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h3. how to detect whether decimal places in float are zero (x.00)
+
+<c>(x % x.ceil)
+(x % x.floor)
+</c>
+
+or bether
+
+<c>% 1</c>
+
+
+
+
+
+
+
+
+
+h3. how to put leading zeros to nuber
+
+<c>
+"%05d" % 22
+# "00022"
+</c>
+{keywords : leading zeros zeroes 000 }
+
+
+
+
+
+h3. how to put leading zeros on decimal places
+
+<c>
+val = 44
+"%.2f" % val
+#44.00
+</c>
+
+
+
+
+
+
+
+
+
+
+h3. how to access hash key with regular expression
+
+I was trying to do something like this
+
+<c>foo={'aaa' => "something", 'aaabb' => "something 2", 'mmm' => "something else"}
+p foo[/aa/]</c>
+
+obiously it doesn't work. The only solution I come up with was this:
+
+<c>foo.map { |key, value| "#{value}" if key =~ /aa/ }.compact</c>
+
+<c>
+search_string = 'aa'
+foo.map { |key, value| "#{value}" if key =~ Regexp.new(search_string) }.compact</c>
+
+
+
+

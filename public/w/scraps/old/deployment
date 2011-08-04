@@ -1,0 +1,62 @@
+h3. Amazon s3
+
+I'm writing this article serriously angry and furious. I was trying to create new bucket on my s3 Amazon account from browser, but the script always fail. I was googling for solution and decide to f**k the web-browser interface, lets do it console style.
+
+# install: @apt-get install s3cmd@
+# create new config file (if you already doesen't have one): @s3cmd --configure@
+    Access key and secret: key you can find in amazon web service portal > account > Security Credentials (and no, they're not the same as your loggin info)
+# @s3cmd mb s3://mysuperultrabucket@
+
+now just put Access and secret key to s3.yml  (discribed in next artice)
+
+* for more run @s3cmd --help@
+* more info (http://s3tools.org/s3cmd-sync)
+* documentation http://s3tools.org/s3cmd
+
+
+
+
+
+
+if you want to change accessibility of files in bucked do something like this 
+
+??s3cmd setacl --acl-public s3://schodybb_production/assets/ --recursive??
+
+
+h3. Heroku
+# mkdir mynewapp
+# git init
+# heroku create mynewapp
+# heroku addons:add custom_domains
+# heroku domains:add www.example.com
+
+
+
+
+
+h3. Heroku sinatra
+
+"Sinatra on heroku":http://docs.heroku.com/rack#sinatra
+
+hello.rb
+
+<c>
+require 'sinatra'
+get '/' do
+  "hello'
+end
+</c>
+
+config.ru
+
+<c>
+require 'hello'
+run Sinatra::Application
+</c>
+
+.gems
+
+<c>
+sinatra
+</c>
+

@@ -1,0 +1,75 @@
+
+this is just a trashfile of rails 2 notes that aren't actual to rails 3 
+
+
+h1. console notes
+
+<c>
+
+script/generate controller welcome index
+script/generate scaffold user_session --skip-model username:string password:string new destroy
+
+</c>
+
+
+h1. RJS.notes
+
+<c>
+<%= link_to_remote "Hide this message", :url=>"/javascripts/i_do_something.js">
+#zavola controller javascripts a action i_do_something
+</c>
+
+
+
+<c>
+<%= periodically_call_remote :url = "/processes/list", :update => 'my_id_element', :frequency =>3, :method => :get %>
+   # do controlera staci dat '   render :text => `ps ax`    '
+</c>
+
+
+
+
+
+
+h1. Routing
+
+??map.resources :galeries, :collection => {:uploader=>:get }      #galeries/uploader
+map.resources :galeries, :member => {:uploader=>:get }          #galeries/1/uploader??
+
+
+
+<c>
+map.resources :products, :member => {:short => :post}, :collection => {:long => :get} do |products|
+  products.resource :category
+end
+
+map.connect 'products/:id', :controller => 'products', :action => 'view'map.connect 'products/:id', :controller => 'products', :action => 'view'
+<oc>
+
+
+h2. rotes in console
+<c>
+rs = ActionController::Routing::Routes
+
+
+#vypise vsetky existujuce routes
+puts rs.routes
+
+
+rs.recognize_path "/tags"
+# {:action=>"index", :controller=>"tags"}
+rs.recognize_path "/store/add_to_cart/1.xml"
+# {:action=>"add_to_cart", :controller=>"store", :format=>"xml", :id=>"1"}
+
+
+rs.generate :controller => :store
+# "/store"
+rs.generate :controller => :store, :id => 123
+# "/store/index/123"
+
+
+#ak chceme testovat rout controleru ktory neexistuje mozme urobit toto [429] 
+ActionController::Routing.use_controllers! ["store", "admin", "coupon"]
+load "config/routes.rb"
+rs.recognize_path "/coupon/show/1"
+</c>

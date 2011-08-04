@@ -1,0 +1,11 @@
+h2. httaccess tips 
+
+
+h3. Redirections:
+
+301 Redirect with .htaccess without loosing Google index
+??redirect 301 /old/old.htm http://www.you.com/new.htm??
+ 
+
+
+

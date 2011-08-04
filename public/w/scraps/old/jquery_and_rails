@@ -1,0 +1,57 @@
+
+*index.js.rjs       rjs is standartly for prototype use    index.js.erb
+*Rails 3
+**link_to_remote dosn't work no more
+ 
+
+
+
+
+
+
+
+h1. jQuery in Rails 3
+
+
+??gem "jquery-rails"
+bundle install
+rails generate jquery:install??
+
+
+"How to Use jQuery For Rails 3":http://www.blog.bridgeutopiaweb.com/post/how-to-use-jquery-for-rails-3/
+
+..or
+
+??<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "jquery.rails.js" %>
+<%= csrf_meta_tag %>??
+
+@https://github.com/rails/jquery-ujs@
+
+
+
+
+
+
+
+h2. HTTP XHR requests ajax comunication
+
+1.
+
+??$(document).ready(function(){
+ jQuery.ajaxSetup({ 'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}});
+ });??
+ 
+2.
+
+??$.get($(this).attr("href"), {  }, function(data){$('#g22').html(data);$('#g22').mbGallery({maskBgnd:'#36322B'})}, "script");??
+
+or for example
+
+??$.get(this.action, $(this).serialize(), function(data){$('#friends_listing').html(data)}, "script");??
+
+note: don't replace "html" insted of "script" (for loading erb) ... ito won't work ...  keep it "script" for erb (and normaly write html code in view)
+
+
+
+
+h3
