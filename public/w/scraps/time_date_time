@@ -1,0 +1,8 @@
+
+
+database
+========
+
+~~~ruby
+User.where('created_at > ?', (Time.now - 7.days).to_s).count
+~~~
