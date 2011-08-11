@@ -1,0 +1,42 @@
+DROP PROCEDURE IF EXISTS usp_GetSomeInformations;
+DELIMITER $$
+CREATE PROCEDURE usp_GetSomeInformations()
+BEGIN
+
+
+  DROP TABLE IF EXISTS tmp_NoOfFriendShips;
+
+  CREATE TEMPORARY TABLE tmp_NoOfFriendShips
+  (
+    UserId INT,
+    NoOfFriends INT
+  ) ;
+
+  INSERT INTO tmp_NoOfFriendShips(userid, NoOfFriends)
+  SELECT user_id, count(fp.user_id) 
+  FROM friend_join AS fp JOIN friendships AS f ON f.id  = fp.friendship_id  
+  WHERE f.validated =1 
+  GROUP BY  fp.user_id ;
+
+  SELECT id, nick, last_name, email,created_at, fs.NoOfFriends
+  FROM tmp_NoOfFriendShips AS fs  RIGHT JOIN users AS u ON u.id = fs.userid;
+
+
+  -- Clean up --
+  DROP TABLE IF EXISTS tmp_NoOfFriendShips;
+
+
+
+
+
+
+
+END;
+$$
+DELIMITER ;
+
+
+
+
+
+/* #  call usp_GetSomeInformations();*/

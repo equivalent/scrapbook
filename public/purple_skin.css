@@ -5,6 +5,7 @@ body a{
 }
 
 body {
+  background: white;
   font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
   font-size: 11px;
   color: #1C1C1C;
@@ -38,3 +39,21 @@ body {
 }
 
 
+.main div#index_navigation .link_to_file {
+    background: #702777;
+    border: 3px solid #702777;
+    border-radius: 5px 5px 5px 5px;
+    display: block;
+    float: left;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    padding: 1px 4px;
+}
+.main div#index_navigation .link_to_file:hover {
+    background: #C073FF;
+}
+
+.main div#index_navigation .link_to_file a{
+  color:white;
+  text-decoration:none;
+}
