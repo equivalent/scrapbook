@@ -24,3 +24,22 @@ def url_unescape(string)
  end
 end
 ~~~
+
+
+
+## request helpers
+
+~~~ruby
+request.host    #full hostname
+request.post?   #post?
+request.xhr?    #ajax?
+request.subdomains  #return an array of subdomains that you could use as part of your authentication scheme
+request.request_uri #returns the full local request URL
+request.ssl?
+request.method 
+~~~
+
+## testing enviroment
+~~~ruby
+return if Rails.env.test?
+~~~

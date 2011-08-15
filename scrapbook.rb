@@ -7,18 +7,15 @@ require 'redcarpet'
 require 'coderay'
 require 'nokogiri'
 
+require "#{File.dirname(__FILE__)}/config_scrapbook.rb"
+require "#{File.dirname(__FILE__)}/helpers/w_path.rb"
 require "#{File.dirname(__FILE__)}/helpers/helpers.rb"
 
 
-set :owner_name => "eq8"
-set :reder_w_files_patern => "/#{settings.owner_name}s_:what/on_:name" #if you are changing this line, be sure you change the patern in w_path helper
-set :w_files_path => "public/w/"
 
-helpers do
-  def w_path(file_string=nil) 
-    file_string.nil? ? "#{settings.w_files_path}#{params[:what]}s/#{params[:name]}" : "#{settings.w_files_path}#{file_string}"
-  end
-end
+
+
+
 
 #ultra simple & dum I18n
 class I
@@ -42,6 +39,10 @@ before do
 end
 
 get '/' do
+
+
+
+
  @articles = dir_w_listing 'articles/'
  @notes = dir_w_listing 'notes/'
  @scraps = dir_w_listing 'scraps/'
