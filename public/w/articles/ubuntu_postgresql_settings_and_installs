@@ -59,7 +59,7 @@ Everytihng works.. however if you run *rake db:creat* and get
 FATAL:  Ident authentication failed for user "postgres"
 ~~~
 
-or similar, than you have to modify @/etc/postgres/8.2/main/pg_hba.conf@ and change:
+or similar, than you have to modify */etc/postgres/8.2/main/pg_hba.conf* and change:
 
 ~~~bash
 localhost   all   all   ident sameuser
@@ -78,6 +78,7 @@ localhost   all   all   md5
 local   all  postgres  indent
 ~~~
 
+and restart postgress 
 
 ###problem2
 

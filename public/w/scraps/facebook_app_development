@@ -20,7 +20,22 @@ keywords: posting, post
 Facebook like button
 =======================
 
-sources: http://developers.facebook.com/docs/reference/plugins/like/
+you can generate tike button here (basic functionality):
+
+http://developers.facebook.com/docs/reference/plugins/like/
+
+to change image displayed in the FB post after clicking the FB like button, you have to add **Open Graph Tags** to your site, example:
+
+~~~html
+<meta property="og:title" content="Eq scrapbook" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://eq8scrapbook.heroku.com" />
+<meta property="og:image" content="http://eq8scrapbook.heroku.com/rails_is_ponies_and_rainbows__equivalent.png" i/>
+<meta property="og:site_name" content="Lovethis " />
+<meta property="fb:admins" content="123faceb00idoftheadminofapp567" />
+~~~
+
+!!! don't copy and paste like dummy, you can generate this code [here](http://developers.facebook.com/docs/reference/plugins/like/)
 
 
-
+description is taken from meta description, to change title and website you need open graph tags

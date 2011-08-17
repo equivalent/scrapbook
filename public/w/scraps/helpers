@@ -1,5 +1,20 @@
 
 
+###generating current url with different option
+
+f.e.: 
+got: *site.com/nice/unicorn*
+and want *site.com/nice/unicorn?order=popular*
+
+~~~ruby
+url_options(:order => 'popular')
+~~~ 
+
+/current_url_controller/current_url_action?order=popular
+
+keywords: url without knowing current action controller
+
+
 ###cgi escaping string and allowing only url valid chars
 
 ~~~ruby
