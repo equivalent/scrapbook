@@ -1,0 +1,5 @@
+instal imagemagick on ubuntu
+
+~~~bash
+sudo apt-get install imagemagick --fix-missing ??
+~~~~

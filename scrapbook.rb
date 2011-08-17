@@ -39,34 +39,29 @@ before do
 end
 
 get '/' do
-
-
-
-
  @articles = dir_w_listing 'articles/'
  @notes = dir_w_listing 'notes/'
  @scraps = dir_w_listing 'scraps/'
-
   haml :index 
 end
 
 
 
 get settings.reder_w_files_patern do
-  
   @title= "#{settings.owner_name} #{params[:what]} on #{convert_to_link_name(params[:name])} "
   @h1_name = convert_to_link_name(params[:name]).capitalize
   @h1_what = params[:what]
-
-
-
   begin
-      @file_content = read_w_file(@file_path)
+      @file_content = read_w_file(nil) 
       haml params['what'].to_sym
- # rescue Errno::ENOENT
-  #    haml :not_found
+  rescue Errno::ENOENT
+      haml :not_found
   end
-
 end
 
+get '/links' do
+      @title = "links"
+      @file_content = read_w_file('links') 
+      haml :markdown_read
+end
 

@@ -1,0 +1,157 @@
+install pg + gem on ubuntu 10 & 11
+===============================
+
+keywords: instal ubuntu 10.10 postgreSQL with pg gem
+
+sources:
+http://solyaris.wordpress.com/2008/08/09/setup-postgres-in-ubuntu
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=393945
+
+
+~~~bash
+sudo aptitude install postgresql
+
+#setup postgres user
+sudo su postgres -c psql
+~~~
+
+~~~sql
+ALTER USER postgres with PASSWORD 'password';
+
+\q
+~~~
+
+
+~~~bash
+sudo apt-get install pgadmin3
+~~~
+
+and now the gem 
+
+~~~bash
+sudo apt-get install postgresql-client libpq5 libpq-dev
+sudo gem install pg
+~~~
+
+... before that I also runned...
+
+~~~bash
+sudo apt-get install ruby-dev build-essential
+~~~
+
+...but donno if that had any effect for the funcionality 
+
+
+
+
+
+
+
+
+Potential errors durring install
+--------------------------------
+
+###problem 1
+
+Everytihng works.. however if you run *rake db:creat* and get 
+
+~~~bash
+FATAL:  Ident authentication failed for user "postgres"
+~~~
+
+or similar, than you have to modify @/etc/postgres/8.2/main/pg_hba.conf@ and change:
+
+~~~bash
+localhost   all   all   ident sameuser
+~~~
+
+to
+
+~~~bash
+localhost   all   all   md5
+~~~
+
+
+**note:** I also had to change same way line 
+
+~~~bash
+local   all  postgres  indent
+~~~
+
+
+###problem2
+
+if you get 
+
+~~~bash
+ * The PostgreSQL server failed to start. Please check the log output:
+2011-08-17 10:53:27 BST LOG:  could not translate host name "localhost", service "5432" to address: Name or service not known
+~~~
+
+make sure that your */etc/hosts* contains definition of localhost 
+
+exaple */etc/hosts*
+
+~~~bash
+...
+127.0.0.1 localhost
+127.0.1.1 localhost
+...
+~~~
+
+
+
+
+
+
+
+
+usefull comands for pg
+----------------------
+
+Creating a new PostgreSQL user 
+
+~~~bash
+sudo -u postgres createuser -d -R -P <new username>
+~~~
+
+Removing a PostgreSQL user 
+
+~~~bash
+ sudo -u postgres dropuser <usernamen>
+~~~
+
+Create a new database owned by <username>
+
+~~~bash
+sudo -u postgres createdb -O <usename> <database name>
+~~~
+
+
+
+
+
+
+
+restart postgresql 
+
+~~~bash
+sudo /etc/init.d/postgresql restart
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
