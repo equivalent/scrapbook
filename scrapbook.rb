@@ -35,13 +35,14 @@ end
 
 before do
   @sidelinks = read_w_file('links_side')
-
 end
 
 get '/' do
  @articles = dir_w_listing 'articles/'
  @notes = dir_w_listing 'notes/'
  @scraps = dir_w_listing 'scraps/'
+ @plugin_index_partials = Dir[File.dirname(__FILE__) + '/plugins/index_partials/*.haml']
+
   haml :index 
 end
 
@@ -65,3 +66,4 @@ get '/links' do
       haml :markdown_read
 end
 
+Dir[File.dirname(__FILE__) + '/plugins/routings/*.rb'].each {|file| require file } 

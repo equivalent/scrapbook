@@ -26,3 +26,14 @@
   .clear
 
 
+  %hr
+
+  -#load plugins partials in alphabetical order
+  - @plugin_index_partials.each do |file|
+    =haml read_file(file)
+ 
+
+
+  
+
+

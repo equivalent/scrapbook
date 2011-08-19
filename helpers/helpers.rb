@@ -40,13 +40,17 @@ def syntax_highlighter(html)
   doc.to_s
 end
 
-
-  def read_w_file(file_name)
-    file = File.open( w_path(file_name) , "r")
+  def read_file(full_path_file_name)
+    file = File.open( full_path_file_name, "r")
     file_content = file.read
     file.close
 
     file_content
+
+  end
+
+  def read_w_file(file_name)
+    read_file( w_path(file_name))
   end
 
   def dir_w_listing(folder_name)

@@ -20,6 +20,7 @@ keywords: posting, post
 Facebook like button
 =======================
 
+
 you can generate tike button here (basic functionality):
 
 http://developers.facebook.com/docs/reference/plugins/like/
@@ -39,3 +40,9 @@ to change image displayed in the FB post after clicking the FB like button, you 
 
 
 description is taken from meta description, to change title and website you need open graph tags
+
+
+**warning!!** there are some realy interesting restrictions for open tag (f.e. aafter 50 you cannot chnage title) i recomend to read them [here](http://developers.facebook.com/docs/opengraph/)
+
+
+**site debbuger** http://developers.facebook.com/tools/debug

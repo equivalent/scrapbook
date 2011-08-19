@@ -23,3 +23,12 @@ for markuping use *~* it ignorese hamal formating
 ~~~ruby
 ~ markdown (@file_content)
 ~~~
+
+
+haml each block
+
+~~~ruby
+- (42...47).each do |i|
+  %p= i
+%p See, I can count!
+~~~

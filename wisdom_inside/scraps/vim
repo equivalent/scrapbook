@@ -1,20 +1,29 @@
-h3. Ctags
+Ctags
+=====
 
-install ctags from bash or upgrade it (under ubuntu is pretty old)
+install ctags from bash or upgrade it (under ubuntu  synaptic is pretty old)
 
-??apt-get install ctags??
-
-add @tags@ to .gitignore list
-
-??ctags -R --exclude=log * --exclude=.git *??
-
-"screencast source":http://blog.0x82.com/2011/3/2/vim-rails-ctags-powerful-navigation-screencast
+~~~bash
+apt-get install ctags
+~~~
 
 
-*Bonus*
+add *tags* to *.gitignore* list
 
-add alias to your @~/.bashrc@  (delate old tags, regenerate new tags)
-??alias ctagrails='rm -R ./tags; ctags -R --exclude=log * --exclude=.git *'??
+~~~bash
+ctags -R --exclude=log * --exclude=.git *
+~~~
+
+[screencast source](http://blog.0x82.com/2011/3/2/vim-rails-ctags-powerful-navigation-screencast)
+
+
+**Bonus**
+
+add alias to your *~/.bashrc*  (delate old tags, regenerate new tags)
+
+~~~~bash
+alias ctagrails='rm -R ./tags; ctags -R --exclude=log * --exclude=.git *'??
+~~~
 
 keywords: ctags c tags navigation jump
 

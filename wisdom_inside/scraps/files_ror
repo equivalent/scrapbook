@@ -1,0 +1,10 @@
+
+
+##load all files in folder (best practice)
+
+~~~ruby
+Dir[File.dirname(__FILE__) + '/plugins/index_partials/*.rb'].each {|file| require file }
+~~~
+
+
+

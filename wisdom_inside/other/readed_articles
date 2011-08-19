@@ -1,3 +1,5 @@
+http://ruby.about.com/b/2008/10/23/a-quick-peek-at-ruby-include-vs-require.htm
+http://blog.new-bamboo.co.uk/2010/1/2/dragonfly
 http://kangen.net/
 http://www.rubyinside.com/19-rails-tricks-most-rails-coders-dont-know-131.html
 http://www.epicbagel.com/blog/view/facebook-connect-usability-testing-insight.html
@@ -29,6 +31,7 @@ rdoc for rails":http://stackoverflow.com/questions/1202060/how-do-i-generate-rdo
 
 stack owerflow
 ==============
+http://stackoverflow.com/questions/735073/best-way-to-require-all-files-from-a-directory-in-ruby
 http://stackoverflow.com/questions/928646/how-do-i-tell-git-to-always-select    -my-local-version-for-conflicted-merges-on-a-sp
 http://stackoverflow.com/questions/2920594/tell-git-not-to-merge-binary-file    s-but-to-choose
 

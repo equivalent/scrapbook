@@ -1,5 +1,5 @@
 web proxies
-==========
+-----------
 
 http://www.hidemyass.com/facebook-proxy/
 http://anonymouse.org/
@@ -21,43 +21,45 @@ h3. inspiration
 
 
 
-h3. sinatra
+sinatra
+-------
 
-"sinatra helpers and custom methods":http://ididitmyway.heroku.com/past/2010/4/25/sinatra_helpers/
-
-
-
-
-
-
-h3. Api
-
-"social RoR api":http://apidock.com
+[sinatra simple documentation](http://www.sinatrarb.com/intro.html)
+[sinatra helpers and custom methods](http://ididitmyway.heroku.com/past/2010/4/25/sinatra_helpers/)
 
 
 
 
 
 
-h3. Gimp
 
-"screencasts":http://www.5min.com/Tag/gimp?CategoryID=0
+Api
+-----
+
+[social RoR api](http://apidock.com)
 
 
 
 
 
-h3. Rails views
 
-"select form hellper":http://shiningthrough.co.uk/Select-helper-methods-in-Ruby-on-Rails
+Gimp
+-----
 
-"partial blocks":http://www.igvita.com/2007/03/15/block-helpers-and-dry-views-in-rails/
+[screencasts](http://www.5min.com/Tag/gimp?CategoryID=0)
 
-h3. Rails3
 
-"stranka ci pluginy budu ficat na R3":http://railsplugins.org/
-"(swf) flash and rails 2.3 solution":http://timmyc.posterous.com/uploadify-on-rails-with-paperclip
-"(swg) )flash and rails 3 solution":tp://metautonomo.us/2010/07/09/uploadify-and-rails-3/
+
+
+Rails
+-------
+
+[select form hellper](http://shiningthrough.co.uk/Select-helper-methods-in-Ruby-on-Rails)
+[partial blocks](http://www.igvita.com/2007/03/15/block-helpers-and-dry-views-in-rails/)
+
+[stranka ci pluginy budu ficat na R3](http://railsplugins.org/)
+[(swf) flash and rails 2.3 solution](http://timmyc.posterous.com/uploadify-on-rails-with-paperclip)
+[(swg) )flash and rails 3 solution](http://metautonomo.us/2010/07/09/uploadify-and-rails-3/)
 
 
 
