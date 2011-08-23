@@ -1,0 +1,71 @@
+
+http://railscasts.com/episodes/253-carrierwave-file-uploads
+
+
+
+Gemfile
+
+~~~ruby
+gem "rmagick"
+gem "carrierwave"
+~~~
+**note:** if you want to use smaller 'mini_magic' gem, there are differences in conf. http://carrierwave.rubyforge.org/rdoc/classes/CarrierWave/MiniMagick.html
+
+
+
+bundle..
+
+
+**note** to install Rmagick on ubuntu you have to do 
+
+~~~bash
+apt-get install libmagick9-dev
+~~~
+
+
+than you generate uploader 
+
+~~~ruby
+rails g uploader image
+~~~
+
+
+app/models/painting.rb
+
+~~~ruby
+class Painting < ActiveRecord::Base
+  attr_accessible :gallery_id, :name, :image, :remote_image_url
+  belongs_to :gallery
+  mount_uploader :image, ImageUploader
+~~~
+
+
+
+app/uploaders/avatar_uploader.rb
+
+~~~ruby
+
+  storage :file
+
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  process :resize_to_limit => [1000, 1000]  #resize to limit is method inside Rmagick, carrierwave is just touching it 
+
+  version :thumb do
+    process :resize_to_limit => [200, 200]
+  end
+~~~
+
+
+~~~ruby
+rails g migration add_image_to_paintings image:string
+~~~
+
+
+~~~html
+<%= image_tag painting.image_url(:thumb) if painting.image? %>
+~~~
+
+

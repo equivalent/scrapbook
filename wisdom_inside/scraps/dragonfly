@@ -1,0 +1,19 @@
+
+
+~~~bash
+config/initializers/dragonfly.rb
+~~~
+
+
+~~~html
+<%= form_for(@album, :html => {:multipart => true}) do |f| %>
+~~~
+
+
+
+
+
+
+
+
+cashing for dragonfly with Nginx http://groups.google.com/group/dragonfly-users/browse_thread/thread/f84ddbe739cbc1e9  (same link in Tlinks)

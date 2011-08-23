@@ -1,0 +1,99 @@
+before we even consider any of the following gems, we have to realize that these gems are basically just "attaching files" (so they main purpose is to attach file and the secondary function is image processing with additional gem ). The real "image magic" is done by *gems for image processing*
+
+*   Rmagic based on [ImageMagic|http://www.imagemagick.org/script/index.php]
+*   [MiniMagic] based on [ImageMagic|http://www.imagemagick.org/script/index.php] (but less heavy than Rmagic)
+*   [ImageSience|http://seattlerb.rubyforge.org/ImageScience.html] based on [FreeImage|http://sourceforge.net/projects/freeimage/]
+
+
+**note** Dragonfly is not only attachment handler but also has its own image processor for resizing communicating directly with [ImageMagic] (I think it can handle even other image processors but I didn't search for that).
+
+
+
+
+so moral of this pre-section is: Maybe we should consider to write our own controllers to handle image post of attachment and just use Rmagic/[MiniMagic]/[ImageSience] gem. Controller handling is ok if we are sure we will just use images for User avatars, but if we apply more image functionality (f.e. in recommendations, links..) we should use attachment gem
+
+I recommend not to use Rmagic because it's to heavy for just "rendering thumbnails", I like that [MiniMagic] is simplified version of Rmagic(wich proowed well over the years) but personally I think we should use [ImageSience] gem. Basicly [ImageSience] was dessign to our purpouse (Quote from gem site: *ImageScience is a clean and happy Ruby library that generates thumbnails -- and kicks the living crap out of RMagick. Oh, and it doesn't leak memory like a sieve. :)*)
+
+
+
+
+
+h1. On Fly processing
+======================
+
+
+The only advantage I really see is that you can change avatar sizes at any time.
+
+
+
+h3. Dragonfly
+--------------
+
+The nice thing on dragonfly is, that it provides on fly image processing => Images aren't reprocessed after upload but after request. This is also disadvantage, because it's more pressure on CPU. There is a cashing advisability, by default with Rack Cache  or with [Nginx front cache for dragonfly|http://groups.google.com/group/dragonfly-users/browse_thread/thread/f84ddbe739cbc1e9]. Generally speaking most gurus agree that Nginx cache is far better than Rack caching.
+
+another disadvantage is that dragonfly has no image size limit by def. => User can upload 3GB picture for example. This can be fixed with Nginx file limiting.
+
+Nice thing on Dragonfly is that the image processing isn't requiring Rmagic, (Dragonfly process images by itself )
+
+
+
+
+h1. After upload processing
+=========================
+
+Main disadvantage: If we want different sizes of avatars, than those we specified after creating an application; we have to reprocess images (for e. with Rake task). That isn't really a problem if we have stored original file (best idea is to store scaled image from original image , 1000x1000> should be ok) or if the GUI expert specify sizes correctly at the beginning of the project.
+
+h3. Paperclip
+-------------
+
+[https://github.com/thoughtbot/paperclip]
+
+I was using it in few projects, really easy to use, really easy to configure and stable. Easy to use it on different storages (s3 was no problem for me).
+Main advantage is that it was design by [Thoughtbot|http://thoughtbot.com/community/] community ( really good reference )
+Main disadvantage is that is design for Active record => If we switch to [MongoDB] or other [NoSQL], we will have to hack it.
+ Also the image processing is based on Rmagic.
+
+
+
+ h3. CarrierWave
+ ---------------
+
+ [https://github.com/jnicklas/carrierwave.git]
+
+ Gem is really simple to configure, really simple to maintain, the "image processing" functionality is separated form model in own "uplader" file, thanks to witch the model won't get messy.
+
+ Main advantage, it can use Rmagic, MiniMagic or ImageSience,  it supports ActiveRecord and other data models, and like paperclip easy configurable to use with other data storages 
+
+ Disadvantage: I didn't spot any, this gem is real winner
+
+
+
+
+
+
+ h3. Attachement-fu
+ ------------------
+
+ [https://github.com/technoweenie/attachment_fu]
+
+ My opinion is that the project is getting old and the buzz around it is getting low. I didn't personally tried it out, but the configuration looks less user friendly than prev. gems. It's also using Rmagic only for images processing.
+
+
+
+
+
+
+
+
+ h1. Other info
+================
+
+ test applycation where I tried out some gems: [https://github.com/equivalent/playground_tests_for_imageprocessing]
+
+
+
+ h3. things to concern when switching to image processing gem
+----------------------------------------------------
+
+ * speed of processing images (not only gem itself but also the processing gem, f.e. Rmagic might be solver than [MiniMagic])
+ * heavy load performance (when you upload 600 images what will happen)

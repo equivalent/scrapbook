@@ -30,7 +30,8 @@
           .main_heading_margin_top
             %h1
               =yield_content :main_heading
-          =yield 
+          .main_yield_content    
+            =yield 
 
         #right_side
           = haml :"_right_side"

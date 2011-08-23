@@ -1,0 +1,25 @@
+#.rvmrc file
+rvm --create use ruby-1.9.2@sinatra
+
+#Gemfile
+
+source 'http://rubygems.org'
+gem 'sinatra'
+gem 'haml'
+
+
+#main.rb
+
+require 'rubygems'
+require 'sinatra'
+
+
+
+get '/' do
+  @title
+  erb :fly
+  #haml :fly
+end
+
+
+

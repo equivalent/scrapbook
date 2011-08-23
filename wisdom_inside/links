@@ -12,11 +12,6 @@ http://anonymouse.org/
 
 
 
-h3. inspiration
-
-"toka-koka":http://www.swedishfika.com/2010/04/18/toka-koka-bitches/'
-
-
 
 
 
@@ -52,7 +47,7 @@ Gimp
 
 
 Rails
--------
+=========
 
 [select form hellper](http://shiningthrough.co.uk/Select-helper-methods-in-Ruby-on-Rails)
 [partial blocks](http://www.igvita.com/2007/03/15/block-helpers-and-dry-views-in-rails/)
@@ -62,6 +57,40 @@ Rails
 [(swg) )flash and rails 3 solution](http://metautonomo.us/2010/07/09/uploadify-and-rails-3/)
 
 
+[dragonfly documentation](http://markevans.github.com/dragonfly/) [dragonfly github](https://github.com/markevans/dragonfly/)
+[carrierwave github](https://github.com/jnicklas/carrierwave)
+
+[Nginex front cache for dragonfly](http://groups.google.com/group/dragonfly-users/browse_thread/thread/f84ddbe739cbc1e9) keywords: nginx dragonfly cache
+[ngnix](https://calomel.org/nginx.html)
+
+[Migrations cheat sheat](http://www.dizzy.co.uk/ruby_on_rails/cheatsheets/rails-migrations)
+
+
+
+
+ gem Gems/plugins
+------------------
+
+"rails best practices":https://github.com/flyerhzm/rails_best_practices
+"plugin custom-error-msg":https://github.com/gumayunov/custom-err-msg  pluggin most attractieve function is that when you add ^ at the start of translation line your tronslation will apear without anoying 'Column:' 
+"iso countries plugin":https://github.com/SunDawg/country_codes
+"Search solution meta search":http://metautonomo.us/projects/metasearch/
+"Authlogic reset pasword stepbystep":http://www.binarylogic.com/2008/11/16/tutorial-reset-passwords-with-authlogic/
+
+
+
+
+
+git
+----
+[git pro free book](https://github.com/progit/progit/tree/master/en)
+
+
+ heroku
+---------
+
+"automated heroku backup":http://trevorturk.com/2010/04/14/automated-heroku-backups/ ,   "automated heroku backup gem(not in s3 localy)":https://github.com/joemsak/heroku_backup_task
+"autoated heroku backup s3":https://github.com/edavis10/heroku_s3_backup
 
 
 
@@ -83,21 +112,12 @@ h3. screen casts
 
 
 
-h3. migrations
-
-"cheat sheat":http://www.dizzy.co.uk/ruby_on_rails/cheatsheets/rails-migrations
 
 
 
 
 
 
-
-
-h3. heroku
-
-"automated heroku backup":http://trevorturk.com/2010/04/14/automated-heroku-backups/ ,   "automated heroku backup gem(not in s3 localy)":https://github.com/joemsak/heroku_backup_task
-"autoated heroku backup s3":https://github.com/edavis10/heroku_s3_backup
 
 
 
@@ -200,18 +220,6 @@ h3. templates, layouts
 
 
 
-h3. gem Gems/plugins
-
-"rails best practices":https://github.com/flyerhzm/rails_best_practices
-"plugin custom-error-msg":https://github.com/gumayunov/custom-err-msg  pluggin most attractieve function is that when you add ^ at the start of translation line your tronslation will apear without anoying 'Column:' 
-"iso countries plugin":https://github.com/SunDawg/country_codes
-"Search solution meta search":http://metautonomo.us/projects/metasearch/
-"Authlogic reset pasword stepbystep":http://www.binarylogic.com/2008/11/16/tutorial-reset-passwords-with-authlogic/
-
-
-
-
-
 
 h3. Beginers tutorials
 
@@ -271,28 +279,8 @@ https://github.com/sferik/rails_admin/
 
 
 
-h1. personal
-
-
-h3. realy interesting documentaries
-
-"Battle of world economy":http://topdocumentaryfilms.com/commanding-heights-battle-world-economy/
-
-"The Power of Nightmares 1":http://www.youtube.com/watch?v=Vt-FyuuWlWQ
-"The Power of Nightmares 2":http://www.youtube.com/watch?v=igtonA_Ag8Y
-"The Power of Nightmares 3":http://www.youtube.com/watch?v=5zKhoH6KVgw
 
 
 
 
 
-
-h3. art
-
-"big bang big blue":http://blublu.org/sito/video/bbbb.htm
-
-
-
-
-h3. ngnix
-https://calomel.org/nginx.html
