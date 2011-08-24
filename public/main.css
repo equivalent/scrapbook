@@ -26,7 +26,6 @@ div.clear{clear:both;}
 
 
 
-
 /* positioning */
 .main div.container{
   width: 1100px;
@@ -64,18 +63,15 @@ div.clear{clear:both;}
 
 }
 
-.main div#content div#right_side div#page_navigation a{
-
-.main div.main_heading_margin_top{
-  height: 40px;
-  width: auto;
-}
-
-.main div.main_heading_margin_top h1{
-}
-
 
 /* */
+
+.main div.main_yield_content img{
+  max-width: 150px;
+  max-height: 100px;
+}
+
+
 div.rounded_borders{
   -moz-border-radius: 15px;
   border-radius: 15px

@@ -1,0 +1,51 @@
+
+
+
+reset to previous state (realy hard)
+-----------------------------------
+
+f.e. if you merge and you have conflict, you will restart to state before merge
+
+~~~bash
+git reset --hard
+~~~
+
+
+
+
+
+How to delete files from repo
+------------------------------
+
+you git added and commited file, now you deleted it with *rm*. But if you do *git s* it's still  in repository
+
+~~~bash
+    delete:  app/view/some/file
+~~~
+
+way to rm that
+
+~~~bash
+git co app/view/some/file
+git rm app/view/somefile
+gin commit 
+~~~
+
+
+creating aliases
+-----------------
+
+edit @$HOME/.gitconfig@
+
+~~~bash
+[alias]
+  cc = commit -m 'Just simple content'
+  s = status
+  ph = push heroku master??
+
+~~~
+
+
+
+
+

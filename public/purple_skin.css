@@ -4,8 +4,13 @@ body a{
   text-decoration:none;
 }
 
+body a:hover{
+  color: #480B77;
+  text-decoration:none;
+}
+
 body {
-  background: white;
+  background: #DCD5DA;
   font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
   font-size: 11px;
   color: #1C1C1C;
@@ -17,7 +22,10 @@ body {
   border: solid black 1px;
 }
 
-
+.main div.main_yield_content{
+  background:white;
+  padding: 10px;
+}
 .main div.main_heading_margin_top h1{
   font-family: 'Shadows Into Light', cursive;
   color: color: #1C1C1C;
@@ -58,7 +66,5 @@ body {
   text-decoration:none;
 }
 
-.main div.main_yield_content{
-  background:white
-}
+
 
