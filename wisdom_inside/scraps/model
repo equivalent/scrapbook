@@ -1,0 +1,101 @@
+
+
+
+
+
+
+~~~ruby
+ if respond_to? :safe_helper
+   safe_helper
+ end
+~~~
+
+
+
+
+
+
+
+
+rails 3  named_scope (scope)
+--------
+
+~~~ruby
+
+scope :visible, where("hidden != ?", true)
+scope :published, lambda { where("published_at <= ?", Time.zone.now) }
+scope :recent, visible.published.order("published_at desc")
+~~~
+
+
+
+
+
+
+with scope
+==========
+
+examp1
+------
+~~~ruby
+
+def self.current_announcements(hide_time)
+  with_scope :find => { :conditions => "starts_at <= now() AND ends_at >= now()" } do
+				if hide_time.nil?
+			      find(:all)
+				else
+								      find(:all, :conditions => ["updated_at > ? OR starts_at > ?", hide_time, hide_time])
+				end
+	end
+end
+
+~~~
+
+named scope  (rc 108)
+===========
+
+
+examp1
+------
+
+~~~ruby
+
+class Product < ActiveRecord::Base
+	belongs_to :category
+	named_scope :cheep, :conditions => {:price => 0..5 }
+	named_scope :recent, lambda { {:conditions => ["released_at > ?", 2.weeks.ago]} }
+  named_scope :recent, lambda { |*args| {:conditions => ["released_at > ?", (args.first || 2.weeks.ago)]} }  
+	named_scope :visible, :include => :category, :conditions => { 'categories.hidden' => false }    #Najde tie ktore niesu v hidden kategoriach
+end
+  #pak mozem volat nieco ako 
+	Product.vissible.count
+	Product.cheep.all(:order => 'name')
+
+~~~
+
+examp2
+------
+
+~~~ruby
+
+  named_scope :on_date, Proc.new {|date|
+    date = case date
+    when :filter_7_days
+      Date.today..(Date.today + 7.days)
+    when :filter_30_days
+      Date.today..(Date.today + 30.days)
+    when :filter_3_months
+      Date.today..(Date.today + 3.months)
+    when :filter_half_year
+      Date.today..(Date.today + 6.months)
+    else
+      date
+    end
+    {:conditions => {:on => date}}
+  }
+
+~~~
+
+
+
+

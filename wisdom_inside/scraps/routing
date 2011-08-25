@@ -1,0 +1,55 @@
+http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-url_for
+
+
+back
+----
+
+~~~ruby
+url_for(:back)
+~~~
+
+
+full path (with http)
+----------------------
+
+~~~ruby
+<%= url_for(:action => 'login', :controller => 'members', :only_path => false, :protocol => 'https') %>
+# => https://www.railsapplication.com/members/login/
+~~~
+
+
+example 1 
+--------
+http://localhost:3000/games?hidden=1    #bez akehokolvek nastavenia
+
+#in controller
+if params[:hidden]
+  @articles.where(:something => (params[:hidden]) == 1)
+end
+
+
+example 2
+----------
+
+~~~ruby
+
+person_asset_path(1,2)
+#/people/1/assets/2
+
+person_asset_path(:person_id =>1, :id =>2)
+#/people/1/assets/2
+~~~
+
+
+
+
+
+
+formated route
+-------------
+
+in rails 2
+
+~~~ruby
+formatted_page_path(42, :xml)
+~~~

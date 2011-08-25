@@ -1,3 +1,9 @@
+http://intridea.com/2010/4/22/oauth2-gem-just-in-time-for-facebook-graph?blog=company
+http://ryanbigg.com/2011/04/whodunit-devise-omniauth-oauth-or-github/
+http://hueniverse.com/oauth/guide/terminology/
+http://oauth.net/about/
+http://oauth.net/about/design-goals/
+http://hueniverse.com/2010/05/introducing-oauth-2-0/
 https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview  (just looking for som informationns how password is setup)
 http://blog.impaled.org/code/2011/2/devise-1-2-with-omniauth-on-rails.html
 http://mickeyben.com/2010/10/21/handle-url-images-with-dragonfly,-mongomapper-and-rails3.html (cashing images dragonfly)
@@ -59,13 +65,17 @@ https://github.com/markevans/dragonfly/
 
 
 
-Railscasts episodes 
+Railscasts episodes (rec)
 ===================
 
 "archive":http://railscasts.com/episodes/archive
 
 255
+241 omniauth from scratch   http://railscasts.com/episodes/241-simple-omniauth
 238
+235 omniauth [235](http://railscasts.com/episodes/235-omniauth-part-1?autoplay=true)
+233 janrain rpx authentication with other provider  [233]( http://railscasts.com/episodes/233-engage-with-devise?)
+209 devise authentication http://railscasts.com/episodes/209-introducing-devise?autoplay=true
 205
 194
 
