@@ -1,0 +1,25 @@
+
+assets 
+=========
+
+ralis 3.1 is using gem sprockets for this
+
+http://railscasts.com/episodes/279-understanding-the-asset-pipeline?autoplay=true
+
+getting all assents paths
+
+~~~ruby
+Rails.application.config.assets.paths
+~~~
+
+if you want to lead the assets one by one than call
+*localhost:3000/?debug_assets=1*
+
+
+
+~~~ruby
+//=require_tree 
+//=require_tree ./public
+//=require_directory
+~~~
+

@@ -1,0 +1,17 @@
+mysql -u root -p
+mysql -u root -p rails_development < rails.db 
+
+
+show databases;
+show tables;
+drop database database_name;
+create database database_name;
+use database_name;
+desc table;
+
+
+
+select count(*) from categories;
+
+
+

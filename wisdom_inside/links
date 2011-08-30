@@ -32,7 +32,7 @@ Api
 -----
 
 [social RoR api](http://apidock.com)
-
+[git documentation @ kernel.org]http://www.kernel.org/pub/software/scm/git/docs
 
 
 
@@ -49,6 +49,7 @@ Gimp
 Rails
 =========
 
+[omniauth gem Dynamically Requesting Facebook Permissions with OmniAuth](http://www.mikepackdev.com/blog_posts/2-Dynamically-Requesting-Facebook-Permissions-with-OmniAuth)  article how to change some def. behavior of ominauth config file **keywords:** omniauth change settings
 [select form hellper](http://shiningthrough.co.uk/Select-helper-methods-in-Ruby-on-Rails)
 [partial blocks](http://www.igvita.com/2007/03/15/block-helpers-and-dry-views-in-rails/)
 
@@ -62,6 +63,7 @@ Rails
 
 [Nginex front cache for dragonfly](http://groups.google.com/group/dragonfly-users/browse_thread/thread/f84ddbe739cbc1e9) keywords: nginx dragonfly cache
 [ngnix](https://calomel.org/nginx.html)
+
 
 [Migrations cheat sheat](http://www.dizzy.co.uk/ruby_on_rails/cheatsheets/rails-migrations)
 
@@ -147,54 +149,56 @@ h3. i18n locales
 
 
 
-h3. Vim
+Vim
+======
 
-"Vim movement cheet sheet":http://localhost:3009/books/vim-quick-reference-movement-card.pdf (stolen from "digilife":http://www.digilife.be/quickreferences/qrc/vim%20quick%20reference%20card.pdf )  |  "Vim tabs":http://www.linux.com/archive/feed/59533
-
-"vim autocompleate css editor":http://www.codeography.com/2010/08/02/how-to-make-vim-a-first-class-css-editor.html
-
-
-h3. Other programing languages
-
-"erlang tutorial":http://learnyousomeerlang.com/content (functional programming language)
+[vim spell checking](http://vimdoc.sourceforge.net/htmldoc/spell.html)
+[Vim movement cheet sheet](/downloads/vim-quick-reference-movement-card.pdf) (stolen from [digilife](http://www.digilife.be/quickreferences/qrc/vim%20quick%20reference%20card.pdf) )
+[Vim tabs](http://www.linux.com/archive/feed/59533) 
+[vim autocompleate css editor](http://www.codeography.com/2010/08/02/how-to-make-vim-a-first-class-css-editor.html)
 
 
 
+Other programing languages
+==============================
 
-
-
+[erlang tutorial](http://learnyousomeerlang.com/content) (functional programming language)
 
 
 
 
 
 
-h3. html css templeates
 
-"39 free temp":http://www.hongkiat.com/blog/38-free-elegant-xhtmlcss-website-templates/
-"css template market":http://csstemplatesmarket.com/freecsstemplates/
-"3d text with css":http://markdotto.com/playground/3d-text/
-"html5 boiler plate":http://html5boilerplate.com/
-"css piffy":http://piffle.abdoc.net/
-"colar lover":http://www.colourlovers.com/
+html css templeates
+======================
 
-h3. html css tricks
+[39 free temp](http://www.hongkiat.com/blog/38-free-elegant-xhtmlcss-website-templates/)
+[css template market](http://csstemplatesmarket.com/freecsstemplates/)
+[3d text with css](http://markdotto.com/playground/3d-text/)
+[html5 boiler plate](http://html5boilerplate.com/)
+[css piffy](http://piffle.abdoc.net/)
+[colar lover](http://www.colourlovers.com/)
 
-"google webfonts fonts":http://www.google.com/webfonts
-"vertical image align":http://ultimorender.com.ar/funkascript/beta/css/vertical_center.htm
+html css tricks
+==================
+
+[google webfonts fonts](http://www.google.com/webfonts)
+[vertical image align](http://ultimorender.com.ar/funkascript/beta/css/vertical_center.htm)
 
 
 
 
-h3. jquery javascript
+jquery javascript
+==================
 
-"Portfolio improovers":http://www.designer-daily.com/18-jquery-scripts-and-tutorials-to-improve-your-portfolio-2162:http://www.designer-daily.com/18-jquery-scripts-and-tutorials-to-improve-your-portfolio-2162
-"galery":http://www.webhostingsecretrevealed.com/featured-articles/20-jquery-plugins-for-gallery-and-portfolio-websites/
-"lightbox":http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/
-"zoom image galery":http://addyosmani.com/blog/zoomer-gallery-a-jquery-plugin-for-displaying-images-with-flash-like-zooming-effects/
+[Portfolio improovers](http://www.designer-daily.com/18-jquery-scripts-and-tutorials-to-improve-your-portfolio-2162) 
+[galery](http://www.webhostingsecretrevealed.com/featured-articles/20-jquery-plugins-for-gallery-and-portfolio-websites/)
+[lightbox](http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/)
+[zoom image galery](http://addyosmani.com/blog/zoomer-gallery-a-jquery-plugin-for-displaying-images-with-flash-like-zooming-effects/)
 
-"js fiddle for inspecting":http://jsfiddle.net/gnarf/qpJWp/
-"jqeury...":http://www.sohtanaka.com/web-design/fancy-thumbnail-hover-effect-w-jquery/
+[js fiddle for inspecting](http://jsfiddle.net/gnarf/qpJWp/)
+[jqeury...](http://www.sohtanaka.com/web-design/fancy-thumbnail-hover-effect-w-jquery/)
 
 
 
@@ -279,7 +283,10 @@ https://github.com/sferik/rails_admin/
 
 
 
+bookmarks
+==========
 
+http://disqus.com/  put comments on your site
 
 
 

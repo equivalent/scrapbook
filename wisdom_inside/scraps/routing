@@ -1,6 +1,53 @@
 http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-url_for
 
 
+
+
+
+
+
+forcing ssl under rails 
+-------------------------
+
+how to change http links to https
+
+[Configuring Rails 3 to use HTTPS and SSL](http://www.simonecarletti.com/blog/2011/05/configuring-rails-3-https-ssl/)
+
+
+in view for http headers use // insted of http://
+
+~~~html
+ <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+
+
+<link rel="stylesheet" href="//example.com/style.css">
+
+<script src="//example.com/script.js"></script>
+~~~
+
+[source](http://blog.httpwatch.com/2010/02/10/using-protocol-relative-urls-to-switch-between-http-and-https/)
+
+
+don't do it this way, even if it is possible 
+<c>
+"http#{'s' if request.ssl?}"
+
+
+'s' if request.ssl?
+</c>
+
+
+
+
+
+
+
+
+
+
+
+
+
 back
 ----
 

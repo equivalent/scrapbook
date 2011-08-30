@@ -1,0 +1,6 @@
+
+source 'http://rubygems.org'
+
+
+#other sources
+gem 'rails', :git => 'git://github.com/rails/rails.git'

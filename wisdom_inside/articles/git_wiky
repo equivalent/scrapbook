@@ -1,0 +1,39 @@
+
+
+Why git ?
+==========
+
+There is a nice [short story explaining why is git such a great tool](http://stackoverflow.com/questions/5250817/git-rebase-loses-history-then-why-rebase/5251162#5251162), where *genius*, *general* and *hacker* are using git as a tool for sharing their work for world domination. To make thing short the moral of the story is: If you just use merging tool(like svn) you will have current status of work, but no idea what was the *mind flow* for creating the work. If you use rebasing VSC (like git) you will have current work, and you will see how this work was gathered during time.
+
+Another example, let's say whole development team of project decide they are quiting they're  jobs, and leaving the project. If you have SVN you have just the work at it current stage, while with git you will have the structure how the project was build during time.
+
+
+
+Git rerere
+==========
+
+To prevent loosing git conflict history when rebasing branch to your branch you have to enable *git rerere* witch is off by default 
+
+        my_branch    #---#----#-#-------#----#--#-----#---#----#----#
+                    /     \              \   \   \              \    \
+        master     *-------*--------------*---*---*--------------*----*----X
+                    \                   \            \                    /
+        her branch   #------#-------#----X------#-----X-----#------------#
+
+        X - conflict
+        * - suc. rebase
+        # - commit
+
+( [whole scenario explained here](http://stackoverflow.com/questions/7241678/how-to-prevent-lot-of-git-conflicts-when-git-rebasing-lot-of-commits) )
+
+just run 
+
+~~~bash
+git config --global rerere.enabled 1
+~~~
+
+the command will turn this functionality on globally (all projects)
+
+http://stackoverflow.com/questions/7241678/how-to-prevent-lot-of-git-conflicts-when-git-rebasing-lot-of-commits
+http://progit.org/2010/03/08/rerere.html
+

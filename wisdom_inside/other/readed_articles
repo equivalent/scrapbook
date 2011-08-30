@@ -1,3 +1,13 @@
+http://vimdoc.sourceforge.net/htmldoc/spell.html
+http://progit.org/2010/03/08/rerere.html  git rerere. a solution to tell git to remembel git conflict decision described [here](http://stackoverflow.com/questions/7241678/how-to-prevent-lot-of-git-conflicts-when-git-rebasing-lot-of-commits/7241759#7241759)
+http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html
+http://www.kernel.org/pub/software/scm/git/docs/git-merge.html
+http://dira.ro/2010/11/30/omniauth-strategy-for-everything-else
+http://devcenter.heroku.com/articles/omniauth-and-force-com
+https://github.com/intridea/oauth2/issues/44
+http://nathanhoad.net/how-to-return-json-from-sinatra Return JSON from Sinatra
+http://www.mikepackdev.com/blog_posts/2-Dynamically-Requesting-Facebook-Permissions-with-OmniAuth
+http://avdi.org/devblog/2011/08/22/your-code-is-my-hell/
 http://intridea.com/2010/4/22/oauth2-gem-just-in-time-for-facebook-graph?blog=company
 http://ryanbigg.com/2011/04/whodunit-devise-omniauth-oauth-or-github/
 http://hueniverse.com/oauth/guide/terminology/
@@ -35,13 +45,17 @@ rdoc for rails":http://stackoverflow.com/questions/1202060/how-do-i-generate-rdo
 "Google & meta keywords":http://googlewebmastercentral.blogspot.com/2009/09/google-does-not-use-keywords-meta-tag.html,
 "prawn":http://prawn.heroku.com/ , 
 "named scopes are dead":http://www.railway.at/2010/03/09/named-scopes-are-dead/
+totaly old:
+http://stakeventures.com/articles/2007/11/26/how-to-turn-your-rails-site-into-an-oauth-provider
 
 
 
 
-
-stack owerflow  (sofa)
+stack owerflow  (stck sofa)
 ==============
+http://stackoverflow.com/questions/7241678/how-to-prevent-lot-of-git-conflicts-when-git-rebasing-lot-of-commits  (my question)
+http://stackoverflow.com/questions/5250817/git-rebase-loses-history-then-why-rebase
+http://stackoverflow.com/questions/6967737/cant-use-facebook-to-authenticate-undefined-method-web-server-for-oauth2
 http://stackoverflow.com/questions/928646/how-do-i-tell-git-to-always-select-my-local-version-for-conflicted-merges-on-a-sp
 http://stackoverflow.com/questions/2920594/tell-git-not-to-merge-binary-files-but-to-choose
 http://stackoverflow.com/questions/5668415/why-does-cropping-behave-like-that/5744310#5744310
@@ -65,11 +79,12 @@ https://github.com/markevans/dragonfly/
 
 
 
-Railscasts episodes (rec)
+Railscasts episodes (rlcsst)
 ===================
 
 "archive":http://railscasts.com/episodes/archive
 
+279 http://railscasts.com/episodes/279-understanding-the-asset-pipeline?autoplay=true
 255
 241 omniauth from scratch   http://railscasts.com/episodes/241-simple-omniauth
 238
@@ -109,3 +124,5 @@ to be readed
 http://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to
 http://www.slideshare.net/padday/the-real-life-social-network-v2
 http://37signals.com/bootstrapped
+
+
