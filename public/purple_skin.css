@@ -1,4 +1,14 @@
 /* colors */
+pre{
+  background: silver;
+  padding:10px;
+}
+
+div.CodeRay pre{
+  background: black;
+  padding:0px;
+}
+
 body a{
   color: #702777;
   text-decoration:none;

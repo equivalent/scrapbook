@@ -35,6 +35,7 @@ end
 
 before do
   @sidelinks = read_w_file('links_side')
+  @plugin_right_sidebar_partials =  Dir[File.dirname(__FILE__) + '/plugins/right_side_partials/*.haml']
 end
 
 get '/' do
