@@ -38,6 +38,7 @@ before do
   @plugin_right_sidebar_partials =  Dir[File.dirname(__FILE__) + '/plugins/right_side_partials/*.haml']
 end
 
+
 get '/' do
  @articles = dir_w_listing 'articles/'
  @notes = dir_w_listing 'notes/'

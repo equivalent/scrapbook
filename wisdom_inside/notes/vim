@@ -1,0 +1,163 @@
+!@#vim
+
+
+combo
+======
+d't														#zmaze vsetko od current ridku az po mark t 
+c3w														#deletes 3 words and put to insertmode
+vit														# visualy select text inide tag
+ci]:error											#chang 
+/h1/+3                        #najde h1 a da kurzor na 3 riadok od najdenia
+/slovo/e+3										#najde slovo a da kurzor 3 pismena od
+d/bacon/e+3 
+y?def													#yankne text po najblysi def
+
+MOVE 
+====
+B b h <>l w W									#word movement
+0 ^ gE ge <> e E $						#home 
+g0 g^ <gm> g$									#home celeho ridku
+42gg alebo 42G								#ist na ridok 42
+
+{   }													# start and end of paragraf
+(   )													# start and end of sentence
+
+scroll
+======
+zt zz zb    									#scroll top midle bottom
+H  M  L
+ctrl+e   ctrl+y               #clasik scrolling
+
+
+FIND
+====
+Fx <> fx                        #najde pismeno x
+?  															up
+/ 															down
+N  n                            prew next
+#  *														next current word
+g# g*														large word search
+%s/bacon/letuce/									replacne bacon za letuce
+
+
+marks
+========
+#upprcase are global lovercase filebased 
+:marks
+ma                             #mark a
+`a														# jump na presny ridok a poziciu
+'a														#na zaciatok oznaceneho ridku
+''   a ``                     #posledne pozicie
+'.  a  `. 										#posledne pozicie uprav 
+
+
+editing text 
+============
+insertion
+---------
+I														# first nonblank char
+A														# end of line 
+
+replace
+--------
+r 													#single char
+R														#replacemade    a backspace returns changes back
+
+delete
+--------
+x														delete char
+dd alebo D
+cc 	C												delete line & put to insert
+
+Join
+----
+J 													spoji 2 ridky   alebo   5J   cislo ridkov
+
+formatovanie blokov
+-------------------
+4>>  2<<
+ctrl-d   <>  ctrl-t              v insert mode
+
+
+
+visual
+======
+o              #visualne selectnuty text, prepinnam konce
+
+
+
+SPLIT
+=====
+
+:sp	filename					
+:vsp filename					
+
+<c-w> kjhl         #  change split
+<c-w> + -          #  change split size by line
+
+:wa   :qa   :wqa   # write all, quit all, write&quit all									
+
+
+tabs
+====
+
+:tabnew 
+:tabnext
+gt                #in nonmal mode switch tabs
+:tabs							#list of tabs
+:tabm 3		        #move tab on 3 position
+
+
+
+info
+=====
+ctrl+g  			     #info o ridku
+
+
+
+vim spellchecking 
+=================
+
+http://vimdoc.sourceforge.net/htmldoc/spell.html
+
+:setlocal spell spelllang=en_us
+[s       #next sp
+]s       #prev
+zg       #skip
+zG       # add to dictionarry
+zw       # mark word as wrong
+zW       # mark word as wrong and add it to dictionarry as wrong
+
+
+
+riesenia
+========
+^M
+--
+:%s/^M//g
+
+settings
+========
+set ruler
+set number             #cislaradkov
+set laststatus=2      #statusbar
+set shiftwidth=2 	 		#osazenie textu ked das >> a<<  tabulator size
+set noswapfile        # stop creatink swp file(crash/recowery backup file)
+set set clipboard=unnamed   # spristupni clipboard stredneho tlacitka mysi
+set expandtab         # use spaces insted of tabs => good for yml
+
+
+
+trics
+=====
+:call ReloadAllSnippets()
+
+
+
+other programs
+=============
+vimdiff  file1  file2               #diffrence tool
+
+
+plugins
+======

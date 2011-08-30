@@ -4,7 +4,8 @@
     = link_to('/', I.t('links.home'))
     = link_to('/links', I.t('links.links'))
   #quick_links.section
-    
+    ~ markdown (@sidelinks)
+
 
   -#load plugins partials in alphabetical order
   - @plugin_right_sidebar_partials.each do |file|

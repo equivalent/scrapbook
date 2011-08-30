@@ -54,7 +54,7 @@ end
   end
 
   def dir_w_listing(folder_name)
-      Dir.entries( w_path(folder_name )) - ['.', '..']
+      (Dir.entries( w_path(folder_name )) - ['.', '..']).sort
   end
 
 end
