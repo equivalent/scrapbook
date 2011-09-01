@@ -1,0 +1,96 @@
+
+
+todo 
+===== 
+
+sync rythmbox playlist winh n900 or any other mediaplayer
+https://launchpad.net/rhythmbox-playlist-sync
+
+
+Amazon s3cmd
+===========
+
+### this is the good tool
+
+http://s3tools.org/s3cmd
+
+      
+      sudo apt-get install s3cmd
+
+      s3cmd --help
+      s3cmd --configure
+
+
+
+uploading file public 
+
+      s3cmd put --acl-public --guess-mime-type ./ s3://my_bucket_name/ --recursive
+
+
+
+uploading file private (yup, private is by def)
+
+      s3cmd put  ./ s3://my_bucket_name/ --recursive
+
+
+
+
+if file names are the same, the file are overitten 
+
+
+
+
+image url will look like this
+
+       http://s3.amazonaws.com/mybucketname/sh211.png
+
+
+Amazon s3 git repositorie
+==========================
+
+
+
+*  download "jgit":http://eclipse.org/jgit/download/ 
+*  setup jgit config @vim ~/.jgit@
+
+        accesskey: awsaccesskey
+        secretkey: awssecretaccesskey
+
+*  creat branch and remote it
+
+        s3cmd mb s3://git-repos
+        mkdir chef-recipes
+        cd chef-recipes
+        git init
+        touch README
+        git add README
+        git commit README
+        git remote add origin amazon-s3://.jgit@git-repos/chef-recipes.git
+        jgit push origin master??
+
+to clone
+
+        jgit clone amazon-s3://.jgit@git-repos/chef-recipes.git??
+
+Jgit doesn't support pull or merge so use
+
+        cd chef-recipes
+        jgit fetch
+        git merge origin/master
+
+
+---------------------------------------------------------------------
+
+Amazon s3 git trought gits3
+=============================
+
+### Warning I used this tool and it's not that good for me
+
+*  git clone git://github.com/abdelhalim/gits3.git
+*  install boto and dulwitch libraries from synaptic
+*  todo...I abonded this solution
+
+[project home](http://wiki.cs.pdx.edu/oss2009/index/projects/gits3.html)
+
+
+---------------------------------------------------------------------

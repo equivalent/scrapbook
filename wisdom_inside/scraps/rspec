@@ -1,0 +1,81 @@
+
+~~~bash
+bundle exec rspec spec
+~~~
+
+
+
+scraps from peepcode 
+
+~~~ruby
+
+
+Dir[Rails.root.join("spec/factories/**/*.rb")].each {|f| require f}
+
+
+require 'spec_helper'
+describe ModelName do
+ uses_model ModelName #if different
+ context "popis bla bla" do
+    before(:each) do
+      @joe = Factory(:existing_person)    
+      @user = Factory.create(:user)
+    end
+  
+
+	  it "should have 1 relationship" do
+      1.times do
+        @joe.create_relationship_with(Factory(:existing_person))
+      end
+      @joe.all_relationships.size.should == 1
+    end
+	
+    it "should have 0 errors" do
+      @joe.errors.count.should == 0
+    end
+
+
+    Recommendation.should respond_to(:taggable)
+
+
+    model.some_model_method
+ end  
+end		
+
+
+
+
+#testing if module is present
+  include SomeModule #must be at top of the file
+
+  it "should include TurnLikesToLove module" do
+     model.included_modules.should include(TurnLikesToLove)
+  end  
+
+~~~
+
+
+instalation and generation
+==========================
+
+installing : 
+
+        [sudo] gem install rspec
+        [sudo] gem install rspec-rails
+        script/generate rspec 
+
+
+rails 3
+        
+        rails g rspec:install
+        rails g rspec:scaffold ...
+
+        
+
+rails 2
+---------------
+
+        script/generate rspec 
+        script/generate rspec_scaffold semester name:string position:integer
+
+

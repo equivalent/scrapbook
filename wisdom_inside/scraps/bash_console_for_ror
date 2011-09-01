@@ -1,6 +1,8 @@
+update rubygems 
 
-
-
+~~~bash
+gem update --system
+~~~ 
 
 Rake examples
 -------------
