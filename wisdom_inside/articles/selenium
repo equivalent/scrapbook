@@ -1,0 +1,327 @@
+
+
+Installation 
+=============
+
+I'm installing the selenium on Ubuntu 11.04 and will work with ruby rspec under rails.
+
+
+### warning this step by step manual is  incomplete, at the time I was configuring my selenium, there were some preconfigured options in the project, my colleague sets
+
+Selenium RC server 
+------------------
+
+download selenium jar file from the [Selenium Server (formerly the Selenium RC Server) download page](http://seleniumhq.org/download/)
+
+to run the server you need Java (in Ubuntu it should be included) and just run 
+
+~~~bash
+cd ~/folder_where_you_downloaded_the_file
+java -jar ./selenium-server-standalone-2.5.0.jar
+~~~
+
+server should be running without problem
+
+
+now install the selenium  gems
+
+*Gemfile*
+
+~~~bash
+  gem "selenium-webdriver", "~> 2.4.0"
+  gem "selenium-client"
+~~~
+
+and run *bundle*
+
+
+
+than you have to setup the *spec/selenium_helper.rb* .Now I didn't had to do this step, because my colleague did it before me. But I will leave some links leading to the hints how is this done
+http://selenium.googlecode.com/svn/tags/selenium-2.5.0/docs/api/rb/index.html
+
+
+
+
+next if you want to  run firefox in background you have to instal xvfb 
+
+~~~bash
+sudo apt-get install xvfb
+~~~
+
+
+
+example files
+=============
+
+
+
+
+*selenium_helper.rb*
+
+~~~ruby
+
+############################
+# 1. Replace the top require code to following
+#   require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+#   require File.expand_path(File.dirname(__FILE__) + '/../selenium_helper')
+#
+#
+# 2. add navigate to host after firefox
+#     @driver = Selenium::WebDriver.for :firefox
+#     @driver.navigate.to host
+#
+# 2. change the path
+#     @driver.get "/recommendations#give"
+#     get "/recommendations#give"
+#
+# 3. add the following after before block
+#   before(:all) do
+#     selenium_register_and_login_as current_user
+#   end
+#
+# 4. page.click "link=exact:Not a member? Sign-up here"
+#   remove link=exact:
+#
+#
+############################
+
+
+require 'headless'
+require "selenium/client"
+require "selenium-webdriver"
+require 'headless'
+require 'ffaker/internet'
+
+require "rspec"
+require "rake"
+include RSpec::Expectations
+
+def selenium_webdriver_start(browser)
+  if headless_config
+    @headless = Headless.new
+    @headless.start
+  end
+
+  @selenium_driver = Selenium::WebDriver.for browser
+  @selenium_driver.navigate.to host
+  @selenium_driver.manage.timeouts.implicit_wait = 30
+  @verification_errors = []
+end
+
+def create_directory(directory_path)
+  dir = File.expand_path(Rails.root.to_s +  directory_path)
+  Dir.mkdir(dir) unless File.directory?(dir)
+end
+
+def create_directory_recursively(directory_path)
+   directories = directory_path.split("/")
+   directories.each_with_index do |dir, index|
+     # ['', ''a', 'b']
+     if dir.present?
+      parent_dir = directories[index-1]
+      if parent_dir.present?
+        create_directory("/#{parent_dir}/#{dir}/")
+      else
+        create_directory("/#{dir}/")
+      end
+     end
+   end
+end
+
+def screenshot(filename)
+  time = Time.now.strftime("%d-%m-%Y")
+  create_directory_recursively('/selenium/'+time)
+  file = File.expand_path(Rails.root.to_s + '/selenium/'+time+'/'+filename)
+
+  @selenium_driver.save_screenshot(file)
+end
+
+def selenium_webdriver_stop_with_screenshot(filename)
+  screenshot(filename)
+  @selenium_driver.quit
+  @headless.destroy if headless_config
+  @verification_errors.should == []
+end
+
+def wait_xpath(xpath)
+  wait = Selenium::WebDriver::Wait.new(:timeout => 1) # seconds
+  wait.until { @selenium_driver.find_element(:xpath, xpath) }
+end
+
+def wait(how, what)
+  wait = Selenium::WebDriver::Wait.new(:timeout => 1) # seconds
+  wait.until { @selenium_driver.find_element(how => what) }
+end
+
+def wait_element_id(id)
+  wait = Selenium::WebDriver::Wait.new(:timeout => 1) # seconds
+  wait.until { @selenium_driver.find_element(:id => id) }
+end
+
+def headless_config
+  File.exist?('config/selenium.yml') ? selenium_config["firefox"]["headless"] : true
+end
+
+def selenium_config
+  YAML::load( File.open( 'config/selenium.yml') )
+end
+
+def run_rake path, task
+  rake = Rake::Application.new
+  Rake.application = rake
+  Rake.application.rake_require path #
+  Rake::Task.define_task(:environment)#(task)
+  rake[task].invoke
+end
+
+def current_user
+  @user ||=  User.new(:first_name => Faker::Internet.user_name, :last_name => Faker::Internet.user_name, :email => Faker::Internet.email, :terms_and_conditions => true )
+end
+
+
+=begin
+require 'cucumber/rake/task'
+require 'selenium/rake/tasks'
+#require 'rubygems' #add this if you don't have rubygems added automatically
+
+
+# Change these to specify which browsers on which
+# platforms you want to cover
+@win_browsers = ["*iexploreproxy","*firefox"]
+@osx_browsers = ["*safari", "*firefox"]
+@linux_browsers = ["*firefox"]
+
+# Supported platforms
+@platforms = {"win"=>"Windows", "osx"=>"OS X", "linux"=>"Linux"}
+
+if RUBY_PLATFORM.downcase.include?("darwin")
+  @platform = 'osx'
+elsif RUBY_PLATFORM.downcase.include?("mswin")
+  @platform = 'win'
+elsif RUBY_PLATFORM.downcase.include?("linux")
+  @platform = 'linux'
+end
+
+if ENV["SELENIUM_RC_JAR"]
+  # User override
+  SELENIUM_RC_JAR = ENV["SELENIUM_RC_JAR"]
+elsif File.exists?(File.dirname(__FILE__) + \
+ "/vendor/selenium-server/selenium-server.jar")
+  # Bundled version included with project
+  SELENIUM_RC_JAR = File.dirname(__FILE__) + \
+"/vendor/selenium-server/selenium-server.jar"
+else
+  SELENIUM_RC_JAR  = case @platform
+  when 'osx' then "/var/lib/selenium/selenium-server.jar"
+  when 'linux' then "/var/lib/selenium/selenium-server.jar"
+  when 'win' then "C:/selenium-rc/selenium-server.jar"
+  else raise 'Unsupported Operating System'
+  end
+end
+if not File.exists?(SELENIUM_RC_JAR)
+  raise "File Not Found -- SELENIUM_RC_JAR"
+end
+
+desc "Invoke behaviours on all browsers on specified platform"
+task :test do
+  @browsers = case @platform
+  when 'win' then @win_browsers
+  when 'osx' then @osx_browsers
+  when 'linux' then @linux_browsers
+  end
+
+  puts "Running tests for the #{@platforms[@platform]} platform"
+
+  # Set the database to test one otherwise, it will use development db because of domain
+  Rails.env = 'test'
+  config = ActiveRecord::Base.configurations[Rails.env]
+  ActiveRecord::Base.establish_connection(config)
+
+  Rake::Task[:"selenium:rc:stop"].execute [] rescue nil
+  begin
+     Rake::Task[:"selenium:rc:start"].execute []
+    @browsers.each do |browser|
+      puts "executing on browser" + browser.to_s + "\n"
+      @current_browser = browser
+      ENV['SELENIUM_BROWSER'] = browser
+      year,month,day = Date.today.strftime("%Y,%m,%d").split(",")
+      dir = "reports/#{year}/#{month}"
+      FileUtils::mkdir_p(dir)
+      filename = "#{dir}/#{day}-#{browser.delete "*"}.html"
+      ENV['CUCUMBER_OPTS'] = "--format progress --format html \
+--out=#{filename} features"
+      begin
+        Rake::Task[ :run_browser_tests ].execute()
+      rescue RuntimeError
+        puts "Error while running task"
+      end
+    end
+  ensure
+    Rake::Task[:"selenium:rc:stop"].execute []
+  end
+end
+
+Selenium::Rake::RemoteControlStartTask.new do |rc|
+  rc.port = 4444
+  rc.timeout_in_seconds = 30
+  rc.background = true
+  rc.wait_until_up_and_running = true
+  rc.jar_file = SELENIUM_RC_JAR
+  rc.additional_args << "-singleWindow"
+end
+
+Selenium::Rake::RemoteControlStopTask.new do |rc|
+  rc.host = "localhost"
+  rc.port = 4444
+  rc.timeout_in_seconds = 30
+  rc.wait_until_stopped = true
+end
+
+desc "Restart Selenium Remote Control"
+task :'selenium:rc:restart' do
+  Rake::Task[:"selenium:rc:stop"].execute [] rescue nil
+  Rake::Task[:"selenium:rc:start"].execute []
+end
+
+
+task :default => [:test]
+=end
+~~~
+
+
+*spec/selenium/example_spec_with_selenium.rb*
+
+~~~ruby
+
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/../selenium_helper')
+
+describe "RegisterWebdriver" do
+  attr_accessor :selenium_driver
+
+  before(:all) do
+    selenium_webdriver_start(:firefox)
+  end
+
+  after(:all) do
+    selenium_webdriver_stop_with_screenshot("registration.png")
+  end
+
+  it "test_register_webdriver" do
+    selenium_webdriver_register_and_login_as current_user
+  end
+
+  def element_present?(how, what)
+    @selenium_driver.find_element(how, what)
+    true
+  rescue Selenium::WebDriver::Error::NoSuchElementError
+    false
+  end
+
+  def verify(&blk)
+    yield
+  rescue ExpectationNotMetError => ex
+    @verification_errors << ex
+  end
+end
+~~~

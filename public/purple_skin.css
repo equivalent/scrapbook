@@ -41,6 +41,8 @@ body {
   color: color: #1C1C1C;
 }
 
+.main div#content{ background:#DCDCDC}
+
 .main div#content .markuped_content h1 { font-size: 18px; }
 .main div#content .markuped_content h2 { font-size: 14px; }
 
@@ -78,3 +80,8 @@ body {
 
 
 
+.main .box_shadow {
+	-webkit-box-shadow: 1px 1px 3px #1D001A;
+	-moz-box-shadow: 1px 1px 3px #1D001A;
+	box-shadow: 1px 1px 3px #1D001A;
+}

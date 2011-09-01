@@ -72,7 +72,7 @@ div.clear{clear:both;}
 }
 
 
-div.rounded_borders{
+.rounded_borders{
   -moz-border-radius: 15px;
   border-radius: 15px
 }
