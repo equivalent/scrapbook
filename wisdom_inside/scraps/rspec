@@ -58,15 +58,16 @@ end
 instalation and generation
 ==========================
 
-installing : 
-
-        [sudo] gem install rspec
-        [sudo] gem install rspec-rails
-        script/generate rspec 
-
 
 rails 3
+--------
         
+bundler
+
+        gem 'rspec-rails'
+
+generator
+
         rails g rspec:install
         rails g rspec:scaffold ...
 
@@ -74,6 +75,14 @@ rails 3
 
 rails 2
 ---------------
+
+installing : 
+
+        [sudo] gem install rspec
+        [sudo] gem install rspec-rails
+        script/generate rspec 
+
+generating
 
         script/generate rspec 
         script/generate rspec_scaffold semester name:string position:integer

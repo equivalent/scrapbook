@@ -3,7 +3,12 @@
 Installation 
 =============
 
-I'm installing the selenium on Ubuntu 11.04 and will work with ruby rspec under rails.
+I'm installing the selenium on Ubuntu 11.04 and will work with ruby rspec under rails 3.0.9. Selenium tests in final step will run in background (the browser won't be showing up) and will do screenshots if something fails.
+
+To process further I suppose that you have alredy installed Rspec, if not see [my scraps on rspec](/equivalents_scrap/on_rspec) but to makes thing short 
+
+     gem 'rspec-rails'    # in Gemfile
+     rails g rspec:install
 
 
 ### warning this step by step manual is  incomplete, at the time I was configuring my selenium, there were some preconfigured options in the project, my colleague sets
@@ -32,14 +37,15 @@ now install the selenium  gems
   gem "selenium-client"
 ~~~
 
+
+if you want also the background functionality with screenshots add also following gems (recommend to add them, because I didn't test it  without theese gems)
+
+~~~bash
+  gem "headless"
+  gem 'ffaker', :git => 'git://github.com/boffbowsh/ffaker.git'
+~~~
+
 and run *bundle*
-
-
-
-than you have to setup the *spec/selenium_helper.rb* .Now I didn't had to do this step, because my colleague did it before me. But I will leave some links leading to the hints how is this done
-http://selenium.googlecode.com/svn/tags/selenium-2.5.0/docs/api/rb/index.html
-
-
 
 
 next if you want to  run firefox in background you have to instal xvfb 
@@ -49,14 +55,233 @@ sudo apt-get install xvfb
 ~~~
 
 
+### configuring *spec/selenium_helper*
 
-example files
-=============
-
-
+you don't have to do changes in  *spec/spec_helper.rb* because we will require *spec/selenium_helper.rb* in our selenium specs, so this way there will be less configuration for normal rspecs
 
 
-*selenium_helper.rb*
+
+copy this to spec/selenium_helper.rb
+
+~~~ruby
+
+############################
+# 1. Replace the top require code to following
+#   require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+#   require File.expand_path(File.dirname(__FILE__) + '/../selenium_helper')
+#
+#
+# 2. add navigate to host after firefox
+#     @driver = Selenium::WebDriver.for :firefox
+#     @driver.navigate.to host
+#
+# 2. change the path
+#     @driver.get "/recommendations#give"
+#     get "/recommendations#give"
+#
+# 3. add the following after before block
+#   before(:all) do
+#     selenium_register_and_login_as current_user
+#   end
+#
+# 4. page.click "link=exact:Not a member? Sign-up here"
+#   remove link=exact:
+#
+#
+############################
+
+
+require 'headless'
+require "selenium/client"
+require "selenium-webdriver"
+require 'headless'
+require 'ffaker/internet'
+
+require "rspec"
+require "rake"
+include RSpec::Expectations
+
+def selenium_webdriver_start(browser)
+  # if headless_config
+  #   @headless = Headless.new
+  #   @headless.start
+  # end
+
+  @selenium_driver = Selenium::WebDriver.for browser
+  @selenium_driver.navigate.to host
+  @selenium_driver.manage.timeouts.implicit_wait = 30
+  @verification_errors = []
+end
+
+def create_directory(directory_path)
+  dir = File.expand_path(Rails.root.to_s +  directory_path)
+  Dir.mkdir(dir) unless File.directory?(dir)
+end
+
+def create_directory_recursively(directory_path)
+   directories = directory_path.split("/")
+   directories.each_with_index do |dir, index|
+     # ['', ''a', 'b']
+     if dir.present?
+      parent_dir = directories[index-1]
+      if parent_dir.present?
+        create_directory("/#{parent_dir}/#{dir}/")
+      else
+        create_directory("/#{dir}/")
+      end
+     end
+   end
+end
+
+def screenshot(filename)
+  time = Time.now.strftime("%d-%m-%Y")
+  create_directory_recursively('/selenium/'+time)
+  file = File.expand_path(Rails.root.to_s + '/selenium/'+time+'/'+filename)
+
+  @selenium_driver.save_screenshot(file)
+end
+
+def selenium_webdriver_stop_with_screenshot(filename)
+  screenshot(filename)
+  @selenium_driver.quit
+  @headless.destroy if headless_config
+  @verification_errors.should == []
+end
+
+def wait_xpath(xpath)
+  wait = Selenium::WebDriver::Wait.new(:timeout => 1) # seconds
+  wait.until { @selenium_driver.find_element(:xpath, xpath) }
+end
+
+def wait(how, what)
+  wait = Selenium::WebDriver::Wait.new(:timeout => 1) # seconds
+  wait.until { @selenium_driver.find_element(how => what) }
+end
+
+def wait_element_id(id)
+  wait = Selenium::WebDriver::Wait.new(:timeout => 1) # seconds
+  wait.until { @selenium_driver.find_element(:id => id) }
+end
+
+def headless_config
+  File.exist?('config/selenium.yml') ? selenium_config["firefox"]["headless"] : true
+end
+
+def selenium_config
+  YAML::load( File.open( 'config/selenium.yml') )
+end
+
+def run_rake path, task
+  rake = Rake::Application.new
+  Rake.application = rake
+  Rake.application.rake_require path #
+  Rake::Task.define_task(:environment)#(task)
+  rake[task].invoke
+end
+
+def host
+  "http://0.0.0.0:3000"
+end
+
+def get url
+  @selenium_driver.get "#{host}#{url}"
+end
+~~~
+
+...as you can see, there are also some helpers for webdriver (like *wait_element_id*) take them as an example for creating own. Wery important method is *host* at the bottom of file. This is the landing url, when you start selenium test.
+
+*Btw this selenium_helper.rb is kinda messy because I copy it from my colleague ( thx Swe ) and pasted som helpers that were required from separated files. So I highly recommend to refactore this*
+
+
+
+###example spec file
+
+spec/selenium/register.rb
+
+~~~ruby
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/../selenium_helper')
+
+
+
+describe "RegisterWebdriver" do
+  attr_accessor :selenium_driver
+
+  before(:all) do
+    @verification_errors = []
+  end
+
+
+  before(:all) do
+    selenium_webdriver_start(:firefox)
+  end
+  
+
+  after(:all) do
+    # selenium_webdriver_stop_with_screenshot("registration.png")  #you can put here something else
+  end
+
+  it "test_register_webdriver" do
+    @selenium_driver.find_element(:link, "Sign in with Twitter").click
+    @selenium_driver.find_element(:id, "username_or_email").clear
+    @selenium_driver.find_element(:id, "username_or_email").send_keys "developers@something_something.com"
+    screenshot('test_when_somethingsomething')  #yes this is all what it's take to do screenshot
+    @selenium_driver.find_element(:id, "password").clear
+    @selenium_driver.find_element(:id, "password").send_keys "mysuperseecretpassword"
+    @selenium_driver.find_element(:id, "allow").click
+  end
+end
+~~~
+
+
+and run
+     
+     rspec spec/selenium/register.rb
+
+
+###running in background
+
+So now how to run firefox in background? Find the following lines in our *spec/selenium_helper.rb* and uncoment them
+
+     # if headless_config
+     #   @headless = Headless.new
+     #   @headless.start
+     # end
+
+now you will se just passing console lines insted of popping up firefox window.
+
+
+
+
+###screenshot
+
+screenshot is done by calling methods from *selenium/helper*
+
+     selenium_webdriver_stop_with_screenshot(filename)
+     screenshot(filename)
+
+
+
+btw, It's possible that I missed something, I was writing this scrapbook article while refactoring code from one project to another and didn't double check.
+
+
+
+
+some links
+------------
+
+http://selenium.googlecode.com/svn/tags/selenium-2.5.0/docs/api/rb/index.html
+
+
+
+
+Example  files 
+======================
+
+the original ones from colleague
+--------------------------------
+
+*selenium_helper.rb* 
 
 ~~~ruby
 
