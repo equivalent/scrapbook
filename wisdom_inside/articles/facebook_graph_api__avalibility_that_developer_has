@@ -1,0 +1,343 @@
+
+
+investigation on what developer can get/post from/to facebook done on September 12 2011
+
+
+
+
+
+
+Some notes before digging to deep 
+==================================
+
+*  requests must be https
+
+
+you can discover information about user by just typing (id or username) [more](https://developers.facebook.com/docs/reference/api/)
+
+
+    https://graph.facebook.com/68310606562
+
+[source](https://developers.facebook.com/docs/reference/api/)
+
+
+
+
+How to discover your facebook id
+-------------------------------------
+
+in your profile, see the url of link on your profile picture
+
+    https://www.facebook.com/media/set/?set=a.1111111111111.7222.1346525790&type=1
+
+the number before **&type**
+
+    https://www.facebook.com/media/set/?set=a.1614538647140.79299.thisnumber&type=1
+
+
+
+
+
+
+
+
+
+
+
+What informations is  developer capable to catch from FB
+=========================================================
+
+
+
+If you  fetch informations with correct access token but there is no data, or the ID doesn't exist you won't get error message but empty Data array
+
+        {
+           "data": [
+              
+           ]
+        }
+
+
+
+## Publicly accessible informations  ##
+
+Note: direct url depends what the id is, for instance https://graph.facebook.com/123 can be user but https://graph.facebook.com/1234 can be fan page, so more direct url id examples  are listed in [facebook api](https://developers.facebook.com/docs/reference/api/) homepage. Also the id must be publicly accessible 
+
+*  getting profile picture 
+   *   https://graph.facebook.com/tomi.valent/picture
+*  getting users album 
+   *   https://graph.facebook.com/10150146071791729   (album id)
+
+
+
+
+
+Accessible informations  with access token from user 
+====================================================
+
+Note: more informations we want to access,  longer the permission request is when user is confirming us permissions in dialog.
+
+
+
+
+
+
+
+
+## Status messages ##
+
+
+
+[fb api on statuses](https://developers.facebook.com/docs/reference/api/status/)
+
+#### by calling 
+
+    https://graph.facebook.com/STATUS_ID?access_token=ACCESSTOKEN
+
+we can get:
+
+*  status message, 
+*  comments (this is limited)
+
+
+[eplorer](https://developers.facebook.com/tools/explorer)
+
+~~~ruby
+{
+  "id": "137930202969605",                           #id of status
+  "from": {
+    "name": "Testero Emil",
+    "id": "100002578784532"                          #fb user id 
+  },
+  "message": "tteset",
+  "updated_time": "2011-09-13T10:37:23+0000",
+  "comments": {
+    "data": [
+      {
+        "id": "137930202969605_263335",
+        "from": {
+          "name": "Testero Emil",
+          "id": "100002578784532"
+        },
+        "message": "coment 1",
+        "can_remove": true,
+        "created_time": "2011-09-13T11:12:18+0000"
+      }
+    ]
+  },
+  "type": "status"
+}
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### by calling
+
+    https://graph.facebook.com/STATUS_ID/comments?access_token=ACCESSTOKEN
+ 
+we can get 
+
+*  all comments 
+
+
+[eplorer](https://developers.facebook.com/tools/explorer)
+
+
+
+~~~ruby
+{
+  "data": [
+    {
+      "id": "137930202969605_263335",
+      "from": {
+        "name": "Testero Emil",
+        "id": "100002578784532"
+      },
+      "message": "coment 1",
+      "can_remove": true,
+      "created_time": "2011-09-13T11:12:18+0000"
+    }
+  ]
+}
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### by calling
+
+    https://graph.facebook.com/STATUS_ID/likes?access_token=ACCESSTOKEN
+
+*  all likes 
+
+[eplorer](https://developers.facebook.com/tools/explorer)
+
+~~~ruby
+{
+  "data": [
+    {
+      "id": "100002703790608",
+      "name": "Fakemaio Seram"
+    },
+    {
+      "id": "100002578784532",
+      "name": "Testero Emil"
+    }
+  ]
+}
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### friends ###
+
+*  https://graph.facebook.com/USERFACEBOOKID/friends?access_token=ACCESSTOKEN
+
+
+
+*  family members 
+*  fb applications they are using 
+*  statuses
+*  
+
+
+[graph api command explorer](https://developers.facebook.com/tools/explorer) - tool for testing fb access token &  fetching informations. Not all functionality is available.
+
+
+https://graph.facebook.com/ID/CONNECTION_TYP
+
+
+
+
+
+
+
+fb provide 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Posting on FB
+=================
+
+we can post to 
+
+posting on feed
+
+successful 
+
+
+error
+
+        {
+          "error": {
+            "type": "OAuthException",
+            "message": "(#506) Duplicate status message"
+          }
+        }
+
+
+[graph api command explorer](https://developers.facebook.com/tools/explorer) - tool for testing fb access token &  fetching informations. Not all functionality is available.
+
+
+
+
+Tools
+=======
+
+*  check  [facebook live status](https://developers.facebook.com/live_status)   ... if facebook.com doesn't have any problems
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+links 
+=====
+
+https://developers.facebook.com/docs/reference/api/
+http://www.fbrell.com
+
+
+https://developers.facebook.com/tools/explorer
+
+
+
+
+
+
+
