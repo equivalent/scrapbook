@@ -59,7 +59,8 @@ If you  fetch informations with correct access token but there is no data, or th
 
 
 
-## Publicly accessible informations  ##
+#Publicly accessible informations #
+
 
 Note: direct url depends what the id is, for instance https://graph.facebook.com/123 can be user but https://graph.facebook.com/1234 can be fan page, so more direct url id examples  are listed in [facebook api](https://developers.facebook.com/docs/reference/api/) homepage. Also the id must be publicly accessible 
 
@@ -72,13 +73,15 @@ Note: direct url depends what the id is, for instance https://graph.facebook.com
 
 
 
-Accessible informations  with access token from user 
-====================================================
+
+
+
+
+
+
+#Accessible informations  with access token from user #
 
 Note: more informations we want to access,  longer the permission request is when user is confirming us permissions in dialog.
-
-
-
 
 
 
