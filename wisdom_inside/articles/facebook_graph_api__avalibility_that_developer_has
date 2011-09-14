@@ -245,7 +245,6 @@ we can get
 
 
 
-
 ### friends ###
 
 *  https://graph.facebook.com/USERFACEBOOKID/friends?access_token=ACCESSTOKEN
@@ -320,6 +319,14 @@ Tools
 
 
 
+
+
+Summary
+=======
+
+As developer there is possibility to fetch many informations from facebook user as long you have the permissions. We can fetch user statuses, family members, photo tags, likes, groups they belong to, events, notes,  posts, comments and responses (comments) likes for them. We can also post on wall of an user, but not on his friends wall ( because we don't have auth. token for them). Comment actual posts, and responses to those posts. 
+
+There is possibility to create interface where we will be fetching comments from facebook and adding them to conversation on our site and event opposite way, sending to the wall post responses that people commented on our site. However this is not ideal because we can only post comment for those users whose auth. token we already have. Other people comments we must post as "service comments" = the person who will comment on FB will have the f.e. "site name"   not the real name of person whose token we don't have
 
 
 
