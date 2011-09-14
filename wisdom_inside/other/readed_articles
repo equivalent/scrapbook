@@ -1,3 +1,16 @@
+http://railscasts.com/episodes/126-populating-a-database
+https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
+http://www.librosweb.es/symfony_1_1_en/capitulo16/populating_a_database.html
+http://ph7spot.com/musings/getting-started-with-autotest
+http://steve.dynedge.co.uk/2010/12/22/using-factory-girl-in-a-rake-task-uninitialized-class-variable-configuration-in-rails/  problem with factory girl in rake tasks
+http://www.dan-manges.com/blog/38  fixing fictures with factories
+http://errtheblog.com/posts/61-fixin-fixtures
+http://railspikes.com/2008/2/1/loading-seed-data
+http://biodegradablegeek.com/2008/07/how-to-use-fixtures-to-populate-your-database-in-rails/  db:fixtures:load
+http://napkin.highgroove.com/articles/2008/03/31/getting-started-with-testing-unit-testing-or-bdd-with-rspec
+http://teachmetocode.com/articles/rspec-vs-testunit/
+http://www.metabates.com/2010/08/15/fixtures-v-factories-cant-we-all-just-get-along/
+http://guides.rubyonrails.org/testing.html#the-low-down-on-fixtures  fixtures in rails 3
 http://pipedreams.polite.se/14/14/  google docs + emacs
 http://fletcherpenney.net/2005/11/markdown_and_rtf
 http://www.joesseo.com/seo-meta-description-tips
@@ -71,6 +84,8 @@ http://www.g4tv.com/thefeed/blog/post/715958/guild-wars-2-environment-artist-tir
 stack owerflow  (stck sofa)
 ==============
 
+http://stackoverflow.com/questions/3852759/does-rake-dbpopulate-work-in-rails-3
+http://stackoverflow.com/questions/1139762/gitignore-file-not-ignoring
 http://stackoverflow.com/questions/7241678/how-to-prevent-lot-of-git-conflicts-when-git-rebasing-lot-of-commits  (my question)
 http://stackoverflow.com/questions/5250817/git-rebase-loses-history-then-why-rebase
 http://stackoverflow.com/questions/6967737/cant-use-facebook-to-authenticate-undefined-method-web-server-for-oauth2
@@ -97,11 +112,12 @@ https://github.com/markevans/dragonfly/
 
 
 
-Railscasts episodes (rlcsst)
+Railscasts episodes (rlscsst)
 ===================
 
 "archive":http://railscasts.com/episodes/archive
 
+283
 279 http://railscasts.com/episodes/279-understanding-the-asset-pipeline?autoplay=true
 255
 241 omniauth from scratch   http://railscasts.com/episodes/241-simple-omniauth
@@ -111,10 +127,11 @@ Railscasts episodes (rlcsst)
 209 devise authentication http://railscasts.com/episodes/209-introducing-devise?autoplay=true
 205
 194
+126
 
+81
 
-
-
+11
 
 
 
@@ -128,8 +145,6 @@ boooooooooks
 ![ProGit book]( http://progit.org/images/book-big.jpg "http://progit.org")
 ![php5 apache mysql web deveropment](/assets/php5apachemysqlwebdevelopment.jpg )
 ![Agile Web Development with Rails (3rd edition)](http://imagery.pragprog.com/products/111/rails3_xlargecover.jpg?1298589779, Agile Web Development with Rails 3rd edition)
-
-
 
 
 

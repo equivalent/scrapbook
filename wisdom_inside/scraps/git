@@ -1,4 +1,23 @@
 
+gitignore file that has been allreaddy tracked
+----------------------------------------------
+
+so put your file name to *.gitignore*
+
+    somefolder/somefile
+
+than do 
+ 
+    git rm -r --cached somefolder/somefile
+    git add .
+    git commit -m "removing tracking "
+
+
+there is also possibility to do 
+
+    git rm -r --cached .
+ 
+ that will remove all files from index, and you can add them again.
 
 
 reset to previous state (realy hard)
