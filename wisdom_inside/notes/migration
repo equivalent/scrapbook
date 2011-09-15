@@ -8,5 +8,7 @@ add_column :table_name, :column_name, :column_type, {column_options}
 add_column :accounts, :ssl_enabled, :integer, :default => 1
 remove_column :table_name, :column_name
 
+rake --task     # display most of the avalible rake tasks
+rake db:reset   #will reset databse
 
 
