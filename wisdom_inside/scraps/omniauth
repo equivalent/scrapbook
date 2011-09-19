@@ -1,0 +1,36 @@
+
+
+
+instalation
+=============
+
+http://railscasts.com/episodes/235-omniauth-part-1
+http://railsforum.com/viewtopic.php?id=45315
+https://github.com/intridea/omniauth/tree/1.0-beta
+http://rubydoc.info/gems/omniauth/0.2.6/frames
+http://railscasts.com/episodes/241-simple-omniauth
+https://github.com/intridea/omniauth/wiki
+
+*Gemfile*
+
+~~~bash
+
+gem 'omniauth'
+~~~
+
+
+
+*config/enviromnets/devel..*
+
+~~~ruby
+
+  Rails.application.config.middleware.use OmniAuth::Builder do
+    provider :twitter, 'NIOQjMvmAi3QdErtDwdeA', 'baaoutnaoetnsuhaosr'
+    provider :facebook, '238909386152208', 'ec2d8b2bar'
+    provider :github, '38c9c9df5734d73eeb8a', 'aoeusaounsaotesutaoesuusoats'
+
+    provider :openid, OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id'
+    #provider :linked_in, 'CONSUMER_KEY', 'CONSUMER_SECRET'
+  end
+
+~~~
