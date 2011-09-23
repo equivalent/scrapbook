@@ -10,5 +10,6 @@ remove_column :table_name, :column_name
 
 rake --task     # display most of the avalible rake tasks
 rake db:reset   #will reset databse
+db:migrate:rollback STEP=3
 
 

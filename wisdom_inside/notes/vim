@@ -106,6 +106,7 @@ tabs
 gt                #in nonmal mode switch tabs
 :tabs							#list of tabs
 :tabm 3		        #move tab on 3 position
+:tabclose
 
 
 

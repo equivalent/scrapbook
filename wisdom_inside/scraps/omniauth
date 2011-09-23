@@ -19,7 +19,6 @@ gem 'omniauth'
 ~~~
 
 
-
 *config/enviromnets/devel..*
 
 ~~~ruby
@@ -34,3 +33,73 @@ gem 'omniauth'
   end
 
 ~~~
+
+
+
+~~~ruby
+
+class CreateAuthentications < ActiveRecord::Migration
+  def change
+    create_table :authentications do |t|
+      t.integer :user_id
+      t.string :provider
+      t.string :uid
+      t.text :user_info
+
+      t.timestamps
+    end
+  end
+end
+
+~~~
+
+sessions controller 
+
+~~~~ruby
+
+~~~
+
+
+
+*config/routes.rb*
+
+~~~ruby
+match "/auth/:provider/callback" => "sessions#create"
+match "/signout" => "sessions#destroy", :as => :signout
+~~~
+
+
+
+view file
+
+~~~bash
+<% if current_user %>
+  Welcome <%= current_user.name %>!
+  <%= link_to "Sign Out", signout_path %>
+<% else %>
+  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+<% end %>
+~~~
+
+
+
+
+*app/c/application_c..*
+
+~~~ruby
+helper_method :current_user
+
+  private
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+~~~
+
+
+
+
+
+
+
+

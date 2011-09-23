@@ -1,3 +1,22 @@
+http://api.rubyonrails.org/classes/ActiveRecord/Base.html  # about how serialize works 
+http://forrst.com/posts/Image_watermarks_with_Rails_3_Paperclip-1GC
+http://simplicityroad.livejournal.com/1938.html
+http://apidock.com/rails/ActionView/Helpers/FormHelper/form_for
+http://code.google.com/p/vimperator-labs/wiki/VimperatorInTheMedia
+http://simplicityroad.livejournal.com/1938.html
+
+http://devcenter.heroku.com/articles/ps
+http://juixe.com/techknow/index.php/2006/06/03/rails-single-table-inheritance/
+http://en.wikipedia.org/wiki/Single_Table_Inheritance
+http://www.themomorohoax.com/2009/02/11/when-to-use-a-bang-exclamation-point-after-rails-methods
+http://stackoverflow.com/search?q=explonation+mark+in+rails
+http://stackoverflow.com/questions/88311/how-best-to-generate-a-random-string-in-ruby
+http://blog.codegram.com/2011/2/lightweight-markdown-in-your-rails-models
+http://stackoverflow.com/questions/2959661/rails-serializing-objects-in-a-database
+http://seanbehan.com/mac-os-x/installing-and-using-rvm-on-mac-os-x-creating-gemsets-and-reverting-to-original-environment/
+
+Till this point, I was trying to kinda categorize the stuff that I'm putting in, but I'm getting knda tired of it, so the articles I red from this point above won't be categorized. Also whitespace new line will determine new day start.
+
 http://community.sendgrid.com/sendgrid/topics/can_i_use_sendgrid_only_to_receive_email
 http://nanceskitchen.com/2010/02/21/accept-incoming-emails-into-a-heroku-app-using-sendgrid/
 http://hueniverse.com/2007/10/beginners-guide-to-oauth-part-ii-protocol-workflow/
@@ -88,6 +107,7 @@ totaly old:
 http://stakeventures.com/articles/2007/11/26/how-to-turn-your-rails-site-into-an-oauth-provider
 
 
+###All the above stuff I red is from newest to oldest. ^^ ###
 
 
 videos
@@ -99,9 +119,13 @@ http://www.g4tv.com/thefeed/blog/post/715958/guild-wars-2-environment-artist-tir
 
 
 
-stack owerflow  (stck sofa)
+----------------------------------------------------------------------------
+
+
+stack owerflow  
 ==============
 
+http://stackoverflow.com/questions/4881680/rspec-autotest-error-on-mac-os-x
 http://stackoverflow.com/questions/3852759/does-rake-dbpopulate-work-in-rails-3
 http://stackoverflow.com/questions/1139762/gitignore-file-not-ignoring
 http://stackoverflow.com/questions/7241678/how-to-prevent-lot-of-git-conflicts-when-git-rebasing-lot-of-commits  (my question)

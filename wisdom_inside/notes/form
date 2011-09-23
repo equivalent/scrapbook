@@ -1,0 +1,11 @@
+
+#http://apidock.com/rails/ActionView/Helpers/FormHelper/form_for
+
+<%= form_for @post do |f| %>
+  ...
+<% end %>
+
+
+<%= form_for @post, :as => :post_name, :url => post_path(@post), :html => { :class => "new_post", :id => "new_post" } do |f| %>
+  ...
+<% end %>
