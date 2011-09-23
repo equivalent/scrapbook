@@ -1,0 +1,109 @@
+
+
+software list
+=============
+
+chrome
+  
+firefox
+  flashgot
+  firebug
+  vimperator
+  
+git
+
+    http://www.crainbandy.com/how-to/how-to-install-git-on-mac-os-x-leopard-snow-leopard
+  
+
+
+
+
+homebrew xcode git rvm 
+
+        http://eddorre.com/posts/rails-ultimate-install-guide-on-os-x-lion-using-rvm-homebrew-and-pow
+
+###mysql###
+    
+downlad the mysql dmg
+
+than run in order 
+
+*  mysql...pkg
+*  Mysqlstartupitem.png
+*  Mysql.prefPane
+
+
+
+
+than
+
+~~~bash
+ln /usr/local/mysql-5.5.16-osx10.5-x86/bin/mysql  /usr/bin/mysql
+~~~
+
+
+
+put this into .bash_profile
+
+~~~bash
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+alias mysql-start="sudo /usr/local/mysql/support-files/mysql.server start"
+alias mysql-stop="sudo /usr/local/mysql/support-files/mysql.server stop
+                                                                                                                                                                                                                 
+~~~
+
+~~~bash
+ auwx | grep mysqld
+~~~
+
+
+
+
+
+
+shortcuts
+=========
+
+ 
+http://www.danrodney.com/mac/
+
+##mac comnads##
+
+~~~bash
+cmd+space #run command input field
+cmd+q     #quit
+cmd+,     #preferences
+cmd+alt+f # fullscreen mode
+
+
+f12 #show desctop
+f11 #show dashboard
+ctrl+uparrow  #mission control
+ctrl+downarrow  #application window
+
+sift+cmd+h
+
+~~~
+
+
+##terminal###
+
+
+~~~bash
+cmd+c, cmd+v
+cmd+t    #open new tab terminal
+cmd+n    #open new terminal
+cmd+{, cmd+}   #  next, prew tab
+
+
+~~~
+
+
+discover hardware info on mac
+
+    sysctl -A
+
+    /usr/sbin/system_profiler
+
+
+
