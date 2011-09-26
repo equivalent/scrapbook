@@ -52,8 +52,14 @@ alias mysql-stop="sudo /usr/local/mysql/support-files/mysql.server stop
                                                                                                                                                                                                                  
 ~~~
 
+or do just
+
 ~~~bash
- auwx | grep mysqld
+sudo /Library/StartupItems/MySQLCOM/MySQLCOM start
+~~~
+
+~~~bash
+ps auwx | grep mysqld
 ~~~
 
 
@@ -95,7 +101,11 @@ cmd+t    #open new tab terminal
 cmd+n    #open new terminal
 cmd+{, cmd+}   #  next, prew tab
 
+ctrl-alt-a    #go to start of line
+ctrl-art-e    #go to end of the line
+alt+arowleft, alt+arowrigth    # vim 'e' and 'b' aletrnativ
 
+cmd+ +, cmd+ -  # zoom
 ~~~
 
 
