@@ -24,7 +24,7 @@ homebrew xcode git rvm
 
 ###mysql###
     
-downlad the mysql dmg
+downlad the mysql dmg, the 64 bit one!!
 
 than run in order 
 
@@ -33,14 +33,36 @@ than run in order
 *  Mysql.prefPane
 
 
+*.bash_profile*
+
+~~~bash
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+~~~
 
 
 than
+(this is setting secure mysql and also change user password 
 
 ~~~bash
-ln /usr/local/mysql-5.5.16-osx10.5-x86/bin/mysql  /usr/bin/mysql
+cd /usr/local/mysql
+sudo ./scripts/mysql_install_db
+sudo ./bin/mysql_secure_installation
 ~~~
 
+
+###uninstaling/removivg mysql###
+
+~~~bash
+udo rm /usr/local/mysql
+sudo rm -rf /usr/local/mysql*
+sudo rm -rf /Library/StartupItems/MySQLCOM
+sudo rm -rf /Library/PreferencePanes/My*
+rm -rf ~/Library/PreferencePanes/My*
+sudo rm -rf /Library/Receipts/mysql*
+sudo rm -rf /Library/Receipts/MySQL*
+sudo rm -rf /private/var/db/receipts/*mysql* 
+
+~~~
 
 
 put this into .bash_profile
@@ -99,7 +121,8 @@ sift+cmd+h
 cmd+c, cmd+v
 cmd+t    #open new tab terminal
 cmd+n    #open new terminal
-cmd+{, cmd+}   #  next, prew tab
+cmd+{, cmd+}, cmd+shift+arrows   #  next, prew tab
+
 
 ctrl-alt-a    #go to start of line
 ctrl-art-e    #go to end of the line
