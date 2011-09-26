@@ -49,6 +49,14 @@ sudo ./scripts/mysql_install_db
 sudo ./bin/mysql_secure_installation
 ~~~
 
+mysql console
+
+~~~
+GRANT ALL on *.* to root@'%' identified by "password"
+FLUSH PRIVILEGES
+~~~
+
+and **restart your mac machince**, ...yea restart,you heard me.
 
 ###uninstaling/removivg mysql###
 
@@ -65,24 +73,21 @@ sudo rm -rf /private/var/db/receipts/*mysql*
 ~~~
 
 
-put this into .bash_profile
-
-~~~bash
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
-alias mysql-start="sudo /usr/local/mysql/support-files/mysql.server start"
-alias mysql-stop="sudo /usr/local/mysql/support-files/mysql.server stop
-                                                                                                                                                                                                                 
-~~~
-
-or do just
-
-~~~bash
-sudo /Library/StartupItems/MySQLCOM/MySQLCOM start
-~~~
-
 ~~~bash
 ps auwx | grep mysqld
 ~~~
+
+
+###instaling sphinx###
+
+~~~bash
+sudo port install sphinx
+~~~
+
+
+in file */Users/tomi/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httprequest.rb* change the 1024 to 2048
+
+run the *tsrebuild*
 
 
 
