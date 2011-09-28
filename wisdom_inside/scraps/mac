@@ -89,8 +89,9 @@ in file */Users/tomi/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httprequ
 
 run the *tsrebuild*
 
+lt note: 
 
-
+    gem install capistrano-ext
 
 
 
@@ -107,6 +108,7 @@ cmd+space #run command input field
 cmd+q     #quit
 cmd+,     #preferences
 cmd+alt+f # fullscreen mode
+control+shift+eject   #lockscreen
 
 
 f12 #show desctop
@@ -134,6 +136,8 @@ ctrl-art-e    #go to end of the line
 alt+arowleft, alt+arowrigth    # vim 'e' and 'b' aletrnativ
 
 cmd+ +, cmd+ -  # zoom
+
+
 ~~~
 
 
