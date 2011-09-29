@@ -1,0 +1,19 @@
+
+
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+end
+
+rails g rspec:install
+rails g rspec:model platform
+
+###the file##
+
+require 'spec_helper'
+
+describe Something do
+  fixtures :platforms
+
+
+end
