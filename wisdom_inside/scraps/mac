@@ -109,7 +109,7 @@ cmd+space #run command input field
 cmd+q     #quit
 cmd+,     #preferences
 cmd+alt+f # fullscreen mode
-control+shift+eject   #lockscreen
+control+shift+eject   #lockscreen    
 
 
 f12 #show desctop
