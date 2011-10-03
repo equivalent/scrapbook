@@ -1,0 +1,44 @@
+
+investigations done on 3rd of October 2011 on newrelic scaling options and functionality
+
+there are several screencasts on newrelic provided directly by NewRelic  
+[new relict screencasts on scaling](http://railslab.newrelic.com/scaling-rails)
+
+http://railslab.newrelic.com/2009/01/22/new-relic-rpm
+http://railslab.newrelic.com/2009/02/05/episode-5-advanced-page-caching
+
+What is new relic 
+=================
+
+[short video explaining what is new relic](http://newrelic.com/why-new-relic/how-it-works)
+
+is a one place monitoring tool (scaling) for many languages (ruby java php python ...) suported for many providers (heroku ...) unlike [monit](http://mmonit.com/monit/) when som process dies (like delayed job), new relic wont start it automaticly but just sends an notification (this may be wrong, maybe gold program provides such a feature, but I didn' came accross it)
+
+several possible programs 
+-------------------------
+
+[video for free and bronze](http://railslab.newrelic.com/2009/02/05/episode-5-advanced-page-caching)
+
+*  free program
+  *  **overview** average time on cpu, troughput calls per mintute
+  *  **controller** which controllers are taking how much time on average
+  
+*  bronze
+  *  compare from yesterday
+  *  monitoring each host separately 
+  *  page volumae - most popular controller actions, how many times was action triggered
+  *  time consuption  - slowest controllers, witch controller is taking most time
+  *  cluster breakout - for each host you can see 
+     *    application throughput for each posts on average   
+     *  application response time
+     *  mongrel queue line
+     *  cpu for each host
+  *  compare to yesterday (throughput cpu .. ) 
+  *  
+
+ [video for silver gold](http://railslab.newrelic.com/2009/03/05/episode-13-jim-gochee-advanced-rpm)
+
+*
+
+
+

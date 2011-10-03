@@ -104,6 +104,7 @@ http://www.danrodney.com/mac/
 ##mac comnads##
 
 ~~~bash
+cmd+backspace   #move file to trash
 cmd+`     #switch between windows of same applycation (liek alt tab in ubuntu)
 cmd+space #run command input field
 cmd+q     #quit
