@@ -66,7 +66,21 @@ several possible programs
 
 
 
+instalation for ruby
+====================
 
+after registration you have nice manual containing  just 3 steps 
+
+*   *gem 'newrelic_rpm'*
+*   copy configuration file that new relic provides you to /config
+*   restart server 
+
+
+
+
+
+developer notes
+===============
 
 you can put this to controllers or  actions to make newrelic ignore those statistics (f.e. in admin )
 
@@ -75,3 +89,8 @@ newrelic_ignore
 ~~~
 
 you can add custom parameters to log 
+
+
+
+
+
