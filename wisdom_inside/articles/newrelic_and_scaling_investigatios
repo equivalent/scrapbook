@@ -38,7 +38,31 @@ several possible programs
 
  [video for silver gold](http://railslab.newrelic.com/2009/03/05/episode-13-jim-gochee-advanced-rpm)
 
-*
+*  silver
+    *  transaction traces 
+       *   additional functionality to free controller trace, where you can see actual *transaction traces* =  actual samples of transactions that went through server
+           *   which server it came from
+           *   when 
+           *   how long it took to proces
+           *   parameter trace
+       *  tracing methods (how long took each Object.call to do it functionality)
+           *    f.e.  15ms on Order.find 
+           *    you can see SQL query for each of them 
+           *    if any SQL took certain amount time there is possibility to see why it took so much ( f.e. it will explain that it was using temporary table)
+    *   error tracing 
+        *   error log with count ( something like hoptoad )
+        *   possibility to see piece of source code that triggers error 
+        *   there is possibility of notification of sudden error count increase or if suddenly cpu went up or similar unusual behavior 
+        *   incidents (tickets) are closing automatically when they drop on certain number of "errors per minute" or similar
+    *   compare with yesterday
+
+*  gold
+    *  response time  vs throughput 
+        *  you want even response time vs throughput, this tool helps you with that 
+    *  action of model monitoring  =  tool that will show you which actions of models are slowing / speeding up over days 
+
+
+
 
 
 
