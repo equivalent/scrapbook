@@ -35,6 +35,7 @@ several possible programs
      *  cpu for each host
   *  compare to yesterday (throughput cpu .. ) 
   *  
+  *   compare with yesterday
 
  [video for silver gold](http://railslab.newrelic.com/2009/03/05/episode-13-jim-gochee-advanced-rpm)
 
@@ -54,15 +55,23 @@ several possible programs
         *   possibility to see piece of source code that triggers error 
         *   there is possibility of notification of sudden error count increase or if suddenly cpu went up or similar unusual behavior 
         *   incidents (tickets) are closing automatically when they drop on certain number of "errors per minute" or similar
-    *   compare with yesterday
+    *   compare with last week
 
 *  gold
     *  response time  vs throughput 
         *  you want even response time vs throughput, this tool helps you with that 
     *  action of model monitoring  =  tool that will show you which actions of models are slowing / speeding up over days 
+    *  compare your stats 4 weeks ago
 
 
 
 
 
 
+you can put this to controllers or  actions to make newrelic ignore those statistics (f.e. in admin )
+
+~~~ruby
+newrelic_ignore
+~~~
+
+you can add custom parameters to log 
