@@ -131,26 +131,25 @@ if you are trying to uninstall openssl you will face hell there is no way how to
      
      sudo port -f deactivate openssl
 
-in my case I needed to install openssl from hombrew
+in my case I totaly screw up openssl and was trying to overinstal it with *brew install openssl* but that's not good ida rather remove whole macports (all dependancies) and install them again 
 
-     sudo brew install openssl
-     openssl version
+       sudo port -fp uninstall --follow-dependents installed
 
-life saver: https://trac.macports.org/ticket/19122 , https://gist.github.com/970901
+        sudo rm -rf \
+        /opt/local \
+        /Applications/DarwinPorts \
+        /Applications/MacPorts \
+        /Library/LaunchDaemons/org.macports.* \
+        /Library/Receipts/DarwinPorts*.pkg \
+        /Library/Receipts/MacPorts*.pkg \
+        /Library/StartupItems/DarwinPortsStartup \
+        /Library/Tcl/darwinports1.0 \
+        /Library/Tcl/macports1.0 \
+        ~/.macports
 
-     Generally there are no consequences of this for you.
-     If you build your own software and it requires this formula, you'll need
-     to add its lib & include paths to your build variables:
 
-         LDFLAGS  -L/usr/local/Cellar/openssl/0.9.8r/lib
-         CPPFLAGS -I/usr/local/Cellar/openssl/0.9.8r/include
-    
-      ./configure --prefix=~/local --openssl-includes=/usr/local/Cellar/openssl/0.9.8r/include  --openssl-libpath=/usr/local/Cellar/openssl/0.9.8r/lib
-
-333
-
-      sudo ln /usr/local/Cellar/openssl/0.9.8r/lib/libssl.0.9.8.dylib /opt/local/lib/libssl.1.0.0.dylib
-      
+life saver: https://trac.macports.org/ticket/19122 , https://gist.github.com/970901 , http://guide.macports.org/chunked/installing.macports.uninstalling.html
+     
 
 
 

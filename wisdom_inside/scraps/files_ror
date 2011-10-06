@@ -1,4 +1,5 @@
 
+     ::Rails.root.to_s.
 
 ##load all files in folder (best practice)
 
@@ -7,4 +8,17 @@ Dir[File.dirname(__FILE__) + '/plugins/index_partials/*.rb'].each {|file| requir
 ~~~
 
 
+##removing folder/files
 
+~~~ruby
+require 'fileutils'
+
+  FileUtils.rm_rf 'foldername'
+  FileUtils.mkdir 'foldername'
+~~~
+
+##file, directory exist ?
+
+~~~ruby
+          File.directory?('path/to/something')
+~~~

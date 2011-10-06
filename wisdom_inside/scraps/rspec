@@ -4,8 +4,38 @@ bundle exec rspec spec
 ~~~
 
 
+###stub!###
+
+~~~ruby
+
+Application.stub!(:local_repository_path).and_return('hello')
+
+@application.stub!(:local_repository_path).and_return('hello')
+p @application.local_repository_path
+# hello 
+~~~
+
+to stub constant there is more sience, normaly in ruby you can do 
+
+~~~ruby
+Math.const_set("HIGH_SCHOOL_PI", 22.0/7.0)   #=> 3.14285714285714
+Math::HIGH_SCHOOL_PI - Math::PI              #=> 0.00126448926734968
+~~~
+
+but the constant musnt be defined, if is deffiend you have to do something like  
+
+~~~ruby
+old_local_repository_path = Application::LOCAL_REPOSITORIES_PATH
+Application.send(:remove_const, "LOCAL_REPOSITORIES_PATH")
+Application.const_set('LOCAL_REPOSITORIES_PATH',"#{old_local_repository_path}/RSPEC_TEST_FOLDER" )
+~~~
+
+http://digitaldumptruck.jotabout.com/?p=551 , http://stackoverflow.com/questions/339181/is-it-possible-to-undefine-a-variable-in-ruby
+
+
 
 scraps from peepcode 
+====================
 
 ~~~ruby
 

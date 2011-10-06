@@ -17,3 +17,21 @@ describe Something do
 
 
 end
+
+
+###  factory ### 
+
+FactoryGirl.define do
+
+  factory :junk_food, :class => Category do
+     title 'Junk Food'
+  end
+
+end
+
+# Factory.define :comment do |c| 
+#   c.body { Faker::Lorem.paragraph } 
+# end
+
+Factory.create :comment
+
