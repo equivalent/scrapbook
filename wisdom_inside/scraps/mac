@@ -78,6 +78,11 @@ ps auwx | grep mysqld
 ~~~
 
 
+
+changing root passwword 
+
+    UPDATE mysql.user SET Password=PASSWORD('NewPassword') WHERE User='root'; FLUSH PRIVILEGES;
+
 ###instaling sphinx###
 
 ~~~bash
@@ -92,6 +97,61 @@ run the *tsrebuild*
 lt note: 
 
     gem install capistrano-ext
+
+how to reinstall your mac lion
+==============================
+
+http://www.apple.com/macosx/recovery/
+ 
+hold 
+
+    comand+r  
+
+during startup
+
+macports
+==========
+
+how to uninstall something 
+
+~~~bash
+$ sudo port selfupdate
+$ sudo port clean --dist <portname>
+$ sudo port install <portname>
+~~~
+
+note 
+
+    sudo port remove <something>
+    sudo port uninstal <something>
+
+is may not be enought 
+
+if you are trying to uninstall openssl you will face hell there is no way how to remove openssl just way to deactivate it 
+     
+     sudo port -f deactivate openssl
+
+in my case I needed to install openssl from hombrew
+
+     sudo brew install openssl
+     openssl version
+
+life saver: https://trac.macports.org/ticket/19122 , https://gist.github.com/970901
+
+     Generally there are no consequences of this for you.
+     If you build your own software and it requires this formula, you'll need
+     to add its lib & include paths to your build variables:
+
+         LDFLAGS  -L/usr/local/Cellar/openssl/0.9.8r/lib
+         CPPFLAGS -I/usr/local/Cellar/openssl/0.9.8r/include
+    
+      ./configure --prefix=~/local --openssl-includes=/usr/local/Cellar/openssl/0.9.8r/include  --openssl-libpath=/usr/local/Cellar/openssl/0.9.8r/lib
+
+333
+
+      sudo ln /usr/local/Cellar/openssl/0.9.8r/lib/libssl.0.9.8.dylib /opt/local/lib/libssl.1.0.0.dylib
+      
+
 
 
 

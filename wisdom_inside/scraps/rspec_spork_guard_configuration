@@ -1,0 +1,118 @@
+Gemfile 
+
+~~~ruby
+group :test do
+  # Pretty printed test output
+  gem 'turn', :require => false
+  gem "rspec-rails", "~> 2.6"
+  # gem 'autotest'
+  # gem 'autotest-rails'
+  # gem 'autotest-notification'  #for growl like notifications popup window
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem "spork", "> 0.9.0.rc"
+  gem "guard-spork"
+  gem "guard-rspec"
+end
+~~~
+
+
+      bundle
+      rails g rspec:install
+      guard init rspec
+      spork --bootstrap
+      guard init spork
+      
+
+
+~~~ruby
+guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
+  watch('config/application.rb')
+  watch('config/environment.rb')
+  watch(%r{^config/environments/.+\.rb$})
+  watch(%r{^config/initializers/.+\.rb$})
+  watch('spec/spec_helper.rb')
+  watch(%r{^spec/support/.+\.rb$})
+end
+
+guard 'rspec', :version => 2, :cli => "--drb" do
+  watch(%r{^spec/.+_spec\.rb$})
+  watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch('spec/spec_helper.rb')  { "spec" }
+
+  # Rails example
+  watch(%r{^spec/.+_spec\.rb$})
+  watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
+  watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
+  watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
+  watch('spec/spec_helper.rb')                        { "spec" }
+  watch('config/routes.rb')                           { "spec/routing" }
+  watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+  # Capybara request specs
+  watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
+end
+
+~~~      
+
+
+~~~ruby
+require 'rubygems'
+require 'spork'
+
+Spork.prefork do
+    # This file is copied to spec/ when you run 'rails generate rspec:install'
+    ENV["RAILS_ENV"] ||= 'test'
+    require File.expand_path("../../config/environment", __FILE__)
+    require 'rspec/rails'
+
+    # Requires supporting ruby files with custom matchers and macros, etc,
+    # in spec/support/ and its subdirectories.
+    Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+    RSpec.configure do |config|
+      # == Mock Framework
+      #
+      # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
+      #
+      # config.mock_with :mocha
+      # config.mock_with :flexmock
+      # config.mock_with :rr
+      config.mock_with :rspec
+
+      # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
+      config.fixture_path = "#{::Rails.root}/test/fixtures"
+
+      # If you're not using ActiveRecord, or you'd prefer not to run each of your
+      # examples within a transaction, remove the following line or assign false
+      # instead of true.
+      config.use_transactional_fixtures = true
+
+
+      config.treat_symbols_as_metadata_keys_with_true_values = true
+      config.filter_run :focus => true
+      config.run_all_when_everything_filtered = true
+    end
+
+end
+
+Spork.each_run do
+  # This code will be run each time you run your specs.
+    FactoryGirl.reload
+end
+
+~~~
+
+
+
+if you want to turn off "runn all specs" 
+
+~~~ruby
+guard 'rspec', :version => 2, :cli => "--drb", :all_on_start => false, :all_after_pass => false do
+  # ...
+end
+~~~
+
+
+
+from http://railscasts.com/episodes/285-spork and   http://railscasts.com/episodes/275-how-i-test

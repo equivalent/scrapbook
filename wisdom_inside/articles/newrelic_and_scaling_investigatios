@@ -78,6 +78,19 @@ after registration you have nice manual containing  just 3 steps
 
 
 
+terminology
+==========
+
+throughput
+  ppm - pages per minute
+  rpm - request per minute
+
+[adpex](https://support.newrelic.com/kb/general/apdex)
+  level of satisfaction/frustration of user 
+  T = 1.2 seconds
+
+  4T = user is frustrated 
+
 
 developer notes
 ===============
