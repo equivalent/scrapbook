@@ -3,6 +3,16 @@
 bundle exec rspec spec
 ~~~
 
+### kind of ###
+
+https://www.relishapp.com/rspec/rspec-expectations/v/2-0/docs/matchers/type-check-matchers
+
+~~~ruby
+something.should be_kind_of(Integer)
+should be_kind_of(Fixnum) 
+
+~~~
+
 
 ###stub!###
 
