@@ -1,0 +1,38 @@
+     gem 'will_paginate', '~> 3.0'
+
+
+https://github.com/mislav/will_paginate
+
+## render page links in the view:
+~~~ruby
+@posts = Post.paginate(:page => params[:page])
+
+# or, use an explicit "per page" limit:
+Post.paginate(:page => params[:page], :per_page => 30)
+
+~~~
+
+render page links in the view:
+
+~~~ruby
+<%= will_paginate @posts %>
+~~~
+
+
+
+
+# will_paginate and metasearch #
+
+~~~ruby
+@search = Project.active.search(params[:search])
+@projects = @search.paginate(:page => params[:page], :per_page => 6)
+~~~
+
+~~~ruby
+@posts = Post.all.paginate :page => params[:page], :order => 'created_at DESC
+~~~
+
+~~~ruby
+<%= will_paginate @posts %>
+~~~
+

@@ -1,4 +1,16 @@
 
+fetch remote origin branches ond prepare them so ruby can process it
+---------------------------------------------
+
+~~~bash
+git ls-remote --heads | awk '{print $2}'
+~~~
+
+~~~ruby
+
+~~~
+
+
 gitignore file that has been allreaddy tracked
 ----------------------------------------------
 
