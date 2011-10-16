@@ -14,6 +14,9 @@ require 'rubygems'
 require 'sinatra'
 
 
+#config.ru   #for heroku apps only 
+require "./main"
+run Sinatra::Application
 
 get '/' do
   @title
