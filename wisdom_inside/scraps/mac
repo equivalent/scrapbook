@@ -202,7 +202,7 @@ cmd+ +, cmd+ -  # zoom
 ~~~
 
 
-discover hardware info on mac
+### discover hardware info on mac
 
     sysctl -A
 
@@ -210,3 +210,8 @@ discover hardware info on mac
 
 
 
+### dns
+ 
+ reload dns 
+    
+    dscacheutil -flushcache
