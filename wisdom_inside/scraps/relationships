@@ -1,0 +1,10 @@
+http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html
+
+
+~~~ruby
+  has_many :collected_recommendations, :class_name => "::RecommendationCollection", :foreign_key => :person_id
+~~~
+
+~~~ruby
+  belongs_to :platform_identity, :class_name => "::PlatformIdentity::Base", :foreign_key => :platform_identity_id
+~~~

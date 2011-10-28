@@ -1,4 +1,4 @@
-
+http://cheat.errtheblog.com/s/rspec/
 
 
 group :test, :development do
@@ -35,3 +35,8 @@ end
 
 Factory.create :comment
 
+
+it "must have a last name" do
+    subject.should have(1).error_on(:last_name)
+end
+  
