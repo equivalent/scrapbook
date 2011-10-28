@@ -1,0 +1,21 @@
+
+
+
+https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
+
+
+
+FactoryGirl.define do
+  factory :facebook_platform, :class => Platform::Facebook do
+    association :person, :factory => :person #person will be just build not created
+    platform_identifier '123'
+  end
+end
+
+
+
+http://robots.thoughtbot.com/post/254496652/aint-no-calla-back-girl
+
+Factory.define :article_with_comment, :parent => :article do |article|
+  article.after_create { |a| Factory(:comment, :article => a) }
+end
