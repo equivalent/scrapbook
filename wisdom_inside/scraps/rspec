@@ -1,4 +1,41 @@
 
+Model
+======
+
+
+
+##Json post##
+
+~~~ruby
+
+def json_post(action, body, params={})
+    @request.env["HTTP_ACCEPT"] = "application/json"
+    @request.env['RAW_POST_DATA'] = body
+    response = post(action, params)
+    @request.env.delete('RAW_POST_DATA')
+    response
+  end
+
+  def set_http_header
+    @request.env["Content-Type"] = "application/json"
+    @request.env["Accept"] = "application/json"
+    @request.env["Core-Api-Token"] = ::CORE_API_TOKEN
+    @request.env["Application-Id"] =  ::APPLICATION_IDS[:iphone_application_version_1]
+  end
+
+
+  it "post to controller with json" do
+     set_http_header
+     json_post( :create, @user_data)
+  end
+~~~
+
+
+
+
+
+
+
 ~~~bash
 bundle exec rspec spec
 ~~~
@@ -41,6 +78,52 @@ Application.const_set('LOCAL_REPOSITORIES_PATH',"#{old_local_repository_path}/RS
 ~~~
 
 http://digitaldumptruck.jotabout.com/?p=551 , http://stackoverflow.com/questions/339181/is-it-possible-to-undefine-a-variable-in-ruby
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+controller
+=============
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

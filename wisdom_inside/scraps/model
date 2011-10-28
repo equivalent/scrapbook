@@ -33,6 +33,7 @@ polymorphic
           
 ~~~ruby
   has_many :notifications, :class_name => "Notification::NewRecommendation", :foreign_key => :notified_object_id, :conditions => [ "notified_object_type = ?", self.to_s ]
+  has_many :platform_identities, :class_name => "::PlatformIdentities::Base"
 
 ~~~
 
