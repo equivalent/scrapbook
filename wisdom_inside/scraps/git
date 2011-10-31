@@ -1,4 +1,61 @@
 
+
+
+
+how to setup
+=====================
+
+http://tumblr.intranation.com/post/766290565/how-set-up-your-own-private-git-server-linux
+http://www.nextgengeek.com/2011/01/22/how-to-configure-a-git-server-on-ubuntu-10-10/
+
+###on server
+
+  *  install git core on server side
+
+      sudo apt-get update
+      sudo apt-get install git-core
+
+
+  *  edit / paste clients public key to server  file */home/anyuser/.ssh/authorized_keys*
+
+  *  inicialize new repo on server side
+
+~~~bash
+mkdir ~/repositories/my_project.git
+cd !$
+git --bare init
+~~~
+
+### on client (new projekt)
+
+~~~bash
+cd ~/my/project_folder
+git init
+git remote add origin anyuser@somethisg.com:/repositories/my_project.git
+git add .
+git commit -m "foo"
+git push origin master
+~~~
+
+
+## on client (existing projekt)
+
+~~~bash
+  git clone nyuser@somethisg.com:/repositories/my_project.git
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
 fetch remote origin branches ond prepare them so ruby can process it
 ---------------------------------------------
 
@@ -9,6 +66,19 @@ git ls-remote --heads | awk '{print $2}'
 ~~~ruby
 
 ~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 gitignore file that has been allreaddy tracked
