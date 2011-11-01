@@ -1,11 +1,23 @@
 
 
 
+how to check if object or class responds to method or have column
+===================================================
 
 
+At the class level you can do:
+      
+      Number.column_names.include? attr_name 
+      
+If you have an instance, you can do:
+     
+     number.attributes.has_key? attr_name.
+
+
+also you can do for method
 
 ~~~ruby
- if respond_to? :safe_helper
+ if self.respond_to? :safe_helper
    safe_helper
  end
 ~~~
@@ -15,7 +27,7 @@
 
 
 
-
+================================================================================================================================================
 
 rails 3  named_scope (scope)
 --------
