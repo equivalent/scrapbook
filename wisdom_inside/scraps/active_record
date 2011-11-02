@@ -1,0 +1,36 @@
+
+##set table name 
+
+~~~ruby
+module Logging
+  class Logging::Base < ActiveRecord::Base
+    set_table_name :logs 
+
+  end
+end
+~~~
+
+
+##how to do namespace
+
+    authorization/
+        base.rb
+        twitter.rb
+
+~~~ruby
+module Authorization 
+  class Authorization::Base < ActiveRecord::Base
+     #...
+  end
+end
+~~~
+
+
+~~~ruby
+module Authorization 
+  class Twitter < Base
+ 
+  end
+end   
+
+~~~

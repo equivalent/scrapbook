@@ -1,10 +1,12 @@
+#how to monkeypatch 
+
+  see [this scrap](/equivalents_scrap/on_modules_and_monkeypatchnig)
 
 
 
-~~~
-controller_name == 'users' && action_name == 'create'
-~~~
 
+
+#respond_to
 
 ~~~ruby
 respond_to do |format|
@@ -16,3 +18,12 @@ respond_to do |format|
 end
 
 ~~~
+
+
+#other scraps 
+
+~~~
+controller_name == 'users' && action_name == 'create'
+~~~
+
+

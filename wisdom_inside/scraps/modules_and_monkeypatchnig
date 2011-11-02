@@ -1,0 +1,39 @@
+~~~ruby
+module Logging
+    def self.included(base)
+      base.extend(ClassMethods)
+    end
+
+    # add your instance methods here
+    def nyan
+      p "nyan"
+    end
+
+    module ClassMethods
+      # add your static(class) methods here
+      def find_values opts
+        sql = self.send(:construct_finder_sql, opts)
+        self.connection.select_values(sql)
+      end
+
+      def nyan
+        p "nyan nyan"
+      end
+   end
+end
+
+ # include the extension   => extend your controllers
+ ActionController::Base.send(:include, Logging)
+
+ # include the extension  => extend your models 
+ ActiveRecord::Base.send(:include, Logging)
+
+
+
+~~~
+
+how to monkeypatch or extend http://stackoverflow.com/questions/2328984/rails-extending-activerecordbase
+
+
+tipical example of monkey hardcore patch 
+https://github.com/equivalent/my_rails_monkeypatch_bunch/blob/master/automatic_guid_generator/automatic_guid_generator.rb

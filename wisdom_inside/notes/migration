@@ -8,6 +8,26 @@ add_column :table_name, :column_name, :column_type, {column_options}
 add_column :accounts, :ssl_enabled, :integer, :default => 1
 remove_column :table_name, :column_name
 
+class AddSystemSettings < ActiveRecord::Migration
+  def up
+    create_table :system_settings do |t|
+      t.string  :name
+      t.string  :label
+      t.text  :value
+      t.string  :type
+      t.integer  :position
+    end
+
+    SystemSetting.create  :name => "notice",
+                          :label => "Use notice?",
+                          :value => 1
+  end
+
+  def down
+    drop_table :system_settings
+  end
+end
+
 rake --task     # display most of the avalible rake tasks
 rake db:reset   #will reset databse
 db:migrate:rollback STEP=3
