@@ -3,8 +3,14 @@ http://cheat.errtheblog.com/s/rspec/
 Model
 ======
 
+~~~ruby
+it "should throw exception" do
+  lambda{User.something(data)}.should raise_error
+end
+~~~
 
-~~ruby
+
+~~~ruby
   it "must have a last name" do
     subject.should have(1).error_on(:last_name)
   end
