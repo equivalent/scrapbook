@@ -5,6 +5,20 @@
 
 
 
+#availible request.env variables
+
+http://api.rubyonrails.org/classes/ActionDispatch/Request.html
+
+~~~ruby
+%w[ AUTH_TYPE GATEWAY_INTERFACE PATH_TRANSLATED REMOTE_HOST REMOTE_IDENT REMOTE_USER REMOTE_ADDR SERVER_NAME SERVER_PROTOCOL HTTP_ACCEPT HTTP_ACCEPT_CHARSET HTTP_ACCEPT_ENCODING HTTP_ACCEPT_LANGUAGE HTTP_CACHE_CONTROL HTTP_FROM HTTP_NEGOTIATE HTTP_PRAGMA ].freeze
+~~~
+
+~~~bash
+<% for header in request.env.select { |key, val| k.match("^HTTP.*")} %>
+  <%= header[0] %> <%= header[1] %>
+<% end %>
+~~~
+
 
 #respond_to
 

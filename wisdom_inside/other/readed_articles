@@ -1,3 +1,14 @@
+http://api.rubyonrails.org/classes/ActionDispatch/Request.html # request.env availible vars
+http://mashing-it-up.blogspot.com/2008/10/parsing-accept-language-in-rails.html
+http://stackoverflow.com/questions/233802/rails-detecting-user-agent-works-in-development-but-not-production
+http://qugstart.com/blog/ruby-and-rails/rspec-request-spec-to-test-rails-grape-api-functionality/
+http://stackoverflow.com/questions/6266243/need-help-in-writting-mock-rspec
+http://blog.new-bamboo.co.uk/2009/11/24/stubbing-and-setting-expectations-on-http-requests-is-now-easy-with-webmock
+https://github.com/gsterndale/rails/commit/6728db155bcd1056518f091d33167a5900f55e57 x forwarded for , stub_request
+https://github.com/gsterndale/rails/commit/6728db155bcd1056518f091d33167a5900f55e57#diff-2
+http://stackoverflow.com/questions/1226959/how-to-get-client-ip-and-server-ip-using-rails
+
+
 http://rails.rubyonrails.org/classes/ActionController/Filters/ClassMethods.html#M000314
 http://programming-tut.blogspot.com/2010/06/ruby-on-rails-request-url.html
 http://stackoverflow.com/questions/2328984/rails-extending-activerecordbase

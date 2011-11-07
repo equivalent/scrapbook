@@ -95,9 +95,24 @@ Application.const_set('LOCAL_REPOSITORIES_PATH',"#{old_local_repository_path}/RS
 http://digitaldumptruck.jotabout.com/?p=551 , http://stackoverflow.com/questions/339181/is-it-possible-to-undefine-a-variable-in-ruby
 
 
+....
 
 
+####to stub controller###
 
+stubing here request varable 
+
+~~~ruby
+it "should "do 
+  request.stub!(:env).and_return({'HTTP_X_FORWARDED_FOR'=>'1.1.1.1, 2.2.2.2'})
+  get :index
+  ....
+end
+
+
+#in controller
+ request_x_forwarded_for = request.env["HTTP_X_FORWARDED_FOR"]
+~~~
 
 
 
