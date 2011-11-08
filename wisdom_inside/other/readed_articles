@@ -1,3 +1,9 @@
+http://stackoverflow.com/questions/1233692/get-a-list-of-all-models-from-rails
+http://infovore.org/archives/2006/08/02/getting-a-class-object-in-ruby-from-a-string-containing-that-classes-name/
+http://stackoverflow.com/questions/516579/is-there-a-way-to-get-a-collection-of-all-the-models-in-your-rails-app
+ahttp://stackoverflow.com/questions/1233692/get-a-list-of-all-models-from-rails^
+
+
 http://api.rubyonrails.org/classes/ActionDispatch/Request.html # request.env availible vars
 http://mashing-it-up.blogspot.com/2008/10/parsing-accept-language-in-rails.html
 http://stackoverflow.com/questions/233802/rails-detecting-user-agent-works-in-development-but-not-production
