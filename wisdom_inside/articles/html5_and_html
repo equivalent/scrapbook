@@ -1,0 +1,68 @@
+
+##div##
+
+
+#sectionig elements#
+
+##section##
+
+*  Don’t use it just as hook for styling or scripting; that’s a div
+*  Don’t use it if article, aside or nav is more appropriate
+*  Don’t use it unless there is naturally a heading at the start of the section
+*  with sections, user can easily skip over the navigation section or quickly jump from one article to the next without the need for authors to provide skip links.
+
+"What we’ve been doing wrong is using section to wrap content in order to style it, or to demarcate the main content area from the nav, header, footer etc. These are jobs for div, not section.
+"
+
+With very few exceptions, section should not be used if there is no natural heading for it.
+
+##article##
+
+*  use **article** element instead of the **section** element when it would make sense to syndicate the contents of the element. 
+
+
+links, refs.  & sources:
+  http://html5doctor.com/the-section-element/
+
+##aside##
+
+represents a section of a page that consists of content that is tangentially related to the content around the aside element, and which could be considered separate from that content
+
+ref
+  http://html5doctor.com/designing-a-blog-with-html5/
+
+
+##nav##
+
+*  contains major navigation blocks
+*  A nav element doesn't have to contain a list, it can contain other kinds of content as well.
+
+~~~html
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/events">Current Events</a></li>
+    ...more...
+  </ul>
+</nav>
+~~~
+
+[specification](http://dev.w3.org/html5/spec/Overview.html#the-nav-element)
+
+##footer##
+
+*  is unnecesery to use *nav* tag inside *header*  tag [source](http://dev.w3.org/html5/spec/Overview.html#the-nav-element)
+
+
+#tools#
+
+[html outliner](http://gsnedders.html5.org/outliner/)  tool that will help you outline html content
+http://slides.html5rocks.com/#new-form-types
+
+===================
+
+
+
+
+
+todo http://books.google.co.uk/books?id=CVKbLHQ35ToC&lpg=PA111&ots=GTWz3nKMh1&dq=html5%20placing%20form&pg=PA111#v=onepage&q=html5%20placing%20form&f=false

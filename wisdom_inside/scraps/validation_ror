@@ -1,6 +1,23 @@
 
 
 
+###costum validations
+~~~ruby
+     validate :authentication_exist?
+
+     
+     def find_user
+       true
+     end
+
+     def authentication_exist?
+        self.errors[:username] << "We couldn't find this email address" unless find_user.present? 
+     end
+
+~~~
+
+###should not special chars 
+
 should not contain any non word chars (like: @#$ @'..) 
 
 ~~~ruby
@@ -18,4 +35,20 @@ You can discover if there are any valdiators on object
 ~~~ruby
 User.validators
 User.validators_on :column_name
+~~~
+
+
+###error message for validanion in views###
+
+~~~ruby
+<% if target.errors.any? %>  
+<div id="errorExplanation">  
+  <h2><%= pluralize(target.errors.count, "error") %> prohibited this record from being saved:</h2>  
+  <ul>  
+  <% target.errors.full_messages.each do |msg| %>  
+    <li><%= msg %></li>  
+  <% end %>  
+  </ul>  
+</div>  
+<% end %> 
 ~~~
