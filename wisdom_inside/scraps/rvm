@@ -1,11 +1,11 @@
 
-rvm --create use ruby-1.9.2@heroku
+    rvm --create use ruby-1.9.2@heroku
+    rvm --create use ruby-1.9.2@testing
 
 
+list of availible gemsets 
 
-rvm --create use ruby-1.9.2@testing
-
-
+     rvm gemset list
 
 
 
