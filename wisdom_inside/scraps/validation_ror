@@ -52,3 +52,12 @@ User.validators_on :column_name
 </div>  
 <% end %> 
 ~~~
+
+you can also doo this in controller for not displaying certain errors
+
+~~~ruby
+   @user.errors.messages.shift{:authentication} # don't display this msg to user
+  #p @user.errors.messages
+~~~
+
+
