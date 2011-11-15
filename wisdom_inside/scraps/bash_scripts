@@ -1,5 +1,9 @@
 http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-5.html
 
+
+
+
+
 ~~~bash
 
 #!/bin/sh
@@ -33,6 +37,9 @@ fi
 
 ~~~
 
+## if ## 
+
+http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 
 ##if file##
 
@@ -45,4 +52,16 @@ fi
 ##prompting user##
 ~~~bash
 read -p "Press any key to start backup..."
+~~~
+
+
+## passing parameter to script##
+
+~~~bash
+ setterm -source $1
+ echo It is a $1 day
+~~~
+
+~~~~bash
+  bash what_day_is_it.sh sunny
 ~~~
