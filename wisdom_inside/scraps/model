@@ -4,6 +4,23 @@
 
 
 
+#class methods
+~~~ruby
+    class << self
+       my_class_method
+    end
+~~~
+
+
+
+##rise exeption if class wrong##
+
+~~~ruby
+      raise "Expecting auth handle of type #{expected_auth_handler_klass} but got #{auth_handler.class}" unless auth_handler.is_a?(expected_auth_handler_klass)
+
+~~~
+
+
 how to check if object or class responds to method or have column
 ===================================================
 
