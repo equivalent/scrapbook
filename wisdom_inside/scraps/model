@@ -3,6 +3,12 @@
   see [this scrap](/equivalents_scrap/on_modules_and_monkeypatchnig)
 
 
+#direct sql call 
+
+~~~ruby
+ActiveRecord::Base.connection.execute("decs relationships;")
+~~~
+
 
 #class methods
 ~~~ruby
