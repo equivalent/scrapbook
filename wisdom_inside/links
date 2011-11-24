@@ -35,13 +35,6 @@ Api
 
 
 
-Gimp
------
-
-[screencasts](http://www.5min.com/Tag/gimp?CategoryID=0)
-
-
-
 
 Rails
 =========
@@ -75,6 +68,7 @@ Rails
 "iso countries plugin":https://github.com/SunDawg/country_codes
 "Search solution meta search":http://metautonomo.us/projects/metasearch/
 "Authlogic reset pasword stepbystep":http://www.binarylogic.com/2008/11/16/tutorial-reset-passwords-with-authlogic/
+[paperclip extension for ffmpeg](https://github.com/owahab/paperclip-ffmpeg)
 
 
 
@@ -119,10 +113,7 @@ screen casts
 
 
 
-animations 3d 2d
-=================
 
-http://www.blender.org/education-help/tutorials/
 http://montagestudio.org/tutorials/
 
 
@@ -154,23 +145,10 @@ h3. i18n locales
 
 
 
-Vim
-======
-
-[vim spell checking](http://vimdoc.sourceforge.net/htmldoc/spell.html)
-[Vim movement cheet sheet](/downloads/vim-quick-reference-movement-card.pdf) (stolen from [digilife](http://www.digilife.be/quickreferences/qrc/vim%20quick%20reference%20card.pdf) )
-[Vim tabs](http://www.linux.com/archive/feed/59533) 
-[vim autocompleate css editor](http://www.codeography.com/2010/08/02/how-to-make-vim-a-first-class-css-editor.html)
-
-
-
 Other programing languages
 ==============================
 
 [erlang tutorial](http://learnyousomeerlang.com/content) (functional programming language)
-
-
-
 
 
 
