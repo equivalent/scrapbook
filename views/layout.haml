@@ -26,15 +26,17 @@
   %body.main
     %div.container.rounded_borders.border#content.box_shadow
       #content_matroska
+        #right_side
+          %nav
+            = haml :"_right_side"
+
+
         #left_side
           .main_heading_margin_top
             %h1
               =yield_content :main_heading
           .main_yield_content.rounded_borders    
             =yield 
-
-        #right_side
-          = haml :"_right_side"
 
         .clear    
 
