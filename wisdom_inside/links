@@ -1,49 +1,31 @@
+Links below are quick links to other scraps or documentations on the web I liked. I store articles and tutorials in  [my delicious](http://delicious.com/stacks/equivalent8) account
+
 web proxies
------------
+=========
 
 http://www.hidemyass.com/facebook-proxy/
 http://anonymouse.org/
 
 
-
-
-
-
-
-
-
-
 sinatra
--------
+=========
 
 [sinatra simple documentation](http://www.sinatrarb.com/intro.html)
 [sinatra helpers and custom methods](http://ididitmyway.heroku.com/past/2010/4/25/sinatra_helpers/)
 [sinatra oauth2 facebook authentication](http://intridea.com/2010/4/22/oauth2-gem-just-in-time-for-facebook-graph?blog=company)
 
 
-
-
-
-
-Api
------
+Api ror
+=========
 
 [social RoR api](http://apidock.com)
-[git documentation @ kernel.org]http://www.kernel.org/pub/software/scm/git/docs
 
-
-
-
-
-
-Rails
-=========
 
 [omniauth gem Dynamically Requesting Facebook Permissions with OmniAuth](http://www.mikepackdev.com/blog_posts/2-Dynamically-Requesting-Facebook-Permissions-with-OmniAuth)  article how to change some def. behavior of ominauth config file **keywords:** omniauth change settings
 [select form hellper](http://shiningthrough.co.uk/Select-helper-methods-in-Ruby-on-Rails)
 [partial blocks](http://www.igvita.com/2007/03/15/block-helpers-and-dry-views-in-rails/)
 
-[stranka ci pluginy budu ficat na R3](http://railsplugins.org/)
+[ plugins running on rails 3 ? ](http://railsplugins.org/)
 [(swf) flash and rails 2.3 solution](http://timmyc.posterous.com/uploadify-on-rails-with-paperclip)
 [(swg) )flash and rails 3 solution](http://metautonomo.us/2010/07/09/uploadify-and-rails-3/)
 
@@ -56,7 +38,6 @@ Rails
 
 
 [Migrations cheat sheat](http://www.dizzy.co.uk/ruby_on_rails/cheatsheets/rails-migrations)
-
 
 
 
