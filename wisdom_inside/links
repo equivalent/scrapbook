@@ -7,12 +7,16 @@ http://www.hidemyass.com/facebook-proxy/
 http://anonymouse.org/
 
 
+Rails 
+=======
+
+[reserved words for ruby on rails](http://oldwiki.rubyonrails.org/rails/pages/ReservedWords)
+
 sinatra
 =========
 
 [sinatra simple documentation](http://www.sinatrarb.com/intro.html)
 [sinatra helpers and custom methods](http://ididitmyway.heroku.com/past/2010/4/25/sinatra_helpers/)
-[sinatra oauth2 facebook authentication](http://intridea.com/2010/4/22/oauth2-gem-just-in-time-for-facebook-graph?blog=company)
 
 
 Api ror
@@ -44,6 +48,7 @@ Api ror
  gem Gems/plugins
 ------------------
 
+[sinatra oauth2 facebook authentication](http://intridea.com/2010/4/22/oauth2-gem-just-in-time-for-facebook-graph?blog=company)
 "rails best practices":https://github.com/flyerhzm/rails_best_practices
 "plugin custom-error-msg":https://github.com/gumayunov/custom-err-msg  pluggin most attractieve function is that when you add ^ at the start of translation line your tronslation will apear without anoying 'Column:' 
 "iso countries plugin":https://github.com/SunDawg/country_codes

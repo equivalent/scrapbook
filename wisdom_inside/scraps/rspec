@@ -98,9 +98,63 @@ http://digitaldumptruck.jotabout.com/?p=551 , http://stackoverflow.com/questions
 ....
 
 
-####to stub controller###
 
-stubing here request varable 
+
+
+
+
+
+
+
+
+
+
+
+#Controller#
+
+http://www.vaporbase.com/postings/Using_Rspec_on_Controllers
+
+
+
+
+## how to call show controller with stubbing functionality
+
+~~~ruby
+module Api::User 
+  class SomeKindController < Api::User::BaseController 
+
+  def show
+    render :text => some_action
+  end
+     
+  protected
+     def somemethod
+       33
+     end
+  end
+end
+
+
+#spec 
+
+describe Api::User::SomeKindController do
+ 
+   it "should get stubbed value 99" do
+       controller.stub!(:somemethod).and_return(99)
+
+       get :show, :id => 123
+       controller.response.body.should be 99
+   end
+
+end
+
+~~~
+
+note:  *controller* is a rspec method that is acting as an instance of the controller you are calling. So you can access it directly
+
+
+##stubing  request variable 
+
 
 ~~~ruby
 it "should "do 
