@@ -1,0 +1,24 @@
+
+
+Collapsing complex ruby array 
+
+
+Short one, but usefull. If you ever need to collapse complex array like this one
+
+~~~ruby
+a = ['a','b',['c','d'], e]
+~~~
+
+to
+
+~~~ruby
+  ['a', 'b', 'c', 'd', 'e']
+~~~
+
+use  *flatten*
+
+~~~ruby
+ new_array = a.flatten
+~~~
+
+http://www.ruby-doc.org/core-1.9.3/Array.html
