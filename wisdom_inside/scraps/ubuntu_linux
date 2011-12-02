@@ -1,0 +1,10 @@
+
+
+
+
+invert colors in ubuntu 11
+==========================
+
+       apt-get install xcalib   
+       alias monochrome="/usr/bin/xcalib -invert -alter;"
+       monochrome
