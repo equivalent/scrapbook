@@ -1,0 +1,69 @@
+
+
+
+Till recent I was using factories this way
+
+~~~ruby
+FactoryGirl.define do
+  factory :person, :class => Person do
+    name 'Jhony'
+  end
+end
+
+
+Factory.define do
+  factory :main_category, :class => Category::Main do
+    title => 'Main articles'
+    association :some_other_association, :factory=> :some_other_factory
+  end
+end
+
+Factory.define do
+  factory :article, :class=> Articles do 
+     title 'read me'
+     association :person, :factory => :person
+     association :category, :factory => :main_category
+  end
+end
+
+~~~
+
+
+So far so good, but when I dum part was how I call them inside complex Rspecs. They look like this: 
+
+~~~ruby
+
+@person = Factory.create :person
+@category = Factory.create :main_category
+@article = Factory.cerate :article, :person=>@person, :category
+
+~~~
+
+Long story short, if you don't want to repate same code over and ower again,  they should look something like this:
+
+
+
+
+
+
+
+
+
+
+
+
+FactoryGirl.define do
+  factory :cookie_platform, :class => CookiePlatform::Base do
+    association :person, :factory => :person
+    identifier '123'
+    first_name Faker::Name.first_name 
+    last_name Faker::Name.last_name
+  end
+
+  factory :authorized_cookie_platform, :parent => :cookie_platform do
+    after_create do |platform|
+      Factory(:authorization_cookie_platform, :person => platform.person, :platform=>platform)
+    end
+  end
+
+end

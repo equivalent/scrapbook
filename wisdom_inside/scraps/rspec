@@ -3,6 +3,8 @@ http://cheat.errtheblog.com/s/rspec/
 Model
 ======
 
+
+
 ~~~ruby
 it "should throw exception" do
   lambda{User.something(data)}.should raise_error
@@ -16,6 +18,11 @@ end
   end
 ~~~
 
+##preventing callbacks
+
+like after create 
+
+look in scrap/model
 
 ##Json post##
 
@@ -114,6 +121,25 @@ http://digitaldumptruck.jotabout.com/?p=551 , http://stackoverflow.com/questions
 
 http://www.vaporbase.com/postings/Using_Rspec_on_Controllers
 
+
+
+## Getting headers and body
+
+
+###body
+
+~~~ruby
+    @controller.response.body
+~~~
+
+###header 
+
+~~~ruby
+    @controller.response.header
+   #{"Expires"=>"Wed, 07 Dec 2011 16:22:32 GMT", "Content-Type"=>"text/html; charset=utf-8"}
+~~~
+
+@controller is allredy existing variable from rspec
 
 
 

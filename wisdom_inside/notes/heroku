@@ -1,4 +1,7 @@
-!@#git  heroku deployment
+
+
+
+
 
 heroku config:add TZ=Europe/Oslo
 
@@ -27,3 +30,11 @@ git clone -o heroku git@heroku.com:mojaaplykacia.git
 
 
 git clone -o heroku git@heroku.com:appname.git
+
+
+
+#heroku logs
+
+standartly logs are in shorter version to enable longer version do 
+
+       heroku config:add LOG_LEVEL=INFO

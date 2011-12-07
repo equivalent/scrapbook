@@ -1,3 +1,26 @@
+#how to prevent callbacks 
+
+preventing callbacks like after_create 
+
+
+
+~~~ruby
+Vote.skip_callback(:save, :after, :add_points_to_user)  #rails 3 
+
+Foo.after_save.reject! {|callback| callback.method.to_s == 'some_method_name' }
+~~~
+
+http://stackoverflow.com/questions/1342761/how-to-skip-activerecord-callbacks
+http://blog.viarails.net/2009/1/29/disabling-callbacks-in-an-activerecord-data-migration
+
+to set them back (f.e. rspec after :each ) do 
+
+~~~ruby
+Vote.add_callback(:save, :after, :add_points_to_user)  #rails 3 
+~~~
+
+be sure you using wright method ,create and save are 2 different things
+
 #how to monkeypatch 
 
   see [this scrap](/equivalents_scrap/on_modules_and_monkeypatchnig)

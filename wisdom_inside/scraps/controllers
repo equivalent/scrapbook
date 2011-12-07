@@ -1,3 +1,35 @@
+
+
+#how to set expires header 
+
+http://stackoverflow.com/questions/3117361/how-do-i-set-expires-header-when-using-send-data
+
+
+### set http header
+
+~~~ruby
+#in controller 
+def index
+  response.headers["Expires"] = CGI.rfc1123_date(Time.now + period)
+end
+~~~
+
+### accessing response header in rails
+
+Net::HTTP providing method for accessing headers 
+
+~~~ruby
+response.header.each_header {|key,value| puts "#{key} = #{value}" }
+
+recived_headers  = {}
+response.header.each_header {|key,value|  recived_headers["#{key}"] = value }
+~~~
+
+http://ruby-doc.org/stdlib-1.9.3/libdoc/net/http/rdoc/Net/HTTPHeader.html#method-i-each_header
+
+
+keywords: expiery header expire 
+
 #how to monkeypatch 
 
   see [this scrap](/equivalents_scrap/on_modules_and_monkeypatchnig)
