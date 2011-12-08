@@ -1,7 +1,11 @@
 http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-url_for
 
 
+~~~ruby
+      resources :recommendation_collections, :only =>[:index, :show], :controller => "recommendation_collections/base" do
 
+      end
+~~~
 
 
 
