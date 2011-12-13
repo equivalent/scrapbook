@@ -3,8 +3,6 @@ http://cheat.errtheblog.com/s/rspec/
 Model
 ======
 
-
-
 ~~~ruby
 it "should throw exception" do
   lambda{User.something(data)}.should raise_error
@@ -17,6 +15,36 @@ end
     subject.should have(1).error_on(:last_name)
   end
 ~~~
+
+
+
+##clearing database tables of loaded tables 
+
+in *spec/spec_helper.rb*
+
+~~~ruby
+RSpec.configure do |config|
+
+ config.before(:each) do
+    clear_tables
+ end
+
+ config.after(:each) do
+    clear_tables
+ end
+
+end
+
+def clear_tables
+  table_names = ActiveRecord::Base.connection.tables
+  ::ActiveRecord::Base.subclasses.map{|subklass| subklass.delete_all } #if table_names.include?(subklass.table_name)}
+end
+
+~~~
+
+^^ author G.R. (thx G.)
+
+
 
 ##preventing callbacks
 
