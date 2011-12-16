@@ -1,0 +1,82 @@
+
+
+During playing around with rails, I manage to get error, that I asked on stack overflow (http://stackoverflow.com/questions/8494322/rails-rounding-float-number-on-db-level/8494636).
+
+The problem was that I created migration like this 
+
+~~~ruby
+create_table :some_table do |t| 
+  t.float  :amount 
+end 
+~~~
+
+and was doing some number operations: 
+
+~~~ruby
+a = SomeTable.new
+a.amount = 8888.8899
+a.save!
+#8888.8899
+
+#while the object is still loaded
+a.amount
+#=>  8888.8899
+
+#when I reload objcet => query to fetch data
+a.reload
+a.amount
+
+#8889.0
+~~~
+
+
+I know back then that mysql *float*, is doing some woodoo, but I didn't know how to fix it. From the answers on my SO questions, I found out that I need to do migration table type *:decimal* wich will end  up with mysql column type *BigDecimal*. 
+
+
+
+~~~ruby
+  def up
+    create_table :some_table do |t| 
+      t.decimal  :amount, :precision => 15, :scale => 4
+    end 
+  end
+~~~
+
+With *precision* and *scale* I'm telling to allow 4 digits after the decimal point and 15 digits max.
+
+[source](http://millarian.com/programming/ruby-on-rails/precision-and-scale-for-ruby-on-rails-migrations/)
+
+
+BTW watch out for BigDecimal, the database size could get **Big**, but don't know exact numbers. Google mysql documentation on it.
+
+
+
+##simulating float behavior in ruby
+
+if you need this strange behavior in ruby use 
+
+~~~ruby
+(f * 10**d).round.to_f / 10**d
+
+#or for printing
+
+sprintf('%.2f', f)
+~~~
+
+[original idea from Hans Erik site](http://solutions.hans-eric.com/rounding-off-floating-point-numbers-in-ruby)
+
+
+##rounding float number in BigDecimal
+
+if you wan't to comper ruby number (f.e. in rspec) 
+
+~~~ruby
+number = 14.8888888888888
+
+floated = (number * 10000).round.to_f / 10000
+
+# floated => 14.8889
+
+~~~
+
+[source](http://www.ruby-forum.com/topic/135841)

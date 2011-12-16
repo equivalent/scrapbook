@@ -1,3 +1,12 @@
+https://github.com/carlhuda/janus
+
+http://www.ruby-forum.com/topic/135841   # ruby float number
+http://solutions.hans-eric.com/rounding-off-floating-point-numbers-in-ruby #how to use bare ruby to act as float operration (with bug)
+http://millarian.com/programming/ruby-on-rails/precision-and-scale-for-ruby-on-rails-migrations/
+http://stackoverflow.com/questions/3099785/what-is-rails-migration-equivalent-to-mysqls-double-datatype
+http://stackoverflow.com/questions/3099785/what-is-rails-migration-equivalent-to-mysqls-double-datatype
+
+
 http://blog.viarails.net/2009/1/29/disabling-callbacks-in-an-activerecord-data-migration
 
 http://stackoverflow.com/questions/632742/how-can-i-avoid-running-activerecord-callbacks
