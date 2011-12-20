@@ -1,3 +1,44 @@
+
+Geting informations from FB token
+===============================
+
+
+https://graph.facebook.com/me?access_token=yourtokenhere
+
+~~~~bash
+{
+   "id": "100002578784532",
+   "name": "Testero Emil",
+   "first_name": "Testero",
+   "last_name": "Emil",
+   "link": "http://www.facebook.com/profile.php?id=100002578784532",
+   "birthday": "11/18/1971",
+   "favorite_teams": [
+      {
+         "id": "170785732954184",
+         "name": "Rob Machado"
+      }
+   ],
+   "gender": "female",
+   "locale": "en_US",
+   "updated_time": "2011-07-19T14:18:36+0000"
+}
+
+note: above data isn't my real FB user
+
+~~~
+
+
+
+
+
+
+
+
+
+posting
+===================
+
 POST
 ----
 
