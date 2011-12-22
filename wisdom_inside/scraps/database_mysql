@@ -1,7 +1,14 @@
-mysql -u root -p
-mysql -u root -p rails_development < rails.db 
+    mysql -u root -p
 
 
+#inporting sql
+
+    mysql -u root -p rails_development < rails.db 
+
+
+#general mysql commands 
+
+~~~sql
 show databases;
 show tables;
 drop database database_name;
@@ -9,19 +16,32 @@ create database database_name;
 use database_name;
 desc table;
 
-
-
 select count(*) from categories;
+
+~~~
 
 
 #random record in mysql
+
+~~~ruby
 Person.find(:first, :order => 'rand()')
 Model.first(:order => "RANDOM()") 
 Thing.order("RANDOM()").first
 Thing.offset(rand(Thing.count)).first
 Recommendation.offset(rand(Recommendation.count)).where('person_id != 1').first
+~~~
 
 
 #trigger direct mysql command from rails
+
+~~~ruby
+
 ActiveRecord::Base.connection.execute("TRUNCATE #{ApplicationBuildCommand.table_name}")  
+
+~~~
+
+#change password on mysql user
+
+    use mysql;
+    update user set password=PASSWORD("NEW-PASSWORD-HERE") where User='tom';
 

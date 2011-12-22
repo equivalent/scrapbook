@@ -17,6 +17,41 @@ end
 ~~~
 
 
+
+##clearing database tables of loaded tables 
+
+in *spec/spec_helper.rb*
+
+~~~ruby
+RSpec.configure do |config|
+
+ config.before(:each) do
+    clear_tables
+ end
+
+ config.after(:each) do
+    clear_tables
+ end
+
+end
+
+def clear_tables
+  table_names = ActiveRecord::Base.connection.tables
+  ::ActiveRecord::Base.subclasses.map{|subklass| subklass.delete_all } #if table_names.include?(subklass.table_name)}
+end
+
+~~~
+
+^^ author G.R. (thx G.)
+
+
+
+##preventing callbacks
+
+like after create 
+
+look in scrap/model
+
 ##Json post##
 
 ~~~ruby
@@ -95,9 +130,97 @@ Application.const_set('LOCAL_REPOSITORIES_PATH',"#{old_local_repository_path}/RS
 http://digitaldumptruck.jotabout.com/?p=551 , http://stackoverflow.com/questions/339181/is-it-possible-to-undefine-a-variable-in-ruby
 
 
+....
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+#Controller#
+
+http://www.vaporbase.com/postings/Using_Rspec_on_Controllers
+
+
+
+## Getting headers and body
+
+
+###body
+
+~~~ruby
+    @controller.response.body
+~~~
+
+###header 
+
+~~~ruby
+    @controller.response.header
+   #{"Expires"=>"Wed, 07 Dec 2011 16:22:32 GMT", "Content-Type"=>"text/html; charset=utf-8"}
+~~~
+
+@controller is allredy existing variable from rspec
+
+
+
+## how to call show controller with stubbing functionality
+
+~~~ruby
+module Api::User 
+  class SomeKindController < Api::User::BaseController 
+
+  def show
+    render :text => some_action
+  end
+     
+  protected
+     def somemethod
+       33
+     end
+  end
+end
+
+
+#spec 
+
+describe Api::User::SomeKindController do
+ 
+   it "should get stubbed value 99" do
+       controller.stub!(:somemethod).and_return(99)
+
+       get :show, :id => 123
+       controller.response.body.should be 99
+   end
+
+end
+
+~~~
+
+note:  *controller* is a rspec method that is acting as an instance of the controller you are calling. So you can access it directly
+
+
+##stubing  request variable 
+
+
+~~~ruby
+it "should "do 
+  request.stub!(:env).and_return({'HTTP_X_FORWARDED_FOR'=>'1.1.1.1, 2.2.2.2'})
+  get :index
+  ....
+end
+
+
+#in controller
+ request_x_forwarded_for = request.env["HTTP_X_FORWARDED_FOR"]
+~~~
 
 
 

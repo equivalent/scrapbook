@@ -1,0 +1,116 @@
+
+Private class methods
+======================
+
+To be honest I never thought  about it, but basically, how would you protect class method that you don't want to trigger directly from console. 
+
+For example, you have class method for creating  facebook friend from id. 
+
+
+~~~ruby
+class FacebookFriendCreator
+  
+  def self.create_facebook_person(uid)
+    DifferentActiveRecordStuff.create(:facebook_id=>uid, :different_stuff=>"lorem Ipsum")
+
+  end
+
+  #... some other meaningful code
+
+end
+~~~
+
+
+This way you can call 
+
+~~~ruby
+ FacebookFriendCreator.create_facebook_person 123456789
+~~~
+
+But  if you call that class method again you will end up with 2 same records (lets not consider validations or unique fields now). Lets create class method that will find and return existing record if that record exist.
+
+
+
+~~~ruby
+class FacebookFriendCreator
+  
+  def self.create_facebook_person(uid)
+    DifferentActiveRecordStuff.create(:facebook_id=>uid, :different_stuff=>"lorem Ipsum")
+
+  end
+
+  def self.create_or_findfacebook_person(uid)
+    existing_person = DifferentActiveRecordStuff.find_by_facebook_id( uid)
+    return existing_person || self.create_facebook_person(uid)
+  end
+
+
+  #... some other meaningful code
+
+end
+~~~
+
+So now you can call...
+
+~~~ruby
+ FacebookFriendCreator.create_or_find_facebook_person 123456789
+~~~
+
+... and you'll get existing record if exist. 
+
+Issue now is that you want to prevent calling directly * FacebookFriendCreator.create_facebook_person* so your colleagues won't implement it in other code. So you'll make it private.
+
+
+
+~~~ruby
+class FacebookFriendCreator
+  
+  def self.create_facebook_person(uid)
+    DifferentActiveRecordStuff.create(:facebook_id=>uid, :different_stuff=>"lorem Ipsum")
+
+  end
+  
+  private
+  def self.create_or_findfacebook_person(uid)
+    existing_person = DifferentActiveRecordStuff.find_by_facebook_id( uid)
+    return existing_person || self.create_facebook_person(uid)
+  end
+
+
+  #... some other meaningful code
+
+end
+~~~
+
+Ok story done evrithing is ok :) ... or is it ? If you try calling 
+
+~~~ruby
+ FacebookFriendCreator.create_facebook_person
+~~~
+
+... it still works. The reason why is that *private* is functional only on instance level of class. To make it work you 
+
+
+
+~~~ruby
+class FacebookFriendCreator
+  class << self
+    def create_facebook_person(uid)
+      DifferentActiveRecordStuff.create(:facebook_id=>uid, :different_stuff=>"lorem Ipsum")
+
+    end
+    
+    private
+    def reate_or_findfacebook_person(uid)
+      existing_person = DifferentActiveRecordStuff.find_by_facebook_id( uid)
+      return existing_person || self.create_facebook_person(uid)
+    end
+  end
+
+
+  #... some other meaningful code
+
+end
+~~~
+
+....todoo

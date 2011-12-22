@@ -1,0 +1,67 @@
+http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-5.html
+
+
+
+
+
+~~~bash
+
+#!/bin/sh
+OF=/var/my-backup-$(date +%Y%m%d).tgz
+tar -cZf $OF /home/me/
+~~~
+
+
+~~~bash
+#!/bin/bash
+HELLO=Hello 
+function hello {
+  local HELLO=World
+  echo $HELLO
+}
+echo $HELLO
+hello
+echo $HELLO
+
+~~~
+
+
+
+##if directory##
+
+~~~bash
+WORK_DIR=/home/
+if [ -r $WORK_DIR ]; then
+  ls;
+fi 
+
+~~~
+
+## if ## 
+
+http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+
+##if file##
+
+~~~bash
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+~~~
+
+##prompting user##
+~~~bash
+read -p "Press any key to start backup..."
+~~~
+
+
+## passing parameter to script##
+
+~~~bash
+ setterm -source $1
+ echo It is a $1 day
+~~~
+
+~~~~bash
+  bash what_day_is_it.sh sunny
+~~~

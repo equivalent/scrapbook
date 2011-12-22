@@ -13,9 +13,11 @@ class AddSystemSettings < ActiveRecord::Migration
     create_table :system_settings do |t|
       t.string  :name
       t.string  :label
+      t.boolean :valid
       t.text  :value
       t.string  :type
       t.integer  :position
+      t.timestamps
     end
 
     SystemSetting.create  :name => "notice",

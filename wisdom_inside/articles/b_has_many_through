@@ -1,0 +1,51 @@
+
+
+
+We have 3 models 
+
+~~~ruby
+
+class Relationship
+  belongs_to :person
+end
+
+
+class Person
+  has_many :relationships
+  belongs_to :admin
+end
+
+class Admin
+  has_one :person
+end
+~~~
+
+we can call 
+
+    @person.relationships
+
+but we wan't to be able to access relationships directly through admin object. Easiest way to do it through admin person instance
+
+    @admin.person.relationships
+
+but it would be cool to acces relationships just by calling 
+
+    @admin.relationships
+
+way to do do it is through **through**
+
+
+
+~~~ruby
+class Admin
+  has_many :relationships, :through => person
+  has_one :person
+end
+~~~
+
+
+
+Options for :class_name, **:primary_key** and ** :foreign_key** are ignored, as the association uses the source reflection.
+
+read more here : 
+http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-has_many

@@ -1,0 +1,9 @@
+
+
+scraps for nokia N900
+
+#reset music cache (database)#
+
+~~~bash
+tracker-processes --hard-reset
+~~~

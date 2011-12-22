@@ -59,7 +59,7 @@ body {
 }
 
 
-.main div#index_navigation .link_to_file {
+.main #index_navigation .link_to_file {
     background: #702777;
     border: 3px solid #702777;
     border-radius: 5px 5px 5px 5px;
@@ -69,11 +69,11 @@ body {
     margin-right: 4px;
     padding: 1px 4px;
 }
-.main div#index_navigation .link_to_file:hover {
+.main #index_navigation .link_to_file:hover {
     background: #C073FF;
 }
 
-.main div#index_navigation .link_to_file a{
+.main #index_navigation .link_to_file a{
   color:white;
   text-decoration:none;
 }

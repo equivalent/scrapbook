@@ -1,0 +1,87 @@
+
+
+~~~ruby
+User.respond_to?('name') # returns true is method name exists otherwise false
+~~~
+
+
+
+
+## Method existing and not throwing exception 
+
+There is also scenario where you want to check if existing method won't raise an exception. For example I had STI situation where I wanted to know if object has method present, and wasn't just inheriting parent behavior (that was raising an error)
+
+~~~ruby
+#  app/models/candy/base.rb
+
+module Candy
+  class Candy::Base < ActiveRecord::Base
+
+    def eater_klass
+      raise "should be overridden"     
+    end
+  end
+end
+~~~
+
+~~~ruby
+#  app/models/candy/chocolate.rb
+
+module candy
+  class Candy::Chocolate < Base
+
+    def eater_klass
+       User::HungryOne
+    end
+  end
+end
+~~~
+
+
+~~~ruby
+#  app/models/candy/gum_drop.rb
+
+module candy
+  class Candy::GumDrop < Base
+
+  end
+end
+~~~
+
+Way I handle that situation: 
+
+~~~ruby
+#  app/models/candy/base.rb
+
+module Candy
+  class Candy::Base < ActiveRecord::Base
+
+    def eater_klass
+      raise "should be overridden"     
+    end
+
+    def eater_klass_present?
+      begin 
+        eater_klass.present?
+      rescue
+        false
+      end
+    end
+
+  end
+end
+~~~
+
+
+
+This way I can do following: 
+
+~~~ruby
+chocolate = Candy::Chocolate.new
+chocolate.eater_klass_present?
+#true
+
+gum_drop = Candy::GumDrop.new
+gum_drop .eater_klass_present?
+#false
+~~~
