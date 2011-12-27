@@ -1,3 +1,16 @@
+ ~~~html
+<em>Emphasized text</em>
+<strong>Strong text</strong>
+<dfn>Definition term</dfn>
+<code>Computer code text</code>
+<samp>Sample computer code text</samp>
+<kbd>Keyboard text</kbd>
+<var>Variable</var>
+<cite>Citation</cite>
+~~~
+
+
+
 
 ##div##
 
