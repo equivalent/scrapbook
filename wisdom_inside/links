@@ -1,5 +1,23 @@
 Links below are quick links to other scraps or documentations on the web I liked. I store articles and tutorials in  [my delicious](http://delicious.com/stacks/equivalent8) account
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 web proxies
 =========
 
@@ -61,12 +79,24 @@ Api ror
 
 
 git
-----
+====
+
+##books
+
 [git pro free book](https://github.com/progit/progit/tree/master/en)
 
 
- heroku
----------
+## articles
+
+[GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html)
+[Git workflows by Yan Pritzker](http://yanpritzker.com/git-book/)
+
+
+
+
+heroku
+========
+
 
 "automated heroku backup":http://trevorturk.com/2010/04/14/automated-heroku-backups/ ,   "automated heroku backup gem(not in s3 localy)":https://github.com/joemsak/heroku_backup_task
 "autoated heroku backup s3":https://github.com/edavis10/heroku_s3_backup
@@ -162,10 +192,10 @@ html css tricks
 [asci art in meta description](http://www.zdnet.com/blog/seo/really-neat-idea-using-ascii-art-within-a-meta-description/695)
 
 
+javascript
+=============
 
-jquery javascript
-==================
-
+## jquery 
 [another jquery portfolio plugin blog](http://www.queness.com/post/222/10-jquery-photo-gallery-and-slider-plugins)
 [Portfolio improovers](http://www.designer-daily.com/18-jquery-scripts-and-tutorials-to-improve-your-portfolio-2162) 
 [galery](http://www.webhostingsecretrevealed.com/featured-articles/20-jquery-plugins-for-gallery-and-portfolio-websites/)
@@ -173,8 +203,15 @@ jquery javascript
 [zoom image galery](http://addyosmani.com/blog/zoomer-gallery-a-jquery-plugin-for-displaying-images-with-flash-like-zooming-effects/)
 
 [js fiddle for inspecting](http://jsfiddle.net/gnarf/qpJWp/)
-[jqeury...](http://www.sohtanaka.com/web-design/fancy-thumbnail-hover-effect-w-jquery/)
+[jqeury thombnail hover efect...](http://www.sohtanaka.com/web-design/fancy-thumbnail-hover-effect-w-jquery/)
 
+
+
+## backbone js
+https://github.com/addyosmani/backbone-fundamentals  
+
+
+## other
 [jasmine extension](https://github.com/pivotal/jasmine/wiki/Related-projects)
 
 
