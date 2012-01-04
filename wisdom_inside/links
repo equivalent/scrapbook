@@ -66,13 +66,15 @@ Api ror
  gem Gems/plugins
 ------------------
 
+[paperclip extension for ffmpeg](https://github.com/owahab/paperclip-ffmpeg)  video processing with paperclip
+[database cleaner ](https://github.com/bmabey/database_cleaner)  set of strategies for cleaning databes to make rspec faster
+
 [sinatra oauth2 facebook authentication](http://intridea.com/2010/4/22/oauth2-gem-just-in-time-for-facebook-graph?blog=company)
-"rails best practices":https://github.com/flyerhzm/rails_best_practices
+[rails best practices](https://github.com/flyerhzm/rails_best_practices)
 "plugin custom-error-msg":https://github.com/gumayunov/custom-err-msg  pluggin most attractieve function is that when you add ^ at the start of translation line your tronslation will apear without anoying 'Column:' 
 "iso countries plugin":https://github.com/SunDawg/country_codes
 "Search solution meta search":http://metautonomo.us/projects/metasearch/
 "Authlogic reset pasword stepbystep":http://www.binarylogic.com/2008/11/16/tutorial-reset-passwords-with-authlogic/
-[paperclip extension for ffmpeg](https://github.com/owahab/paperclip-ffmpeg)
 
 
 
