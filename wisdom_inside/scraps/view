@@ -1,0 +1,17 @@
+#render
+
+##partial
+
+newer rails
+
+~~~ruby
+render 'layouts/head'
+~~~
+
+will render partial in  *app/views/layouts/_head.html.erb*
+
+older rails
+
+~~~ruby
+render :partial => 'layouts/head'
+~~~

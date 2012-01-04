@@ -1,3 +1,21 @@
+#order
+
+
+rails 3
+
+~~~ruby
+  Category.order("id DESC")
+~~~
+
+rails < 3
+
+~~~ruby
+  Category.find(:all, :order => "id DESC")
+~~~
+
+
+
+
 #how to prevent callbacks 
 
 preventing callbacks like after_create 

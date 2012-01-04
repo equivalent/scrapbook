@@ -1,4 +1,10 @@
 
+#mount iso in ubuntu 
+
+~~~bash
+ sudo mkdir /media/something
+ sudo mount -o loop my.iso  /media/something
+~~~
 
 
 
