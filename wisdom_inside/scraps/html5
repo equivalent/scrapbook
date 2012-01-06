@@ -1,6 +1,45 @@
 
 
 
+
+
+# best practices in html
+
+## sematic best practice 
+
+  *  don't add any extra elements
+  *  don't add classes
+  *  use decadent selectors
+
+### decadent selectors 
+
+http://css.maxdesign.com.au/selectutorial/selectors_descendant.htm
+
+Descendant selectors are used to select elements that are descendants of another element in the document tree. 
+
+~~~html
+ <p> <em>aaa</em> </p>
+~~~
+
+
+### sensitibility  revised sematic best practices
+
+acording to http://www.slideshare.net/nathansmith/refresh-okc   (near slide 51)
+
+  *  Add extra elements sparingly
+  *  Add classes thoughtfully
+  *  Avoid descendent selector kludge..
+
+
+*em* is inside *p* and to explicittly style it you do someting like this *p em {/*do css stuff*/}*
+
+
+
+
+
+
+
+
 #Microformats
 
 http://microformats.org/
