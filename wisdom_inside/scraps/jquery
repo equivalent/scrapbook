@@ -19,7 +19,9 @@ when you click on button dont do deffault
 
 serialize form and add it to local storage 
 
-http://css-tricks.com/video-screencasts/96-localstorage-for-forms/
+more on local storage
+  http://css-tricks.com/video-screencasts/96-localstorage-for-forms/
+  https://github.com/equivalent/scrapbook/tree/master/wisdom_inside/exeternal/css-tricks.com/LocalStorageExample
 
 ~~~javascript
 
@@ -32,3 +34,4 @@ http://css-tricks.com/video-screencasts/96-localstorage-for-forms/
         });       
         
 ~~~
+
