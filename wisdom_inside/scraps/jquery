@@ -1,0 +1,34 @@
+
+
+# jquery prevent deffault
+
+when you click on button dont do deffault
+
+~~~javascript
+  $(function() {
+    $("#saveData")
+      .click(function(e) {
+        
+        // Don't actually submit form
+        e.preventDefault();
+    }
+  });
+~~~
+
+#serialize form
+
+serialize form and add it to local storage 
+
+http://css-tricks.com/video-screencasts/96-localstorage-for-forms/
+
+~~~javascript
+
+      var data = $("#form54").serializeArray();
+        
+        // iterate over results
+        $.each(data, function(i, obj) {
+          // HTML5 magic!!
+          localStorage.setItem(obj.name, obj.value);
+        });       
+        
+~~~

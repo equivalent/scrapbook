@@ -1,4 +1,23 @@
 
+#css 
+
+
+##background
+
+http://w3schools.com/cssref/css3_pr_background.asp
+
+        div
+        {
+          background:url(smiley.gif) top left no-repeat,
+          url(sqorange.gif) bottom left no-repeat,
+          url(sqgreen.gif) bottom right no-repeat;
+        } 
+
+
+
+
+
+
 
 
 ###autorefresh page

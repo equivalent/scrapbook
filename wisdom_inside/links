@@ -92,7 +92,7 @@ git
 
 [GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html)
 [Git workflows by Yan Pritzker](http://yanpritzker.com/git-book/)
-
+[git reset image](http://osteele.com/images/2008/git-transport.png)
 
 
 
@@ -175,10 +175,14 @@ Other programing languages
 
 ##tools##
 
+[spoon - test website in several browsers](http://Spoon.net/)
+
 ###layout framworks###
 
+[canvas ruby sass generator framework](http://compass-style.org/install/)
 [960 grid system](http://960.gs/)
 [Bootstrap html css layout framework](http://twitter.github.com/bootstrap/ ) from twitter
+[foundation zrub](http://foundation.zurb.com/index.php)
 
 ##articles##
 
