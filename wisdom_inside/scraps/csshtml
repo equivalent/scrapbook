@@ -1,3 +1,36 @@
+#background glare
+
+radio gradietnt 
+
+http://css-tricks.com/css3-gradients/
+
+http://westciv.com/tools/radialgradients/
+
+cool generator http://westciv.com/tools/gradients/
+and another one http://www.colorzilla.com/gradient-editor/
+
+syntax
+
+http://www.the-art-of-web.com/css/radial-gradients/
+
+#css 
+
+
+##background
+
+http://w3schools.com/cssref/css3_pr_background.asp
+
+        div
+        {
+          background:url(smiley.gif) top left no-repeat,
+          url(sqorange.gif) bottom left no-repeat,
+          url(sqgreen.gif) bottom right no-repeat;
+        } 
+
+
+
+
+
 
 todo
 read mediaqueri.es

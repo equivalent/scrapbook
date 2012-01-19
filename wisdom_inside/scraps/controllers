@@ -1,5 +1,40 @@
 
 
+
+
+
+
+
+
+# respond_with & correct way how to build controller logic
+
+
+2 golden rules that must be respected
+  *  controller is just passing parameters to model
+    *  response errors with *respond_with*
+  *  everithing functional sohuld be handled in model
+     *  validation
+     *  all errors 
+
+
+
+## restpond with 
+ 
+http://ryandaigle.com/articles/2009/8/6/what-s-new-in-edge-rails-cleaner-restful-controllers-w-respond_with
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #how to set expires header 
 
 http://stackoverflow.com/questions/3117361/how-do-i-set-expires-header-when-using-send-data

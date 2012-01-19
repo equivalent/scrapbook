@@ -1,5 +1,23 @@
 Links below are quick links to other scraps or documentations on the web I liked. I store articles and tutorials in  [my delicious](http://delicious.com/stacks/equivalent8) account
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 web proxies
 =========
 
@@ -9,6 +27,11 @@ http://anonymouse.org/
 
 Rails 
 =======
+
+## blogs  ##
+
+http://stevelorek.com/
+
 
 [reserved words for ruby on rails](http://oldwiki.rubyonrails.org/rails/pages/ReservedWords)
 
@@ -48,25 +71,39 @@ Api ror
  gem Gems/plugins
 ------------------
 
+[paperclip extension for ffmpeg](https://github.com/owahab/paperclip-ffmpeg)  video processing with paperclip
+[database cleaner ](https://github.com/bmabey/database_cleaner)  set of strategies for cleaning databes to make rspec faster
+
 [sinatra oauth2 facebook authentication](http://intridea.com/2010/4/22/oauth2-gem-just-in-time-for-facebook-graph?blog=company)
-"rails best practices":https://github.com/flyerhzm/rails_best_practices
+[rails best practices](https://github.com/flyerhzm/rails_best_practices)
 "plugin custom-error-msg":https://github.com/gumayunov/custom-err-msg  pluggin most attractieve function is that when you add ^ at the start of translation line your tronslation will apear without anoying 'Column:' 
 "iso countries plugin":https://github.com/SunDawg/country_codes
 "Search solution meta search":http://metautonomo.us/projects/metasearch/
 "Authlogic reset pasword stepbystep":http://www.binarylogic.com/2008/11/16/tutorial-reset-passwords-with-authlogic/
-[paperclip extension for ffmpeg](https://github.com/owahab/paperclip-ffmpeg)
 
 
 
 
 
 git
-----
+====
+
+##books
+
 [git pro free book](https://github.com/progit/progit/tree/master/en)
 
 
- heroku
----------
+## articles
+
+[GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html)
+[Git workflows by Yan Pritzker](http://yanpritzker.com/git-book/)
+[git reset image](http://osteele.com/images/2008/git-transport.png)
+
+
+
+heroku
+========
+
 
 "automated heroku backup":http://trevorturk.com/2010/04/14/automated-heroku-backups/ ,   "automated heroku backup gem(not in s3 localy)":https://github.com/joemsak/heroku_backup_task
 "autoated heroku backup s3":https://github.com/edavis10/heroku_s3_backup
@@ -139,8 +176,31 @@ Other programing languages
 
 
 
-html css templeates
-======================
+#html css & webdesigning#
+
+## site/ blogs ##
+
+http://uxmag.com/
+http://www.smashingmagazine.com/
+
+##tools##
+
+[utilu IE collection](http://utilu.com/IECollection/)  collection of IE versions for windows
+[spoon - test website in several browsers](http://Spoon.net/)
+[nonfree fonts at typekit](https://typekit.com)
+
+###layout framworks###
+
+[canvas ruby sass generator framework](http://compass-style.org/install/)
+[960 grid system](http://960.gs/)
+[Bootstrap html css layout framework](http://twitter.github.com/bootstrap/ ) from twitter
+[foundation zrub](http://foundation.zurb.com/index.php)
+
+##articles##
+
+http://www.alistapart.com/articles/frameworksfordesigners
+
+##templeates##
 
 [webfonts standart](http://www.ampsoft.net/webdesign-l/WindowsMacFonts.html)
 
@@ -153,6 +213,14 @@ html css templeates
 [css piffy](http://piffle.abdoc.net/)
 [colar lover](http://www.colourlovers.com/)
 
+
+
+## example web-pages ##
+
+http://www.fairline.com/en/   (by Steven)
+
+
+
 html css tricks
 ==================
 
@@ -163,9 +231,10 @@ html css tricks
 
 
 
-jquery javascript
-==================
+javascript
+=============
 
+## jquery 
 [another jquery portfolio plugin blog](http://www.queness.com/post/222/10-jquery-photo-gallery-and-slider-plugins)
 [Portfolio improovers](http://www.designer-daily.com/18-jquery-scripts-and-tutorials-to-improve-your-portfolio-2162) 
 [galery](http://www.webhostingsecretrevealed.com/featured-articles/20-jquery-plugins-for-gallery-and-portfolio-websites/)
@@ -173,8 +242,15 @@ jquery javascript
 [zoom image galery](http://addyosmani.com/blog/zoomer-gallery-a-jquery-plugin-for-displaying-images-with-flash-like-zooming-effects/)
 
 [js fiddle for inspecting](http://jsfiddle.net/gnarf/qpJWp/)
-[jqeury...](http://www.sohtanaka.com/web-design/fancy-thumbnail-hover-effect-w-jquery/)
+[jqeury thombnail hover efect...](http://www.sohtanaka.com/web-design/fancy-thumbnail-hover-effect-w-jquery/)
 
+
+
+## backbone js
+https://github.com/addyosmani/backbone-fundamentals  
+
+
+## other
 [jasmine extension](https://github.com/pivotal/jasmine/wiki/Related-projects)
 
 

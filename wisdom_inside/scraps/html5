@@ -1,0 +1,178 @@
+
+#  ascii
+
+      &hellip;    ...
+
+
+
+# best practices in html
+
+## sematic best practice 
+
+  *  don't add any extra elements
+  *  don't add classes
+  *  use decadent selectors
+
+### decadent selectors 
+
+http://css.maxdesign.com.au/selectutorial/selectors_descendant.htm
+
+Descendant selectors are used to select elements that are descendants of another element in the document tree. 
+
+~~~html
+ <p> <em>aaa</em> </p>
+~~~
+
+
+### sensitibility  revised sematic best practices
+
+acording to http://www.slideshare.net/nathansmith/refresh-okc   (near slide 51)
+
+  *  Add extra elements sparingly
+  *  Add classes thoughtfully
+  *  Avoid descendent selector kludge..
+
+
+*em* is inside *p* and to explicittly style it you do someting like this *p em {/*do css stuff*/}*
+
+
+
+
+
+
+
+
+#Microformats
+
+http://microformats.org/
+
+
+
+
+
+#Demos
+
+## links with demosites 
+
+http://html5sites.com/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## web design acabemy
+
+http://www.webdesignacademy.co.za/
+
+
+### header solution
+
+~~~html
+
+    <header> 
+
+        <a href="index.html"><img src="lib/images/logo/web-design-academy-logo.png" width="219" height="133" alt="Web Design Academy"></a> 
+
+    <hgroup>
+
+              <h1 class="headnone" title="HTML5 & CSS3 Courses Durban"><a href="index.html" title="Website Design Training">Web Design Academy</a></h1>
+
+                <h2 class="headnone" title="Practical Web Design Training in Durban">Practical Online Design Training</h2><br/>                  
+
+                <p class="divider"></p>
+
+    </hgroup>
+
+               
+
+            <hgroup class="navigation">
+
+              <ul>
+
+                    <a href="index.html"><li class="fontface hover-panel lactive" title="Web Design Academy - Training in Durban">HOME</li></a>
+
+                    <a href="website-design-training.html"><li title="Web Design Courses in Durban" class="fontface hover-panel">COURSES</li></a>
+
+                    <a href="about-web-design-training-durban.html"> <li title="About Web Design Academy in Durban" class="fontface hover-panel">ABOUT</li></a>
+
+                    <a href="contact-web-design-academy.html"><li title="Contact Web Design Academy in Durban" class="fontface hover-panel">CONTACT</li></a>  
+
+              </ul>
+
+             </hgroup>
+
+        </header>
+
+
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Successfully creating chaos html5 website demo
+
+http://company.demos.whatwg.org/old-demo/
+
+### header solution
+
+~~~html
+    <header>
+         <hgroup class="logo"> 
+            <h1><a href="http://company.demos.whatwg.org/old-demo/" title="Back to homepage"><img src="Successfully%20creating%20chaos%20-%20in%20HTML%205_files/logo.gif" alt="Some Company"></a></h1> 
+            <h2>We make moneh! This is a slogan by the way.</h2> 
+          </hgroup> 
+ 
+          <nav> 
+            <h2 class="hidden">Navigation</h2> 
+ 
+            <div id="mainMenu"> 
+              <ul> 
+                <li class="active"><a href="http://company.demos.whatwg.org/old-demo/"><span>Homepage</span></a></li> 
+                <li><a href="http://company.demos.whatwg.org/old-demo/"><span>Archive</span></a></li> 
+                <li><a href="http://company.demos.whatwg.org/old-demo/"><span>About me</span></a></li> 
+                <li><a href="http://company.demos.whatwg.org/old-demo/"><span>Contact</span></a></li> 
+              </ul> 
+            </div> 
+
+
+            <h2 class="hidden">Languages</h2> 
+ 
+            <ul id="lang"> 
+              <li class="en"><a href="http://company.demos.whatwg.org/old-demo/" title="English"><span></span>EN</a></li> 
+              <li class="de"><a href="http://company.demos.whatwg.org/old-demo/" title="Deutsch"><span></span>DE</a></li> 
+              <li class="fr"><a href="http://company.demos.whatwg.org/old-demo/" title="Français"><span></span>FR</a></li> 
+            </ul> 
+          </nav> 
+ 
+          <form action="./"> 
+            <fieldset> 
+              <legend>Search</legend> 
+              <input class="text" name="search" title="Enter search word or phrase" type="search"> 
+              <input class="submit" value="Search" type="submit"> 
+            </fieldset> 
+          </form> 
+ 
+        </header> 
+~~~
