@@ -1,5 +1,31 @@
 
 
+
+distance between 2 times in words 
+=================================
+
+http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-distance_of_time_in_words
+
+
+## tiny distance  like 1w, 2d ...
+
+
+    def created_at_tiny
+      t = (Time.now.to_i - self.created_at.to_i)
+      mm, ss = t.divmod(60)            #=> [4515, 21]
+      hh, mm = mm.divmod(60)           #=> [75, 15]
+      dd, hh = hh.divmod(24)           #=> [3, 3]
+      ww, dd = dd.divmod(7) 
+      yy, ww = ww.divmod(7) 
+      date_string ="%dy, %dw, %dd, %dh, %dm, %ds" % [yy, ww, dd, hh, mm, ss] 
+      date_array = date_string.split(', ')
+      date_array.reject!{ |x| x =~ /0[a-z]/}
+      date_array.first
+    end
+
+
+
+
 database
 ========
 
