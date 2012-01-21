@@ -22,3 +22,14 @@ source http://www.pclinuxos.com/forum/index.php/topic,83320.0.html
 # passphraze of #
 
 http://docs.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s2-ssh-configuration-keypairs.html
+
+
+
+
+# set machine steps #
+
+## rar support ##
+
+        su -c 'rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm'
+        su -c 'rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm'
+        sudo yum install unrar
