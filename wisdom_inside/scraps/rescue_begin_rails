@@ -1,0 +1,46 @@
+# exceptions, begin rescue
+
+http://www.skorks.com/2009/09/ruby-exceptions-and-exception-handling/
+
+        begin
+        # Your normal code block
+        rescue SomeException
+        # ... handling exception
+        else
+        # This part only run if the main code did not throw
+        # an exception.
+        ensure
+        # The very last thing to be run before the clause exit.
+        # Code in the ensure clause will always get execute.
+        end
+
+
+
+~~~ruby
+
+raise ZeroDivisionError
+
+
+begin
+  raise ZeroDivisionError, "Hello I am a random zero division error"
+rescue ZeroDivisionError => e
+  p e.message
+  p e.backtrace
+end
+~~~
+
+
+
+
+
+
+
+
+## Custom Exceptions ##
+
+~~~ruby
+class MyCrazyException < Exception
+end
+ 
+raise MyCrazyException, "I am a crazy new exception"
+~~~
