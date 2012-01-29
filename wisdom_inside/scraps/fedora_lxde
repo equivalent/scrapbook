@@ -33,3 +33,89 @@ http://docs.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s2-ssh-confi
         su -c 'rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm'
         su -c 'rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm'
         sudo yum install unrar
+
+## mp3 video ##
+
+http://www.fergytech.com/2011/11/enable-mp3-playback-on-fedora-16/
+
+        sudo yum localinstall –nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
+        sudo yum install gstreamer-plugins-ugly
+        # other plugins
+        sudo yum install gstreamer-plugins-*
+
+## install vlc ##
+
+        yum install vlc
+
+## istall arista transcoder ##
+
+http://www.fedoraforum.org/forum/showthread.php?t=261884
+http://www.transcoder.org/downloads/
+
+install
+      #cd ./path-to-arista
+      yum -y install python2-devel python3-devel gstreamer-plugins-bad-nonfree
+      
+
+I had no problems installing but I found few peple complaining, so to solve possible problems in fedora:
+
+     yum install gstreamer-plugins-good gstreamer-plugins-bad gstreamer-plugins-bad-free gstreamer-plugins-ugly gstreamer-ffmpeg ffmpeg mplayer mencoder mplayer-gui gecko-mediaplayer
+     yum install hal-filesystem hal-info hal-libs hal-storage-addon
+     yum install python-gudev
+
+##  install filezilla ftp ##
+
+    yum install filezilla
+
+
+## ruby & rails ##
+
+# rvm #
+
+before instaling anything do 
+
+         yum install zlib-devel.i686
+         rvm pkg install openssl
+         rvm pkg install iconv
+
+and install with 
+
+         rvm install 1.9.2 -C --with-openssl-dir=$HOME/.rvm/usr,--with-iconv-dir=$HOME/.rvm/usr 
+
+if you forget to add something you neet to
+
+         rvm remove 1.9.2
+
+
+# janus vim #
+
+before anything, make sure you have rvm installed ad go to /home/user and just run from bash and open ssl
+         
+         sudo yum install openssl      
+         rvm --create use ruby-1.9.2@any
+         gem install rake
+
+othervise rake task will fail
+
+lunch janus instal curl
+
+but, it will fail! , open .vim/Rakefile and add
+
+    require 'openssl'
+    OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
+ than
+    
+     cd .vim
+     rake install
+
+[source](https://github.com/carlhuda/janus/issues/362)
+
+
+
+# nokogiry dependancies #
+#
+
+      sudo yum install libxml2-devel libxslt-devel
+
+[source](http://blog.dhavalparikh.co.in/2011/08/libxslt-is-missing-using-omniauth-and-nokogiri/)
