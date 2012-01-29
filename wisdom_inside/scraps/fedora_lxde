@@ -7,17 +7,8 @@ currently I'm using fedora & lxde on my eee pc, so here are some hints
 
      sudo pm-suspend
 
-# powermanager #
-
-aGet gnome power manager from the repo's.
-Open /etc/xdg/lxsession/LXDE/autostart as root, and add the line:
-@gnome-power-manager (Make sure the file has a blank line as its last entry, and save.)
-Close out and reboot. There should now be an accurate working battery monitor in your LXDE taskbar, with the added benefits of settings for stand-by and hibernation from Preferences.
-
-source http://www.pclinuxos.com/forum/index.php/topic,83320.0.html
-
-* dont know if work * for me not 
-
+# gnome sound mangaer
+     gnome-sound-applet
 
 # passphraze of #
 
