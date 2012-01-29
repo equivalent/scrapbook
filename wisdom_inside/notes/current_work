@@ -1,0 +1,19 @@
+#tear down database
+
+
+  def teardown
+    ActiveRecord::Base.send(:subclasses).each do |klass|
+      klass.delete_all
+    end
+  end
+
+
+
+
+
+require 'factory_girl'
+require 'faker'
+Dir[Rails.root.to_s + '/spec/factories/**/*.rb'].each {|file| require file }
+
+FactoryGirl.reload
+

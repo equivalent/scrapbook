@@ -1,3 +1,24 @@
+# defining dynamic methods from array
+#
+
+~~~ruby
+  class Permission < ActiveRecord::Base
+    DESIRED_PERMISSIONS=[:email, :user_interests, :user_checkins, :publish_stream]
+
+    DESIRED_PERMISSIONS.each do |meth|
+      define_method :"#{meth.to_s}?" do
+        ! (  data[meth.to_s].blank? || data[meth.to_s] == 0 )
+      end
+    end
+  end
+~~~
+
+
+
+
+
+
+
 #order
 
 

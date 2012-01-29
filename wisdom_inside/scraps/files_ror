@@ -1,6 +1,37 @@
 
      ::Rails.root.to_s.
 
+
+## reading and writing to from file
+
+~~~ruby
+
+        content =  normal_users.last.to_json
+
+       json_file =  File.open(target, "w") do |f|
+          f.write(content)
+        end
+       json_file.close
+
+~~~
+
+
+
+~~~ruby
+
+   target = "#{Rails.root.to_s}/tmp/old_database_migration.json" 
+
+      data = ''
+      f = File.open(target, "r") 
+      f.each_line do |line|
+        data += line
+      end
+      f.close
+
+      p data
+~~~
+
+
 ##load all files in folder (best practice)
 
 sinatra
