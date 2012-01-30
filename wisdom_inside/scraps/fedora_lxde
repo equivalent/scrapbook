@@ -71,7 +71,7 @@ before instaling anything do
 
 and install with 
 
-         rvm install 1.9.2 -C --with-openssl-dir=$HOME/.rvm/usr,--with-iconv-dir=$HOME/.rvm/usr 
+         rvm install 1.9.2 -C --with-openssl-dir=$HOME/.rvm/usr,--with-iconv-dir=$HOME/.rvm/usr, --with-readline-dir=$rvm_path/usr
 
 if you forget to add something you neet to
 
@@ -104,9 +104,21 @@ but, it will fail! , open .vim/Rakefile and add
 
 
 
-# nokogiry dependancies #
-#
+#  gems  dependancies #
+
+nokogiry
+postgress
+rubyracer
+heroku redline
 
       sudo yum install libxml2-devel libxslt-devel
+      sudo yum install postgresql-devel
+      sudo yum install gcc-c++
+      rvm pkg install readline
+      # rvm reinstall 1.9.2 --with-readline-dir=$rvm_path/usr   
 
 [source](http://blog.dhavalparikh.co.in/2011/08/libxslt-is-missing-using-omniauth-and-nokogiri/)
+
+[source :https://gist.github.com/1330137]
+
+
