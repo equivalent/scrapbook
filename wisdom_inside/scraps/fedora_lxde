@@ -61,6 +61,29 @@ I had no problems installing but I found few peple complaining, so to solve poss
 
 ## ruby & rails ##
 
+
+#  gems  dependancies #
+
+nokogiry
+postgress
+rubyracer
+heroku redline
+
+      sudo yum install libxml2-devel libxslt-devel
+      sudo yum install postgresql-devel
+      sudo yum install gcc-c++
+      rvm pkg install readline
+      # rvm reinstall 1.9.2 --with-readline-dir=$rvm_path/usr   
+
+[source](http://blog.dhavalparikh.co.in/2011/08/libxslt-is-missing-using-omniauth-and-nokogiri/)
+
+[source :https://gist.github.com/1330137]
+
+
+
+
+
+
 # rvm #
 
 before instaling anything do 
@@ -71,7 +94,7 @@ before instaling anything do
 
 and install with 
 
-         rvm install 1.9.2 -C --with-openssl-dir=$HOME/.rvm/usr,--with-iconv-dir=$HOME/.rvm/usr, --with-readline-dir=$rvm_path/usr
+         rvm install 1.9.2 -C --with-openssl-dir=$HOME/.rvm/usr,--with-iconv-dir=$HOME/.rvm/usr, --with-readline-dir=$rvm_path/usr/lib
 
 if you forget to add something you neet to
 
@@ -104,21 +127,21 @@ but, it will fail! , open .vim/Rakefile and add
 
 
 
-#  gems  dependancies #
+#postgres 
 
-nokogiry
-postgress
-rubyracer
-heroku redline
+for me it was really complicated to configure postgres database
 
-      sudo yum install libxml2-devel libxslt-devel
-      sudo yum install postgresql-devel
-      sudo yum install gcc-c++
-      rvm pkg install readline
-      # rvm reinstall 1.9.2 --with-readline-dir=$rvm_path/usr   
 
-[source](http://blog.dhavalparikh.co.in/2011/08/libxslt-is-missing-using-omniauth-and-nokogiri/)
+      sudo postgresql-setup initdb
+      sudo chmod -R 700 /var/lib/pgsql
+      sudo chown -R tomi /var/lib/pgsql
+      postgres -D /var/lib/pgsql/data   #start server
 
-[source :https://gist.github.com/1330137]
+in new terminal window
 
+      psql --username=postgres
+      create user toor with password '123456'
+
+      
+    
 
