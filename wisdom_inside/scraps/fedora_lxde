@@ -59,6 +59,15 @@ I had no problems installing but I found few peple complaining, so to solve poss
     yum install filezilla
 
 
+
+## mac drive format support
+
+
+     sudo yum install gparted
+     sudo yum install hfsutils
+
+
+
 ## ruby & rails ##
 
 
@@ -70,10 +79,9 @@ rubyracer
 heroku redline
 
       sudo yum install libxml2-devel libxslt-devel
+      apt-get install libopenssl-ruby
       sudo yum install postgresql-devel
       sudo yum install gcc-c++
-      rvm pkg install readline
-      # rvm reinstall 1.9.2 --with-readline-dir=$rvm_path/usr   
 
 [source](http://blog.dhavalparikh.co.in/2011/08/libxslt-is-missing-using-omniauth-and-nokogiri/)
 
@@ -91,6 +99,8 @@ before instaling anything do
          yum install zlib-devel.i686
          rvm pkg install openssl
          rvm pkg install iconv
+         rvm pkg install readline
+         sudo yum groupinstall development-tools development-lib
 
 and install with 
 
