@@ -1,3 +1,42 @@
+
+
+# center website with continus backround with pseudo elements
+
+like in ipone marketing page on lovethis.com
+
+~~~sass
+
+.home_marketing_iphone
+  header 
+    background: none repeat scroll 0 0 #f1f1ee
+    background-image: url(image-path("background.png"))
+    color: white
+    padding: 15px 0
+    position: relative
+    margin: 0 auto
+    width: 960px
+    &:before, &:after 
+      background: none repeat scroll 0 0 #f1f1ee
+      background-image: url(image-path("background.png"))
+      bottom: 0
+      content: ""
+      position: absolute
+      top: 0
+      width: 9999px
+    &:before 
+      right: 100%
+    &:after 
+      left: 100%
+~~~
+
+
+# reflection
+
+~~~css
+       -webkit-box-reflect: below 0 -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(85%, transparent), to(rgba(255,255,255,0.2)))
+~~~
+
+
 #background glare
 
 radio gradietnt 
@@ -12,6 +51,23 @@ and another one http://www.colorzilla.com/gradient-editor/
 syntax
 
 http://www.the-art-of-web.com/css/radial-gradients/
+
+
+from Steve
+
+~~~sass
+  article
+    width: 100%
+    height: 100%
+    left: 0
+    position: absolute
+    background: #333
+    background-image: -moz-radial-gradient(70% top, circle farthest-side, #555, #333 100%)
+    background-image: -webkit-radial-gradient(70% -50%, circle farthest-side, #555, #333 100%)
+    background-image: -ms-radial-gradient(70% -50%, circle farthest-side, #555, #333 100%)
+    background-image: -o-radial-gradient(70% -50%, circle farthest-side, #555, #333 100%)
+    background-image: radial-gradient(70% -50%, circle farthest-side, #555, #333 100%)
+~~~
 
 #css 
 
