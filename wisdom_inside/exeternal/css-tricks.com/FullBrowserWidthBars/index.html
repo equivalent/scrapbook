@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+	
+	<title>Full Browser Width Bars</title>
+	
+	<link rel='stylesheet' href='css/style.css'>
+	
+	<style>
+
+    html { overflow-x: hidden; }
+    h2 { 
+      background: black;
+      color: white;
+      padding: 15px 0;
+      position: relative;
+    }
+    h2:before, h2:after {
+      content: "";
+      background: black;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 9999px;
+    }
+    h2:before {
+      right: 100%;
+    }
+    h2:after {
+      left: 100%;
+    }
+    
+    h2:nth-of-type(1), h2:nth-of-type(1):before, h2:nth-of-type(1):after { background: #dc4916; }
+    h2:nth-of-type(2), h2:nth-of-type(2):before, h2:nth-of-type(2):after { background: #6871b1; }
+    h2:nth-of-type(3), h2:nth-of-type(3):before, h2:nth-of-type(3):after { background: #d1b935; }
+    
+    .left-only:after {
+      display: none;
+    }
+    
+    .right-only:before {
+      width: 20px;
+    }
+    	
+	</style>
+</head>
+
+<body>
+
+	<div id="page-wrap">
+		
+		<h1>Full Browser Width Bars</h1>
+		
+		<p>...with no markup specifically for them (like internal wrappers). All the content is wrapped in one element. The header bars are extended to the left and right by pseudo elements. </p>
+		
+		<h2>Full Width</h2>
+		
+		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+		
+		<h2 class="left-only">To the left, to the left</h2>
+		
+		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+		
+		<h2 class="right-only">To the right, to the right</h2>
+		
+		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+	
+	</div>
+	
+</body>
+
+</html>
