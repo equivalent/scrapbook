@@ -1,3 +1,20 @@
+
+#Charset problem with vim and ruby 
+
+if you ever have this problem 
+   
+     invalid multibyte char (US-ASCII)
+
+just in vim do
+ 
+    set bomb
+
+and save file 
+
+http://stackoverflow.com/questions/5809412/global-settings-to-solve-invalid-multibyte-char-us-ascii-in-rails-3
+
+
+
 Ctags
 =====
 
