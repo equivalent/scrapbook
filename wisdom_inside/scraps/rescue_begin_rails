@@ -27,12 +27,25 @@ rescue ZeroDivisionError => e
   p e.message
   p e.backtrace
 end
+
+
+
 ~~~
 
 
+~~~ruby
+notification_message = Notification.last #(with column exeption_message)
+
+begin
+  #...
+recue Api::Exception::FacebookOpenGraph => e
+  notification_message.exception_message = "#{e.class} => #{e.message}"
+  notification_message.save
+  return false
+ end
 
 
-
+~~~
 
 
 
