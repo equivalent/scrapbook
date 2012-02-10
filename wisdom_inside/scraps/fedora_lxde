@@ -14,7 +14,11 @@ currently I'm using fedora & lxde on my eee pc, so here are some hints
 
 http://docs.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s2-ssh-configuration-keypairs.html
 
-
+# ssh to remmember your password
+ 
+ afterr you generated keys (it's securyty risk ! ) 
+      
+      ssh-add
 
 
 # set machine steps #
@@ -161,6 +165,10 @@ http://www.cyberciti.biz/faq/howto-add-postgresql-user-account/
 
 
 
-      
-    
+
+# audacity
+
+to suport mp3, dont install audacity!!! install this
+  
+   yum install audacity-freeworld
 
