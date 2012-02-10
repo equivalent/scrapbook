@@ -1,5 +1,60 @@
 
 
+
+
+# footer fixed to botom
+
+from http://1cog.co.uk/sandbox/footer.html  and http://ryanfait.com/sticky-footer/
+
+
+~~~haml
+
+%html
+  %body
+    .wrapper
+       %header 
+       %article
+         %p ipsum 
+    %footer
+      %p
+        lorem
+
+~~~
+
+
+~~~sass
+
+
+html, body
+  height: 100%
+
+  /* css trick making footer flow and stay */
+  .wrapper 
+    min-height: 100%
+    height: auto !important
+    height: 100%
+    article 
+      padding: 0 0 80px
+  footer
+    margin:  -50px 0 0
+    p
+      text-align: center
+      margin: 0
+
+~~~
+
+the trick is that the last element inside wrapper has padding and footer has -margin
+
+
+
+
+
+
+
+
+
+
+
 # center website with continus backround with pseudo elements
 
 like in ipone marketing page on lovethis.com
