@@ -37,6 +37,7 @@ html, body
       padding: 0 0 80px
   footer
     margin:  -50px 0 0
+    height: 50px 
     p
       text-align: center
       margin: 0
