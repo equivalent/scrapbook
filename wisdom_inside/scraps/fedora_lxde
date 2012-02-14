@@ -23,6 +23,13 @@ if you getting error *Could not open a connection to your authentication agent.*
       
       exec ssh-agent bash
 
+## ssh access fedora machine
+
+ssh server must be running
+
+      /sbin/service sshd status
+      sudo /sbin/service sshd start
+
 # set machine steps #
 
 ## rar support ##
