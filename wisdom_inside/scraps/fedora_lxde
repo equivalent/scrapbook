@@ -16,10 +16,12 @@ http://docs.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s2-ssh-confi
 
 # ssh to remmember your password
  
- afterr you generated keys (it's securyty risk ! ) 
       
       ssh-add
 
+if you getting error *Could not open a connection to your authentication agent.*  run
+      
+      exec ssh-agent bash
 
 # set machine steps #
 
