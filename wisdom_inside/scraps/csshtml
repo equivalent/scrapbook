@@ -34,10 +34,11 @@ html, body
     height: auto !important
     height: 100%
     article 
+      position: static /*cannot be relative or absolute ff problem*/
       padding: 0 0 80px
   footer
     margin:  -50px 0 0
-    height: 50px 
+    height: 20px 
     p
       text-align: center
       margin: 0

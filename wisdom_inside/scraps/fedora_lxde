@@ -181,3 +181,27 @@ to suport mp3, dont install audacity!!! install this
   
    yum install audacity-freeworld
 
+
+
+
+# sturtup scripts for fedora 
+
+have a fedora core box which needs to run different scripts on startup to connect to other boxes on the network.
+
+After a bit of fiddling around, I found what appears to be the best solution for me, using ntsysv and init.d. Here's how it's done;
+
+1.) make a new file in the /etc/init.d/ directory
+2.) add your script to this file with the following lines at the top;
+
+        #!/bin/bash
+        # chkconfig: 345 85 15
+        # description: of your file
+
+3.) enter this in the shell;
+
+        chkconfig --add startup_filename
+
+4.) type ntsysv - your startup script should now be in the list, checked and ready for action!
+
+http://snippets.dzone.com/posts/show/5496
+
