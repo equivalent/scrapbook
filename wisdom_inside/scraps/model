@@ -45,6 +45,7 @@ preventing callbacks like after_create
 
 ~~~ruby
 Vote.skip_callback(:save, :after, :add_points_to_user)  #rails 3 
+Vote.set_callback(:save, :after, :add_points_to_user)  #rails 3 
 
 Foo.after_save.reject! {|callback| callback.method.to_s == 'some_method_name' }
 ~~~

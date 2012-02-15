@@ -1,3 +1,30 @@
+#paths in console
+
+~~~ruby
+ app.root_path
+ # '/'
+~~~
+
+or 
+
+~~~ruby
+ r = Rails.application.routes
+
+ r.recognize_path "/station/index/42.html"
+ #=> {:controller=>"station", :action=>"index", :format=>"html", :id=>"42"}
+
+ r.generate :controller => :station, :action=> :index, :id=>42
+ #=> /station/index/42
+
+~~~
+
+http://stackoverflow.com/questions/2778074/recognize-routes-in-rails-console-session
+
+
+
+rails
+==========
+
 http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-url_for
 
 
