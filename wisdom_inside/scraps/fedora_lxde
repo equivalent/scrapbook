@@ -7,6 +7,11 @@ currently I'm using fedora & lxde on my eee pc, so here are some hints
 
      sudo pm-suspend
 
+#lock screen o lxde
+
+      xscreensaver-command -lock
+
+
 # gnome sound mangaer
      gnome-sound-applet
 
