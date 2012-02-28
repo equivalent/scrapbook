@@ -1,5 +1,35 @@
 http://cheat.errtheblog.com/s/rspec/
 
+
+# how to call private method in rspec #
+
+
+
+~~~ruby
+# app/model/something.rb
+
+private
+  def construct_lost_password_notification
+     #...
+  end
+
+# spec/model/something.rb
+
+@lost_password.construct_lost_password_notification
+~~~
+
+will end up with 
+
+* private method `construct_lost_password_notification' called for #<LostPassword:0x007fc68f50ed50> *
+
+solution 
+
+~~~ruby
+@lost_password.instance_eval{ construct_lost_password_notification }    
+~~~
+
+
+
 Model
 ======
 

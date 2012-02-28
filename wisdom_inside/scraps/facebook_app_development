@@ -36,8 +36,42 @@ note: above data isn't my real FB user
 
 
 
+
+
+
+
 posting
 ===================
+
+
+##Direct post to own wall
+
+
+    graph.facebook.com/me/feed
+
+fields:
+ 
+    name: test
+
+
+note: must be post !
+
+
+
+
+## post to friends wall 
+
+
+https://graph.facebook.com/ 100002413336187/feed
+
+        link: http://developers.facebook.com/
+        name: bubla
+        picture: http://osaust.jpg
+        caption: fererence documentation oea oeau oeau oaeu oaeu oeu oeu oeu oeu oeu oeu oeu oe uoe uoeu oeu oeu oe uoeu oe oe uo a
+        description: fererence documentation oea oeau oeau oaeu oaeu oeu oeu oeu oeu oeu oeu oeu oe uoe uoeu oeu oeu oe uoeu oe oe uo a
+        message: oh checkt this oute
+
+
 
 POST
 ----
