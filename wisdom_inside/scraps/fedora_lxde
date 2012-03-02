@@ -3,6 +3,13 @@
 currently I'm using fedora & lxde on my eee pc, so here are some hints
 
 
+# temperature monitoring in conole
+
+     sudo yum install lm_sensors
+     sudo sensors-detect
+     sensors
+
+
 #suspend trought console
 
      sudo pm-suspend
@@ -209,4 +216,12 @@ After a bit of fiddling around, I found what appears to be the best solution for
 4.) type ntsysv - your startup script should now be in the list, checked and ready for action!
 
 http://snippets.dzone.com/posts/show/5496
+
+
+
+
+
+
+
+
 

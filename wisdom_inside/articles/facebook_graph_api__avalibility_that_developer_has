@@ -1,6 +1,29 @@
 
+#investigation on facebook images 
 
-investigation on what developer can get/post from/to facebook done on September 12 2011
+
+*  image max size is 90x90
+*  image can be small like 1px  and facebook will resize the post message
+*  the optimum small image size is 10px for width (to be align with ico)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======================================================================
+
+#investigation on what developer can get/post from/to facebook done on September 12 2011
 
 
 
