@@ -181,6 +181,59 @@ http://www.vaporbase.com/postings/Using_Rspec_on_Controllers
 
 
 
+
+
+
+
+##  how to test nested resources ##
+
+
+
+~~~ruby
+    resources "user", :only => [:show] do
+      resources  "icecreams", :only => [:show]
+    end
+
+~~~
+
+
+~~~ruby
+
+describe IcecreamController do
+  context "when show action triggered" do
+    it "should render show page if valid rocommendation collection guid provided " do
+      get :show, {:id => @icecream.guid, :user_id => '123456789'}
+      response.should be_successful
+      response.should render_template("show")
+    end
+
+
+    it "should not render show page if valid or invalif notificatio guid provided " do
+      lambda { get( :show, { :id => @other_objcet.guid, :user_id => 1322252355 }).should raise_error ActionController::RoutingError}
+
+      lambda { get( :show, { :id => 'aaaaaa', :user_id => 123454324  }).should raise_error ActionController::RoutingError }
+
+    end
+  end
+end
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Getting headers and body
 
 
