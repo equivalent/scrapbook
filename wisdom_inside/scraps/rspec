@@ -185,15 +185,15 @@ http://www.vaporbase.com/postings/Using_Rspec_on_Controllers
 
 
 
-##  how to test nested resources ##
+##  how to test nested resources and custom match paths ##
 
 
 
 ~~~ruby
-    resources "user", :only => [:show] do
-      resources  "icecreams", :only => [:show]
-    end
-
+  resources "users", :only => [:show] do
+    resources  "icecreams", :only => [:show]
+    match "r/:id" => "icecreams#show"
+  end
 ~~~
 
 
@@ -201,8 +201,8 @@ http://www.vaporbase.com/postings/Using_Rspec_on_Controllers
 
 describe IcecreamController do
   context "when show action triggered" do
-    it "should render show page if valid rocommendation collection guid provided " do
-      get :show, {:id => @icecream.guid, :user_id => '123456789'}
+    it "should render show page if valid icecream  guid provided " do
+      get :show, {:id => @icecream.guid, :users_id => @user id}
       response.should be_successful
       response.should render_template("show")
     end
@@ -213,6 +213,11 @@ describe IcecreamController do
 
       lambda { get( :show, { :id => 'aaaaaa', :user_id => 123454324  }).should raise_error ActionController::RoutingError }
 
+    end
+
+
+    it "shorten form should work too" do
+      { :get => "/users/33331/r/#{@icecream.guid}" }.should route_to(:controller => 'icecreams', :action => 'show', :id => @icecream.guid, :users_id => "33331" )
     end
   end
 end
