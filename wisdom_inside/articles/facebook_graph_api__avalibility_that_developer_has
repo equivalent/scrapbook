@@ -6,6 +6,10 @@
 *  image can be small like 1px  and facebook will resize the post message
 *  the optimum small image size is 10px for width (to be align with ico)
 
+myths: 
+*  if you post to facebook with caption " " (emty whitespace) image will be ignored
+  *  this is a myth, maybe it will just won't download images from server but image provided with picture parameter will be displayed. Same thing for blank caption
+
 
 
 
