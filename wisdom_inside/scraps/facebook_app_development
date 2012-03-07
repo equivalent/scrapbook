@@ -1,4 +1,25 @@
 
+
+Posting with Kaola
+==================
+
+http://blog.twoalex.com/2010/05/03/introducing-koala-a-new-gem-for-facebooks-new-graph-api/
+
+~~~ruby
+
+require 'rubygems'
+require 'koala'
+@graph = Koala::Facebook::GraphAPI.new('tokeeeeeeeeeeen')
+@graph.put_wall_post("hey, i'm learning kaola", {:name => 'Kaola is cool', :caption =>' ', :link => 'http://bofu.eu' })
+@graph.get_connections('100002413336187','feed')
+
+~~~
+
+Posting parameters to wall:  message, picture, link, name, caption, description, source, place, tags
+all and others: https://developers.facebook.com/docs/reference/api/  and find publishing
+
+
+
 Geting informations from FB token
 ===============================
 
