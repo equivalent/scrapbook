@@ -1,5 +1,21 @@
 
 
+Handling expired tokens 
+========================
+
+https://developers.facebook.com/blog/post/500/
+https://developers.facebook.com/docs/offline-access-deprecation/#extend_token
+
+notes from articles 
+
+*  allowing the option to reset the expiration time for existing, valid access_tokens each time a user interacts with your site.
+*  When a user visits your site with an existing, valid access_token, you have the option to extend the expiration time of that access token without requiring the user to login again. 
+   *  only once per day
+   *  this not apply to desktop & modile devices ... [ios solution](https://developers.facebook.com/docs/mobile/ios/build/#extend_token)
+
+* when facebook is generating token it also provides expiration time 
+  *  http://developers.facebook.com/docs/authentication/  serch for "the expires parameter)
+
 Posting with Kaola
 ==================
 

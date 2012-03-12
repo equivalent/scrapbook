@@ -1,0 +1,46 @@
+
+
+## How to access host name for environment
+
+
+in *config/enviroments/your_environment.rb* do
+
+    YourApp::Application.config.web_hostname = 'bubla.mysite.com'
+
+or better 
+
+    YourApp::Application.configure do
+      config.web_hostname = 'bubla.mysite.com'
+    end
+ 
+
+than access it in moddels 
+   
+    Rails.application.config.web_hostname 
+
+Why ? 
+
+it's much cleaner than seting constant in enviromests files
+
+ *config/enviroments/your_environment.rb* 
+
+      ENVIRONMENT_HOST_NAME= 'budla.mysite.com'   # it works but it's not pretty at all 
+
+
+
+
+## How to access routing helper inside model
+
+in model
+~~~ruby
+
+def some_methode
+  Rails.application.routes.url_helpers.user_url( favorit_user.guid, :host => 'eq8.eu' ) 
+end
+~~~
+
+will give me full path like *http://eq8.eu/user/atsusos23s*
+
+
+
+idea from http://stackoverflow.com/questions/5380703/rails-get-resource-path-in-model

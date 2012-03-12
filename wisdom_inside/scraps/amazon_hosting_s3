@@ -34,6 +34,14 @@ uploading file private (yup, private is by def)
 
 
 
+make all files public 
+  
+    s3cmd setacl --acl-public s3://zdenka/*/*
+
+make all files private
+
+    s3cmd setacl --acl-private s3://zdenka/*/*
+
 
 if file names are the same, the file are overitten 
 
