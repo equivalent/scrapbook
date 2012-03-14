@@ -1,6 +1,129 @@
 
 
 
+## assets pipeline manifest files 
+
+
+In smaller app it's good practice to have only one asset pipeline manifest file => *app/assets/stylesheet/application.css* , but in larger sites you might find out you need mero.
+
+All you need is exact content as you have in *a/assetss/stylesheets/application.css* and copy it to your new one 
+
+for example 
+
+*app/assets/stylesheets/plain.css*
+
+    *= require_self
+    *= require other_file
+
+Now you can link to it in your views.
+
+*a/v/l/plain.html.haml*
+
+    = stylesheet_link_tag "plain"
+
+
+Because assets needs to be precompiled when running app, you need to add your new manifest file to list of environment manifest files 
+
+*config/environment/production.rb*
+
+     config.assets.precompile += %w( plain.css )
+  
+
+...else you get error like *plain.css isn't precompiled*  even if you run *rake assets:precompile*, once again do this even if you are precompiling assets locally 
+Do this on all environments that are running on remote servers (staging f.e.)
+
+
+
+
+
+
+
+## Checking user agent
+
+
+In one of tasks given to me I had to check if the website is wisited by iOS native browser (not Safari, the browser that is lunched when you open website inside iOS application) and hide navigation bar. The reasoning was that from UX perspective, user is viewing the site from inside the application, so he shouldn't be able to go to home page. (f.e. if he is viewing terms and conditions) 
+
+The reqirement was also that when viewing the website in iOS Safari, the navigation should be present. Because of this I couldn't use media queries nad just hide content if the device viewing the site has resolution les that 400px for example
+
+The only solution left was detect user agent. 
+
+so in my *app/assets/javascripts/detect_agent.js.coffee*
+
+    if (navigator.userAgent.match(/CustomAgent/) != null)
+      $('html').addClass('ios_app')   
+
+
+and css sass file 
+
+    html.ios_app
+      .web_only
+        display: none
+
+
+but there was on issue that content loaded in native browser was "jumping", so we decided to fix it on server level 
+
+
+in *a/c/application_controller.rb*
+
+      def custom_user_agent?
+        request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"][/(CustomAgent)/]
+      end
+      helper_method :custom_user_agent?
+
+
+in *a/v/layout/application.html.haml*
+
+      %html{ :class=>"#{ 'lt_ios_app' if custom_user_agent? }"}
+
+
+
+Note: the *CustomAgent* is custom agent variable that iOS application was overwriting in this app. By deffault the native iOS browser user agent is similar to Safari web browser user agent so is hard to detect it for 100% sure. So there is a way how to change the user agent in iOS   
+
+solution from http://stackoverflow.com/questions/8487581/uiwebview-ios5-changing-user-agent , in iOS:
+
+    NSDictionary *dictionnary = [NSDictionary dictionaryWithObjectsAndKeys:@"Your user agent", @"UserAgent", nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];  
+
+
+## Facebook posts to wall without image
+ 
+There are solutions to enforce facebook to display image once posted to fb wall http://stackoverflow.com/questions/1079599/facebook-post-link-image (just set the open graph meta tag image)
+But what if you don't want facebook image? The thing is that facebook is trying to be clever and pull an  image for you from your web site.
+
+the solution to do this is set the open graph image pointing to url of your website (don't point it to image, just website )
+
+    <meta content='http://example.eu/' property='og:image'>   
+
+
+Hovever, to make open graph meta tags working, you got to be sure that all required opet fcapd metatags are set correctly 
+
+*  og:title - The title of the entity.
+*  og:type - The type of entity. You must select a type from the list of Open Graph types.
+*  og:image - The URL to an image that represents the entity. Images must be at least 50 pixels by 50 pixels. Square images work best, but you are allowed to use images up to three times as wide as they are tall.
+*  og:url - The canonical, permanent URL of the page representing the entity. When you use Open Graph tags, the Like button posts a link to the og:url instead of the URL in the Like button code.
+*  og:site_name - A human-readable name for your site, e.g., "IMDb".
+*  fb:admins or fb:app_id - A comma-separated list of either the Facebook IDs of page administrators or a Facebook Platform application ID. At a minimum, include only your own Facebook ID.
+
+
+exapmle meta tag data
+
+    <meta content='' property='og:description'>
+    <meta content='' property='og:image'>   
+    <meta content='MyTest app' property='og:site_name'>
+    <meta content='http://example.eu' property='og:url'>
+    <meta content='website' property='og:type'>
+    <meta content='10000123456789' property='fb:admins'>
+    <meta content='Movies and music' property='og:title'>
+
+
+The *og:image* tag cannot be blank or the [facebook linter page](https://developers.facebook.com/tools/debug) will complain 
+
+    Object at URL 'http://example.eu/' of type 'website' is invalid because the given value '' for property 'og:image:url' could not be parsed as type 'url'.
+
+to be honest when it comes to this particular problem, image wasn't displayed even if the image tag was blank, but it's not good practice.
+
+
+[my question on SO](http://stackoverflow.com/questions/9704642/enforce-no-facebook-image-preview-when-posting-sharing-to-wall/9704725#9704725)
 
 
 ## way to create custom time in future (or past( exact date 
