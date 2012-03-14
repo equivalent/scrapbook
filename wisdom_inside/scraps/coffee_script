@@ -1,0 +1,24 @@
+
+books 
+  http://arcturo.github.com/library/coffeescript/index.html
+
+
+~~~coffee
+$ -> code
+
+
+jQuery(document).ready ->
+~~~
+
+~~~javascript
+
+  $(function() {
+    return code;
+  });
+
+
+  jQuery(document).ready(function() {
+
+    }
+  });
+~~~

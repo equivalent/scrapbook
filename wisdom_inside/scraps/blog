@@ -1,6 +1,27 @@
 
 
-## How to access host name for environment
+
+
+
+## way to create custom time in future (or past( exact date 
+
+Datetime with exact year
+
+~~~ruby
+DateTime.civil(5000)
+#Wed, 01 Jan 5000 00:00:00 +0000 
+~~~
+
+
+~~~ruby
+datetime = DateTime.civil(2000, 1, 1, 0, 0, 0, Rational(-6, 24)) 
+#Sat, 01 Jan 2000 00:00:00 -0600 
+~~~
+
+http://api.rubyonrails.org/classes/DateTime.html
+
+
+
 
 
 in *config/enviroments/your_environment.rb* do
