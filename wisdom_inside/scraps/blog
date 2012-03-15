@@ -1,4 +1,78 @@
 
+## Bcrypt iplementation to Rails app
+
+http://bcrypt-ruby.rubyforge.org/classes/BCrypt/Password.html
+
+I was trying to iplement BCrypt encryption on one of tables and test that with rspec.
+
+
+### way it should be done and works
+
+~~~ruby
+    it "should encrypt password before creation creation" do
+      account = Bubla.new
+      account.password = 'lorem' 
+
+      account.save
+      account.reload
+
+      BCrypt::Password.new(account.password).should == 'lorem'
+    end
+~~~
+
+~~~ruby
+class Bubla < ActiveRecord::Base
+
+  after_save :encrypt_password
+
+  private
+  def encrypt_password
+    self.update_attribute(:password, BCrypt::Password.create(self.password)) unless self.password.is_a? BCrypt::Password
+  end
+end
+~~~
+
+
+
+
+On [BCrypt site](http://bcrypt-ruby.rubyforge.org/classes/BCrypt/Password.html) there was really straingt forward example how to do that. Of course I did it different way that didn't work. My logic was to encrypt password before it's saved to database.
+
+
+### way that will fail
+
+~~~ruby
+class Bubla < ActiveRecord::Base
+
+  before_save :encrypt_password
+
+  private
+  def encrypt_password
+    self.password =  BCrypt::Password.create(password)
+  end
+
+end
+~~~
+
+for some reason, in this scenarion rspec fails with 
+
+       Failure/Error: BCrypt::Password.new(account.password).should == 'lorem'
+       expected: "lorem"
+            got: "$2a$10$HOaDPmirWXqeAzHGzGFm.u0P.GUcnLabnVZGcvXCSV6MPH8w5rzu6" (using ==)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## assets pipeline manifest files 

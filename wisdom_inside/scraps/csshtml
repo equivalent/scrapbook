@@ -1,4 +1,24 @@
+#media query 
 
+
+~~~html
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+
+~~~
+
+~~~css
+    footer{
+      height: 1em;
+      display: block;
+      text-align: center;
+    }
+    @media only screen and (max-width: 640px) {
+      html img{display: none;}
+      html body{font-size:0.8em;}
+      html footer{font-size:0.8em;margin-bottom:10px;}
+      html .dialog{width: 320px;}
+    }
+~~~
 
 
 
