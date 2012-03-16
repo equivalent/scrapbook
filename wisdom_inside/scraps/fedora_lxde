@@ -14,6 +14,17 @@ currently I'm using fedora & lxde on my eee pc, so here are some hints
 
      sudo pm-suspend
 
+# check batery state in console
+ 
+     sudo yum install acpi
+
+     acpi
+     #Battery 0: Charging, 94%, 00:21:48 until charged
+     
+     acpi -V  #with temperature too, but better is  'sensors' command
+
+
+
 #lock screen o lxde
 
       xscreensaver-command -lock

@@ -8,6 +8,8 @@ I was trying to iplement BCrypt encryption on one of tables and test that with r
 
 ### way it should be done and works
 
+
+
 ~~~ruby
     it "should encrypt password before creation creation" do
       account = Bubla.new
@@ -23,12 +25,19 @@ I was trying to iplement BCrypt encryption on one of tables and test that with r
 ~~~ruby
 class Bubla < ActiveRecord::Base
 
+# database table has column called password
+
   after_save :encrypt_password
 
   private
   def encrypt_password
-    self.update_attribute(:password, BCrypt::Password.create(self.password)) unless self.password.is_a? BCrypt::Password
+    begin
+      BCrypt::Password.new self.password  #will raise if non BCrypt string
+    rescue BCrypt::Errors::InvalidHash
+      self.update_attribute(:password, BCrypt::Password.create(self.password))
+    end
   end
+
 end
 ~~~
 
@@ -64,6 +73,7 @@ for some reason, in this scenarion rspec fails with
 
 
 
+another note: my colleague give me this link http://bcrypt-ruby.rubyforge.org/   ...there is another alternative how to do some parts
 
 
 
