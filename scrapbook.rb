@@ -6,15 +6,22 @@ require 'haml'
 require 'redcarpet'
 require 'coderay'
 require 'nokogiri'
+require 'sass/plugin/rack'
 
 require "#{File.dirname(__FILE__)}/config_scrapbook.rb"
 require "#{File.dirname(__FILE__)}/helpers/w_path.rb"
 require "#{File.dirname(__FILE__)}/helpers/helpers.rb"
 
 
+use Sass::Plugin::Rack
 
+configure :production do
+    use Rack::Static,
+            urls: ['/stylesheets'],
+                  root: File.expand_path('../tmp', __FILE__)
 
-
+      Sass::Plugin.options.merge!(template_location: 'public/stylesheets/sass', css_location: 'tmp/stylesheets')
+end
 
 
 #ultra simple & dum I18n
