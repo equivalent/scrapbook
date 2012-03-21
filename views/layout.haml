@@ -4,13 +4,14 @@
     %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
     %meta{"http-equiv" => "refresh", :content => "120"}
 
+    -# to make mediaqueries work 
+    %meta{:name => "viewport", :content=>"width=device-width; initial-scale=1.0; maximum-scale=1.0;"} 
 
     %meta{"property" => "og:title", :content => "Equivalent scrapbook"}
     %meta{"property" => "og:type", :content => "blog"}
     %meta{"property" => "og:url", :content => ""}
-    %meta{"property" => "og:image", :content => ""}
+    %meta{"property" => "og:image", :content => 'http://eq8scrapbook.heroku.com/'}
     %meta{"property" => "og:site_name", :content => "Equivalent (eq8.eu) - scrapbook"}
-    %meta{"property" => "fb:admins", :content => "100002703790608"}
 
     %link{ :rel=>"icon", :type=>"image/png", :href=>"/favicon.png" }
 
@@ -29,10 +30,12 @@
   %body
     .wrapper
       .holder
-        %hgroup
-          %h1
-            Equivalent scrapbook
-        %nav#main
+        %header
+          %h1 Equivalent scrapbook
+          = yield_content :header
+
+        %nav#site
+          %h2.hidden Site navigation
           %ul
             %li
               = link_to('/', I.t('links.home'))
@@ -47,6 +50,7 @@
           - @plugin_right_sidebar_partials.each do |file|
             =haml read_file(file)
         .clear
-      .footer
-        footer
+      .clear
+    .footer
+      footer
 

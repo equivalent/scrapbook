@@ -1,25 +1,33 @@
+%h1 About
+
+%p 
+  Scrapboook in my personal collection of notes, scraps ... that...
 
 %nav#index_navigation
-  
-  %h2 Scraps
+  %h1 Scraps
   %ul
     - @scraps.each do |scrap| 
-      = link_to_file :scrap, scrap
+      %li
+        = link_to_file :scrap, scrap
 
-  %h2 Articles
+  %h1 Articles
   %ul
     - @articles.each do |article| 
-      = link_to_file :article, article
+      %li
+        = link_to_file :article, article
 
-  %h2 Notes
+  %h1 Notes
   %ul
     - @notes.each do |note| 
-      = link_to_file :note, note
+      %li
+        = link_to_file :note, note
 
+%hr
 
 -#load plugins partials in alphabetical order
 - @plugin_index_partials.each do |file|
-  =haml read_file(file), :layout=>nil
+  %section.plugin
+    =haml read_file(file), :layout=>nil
 
 
 
