@@ -1,0 +1,25 @@
+# google maps link
+
+
+~~~ruby
+  def map_link(latitude,longitude)
+    "http://maps.google.com.au/maps?ll=#{latitude},#{longitude}&q=#{latitude},#{longitude}"
+  end
+
+
+    # other options
+    #"http://maps.google.com.au/maps?ll=#{latitude},#{longitude}&spn=<degrees high>,<degrees wide>"
+~~~
+
+
+
+
+
+
+
+
+
+#google places 
+
+https://developers.google.com/maps/documentation/places/#PlaceSearchRequests
+
