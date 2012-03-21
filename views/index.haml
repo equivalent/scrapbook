@@ -1,37 +1,26 @@
 
-#index_navigation
-  %h2 Notes
+%nav#index_navigation
+  
+  %h2 Scraps
   %ul
-    - @notes.each do |note| 
-      %span.link_to_file
-        = link_to_file :note, note
-  .clear
-
-
+    - @scraps.each do |scrap| 
+      = link_to_file :scrap, scrap
 
   %h2 Articles
   %ul
     - @articles.each do |article| 
-      %span.link_to_file
-        = link_to_file :article, article
-  .clear
+      = link_to_file :article, article
 
-
-  %h2 Scraps
-
+  %h2 Notes
   %ul
-    - @scraps.each do |scrap| 
-      %span.link_to_file
-        = link_to_file :scrap, scrap
-  .clear
+    - @notes.each do |note| 
+      = link_to_file :note, note
 
 
-  %hr
+-#load plugins partials in alphabetical order
+- @plugin_index_partials.each do |file|
+  =haml read_file(file), :layout=>nil
 
-  -#load plugins partials in alphabetical order
-  - @plugin_index_partials.each do |file|
-    =haml read_file(file)
- 
 
 
   

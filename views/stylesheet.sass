@@ -1,0 +1,52 @@
+@import 'bourbon/bourbon'
+@import 'reset'
+
+//* I'm counting in 12 cols systemi http://960.gs/demo.html  */
+
+$body_bg_color: #DCD5DA
+
+html, body
+  width: 100%
+  margin: 0px
+
+body
+  padding: 10px
+  background-color: $body_bg_color
+  font-family: $helvetica
+
+
+
+
+.holder
+  width: 960
+  margin: 20px auto 0px auto  //center and 20px top
+  padding: 10px
+  @include border-radius(10px)
+  
+  article
+    background: white
+    @include border-radius(10px)
+
+    float: left
+  nav#main
+    float: right
+    
+    
+ 
+.wrapper
+  min-height: 100%
+.footer
+  display: block
+  margin-bottom: -20px
+
+  
+
+
+
+
+
+
+
+@media screen and (max-device-width: 480px) 
+
+
