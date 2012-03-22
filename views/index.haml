@@ -9,18 +9,21 @@
     - @scraps.each do |scrap| 
       %li
         = link_to_file :scrap, scrap
+  .clear
 
   %h1 Articles
   %ul
     - @articles.each do |article| 
       %li
         = link_to_file :article, article
+  .clear
 
   %h1 Notes
   %ul
     - @notes.each do |note| 
       %li
         = link_to_file :note, note
+  .clear
 
 %hr
 

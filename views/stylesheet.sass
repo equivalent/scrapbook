@@ -54,6 +54,23 @@ a
   article
     @include border-radius(10px)
     background: white
+    margin-bottom: 20px
+    h1, h2, h3, h4
+      margin-bottom: 0.4em
+    h1
+      font-size: 2em
+      color: #000
+    h2 
+      font-size: 1.8em
+      color: #111
+    h3
+      font-size: 1.6em
+      color: #222
+    h4
+      font-size: 1.4em
+      color: #333
+    p 
+      margin-bottom: 1em
   nav#site
     li
       position: relative
@@ -72,12 +89,12 @@ a
           color: purple
         &:active
           color: purple
-
   aside
     p
       margin-left: 10px
       margin-bottom: 0.6em
     section
+      margin-left: 0px
       padding: 10px
       @include border-radius(10px)
       background: #eee
@@ -101,6 +118,29 @@ a
   display: none
 
 
+nav#index_navigation
+  h1 
+    clear: both
+    margin-top: 1em
+    &:first-child
+      margin-top: 0px
+  li
+    display: block
+    float: left
+    margin: 1px 1px
+    a
+      display: block
+      padding: 3px 8px 5px 8px
+      @include border-radius(8px)
+      background-color: purple
+      color: #eee
+
+
+
+.CodeRay
+  @include border-radius( 8px)
+  overflow-x: auto
+  
 
 @media screen and (max-device-width: 480px) 
 

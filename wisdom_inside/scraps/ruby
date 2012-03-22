@@ -4,6 +4,19 @@ notes from ryby 1.9.2 walktrough
 
 ##encoding
 
+
+[what charseti is what](http://dev.mysql.com/doc/refman/5.0/fr/charset-mysql.html)
+
+~~~ruby
+require 'iconv'
+ic = Iconv.new('UTF-8', 'latin1')
+valid_string = ic.iconv(untrusted_string + ' ')[0..-2]
+~~~
+
+[source](http://stackoverflow.com/questions/951891/how-can-i-convert-a-string-from-windows-1252-to-utf-8-in-ruby)
+
+
+
 ~~~ruby
 
 __ENCODING__      # source encoding
