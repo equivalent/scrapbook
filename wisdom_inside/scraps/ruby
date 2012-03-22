@@ -7,9 +7,10 @@ notes from ryby 1.9.2 walktrough
 ~~~ruby
 
 __ENCODING__      # source encoding
-Encoding.default_internal
-Encoding.default_external
 
+Encoding.default_internal  #hwat enc is ruby working insde if nil its default and it means binary ascii
+Encoding.default_external  #how ruby reeds external files
+#more on these two at ruby inside video 1, 62:00
 
 "abc".encoding.name 
 # utf-8
@@ -30,6 +31,24 @@ end
 
 because  ruby 1.9.* is encoding based, you can use any symbolsuported in that encoding for method names ... this will not work in ruby 1.8.7 because it is ascii based
 
+### opening file in differnt encoding
+
+      r = File.open('aaa.txt','r:UTF-8')
+
+if you want to use file in UTF-16 bu wor wit it utf-8 (reed one encoding but wor with that file in different)
+
+      r = File.open('aaa.txt','r:UTF-16LE:UTF-8')
+
+
+#hash
+
+
+find wich key has value in hash
+
+~~~ruby
+hash.key(40)
+# => :age
+~~~
 
 
 #Archive (older notes)
