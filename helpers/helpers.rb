@@ -27,9 +27,10 @@ helpers do
 
 
 def markdown(text)
-  options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
+  options = {:hard_wrap => true, :filter_html => true, :autolink => true, :no_intraemphasis => true, :fenced_code => true, :gh_blockcode => true}
  # options = [:filter_html, :hard_wrap, :autolink, :no_intraemphasis]
-  syntax_highlighter(Redcarpet.new(text, *options).to_html)
+  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+  syntax_highlighter(markdown.render(text))
 end
 
 def syntax_highlighter(html)
