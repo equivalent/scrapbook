@@ -1,37 +1,34 @@
+%h1 About
 
-#index_navigation
-  %h2 Notes
-  %ul
-    - @notes.each do |note| 
-      %span.link_to_file
-        = link_to_file :note, note
-  .clear
+%p 
+  Scrapboook in my personal collection of notes, scraps ... that...
 
-
-
-  %h2 Articles
-  %ul
-    - @articles.each do |article| 
-      %span.link_to_file
-        = link_to_file :article, article
-  .clear
-
-
-  %h2 Scraps
-
+%nav#index_navigation
+  %h1 Scraps
   %ul
     - @scraps.each do |scrap| 
-      %span.link_to_file
+      %li
         = link_to_file :scrap, scrap
-  .clear
 
+  %h1 Articles
+  %ul
+    - @articles.each do |article| 
+      %li
+        = link_to_file :article, article
 
-  %hr
+  %h1 Notes
+  %ul
+    - @notes.each do |note| 
+      %li
+        = link_to_file :note, note
 
-  -#load plugins partials in alphabetical order
-  - @plugin_index_partials.each do |file|
-    =haml read_file(file)
- 
+%hr
+
+-#load plugins partials in alphabetical order
+- @plugin_index_partials.each do |file|
+  %section.plugin
+    =haml read_file(file), :layout=>nil
+
 
 
   

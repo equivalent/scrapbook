@@ -4,22 +4,19 @@
     %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
     %meta{"http-equiv" => "refresh", :content => "120"}
 
+    -# to make mediaqueries work 
+    %meta{:name => "viewport", :content=>"width=device-width; initial-scale=1.0; maximum-scale=1.0;"} 
 
-    %meta{"property" => "og:title", :content => ""}
-    %meta{"property" => "og:type", :content => ""}
+    %meta{"property" => "og:title", :content => "Equivalent scrapbook"}
+    %meta{"property" => "og:type", :content => "blog"}
     %meta{"property" => "og:url", :content => ""}
-    %meta{"property" => "og:image", :content => "http://lovethis.com/images/logo-75.gif"}
-    %meta{"property" => "og:site_name", :content => ""}
-    %meta{"property" => "fb:admins", :content => "100002703790608"}
+    %meta{"property" => "og:image", :content => 'http://eq8scrapbook.heroku.com/'}
+    %meta{"property" => "og:site_name", :content => "Equivalent (eq8.eu) - scrapbook"}
 
-    %link{"rel" => "stylesheet", "href" => "/purple_skin.css", "type" => "text/css"}
     %link{ :rel=>"icon", :type=>"image/png", :href=>"/favicon.png" }
 
-
-
-    %link{"rel" => "stylesheet", "href" => "/purple_skin.css", "type" => "text/css"}
-    %link{"rel" => "stylesheet", "href" => "/main.css", "type" => "text/css"}
     %link{"rel" => "stylesheet", "href" => "/code.css", "type" => "text/css"}
+    %link{"rel" => "stylesheet", "href" => "/stylesheet.css", "type" => "text/css"}
 
     -#%link{ "href"=> 'http://fonts.googleapis.com/css?family=Shadows+Into+Light&v2', 'rel'=> 'stylesheet', 'type'=>'text/css'}
 
@@ -30,22 +27,30 @@
     %title= @title || "#{settings.owner_name} - scrapbook"
     
 
-  %body.main
-    %div.container.rounded_borders.border#content.box_shadow
-      #content_matroska
-        #right_side
-          %nav
-            = haml :"_right_side"
+  %body
+    .wrapper
+      .holder
+        %header
+          %h1 Equivalent scrapbook
+          = yield_content :header
 
-
-        #left_side
-          .main_heading_margin_top
-            %h1
-              =yield_content :main_heading
-          .main_yield_content.rounded_borders    
-            =yield 
-
-        .clear    
-
-
+        %nav#site
+          %h2.hidden Site navigation
+          %ul
+            %li
+              = link_to('/', I.t('links.home'))
+            %li
+              = link_to('/links', I.t('links.links'))
+            %li
+              = link_to('/readed-backlog', I.t('links.readed'))
+        %article
+          =yield 
+        %aside
+          ~ markdown (@sidelinks)
+          - @plugin_right_sidebar_partials.each do |file|
+            =haml read_file(file)
+        .clear
+      .clear
+    .footer
+      footer
 

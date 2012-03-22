@@ -1,7 +1,3 @@
-%h1
-  = @h1_name
-  (
-  %span= @h1_what
-  )
-
+- content_for :header do
+  = haml :'_header_for_file_content'
 ~ coderay(@file_content, @language || 'ruby' )

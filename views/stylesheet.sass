@@ -1,0 +1,77 @@
+@import 'bourbon/bourbon'
+@import 'reset'
+
+//* I'm counting in 12 cols system http://960.gs/demo.html  */
+
+$body_bg_color: #DCD5DA
+$body_bg_color_second: #DCD5DA
+$holder_bg_color: #DCDCDC
+
+html, body
+  background-color: $body_bg_color
+  width: 100%
+  margin: 0px
+  font-size: 90%
+
+html
+  @include radial-gradient(50%, circle,  $body_bg_color, #fff)
+
+body
+  padding: 10px
+  font-family: $helvetica
+
+a
+  color: purple
+  text-decoration: none
+  &:hover
+    color: black
+    text-decoration: underline
+
+.holder
+  width: 960px                   //ninesixtygs property
+  margin: 20px auto 0px auto   //center_hack + some margin 
+  @include border-radius(10px)
+  background-color: $holder_bg_color
+  @include box-shadow(0 0 5px 3px hsla(0, 0%, 0%, 0.65))
+
+  header, nav#site, article, aside
+    display: block                //htmlfive 
+    padding: 10px
+    margin-left: 10px
+  header, article
+    width: 690px
+    float: left
+  nav#site, aside
+    width: 210px
+    float: right
+
+  header
+    min-height: 60px
+    h1
+      font-size: 2em
+    h2
+      font-size: 0.8em
+  article
+    @include border-radius(10px)
+    background: white
+
+  nav#site
+  aside
+    
+
+.wrapper
+  min-height: 100%
+.footer
+  display: block
+  margin-bottom: -20px
+
+.clear
+  clear: both
+.hidden
+  display: none
+
+
+
+@media screen and (max-device-width: 480px) 
+
+

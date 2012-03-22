@@ -6,15 +6,22 @@ require 'haml'
 require 'redcarpet'
 require 'coderay'
 require 'nokogiri'
+require 'sass/plugin/rack'
 
 require "#{File.dirname(__FILE__)}/config_scrapbook.rb"
 require "#{File.dirname(__FILE__)}/helpers/w_path.rb"
 require "#{File.dirname(__FILE__)}/helpers/helpers.rb"
 
 
+use Sass::Plugin::Rack
 
+configure :production do
+    use Rack::Static,
+            urls: ['/stylesheets'],
+                  root: File.expand_path('../tmp', __FILE__)
 
-
+      Sass::Plugin.options.merge!(template_location: 'public/stylesheets/sass', css_location: 'tmp/stylesheets')
+end
 
 
 #ultra simple & dum I18n
@@ -27,6 +34,7 @@ protected
     {
       :links => {
         :home => "Home",
+        :readed => "Readed stuff",
         :links => "Links"
       }
     }
@@ -38,6 +46,10 @@ before do
   @plugin_right_sidebar_partials =  Dir[File.dirname(__FILE__) + '/plugins/right_side_partials/*.haml']
 end
 
+
+get '/stylesheet.css' do
+    sass :stylesheet, :style => :expanded
+end
 
 get '/' do
  @articles = dir_w_listing 'articles/'

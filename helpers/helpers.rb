@@ -37,8 +37,9 @@ def syntax_highlighter(html)
   doc.search("//pre[@lang]").each do |pre|
     pre.replace coderay(pre.text.rstrip, pre[:lang])
   end
-  doc.to_s
+  doc.css('body').inner_html.to_s
 end
+
 
   def read_file(full_path_file_name)
     file = File.open( full_path_file_name, "r")
