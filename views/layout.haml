@@ -31,24 +31,25 @@
     .wrapper
       .holder
         %header
-          %h1 Equivalent scrapbook
-          = yield_content :header
-
-        %nav#site
-          %h2.hidden Site navigation
-          %ul
-            %li
-              = link_to('/', I.t('links.home'))
-            %li
-              = link_to('/links', I.t('links.links'))
-            %li
-              = link_to('/readed-backlog', I.t('links.readed'))
+          %hgroup
+            %h1 Equivalent scrapbook
+            = yield_content :header
+          %nav#site
+            %h2.hidden Site navigation
+            %ul
+              %li
+                = link_to('/', I.t('links.home'))
+              %li
+                = link_to('/links', I.t('links.links'))
+              %li
+                = link_to('/readed-backlog', I.t('links.readed'))
         %article
           =yield 
         %aside
           ~ markdown (@sidelinks)
           - @plugin_right_sidebar_partials.each do |file|
-            =haml read_file(file)
+            %section.plugin
+              =haml read_file(file)
         .clear
       .clear
     .footer
