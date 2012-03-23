@@ -1,2 +1,2 @@
-rvm --create use ruby-1.9.2@heroku
+rvm --create use ruby-1.9.2@heroku_scrapbook
 
