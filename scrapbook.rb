@@ -13,17 +13,6 @@ require "#{File.dirname(__FILE__)}/helpers/w_path.rb"
 require "#{File.dirname(__FILE__)}/helpers/helpers.rb"
 
 
-use Sass::Plugin::Rack
-
-configure :production do
-    use Rack::Static,
-            urls: ['/stylesheets'],
-                  root: File.expand_path('../tmp', __FILE__)
-
-      Sass::Plugin.options.merge!(template_location: 'public/stylesheets/sass', css_location: 'tmp/stylesheets')
-end
-
-
 #ultra simple & dum I18n
 class I
   def self.t(key)
@@ -48,7 +37,9 @@ end
 
 
 get '/stylesheet.css' do
-    sass :stylesheet, :style => :expanded
+  # in sinatra what is in public goes before routes.. so compiled stylesheet is public directory will go before uncompiled sass one
+  # compile in bash:   sass views/stylesheet.sass public/stylesheet.css 
+  sass :stylesheet, :style => :expanded
 end
 
 get '/' do
