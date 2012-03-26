@@ -5,7 +5,6 @@ require 'haml'
 require 'redcarpet'
 require 'coderay'
 require 'nokogiri'
-require 'sass/plugin/rack'
 
 require "#{File.dirname(__FILE__)}/lib/content_for.rb"
 require "#{File.dirname(__FILE__)}/config_scrapbook.rb"

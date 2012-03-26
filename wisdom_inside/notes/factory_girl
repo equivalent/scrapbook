@@ -1,5 +1,15 @@
 
 
+describe 'something' do
+  let(:tomas) { Factory.create :person }
+
+  before :each do
+    tomas.do_somethisg
+  end
+
+end
+
+
 
 https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
 

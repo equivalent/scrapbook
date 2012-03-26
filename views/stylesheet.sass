@@ -6,6 +6,8 @@
 $body_bg_color: #DCD5DA
 $body_bg_color_second: #DCD5DA
 $holder_bg_color: #DCDCDC
+$button_color: purple
+$button_color2: #DB95D7
 
 html, body
   background-color: $body_bg_color
@@ -78,22 +80,29 @@ a
       float: left
       margin-right:  4px
       margin-top: 0px
+      margin-bottom: 10px
       a
+        font-size: 12px
         display:block
         padding: 4px 8px
         margin-top: 0px
         background: #666
         color: white
         @include border-radius( 0 0 8px 8px)
-        &:hover
-          color: purple
-        &:active
-          color: purple
+        &:hover, &:active
+          background-color: #333
+          color: white
+          text-decoration: none
   aside
+    h1,h2,h3,h4
+      margin-top: 1em
+      &:first-child
+        margin-top: 0px
     p
       margin-left: 10px
-      margin-bottom: 0.6em
+      margin-bottom: 0px
     section
+      margin-top: 1em
       margin-left: 0px
       padding: 10px
       @include border-radius(10px)
@@ -101,10 +110,6 @@ a
       p
         margin-left: 0px
 
-      
-    
-    
-    
 
 .wrapper
   min-height: 100%
@@ -132,8 +137,11 @@ nav#index_navigation
       display: block
       padding: 3px 8px 5px 8px
       @include border-radius(8px)
-      background-color: purple
+      background-color: $button_color
       color: #eee
+      &:hover, &:active
+        background-color: $button_color2
+        text-decoration: none
 
 
 
