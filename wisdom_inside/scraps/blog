@@ -1,4 +1,76 @@
 
+
+## force ssl in rails 
+
+
+### on controller level 
+
+in *app/controller/your_controller.rb*
+
+     class LostPasswordsController < ApplicationController
+  
+       force_ssl
+       # or...    force_ssl if Rails.env.production?
+       
+
+       def index
+         #....
+       end
+     end 
+
+if globally use it in application controller 
+
+http://apidock.com/rails/ActionController/ForceSSL/ClassMethods/force_ssl
+
+
+### on route level 
+
+In *config/routes.rb*
+
+        MyApplication::Application.routes.draw do
+          resources :sessions, :constraints => { :protocol => "https" }
+        end
+
+
+or for several of them 
+
+        MyApplication::Application.routes.draw do
+          scope :constraints => { :protocol => "https" } do 
+            # All your SSL routes.
+          end
+        end
+
+
++ your links 
+
+         <%= link_to "Logout", sessions_url(:protocol => 'https'), :method => :delete %>
+
+[source for this solution](http://stackoverflow.com/a/3635419) also check http://www.themomorohoax.com/2010/10/08/using-ssl-in-rails-3
+
+
+## on whole app level
+
+rails 3.1
+
+        # config/application.rb
+        module MyApp
+          class Application < Rails::Application
+            config.force_ssl = false
+          end
+        end
+
+        # config/environments/production.rb
+        MyApp::Application.configure do
+          config.force_ssl = true
+        end
+
+[stolen from](http://www.simonecarletti.com/blog/2011/05/configuring-rails-3-https-ssl/) :) 
+
+
+
+
+
+
 ## Bcrypt iplementation to Rails app
 
 http://bcrypt-ruby.rubyforge.org/classes/BCrypt/Password.html

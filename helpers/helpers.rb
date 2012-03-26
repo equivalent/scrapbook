@@ -27,16 +27,16 @@ helpers do
 
 
 def markdown(text)
-  options = {:hard_wrap => true, :filter_html => true, :autolink => true, :no_intraemphasis => true, :fenced_code => true, :gh_blockcode => true}
+  options = {:hard_wrap => true, :filter_html => true, :autolink => true, :no_intra_emphasis => true, :fenced_code_blocks => true, :gh_blockcode => true}
  # options = [:filter_html, :hard_wrap, :autolink, :no_intraemphasis]
-  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options )
   syntax_highlighter(markdown.render(text))
 end
 
 def syntax_highlighter(html)
-  doc = Nokogiri::HTML(html)
-  doc.search("//pre[@lang]").each do |pre|
-    pre.replace coderay(pre.text.rstrip, pre[:lang])
+  doc = Nokogiri::HTML.parse(html)
+  doc.search("//code").each do |pre|
+    pre.replace coderay(pre.text.rstrip, pre[:class])
   end
   doc.css('body').inner_html.to_s
 end
