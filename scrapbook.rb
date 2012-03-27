@@ -37,7 +37,7 @@ end
 
 get '/stylesheet.css' do
   # in sinatra what is in public goes before routes.. so compiled stylesheet is public directory will go before uncompiled sass one
-  # compile in bash:   sass views/stylesheet.sass public/stylesheet.css 
+  # compile in bash:   sass views/stylesheet.sass public/stylesheet.css
   sass :stylesheet, :style => :expanded
 end
 

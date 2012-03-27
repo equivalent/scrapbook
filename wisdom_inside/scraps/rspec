@@ -1,6 +1,13 @@
 http://cheat.errtheblog.com/s/rspec/
 
 
+# should have association
+
+
+       it { should have_many :authorizations,  :class_name => "::Authorization::Base", :conditions => ::Authorization::Base::ValidAuthConditions }
+
+
+
 # how to call private method in rspec #
 
 
