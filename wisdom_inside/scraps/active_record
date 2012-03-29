@@ -1,4 +1,40 @@
 
+# active record observer
+
+http://api.rubyonrails.org/classes/ActiveRecord/Observer.html
+
+
+~~~ruby
+module Notification
+  class Observer < ActiveRecord::Observer
+  
+    observe Activity::SomeClass, ::DummyUser
+    
+    def after_commit(object)
+      if object.is_a?(::Activity::Base)
+        Resque.enqueue(CreateSomeknidNotification, object.id) if object.send(:transaction_include_action?, :create)
+      end
+    end
+
+    def after_create(object)
+      #dont put resque enque here see not below
+      p "say hello "
+    end
+
+    def after_save(object)
+      #dont put resque enque here see not below
+      p "say hello "
+    end
+
+  end
+end
+~~~
+
+importat note to resque: after_commit have similar behavior like after_save(that means it will be caled each time object was saved), after_commit is called when the transaction is completed. With Resque you to use after_commit because Resque is so fast it was sometimes calling the queued jobs before the transaction was committed, and so the object wasn't yet saved in the database. Calback after_create might have similar issue, so do after_commit and check if the record is new check if transaction include action create. You have to do it with send because method is private. The reason why *objcet.new_record?* won't work is that record is in the databe when commited.
+
+http://apidock.com/rails/ActiveRecord/Transactions/transaction_include_action%3F
+
+
 ##set table name 
 
 ~~~ruby

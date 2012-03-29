@@ -1,11 +1,63 @@
 http://cheat.errtheblog.com/s/rspec/
 
 
+
+
+# mocking and stubing job class
+
+checking if method will call expected class / methods / instances 
+the example below is for [resque](https://github.com/defunkt/resque) job 
+
+~~~ruby
+require "spec_helper"
+
+*spec*
+
+describe CreateNotificationForSomekindJob do  
+  
+  it_should_behave_like "a Resque job", described_class
+  
+  describe 'perform' do
+    it "should call QueueJob.create_notification_for_somekind_job" do
+      id = 1
+      activity = double("activity", :title=> 'bubla')  #this is stub that takes other arguments
+      
+      ::SampleUser.should_receive(:find_by_id!).with(id).once.and_return(activity)
+      QueueJob.should_receive(:create_notification_for_somekind_activity).with(activity).once
+      
+      described_class.perform(id)
+    end
+  end
+end
+~~~
+
+*job*
+
+~~~ruby
+class CreateNotificationForSomekindJob < ResqueBase
+  @queue = :notificatons
+
+  def self.perform(sample_user_id)
+    super
+    sample_user = SampleUser.find_by_id! sample_user_id
+    QueueJob.create_notification_for_somekind_activity(sample_user)
+  end
+end
+~~~
+
+
+
+[double method and other stubbing methods](http://rubydoc.info/gems/rspec-mocks/frames)
+
+
+
 # should have association
 
 
-       it { should have_many :authorizations,  :class_name => "::Authorization::Base", :conditions => ::Authorization::Base::ValidAuthConditions }
+~~~ruby
+ it { should have_many :authorizations,  :class_name => "::Authorization::Base", :conditions => ::Authorization::Base::ValidAuthConditions }
 
+~~~
 
 
 # how to call private method in rspec #
