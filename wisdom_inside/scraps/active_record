@@ -34,6 +34,15 @@ importat note to resque: after_commit have similar behavior like after_save(that
 
 http://apidock.com/rails/ActiveRecord/Transactions/transaction_include_action%3F
 
+disabling enabling observers
+
+~~~ruby
+      ActiveRecord::Base.observers.enable 'notification/observer' 
+
+      ActiveRecord::Base.observers.disable 'notification/observer' 
+~~~
+
+
 
 ##set table name 
 
