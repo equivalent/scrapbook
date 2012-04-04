@@ -1,0 +1,42 @@
+#scraps on anythyng else
+
+## Configuring OpenBox satelit to use with SkyLink(slovakia)
+
+
+This manual is for configuring Slovak provider only, so the manual for this section will be written is Slovak language
+
+note: manual is for legal setting with mothly payments to skylink provider.
+
+    menu >  Search Chanel (TP)
+   
+jedna sa o to ze v teoreticky by sme mali pridat nove kanaly s programmi. Ja som neprisiel na to ako sa to robit, tak som len upravil existujuce na to aby zodpovedali novym nastaveniam
+
+    chod sipkamy na kanal > Zltym SELECT >  odpises udaje pre balik programov v casopise
+
+takze napriklad ceske programi
+
+    Frequency (kmitocet):            12525
+    symbolrate (Symbol. rychlost):   27500
+    Polarization (polaryzacia):      V
+    FEC                              3/4
+
+potom ok
+
+dalej na ten isty kanal cervenym SELECT > na ovladaci OK > vyskoci okenko tam daj len Start > Ok to save? OK 
+
+#### nemenit tieto nastavenia
+
+    menu > Search Chanel 
+
+zvol *Astra 3A/3B - 023.5E* a na nej zmackni tlacidlo setup
+
+    Degree:       023.5 E
+    LNB Type:     universal
+    High Freq.    10600
+    Low  Freq.    9750
+    LNB Power     on
+    Diseqc Ver.   v 1.0
+    22khz Tone    Auto
+    0/12V         0V
+
+
