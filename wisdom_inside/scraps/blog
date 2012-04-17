@@ -1,4 +1,24 @@
 
+##debugging airbrake errors
+
+### copy params from airbrake to console variable
+
+         prms = {"smtp-id"=>"<4f89914da0612_6d055bf298305d>",
+         "timestamp"=>"1334415695",
+         "token"=>
+          "dsgj4gu89h24587gh123458gh08",
+         "action"=>"create",
+         "event"=>"dropped",
+         "reason"=>"Unsubscribed Address",
+         "controller"=>"sendgrid_events",
+         "email"=>"bubla@mailinator.com"}
+
+### run console
+
+      app.post 'sendgrid_events', prms
+
+this represents post to /sendgrid_events (action create) with params that coused failture 
+
 
 ## force ssl in rails 
 

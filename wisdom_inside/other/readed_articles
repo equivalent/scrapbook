@@ -15,6 +15,9 @@ todo sass tutorials http://www.youtube.com/playlist?list=PL2CB1F80266E986EA
 
 
 
+http://devblog.famundo.com/articles/2006/05/13/beware-of-hashwithindifferentaccess-symbolize_keys why params.symbolize_keys! will fail
+http://stackoverflow.com/questions/800122/best-way-to-convert-strings-to-symbols-in-hash
+
 
 https://github.com/bvandenbos/resque-scheduler
 https://github.com/defunkt/resque/tree/master/examples/demo  exapmles on resque
