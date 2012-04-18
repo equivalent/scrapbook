@@ -1,0 +1,22 @@
+
+
+## install gems to local application directory
+
+    bundle install --path vendor/bundle
+
+this will create local bundle copy with gems and evrything needed 
+
+        ▾ bundle/                      
+          ▾ ruby/                      
+            ▾ 1.9.1/                   
+              ▸ bin/                   
+              ▸ bundler/               
+              ▸ cache/                 
+              ▸ doc/                   
+              ▸ gems/                                                                                                                     
+              ▸ specifications/        
+                .DS_Store              
+              .DS_Store                
+            .DS_Store                  
+        ▸ plugins/     
+
