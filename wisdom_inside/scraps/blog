@@ -1,4 +1,31 @@
 
+## rails hash that treets equally sybols and strings
+
+
+     x = HashWithIndifferentAccess.new
+
+example how to convert your regular hash to this kind of hash 
+
+    ruby-1.9.2-p290 :060 > old_hash = { :nyu => "Elfen lied" } 
+     => {:nyu=>"Elfen lied"} 
+    ruby-1.9.2-p290 :061 > old_hash['nyu']
+     => nil 
+    ruby-1.9.2-p290 :062 > old_hash[:nyu]
+     => "Elfen lied" 
+     
+     x = HashWithIndifferentAccess.new old_hash
+     => {"nyu"=>"Elfen lied"} 
+    ruby-1.9.2-p290 :066 > x[:nyu]
+     => "Elfen lied" 
+    ruby-1.9.2-p290 :067 > x['nyu']
+     => "Elfen lied" 
+
+
+ActionController parms are also this kind of hash :) 
+
+
+some other examples can be found http://rubyquicktips.com/post/603292403/accessing-a-hash-with-either-string-or-symbol-keys, http://as.rubyonrails.org/classes/HashWithIndifferentAccess.html
+
 ##debugging airbrake errors
 
 ### copy params from airbrake to console variable

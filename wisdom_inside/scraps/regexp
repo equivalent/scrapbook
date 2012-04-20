@@ -1,0 +1,11 @@
+
+
+
+#get rid of all non ASCII characters
+
+    s.gsub!(/\P{ASCII}/, '')
+
+or 
+
+    s.delete!("^\u{0000}-\u{007F}")
+

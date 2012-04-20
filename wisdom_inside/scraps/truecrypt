@@ -1,0 +1,43 @@
+
+
+list availible drives 
+
+    cat /proc/partitions
+
+or 
+
+    fdisk -l
+
+
+
+mount 
+
+    truecrypt /dev/ssd1  /media/truecrypt1
+
+umount
+    
+    truecrypt /media/truecrypt1
+
+
+more examples from http://ubuntuforums.org/showthread.php?t=1646881
+
+    Create a new volume:
+    truecrypt -t -c
+
+    Mount a volume:
+    truecrypt volume.tc /media/truecrypt1
+
+    Mount a volume as read-only, using keyfiles:
+    truecrypt -m ro -k keyfile1,keyfile2 volume.tc
+
+    Mount a volume without mounting its filesystem:
+    truecrypt --filesystem=none volume.tc
+
+    Mount a volume prompting only for its password:
+    truecrypt -t -k "" --protect-hidden=no volume.tc /media/truecrypt1
+
+    Dismount a volume:
+    truecrypt -d volume.tc
+
+    Dismount all mounted volumes:
+    truecrypt -d

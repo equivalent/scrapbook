@@ -1,5 +1,24 @@
 
 
+## oweride instance method that is asigned to alredy existing method
+
+
+content is  method dynamicly created from ActiveRecord on comment table of Comment instance (content is column in db of table comments)
+
+    Comment.new(:content => "\naaa\r")
+
+now I want to remove new line chars from the string. The fastest solution is like this: 
+
+    class Comment
+      def content
+        raw_content = super
+        raw_content.delete("\n\r")
+      end
+    end
+
+now this isn't best practice solution. I should create new method like *dislpay_content*  and just call *content.delete* there but there are som temporary refactore situations where this works ok
+
+
 ## install gems to local application directory
 
     bundle install --path vendor/bundle
