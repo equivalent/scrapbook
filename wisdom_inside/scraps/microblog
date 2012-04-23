@@ -1,3 +1,28 @@
+## remove nonasci characters from string 
+
+If you wan't to remove nonasci characters from string like 
+
+    s = "Grüße"
+
+solution:
+
+    s.gsub!(/\P{ASCII}/, '')
+
+or 
+
+    s.delete!("^\u{0000}-\u{007F}")
+    #=> Gre
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## oweride instance method that is asigned to alredy existing method
