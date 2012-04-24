@@ -185,14 +185,9 @@ for me it was really complicated to configure postgres database
 
 in new terminal window
 
+  go to scrap on postges to se how to create database
       
-      psql --username=postgres
-
-    
-      CREATE USER tom WITH PASSWORD 'myPassword';
-      CREATE DATABASE jerry;
-      GRANT ALL PRIVILEGES ON DATABASE jerry to tom;
-
+      psql --username=postgresh
 http://www.cyberciti.biz/faq/howto-add-postgresql-user-account/
 
 

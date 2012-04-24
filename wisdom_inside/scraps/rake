@@ -1,5 +1,41 @@
 
 
+# creating own ruby rake 
+
+*./rakefile*
+
+~~~ruby
+
+#loading own file 
+require File.dirname(__FILE__) + '/config/configuration'   # must contains #!ruby at top
+
+task :prepare_workstation do 
+
+  # => bar
+end 
+      
+task :default => [:prepare_workstation] #defaultly run when you just run 'rake' 
+~~~
+
+## passing rake variable
+
+    rake prepare_workstation foo=bar
+    # => bar
+    rake prepare_workstation 
+    # => bubla
+
+rakefile
+
+~~~ruby
+task :prepare_workstation do 
+  p ENV['foo'] | 'bubla'
+end
+~~~
+
+
+
+
+
 
 # how to call from rake 
 

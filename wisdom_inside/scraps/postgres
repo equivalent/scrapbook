@@ -1,0 +1,18 @@
+
+
+# fedora start postgress
+
+      psql --username=postgres
+
+
+# create database
+    
+      CREATE USER tom WITH PASSWORD 'myPassword';
+      CREATE DATABASE jerry;
+      GRANT ALL PRIVILEGES ON DATABASE jerry to tom;
+
+# list all databasess
+
+      \l    #list all databases
+
+
