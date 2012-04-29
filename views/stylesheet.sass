@@ -130,12 +130,31 @@ html
 
 html#read_backlog
   article
+    nav
+      margin-bottom: 10px
+      li
+        float: left
+        margin-right: 20px
+      
+    footer
+      margin-top: 50px
+      a, iframe
+        margin-left: 15px
     section
       clear: both
       ul.floating
         li
-          margin-right: 20px
+          margin-right: 15px
           float: left
+      div.noimage
+        font-size: 11px
+        overflow: hidden
+        background: #333
+        border: solid 2px black
+        padding: 4px
+        color: white
+        a
+          color: white
     section#read_books 
       img
         max-height: 100px
@@ -144,6 +163,9 @@ html#read_backlog
       img
         max-height: 120px
         max-width: 120px
+      div.noimage
+        width: 100px
+        height: 60px
 
 html#home
   nav#index_navigation

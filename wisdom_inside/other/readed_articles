@@ -276,8 +276,7 @@ https://svn.macports.org/ticket/25867
 http://forums.enterprisedb.com/posts/list/1744.page
 https://gist.github.com/970901
 http://beginrescueend.com/packages/openssl/
-http://redmine.ruby-lang.org/issues/4611
-http://beginrescueend.com/packages/openssl/
+http://redmine.ruby-lang.org/issues/4611 http://beginrescueend.com/packages/openssl/
 http://www.cs.washington.edu/homes/aczeskis/openssl.html
 https://support.newrelic.com/help/discussions/support/8900-what-is-ppm-in-throughput
 https://support.newrelic.com/kb/general/apdex
@@ -412,15 +411,6 @@ totaly old:
 http://stakeventures.com/articles/2007/11/26/how-to-turn-your-rails-site-into-an-oauth-provider
 
 
-###All the above stuff I red is from newest to oldest. ^^ ###
-
-
-videos
-========
-
-http://www.g4tv.com/thefeed/blog/post/715958/guild-wars-2-environment-artist-tirzah-bauer-teaches-you-how-to-create-beautiful-landscapes/
-
-
 
 
 
@@ -428,7 +418,7 @@ http://www.g4tv.com/thefeed/blog/post/715958/guild-wars-2-environment-artist-tir
 
 
 stack owerflow  
-==============
+-----------------
 
 http://stackoverflow.com/questions/4881680/rspec-autotest-error-on-mac-os-x
 http://stackoverflow.com/questions/3852759/does-rake-dbpopulate-work-in-rails-3
@@ -453,14 +443,14 @@ http://stackoverflow.com/questions/470702/css-selector-for-input-type
 
 
 documentations
-==============
+---------------
 https://github.com/jnicklas/carrierwave
 https://github.com/markevans/dragonfly/
 
 
 
 todo (to be read)
-======================
+----------------
 
 http://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to
 http://www.slideshare.net/padday/the-real-life-social-network-v2

@@ -1,7 +1,15 @@
-
-
+%nav
+  %ul
+    %li
+      %a{:href=>'#read_articles'} Read articles backlog
+    %li
+      %a{:href=>'#watched_screencasts_rest'} Watched screencasts backlog
+    %li
+      %a{:href=>'#read_books'} Read books backlog
 %section#read_articles
   %h2 Backlog of read articles
+  %p
+    For better tracking of issues, I keep backlog of articles that helped me solve development problems. On the top of the section are newest links.
   ~ markdown(@readed_articles)
 
 
@@ -11,20 +19,59 @@
   %h2
     Backlog of watched screencasts
 
+  %h3 RailsCasts
   %ul
     - @railscasts.each do |railscast, decscription|
       %li
         %a{:href => "http://railscasts.com/episodes/#{railscast}", :title=>"RailsCasts #{railscast}"} Railscasts #{railscast}
         = decscription
   .clear
+
+  %h3#watched_screencasts_rest Other
   %ul.floating
+
     %li
-      = screencast('Haml & Sass', 'Peepcon screencast on Haml, Sass', 'https://peepcode.com/products/haml-and-sass', 'https://peepcode.com/system/covers/haml-and-sass.png')
+      = screencast('Introduction to Sass: Part 2', 'http://screencasts.org/episodes/introduction-to-sass-part-2', nil, 'at screencasts.org')
+
+    %li
+      = screencast('Introduction to Sass: Part 1', 'http://screencasts.org/episodes/introduction-to-sass', nil, 'at screencasts.org')
+
+    %li
+      = screencast('Haml & Sass', 'https://peepcode.com/products/haml-and-sass', 'https://peepcode.com/system/covers/haml-and-sass.png', 'Peepcon screencast on Haml, Sass')
+
+    %li
+      = screencast('Play by Play: Ryan Singer (UI)', 'https://peepcode.com/products/ryan-singer-ux', 'https://peepcode.com/system/covers/ryan-singer-ux.png', 'on UI workflow')
+      
+    %li
+      = screencast('RSpec controllers', 'https://peepcode.com/products/rspec-controllers-and-tools', 'https://peepcode.com/system/covers/rspec-controllers-and-tools.png')
+
+    %li
+      = screencast('RSpec models', 'https://peepcode.com/products/rspec-mocks-and-models', 'https://peepcode.com/system/covers/rspec-mocks-and-models.png')
+
+    %li
+      = screencast('RSpec basics', 'https://peepcode.com/products/rspec-basics', 'https://peepcode.com/system/covers/rspec-basics.png')
+
+    %li
+      = screencast('GIT', 'https://peepcode.com/products/git', 'https://peepcode.com/system/covers/git.png', 'Peepcode on GIT')
+
+    %li
+      = screencast('The Ruby Object Model and Metaprogramming', 'http://pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming', 'http://imagery.pragprog.com/products/122/v-dtrubyom_xlargecover.jpg', 'Realy good cast demostrating how are objects actually working ')
+
+
+
 
 %section#read_books
   %h2
     Backlog of read books
   %ul.floating
+    %li
+      %a{:href=>'http://www.abookapart.com/products/html5-for-web-designers'}
+        %img{:src=>'http://i.imgur.com/HwyMR.jpg', :alt=>'HTML5 For Web Designers [AbookApart]'}
+
+    %li
+      %a{:href=>'http://www.abookapart.com/products/css3-for-web-designers'}
+        %img{:src=>'http://i.imgur.com/02GIx.jpg', :alt=>'CSS3 for web designers [AbookApart]'}
+
     %li
       %a{:href=>'http://progit.org'}
         %img{:src=>'http://i.imgur.com/viq3y.jpg', :alt=>'ProGit book'}
@@ -35,3 +82,7 @@
       %img{:src=>'http://i.imgur.com/Xvmt1.jpg', :alt=>'PHP5 Apache MySQL web development book'}
   .clear
 
+
+
+%footer
+  ='<a href="https://twitter.com/equivalent8" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @equivalent8</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>'
