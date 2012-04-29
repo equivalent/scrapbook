@@ -1,4 +1,4 @@
-get '/readed-backlog' do
+get '/read-articles-backlog' do
   @readed_articles = read_w_file('other/readed_articles')
   haml :readed_articles
 end

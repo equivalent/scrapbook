@@ -1,6 +1,11 @@
 !!! 5
 %html{:id=>@html_id.to_s}
   %head
+
+    %meta{:name=>"author", :content=>"Equivalent (eq8.eu)"}
+    %meta{:name=>"keywords", :content=>""}
+    %meta{:name=>"description", :content=>"Personal public scrapbook(notebook), focused on web-development mainly in Ruby on Rails or technologies related to Ruby community. Site by Equivalent(eq8)"}
+
     %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
     %meta{"http-equiv" => "refresh", :content => "120"}
 
@@ -43,7 +48,7 @@
               %li
                 = link_to('/links', I.t('links.links'))
               %li
-                = link_to('/readed-backlog', I.t('links.readed'))
+                = link_to('/read-articles-backlog', I.t('links.read_articles'))
         %article
           =yield 
         %aside

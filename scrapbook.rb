@@ -23,7 +23,7 @@ protected
       :links => {
         :home => "Home",
         :scraps => "Notes & Articles",
-        :readed => "Readed stuff",
+        :read_articles => "Read backlog",
         :links => "Links"
       }
     }

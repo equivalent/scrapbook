@@ -1,7 +1,7 @@
 %h1 About
 
-%p 
-  Scrapboook in my personal collection of notes on platform maintenance and web-development topics. Please don't look at this site as on conventional blog or wiky, rather take it as a collection of quick-notes, that has been written during development process and may be useful in the future.
+%p This site is #{link_to 'http://eq8.eu', 'my', :title=> "Equivalent(eq8), link to my personal web-site"} personal collection of notes on platform maintenance and web-development topics. Please don't look at this site as on conventional blog or wiky, rather take it as a collection of quick-notes, that were written during development process and I though they may be useful for me in the future. Also, notes were written in rush so they contain lot of gramma errors.
+%p Site also contains backlog of #{link_to '/read-articles-backlog', 'articles & books that I read'} for better tracking of web-development issues that I came across.
 
 %nav#index_navigation
   %h1 Scraps
@@ -26,6 +26,9 @@
   .clear
 
 %hr
+
+%p 
+  You can find whole #{link_to 'https://github.com/equivalent/scrapbook','Scrapbook project on GitHub'} as well as all #{link_to 'https://github.com/equivalent/scrapbook/tree/master/wisdom_inside', 'scraps, notes, articles in markdown', :title=>'Scrabook notes, scraps and articles at GitHub in markup languages'} and archive of #{link_to 'https://github.com/equivalent/scrapbook/tree/master/wisdom_inside_archive', 'old notes', :title=> 'Archive of old notes, scraps and articles at GitHub'}
 
 -#load plugins partials in alphabetical order
 - @plugin_index_partials.each do |file|
