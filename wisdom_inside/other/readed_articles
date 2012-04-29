@@ -1,19 +1,4 @@
 
-todo http://arcturo.github.com/library/coffeescript/index.html
-
-todo http://jeffcroft.com/blog/2007/nov/17/whats-not-love-about-css-frameworks/
-todo http://www.digital-web.com/articles/smart_CSS_aint_always_sexy_CSS
-todo http://www.cameronmoll.com/archives/2006/12/gridding_the_960
-todo http://www.cameronmoll.com/archives/2006/12/gridding_the_960/
-todo http://bjorkoy.com/2007/08/launch-blueprint-a-css-framework/
-todo http://www.adaptivepath.com/ideas/sketchboards-discover-better-faster-ux-solutions
-todo http://fireworks.smashingmagazine.com/2008/03/18/adobe-fireworks-tutorials-and-downloads-best-of/
-todo http://webdesignerwall.com/tutorials/typographic-contrast-flow
-
-
-todo sass tutorials http://www.youtube.com/playlist?list=PL2CB1F80266E986EA
-
-
 http://www.kuwata-lab.com/erubis/  http://en.wikipedia.org/wiki/ERuby
 http://www.sitepoint.com/restful-rails-part-i/
 
@@ -467,58 +452,37 @@ http://stackoverflow.com/questions/470702/css-selector-for-input-type
 
 
 
-documentations  (docas)
+documentations
 ==============
 https://github.com/jnicklas/carrierwave
 https://github.com/markevans/dragonfly/
 
 
 
-Railscasts episodes (rlscsst)
-===================
+todo (to be read)
+======================
 
-"archive":http://railscasts.com/episodes/archive
-
-283
-279 http://railscasts.com/episodes/279-understanding-the-asset-pipeline?autoplay=true
-255
-241 omniauth from scratch   http://railscasts.com/episodes/241-simple-omniauth
-238
-235 omniauth [235](http://railscasts.com/episodes/235-omniauth-part-1?autoplay=true)
-233 janrain rpx authentication with other provider  [233]( http://railscasts.com/episodes/233-engage-with-devise?)
-209 devise authentication http://railscasts.com/episodes/209-introducing-devise?autoplay=true
-205
-194
-126
-
-81
-
-11
-
-
-
-
-
-
-
-boooooooooks
-=============
-
-![ProGit book]( http://progit.org/images/book-big.jpg "http://progit.org")
-![php5 apache mysql web deveropment](/assets/php5apachemysqlwebdevelopment.jpg )
-![Agile Web Development with Rails (3rd edition)](http://imagery.pragprog.com/products/111/rails3_xlargecover.jpg?1298589779, Agile Web Development with Rails 3rd edition)
-
-
-
-
-
-
-
-
-to be readed
 http://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to
 http://www.slideshare.net/padday/the-real-life-social-network-v2
 http://37signals.com/bootstrapped
 
 http://blog.hunch.com/?p=51781
 http://mobile.tutsplus.com/tutorials/iphone/beginning-iphone-development/
+
+
+
+todo http://arcturo.github.com/library/coffeescript/index.html
+
+todo http://jeffcroft.com/blog/2007/nov/17/whats-not-love-about-css-frameworks/
+todo http://www.digital-web.com/articles/smart_CSS_aint_always_sexy_CSS
+todo http://www.cameronmoll.com/archives/2006/12/gridding_the_960
+todo http://www.cameronmoll.com/archives/2006/12/gridding_the_960/
+todo http://bjorkoy.com/2007/08/launch-blueprint-a-css-framework/
+todo http://www.adaptivepath.com/ideas/sketchboards-discover-better-faster-ux-solutions
+todo http://fireworks.smashingmagazine.com/2008/03/18/adobe-fireworks-tutorials-and-downloads-best-of/
+todo http://webdesignerwall.com/tutorials/typographic-contrast-flow
+
+
+todo sass tutorials http://www.youtube.com/playlist?list=PL2CB1F80266E986EA
+
+

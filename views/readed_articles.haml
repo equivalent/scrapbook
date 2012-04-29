@@ -1,3 +1,37 @@
-%h1
-  Readed Backlog
-~ markdown(@readed_articles)
+
+
+%section#read_articles
+  %h2 Backlog of read articles
+  ~ markdown(@readed_articles)
+
+
+
+
+%section#watched_screencasts
+  %h2
+    Backlog of watched screencasts
+
+  %ul
+    - @railscasts.each do |railscast, decscription|
+      %li
+        %a{:href => "http://railscasts.com/episodes/#{railscast}", :title=>"RailsCasts #{railscast}"} Railscasts #{railscast}
+        = decscription
+  .clear
+  %ul.floating
+    %li
+      = screencast('Haml & Sass', 'Peepcon screencast on Haml, Sass', 'https://peepcode.com/products/haml-and-sass', 'https://peepcode.com/system/covers/haml-and-sass.png')
+
+%section#read_books
+  %h2
+    Backlog of read books
+  %ul.floating
+    %li
+      %a{:href=>'http://progit.org'}
+        %img{:src=>'http://i.imgur.com/viq3y.jpg', :alt=>'ProGit book'}
+    %li
+      %a{:href=>'http://pragprog.com/book/rails3/agile-web-development-with-rails'}
+        %img{:src=>'http://imgur.com/fCaBt.jpg', :alt=>'Agile Web Development with Rails (3rd edition) book'}
+    %li
+      %img{:src=>'http://i.imgur.com/Xvmt1.jpg', :alt=>'PHP5 Apache MySQL web development book'}
+  .clear
+

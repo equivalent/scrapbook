@@ -72,4 +72,11 @@ end
     (Dir.entries( w_path(folder_name )) - ['.', '..']).sort
   end
 
+  def screencast(name, title, link, image=nil)
+    render  = "<a href=\"#{link}\" title=\"#{title}\">" 
+    render += image ? "<img src=\"#{image}\" alt=\"#{name}\">" : "#{name}: #{title}" 
+    render += '</a>'
+    return render
+  end
+
 end
