@@ -299,16 +299,17 @@ a {
 .hidden {
   display: none; }
 
-nav#index_navigation h1 {
+html article p, html article ul {
+  margin-left: 1em; }
+
+html#home nav#index_navigation h1 {
   clear: both;
   margin-top: 1em; }
-  nav#index_navigation h1:first-child {
-    margin-top: 0px; }
-nav#index_navigation li {
+html#home nav#index_navigation li {
   display: block;
   float: left;
   margin: 1px 1px; }
-  nav#index_navigation li a {
+  html#home nav#index_navigation li a {
     display: block;
     padding: 3px 8px 5px 8px;
     -webkit-border-radius: 8px;
@@ -318,7 +319,7 @@ nav#index_navigation li {
     border-radius: 8px;
     background-color: purple;
     color: #eeeeee; }
-    nav#index_navigation li a:hover, nav#index_navigation li a:active {
+    html#home nav#index_navigation li a:hover, html#home nav#index_navigation li a:active {
       background-color: #db95d7;
       text-decoration: none; }
 

@@ -123,25 +123,28 @@ a
   display: none
 
 
-nav#index_navigation
-  h1 
-    clear: both
-    margin-top: 1em
-    &:first-child
-      margin-top: 0px
-  li
-    display: block
-    float: left
-    margin: 1px 1px
-    a
+html
+  article
+    p, ul
+      margin-left: 1em 
+html#home
+  nav#index_navigation
+    h1 
+      clear: both
+      margin-top: 1em
+    li
       display: block
-      padding: 3px 8px 5px 8px
-      @include border-radius(8px)
-      background-color: $button_color
-      color: #eee
-      &:hover, &:active
-        background-color: $button_color2
-        text-decoration: none
+      float: left
+      margin: 1px 1px
+      a
+        display: block
+        padding: 3px 8px 5px 8px
+        @include border-radius(8px)
+        background-color: $button_color
+        color: #eee
+        &:hover, &:active
+          background-color: $button_color2
+          text-decoration: none
 
 
 

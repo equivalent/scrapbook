@@ -22,6 +22,7 @@ protected
     {
       :links => {
         :home => "Home",
+        :scraps => "Notes & Articles",
         :readed => "Readed stuff",
         :links => "Links"
       }
@@ -46,6 +47,7 @@ get '/' do
   @notes = dir_w_listing 'notes/'
   @scraps = dir_w_listing 'scraps/'
   @plugin_index_partials = Dir[File.dirname(__FILE__) + '/plugins/homepage_partials/*.haml']
+  @html_id="home"
 
   haml :homepage
 end

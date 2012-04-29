@@ -1,7 +1,7 @@
-
-
-
 helpers do
+  # I know, lot of stuff should be moved to libraries and shouldn't be
+  # helper at all, I'll refactor that as soon as possible
+  #
   def link_to(url, text=url, opts={}) 
     attributes = ""
     opts.each { |key,value| attributes << key.to_s << "=\"" << value << "\" "}
