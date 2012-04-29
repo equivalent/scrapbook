@@ -42,12 +42,12 @@ get '/stylesheet.css' do
 end
 
 get '/' do
- @articles = dir_w_listing 'articles/'
- @notes = dir_w_listing 'notes/'
- @scraps = dir_w_listing 'scraps/'
- @plugin_index_partials = Dir[File.dirname(__FILE__) + '/plugins/index_partials/*.haml']
+  @articles = dir_w_listing 'articles/'
+  @notes = dir_w_listing 'notes/'
+  @scraps = dir_w_listing 'scraps/'
+  @plugin_index_partials = Dir[File.dirname(__FILE__) + '/plugins/homepage_partials/*.haml']
 
-  haml :index 
+  haml :homepage
 end
 
 
@@ -65,9 +65,9 @@ get settings.reder_w_files_patern do
 end
 
 get '/links' do
-      @title = "links"
-      @file_content = read_w_file('links') 
-      haml :markdown_read
+  @title = "links"
+  @file_content = read_w_file('links') 
+  haml :markdown_read
 end
 
 Dir[File.dirname(__FILE__) + '/plugins/routings/*.rb'].each {|file| require file } 

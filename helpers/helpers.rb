@@ -27,9 +27,22 @@ helpers do
 
 
 def markdown(text)
-  options = {:hard_wrap => true, :filter_html => true, :autolink => true, :no_intra_emphasis => true, :fenced_code_blocks => true, :gh_blockcode => true}
  # options = [:filter_html, :hard_wrap, :autolink, :no_intraemphasis]
-  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options )
+  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(
+      :hard_wrap => true
+    ),
+    :no_intra_emphasis => true, 
+    :tables => false,
+    :fenced_code_blocks => true, 
+    :autolink => true, 
+    :strikethrough => false,
+    :lax_html_blocks => false,
+    :space_after_headers => false,
+    :superscript => false,
+    :filter_html => true, 
+    :gh_blockcode => true,
+    :hard_wrap => true, 
+  )
   syntax_highlighter(markdown.render(text))
 end
 
@@ -52,11 +65,11 @@ end
   end
 
   def read_w_file(file_name)
-    read_file( w_path(file_name))
+    read_file(w_path(file_name))
   end
 
   def dir_w_listing(folder_name)
-      (Dir.entries( w_path(folder_name )) - ['.', '..']).sort
+    (Dir.entries( w_path(folder_name )) - ['.', '..']).sort
   end
 
 end
