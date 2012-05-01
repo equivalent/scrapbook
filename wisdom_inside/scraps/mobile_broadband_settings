@@ -1,0 +1,26 @@
+
+# three mobile broadband
+
+note: prepayed internet 15 pound
+
+number: *99#
+nousername
+nopassword
+APN: 3services
+
+note: some people say that the APN should be *three.co.uk*  or *3internet*  but that wasn't working for me
+
+Keywords: three internet, 3internet
+
+
+# giff gaff mobile broadband
+
+number: *99#
+nousername
+nopassword
+APN: giffgaff.com
+
+
+
+
+
