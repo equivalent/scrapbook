@@ -8,6 +8,8 @@ nousername
 nopassword
 APN: 3services
 
+note: in Fedora for some reason(maybe port was closed), each time I was conecting I needed to run *wvdial* command  
+
 note: some people say that the APN should be *three.co.uk*  or *3internet*  but that wasn't working for me
 
 Keywords: three internet, 3internet
@@ -21,6 +23,7 @@ nopassword
 APN: giffgaff.com
 
 
+note: in Fedora for some reason(maybe port was closed), each time I was conecting I needed to run *wvdial* command  
 
 
 

@@ -235,3 +235,12 @@ check scrap on mobile broadband settings
 
 
 
+#oppen office manual 
+
+http://www.if-not-true-then-false.com/2010/install-openoffice-org-on-fedora-centos-red-hat-rhel/
+
+    #just download & extract open office, cd to that dir and run 
+    rpm -Uvh RPMS/*.rpm RPMS/desktop-integration/openoffice.org3.3-redhat-menus-3.3-*.rpm
+
+keywords: oppenoffice open office libre
+
