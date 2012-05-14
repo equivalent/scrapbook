@@ -1,6 +1,20 @@
 http://cheat.errtheblog.com/s/rspec/
 
 
+# testing if initialization set instance variable
+
+    class Rule
+      def initialize(min) 
+        @min_amount = min
+      end
+    end
+
+rpsec
+
+    it 'should set @min_amount to 10' do
+      rule = Rule.new(10)
+      rule.instance_variable_get('@min_amuont').should == 10
+    end
 
 
 # mocking and stubing job class
