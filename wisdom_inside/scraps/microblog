@@ -1,3 +1,12 @@
+## removing whitespaces from string
+
+    s = " a x  e \n"
+    s.strip
+    #=> "a x  e"
+    s.chomp
+    #=> " a x  e "
+
+
 ## remove nonasci characters from string 
 
 If you wan't to remove nonasci characters from string like 
