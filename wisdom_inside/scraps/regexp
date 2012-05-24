@@ -1,6 +1,15 @@
 
 
 
+# custom links
+
+    url.match('^https*:[\w._]*github')
+    # http://github
+    # https://github
+    # https://www.github
+    # http://www.github
+ 
+
 #get rid of all non ASCII characters
 
     s.gsub!(/\P{ASCII}/, '')

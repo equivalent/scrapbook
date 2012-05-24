@@ -1,8 +1,26 @@
 expectation
 implementation
 
-
 http://cheat.errtheblog.com/s/rspec/
+
+
+
+#example for initialize method
+
+~~~ruby
+  describe 'initialization' do
+    it "should raise error if na url to blog" do
+      lambda{BlogParser::Base.new('htt://uplnakrepost')}.should raise_error('Should be link to github file')
+      lambda{BlogParser::Base.new}.should raise_error(ArgumentError)
+    end
+
+    it "should set @url variable" do
+      blog = BlogParser::Base.new('https://github.com/equivalent/scrapbook')
+      blog.instance_variable_get('@url').should be_present
+      blog.instance_variable_get('@url').should == 'https://github.com/equivalent/scrapbook'
+    end
+  end
+~~~
 
 
 # testing if initialization set instance variable
