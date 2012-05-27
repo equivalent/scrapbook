@@ -1,3 +1,14 @@
+## split string to char array
+
+
+
+~~~ruby
+"Hello, world!".scan(/./)
+# => ["H", "e", "l", "l", "o", ",", " ", "w", "o", "r", "l", "d", "!"]
+~~~
+
+
+
 ## print random number in formated string
 
 ### with with 4 char format

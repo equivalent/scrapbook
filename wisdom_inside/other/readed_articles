@@ -1,3 +1,8 @@
+http://www.mongodb.org/display/DOCS/Building+for+Linux#BuildingforLinux-Fedora
+http://rywalker.com/moving-rails-3-and-mongo-db-app-to-heroku
+
+http://stackoverflow.com/questions/1220751/how-to-choose-an-aes-encryption-mode-cbc-ecb-ctr-ocb-cfb
+http://stackoverflow.com/questions/8600314/decrypt-string-with-aes-cipher-block-chaining-in-rails
 http://www.brentsowers.com/2007/12/aes-encryption-and-decryption-in-ruby.html  nice module for AES encryption + Bedtime reading http://en.wikipedia.org/wiki/Advanced_Encryption_Standard
 http://diveintohtml5.info/extensibility.html  descriptive articlo around microformats and RDFa
 http://stackoverflow.com/questions/4530440/rspec-and-initialize-method
