@@ -1,3 +1,37 @@
+## print random number in formated string
+
+### with with 4 char format
+
+like:
+
+    "90  "
+    "590 "
+
+do 
+
+~~~ruby
+col = rand(9999)
+print printf( "%-4s",col)
+~~~
+
+much cooler approach 
+
+
+~~~ruby
+"%4s" % rand(9999)
+"%-4s" % rand(9999)
+~~~
+
+
+### with leading zeros 4 char format
+
+~~~ruby
+"%04d" % rand(9999)
+~~~
+
+    "0010"
+    "0300"
+
 ## removing whitespaces from string
 
     s = " a x  e \n"
