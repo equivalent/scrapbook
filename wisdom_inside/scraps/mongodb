@@ -1,0 +1,60 @@
+
+start on fedora 
+
+   /opt/mongo/bin/mongod --dbpath ~/memo/mongo/
+
+
+# mongo mapper rails 3 
+
+http://www.mongodb.org/display/DOCS/Rails+3+-+Getting+Started
+
+*config/initializers/mongodb.rb*
+
+~~~ruby
+require 'mongo_mapper'
+
+configfile ="#{Rails.root.to_s}/config/mongodb.yml"
+if File.exists? configfile
+  config = YAML.load(File.read(configfile))[Rails.env]
+  if config
+    MongoMapper.connection = Mongo::Connection.new(config['server'], config['port'] || 27017)
+    MongoMapper.database = config['database']
+  end
+end
+~~~
+
+*config/mongodb.yml*
+
+~~~ruby
+development:
+  server: localhost
+  database: memo
+
+test:
+  server: localhost
+  database: memo-test
+
+production:
+  server: localhost
+  database: memo-production
+~~~
+
+*app/model/mongo_base.rb*
+
+~~~ruby
+class MongoBase
+  include MongoMapper::Document
+end
+~~~
+
+
+*app/model/preson.rb*
+
+~~~ruby
+class Person < MongoBase
+  key :name, String, :required => true
+  
+  
+
+end
+~~~
