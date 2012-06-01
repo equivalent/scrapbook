@@ -40,6 +40,7 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
 
     ssh-keygen -t rsa
     # 
+    sudo apt-get install curl
     sudo apt-get install git 
     sudo apt-get install vim-gnome   
 
