@@ -1,0 +1,46 @@
+# shortcuts
+
+    ctrl + wind           # popup
+    alt + F7              # move window
+    alt + F8              # resize window
+
+
+
+
+
+
+# touchpad fix for ProBook 4525s
+
+from: http://ubuntuforums.org/showthread.php?t=1966016&page=2
+
+Download file to computer desktop http://ubuntuforums.org/attachment.php?attachmentid=217549&d=1336510693
+
+or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchpad-on-probook-4525s/psmouse-3.2.0-24-generic-pae.tar.bz2
+
+     sudo apt-get install dkms build-essential
+     cd ~/Desktop
+     tar jxvf psmouse-3.2.0-24-generic-pae.tar.bz2
+     sudo mv psmouse-3.2.0-24-generic-pae /usr/src
+     cd /usr/src
+     sudo chmod -R a+rx psmouse-3.2.0-24-generic-pae
+     sudo dkms add -m psmouse -v 3.2.0-24-generic-pae
+     sudo dkms build -m psmouse -v 3.2.0-24-generic-pae
+     sudo dkms install -m psmouse -v 3.2.0-24-generic-pae
+     sudo modprobe -r psmouse
+     sudo modprobe psmouse
+     sudo dkms status
+
+
+
+
+
+
+
+# ssh, git
+
+    ssh-keygen -t rsa
+    # 
+    sudo apt-get install git 
+    sudo apt-get install vim-gnome   
+
+
