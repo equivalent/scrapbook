@@ -34,6 +34,13 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
 
 
 
+#  configure keyboard layout on login session
+
+     sudo dpkg-reconfigure keyboard-configuration 
+
+
+
+
 
 
 # ssh, git
