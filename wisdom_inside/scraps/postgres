@@ -4,6 +4,16 @@
 
       psql --username=postgres
 
+# mint & ubuntu postgres 
+    
+    sudo -u postgres psql
+    # be sure to include host=localhost in config/database.yml with ubuntu
+
+    # How to start / stop the server?
+    sudo service postgresql start / stop
+    sudo /etc/init.d/postgresql start / stop
+
+source: https://zxmax.wordpress.com/2012/05/26/install-postgers-9-3-on-ubuntu-12-04/
 
 # create database
     

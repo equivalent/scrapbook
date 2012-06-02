@@ -1,11 +1,14 @@
-# shortcuts
+# shortcuts fo custom mate
 
-    ctrl + wind           # popup
-    alt + F7              # move window
-    alt + F8              # resize window
+    wind + ctrl           # popup
+    wind + up             # move window       #alt + F7  def
+    wind + down           # resize window     #alt + F8  def
+    wind + 1,2,3          # switch workspace
+    wind + arrows         # switch workspace
+    wind + alt            # move window to workspace
+    wind + alt + arrows   # move window to workspace
 
-
-
+    alt + `  switch app windows
 
 
 
@@ -43,7 +46,7 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
 
 
 
-# ssh, git
+# ssh, git, ruby esentials
 
     ssh-keygen -t rsa
     # 
@@ -51,4 +54,20 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
     sudo apt-get install git 
     sudo apt-get install vim-gnome   
 
+    #rvm
+    curl -L get.rvm.io | bash -s stable
+    rvm pkg install zlib
+    rvm pkg install openssl
+    rvm pkg install iconv
+    rvm pkg install readline
 
+    #nokogiry esential
+    sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
+
+
+
+    #  postgresql
+
+    http://www.unixmen.com/201204-howto-install-postgresql-on-ubuntu-and-linuxmint/
+    sudo apt-get install postgresql  libpq-dev
+    sudo apt-get install pgadmin3
