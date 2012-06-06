@@ -71,6 +71,8 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
 
 #postgresql 
 
+source: http://netadminlinux.blogspot.co.uk/2011/11/installing-postgresql-91-on-ubuntu-1104.html
+
 keywords: postgres psql postgres
 
     sudo apt-get install python-software-properties
