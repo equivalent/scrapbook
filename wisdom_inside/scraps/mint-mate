@@ -51,4 +51,12 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
     sudo apt-get install git 
     sudo apt-get install vim-gnome   
 
+# rvm
+  
+     apt-get install libopenssl-ruby
+     sudo apt-get install zlib1g-dev
+     rvm pkg install openssl
+
+     rvm --skip-autoreconf pkg install iconv
+
 
