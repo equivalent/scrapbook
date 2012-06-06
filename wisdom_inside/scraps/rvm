@@ -16,3 +16,7 @@ and if you want the directory
 http://beginrescueend.com/packages/openssl/
 
 rvm install 1.9.2 --with-openssl-dir=/usr/local/Cellar/openssl/0.9.8r/bin  --with-openssl-lib=/usr/local/Cellar/openssl/0.9.8r/lib 
+
+
+rvm reinstall 1.9.3
+

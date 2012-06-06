@@ -59,4 +59,31 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
 
      rvm --skip-autoreconf pkg install iconv
 
+#gems 
+#
+     #nokogiri
+     sudo apt-get install libxml2
+     sudo apt-get install libxml2-dev
+     sudo apt-get install libxslt-dev libxml2-dev
+     sudo apt-get install build-essential g++
+     
+
+
+#postgresql 
+
+keywords: postgres psql postgres
+
+    sudo apt-get install python-software-properties
+    sudo add-apt-repository ppa:pitti/postgresql
+    sudo apt-get update
+    sudo apt-get install postgresql-9.1 libpq-dev
+    sudo apt-get install pgadmin3
+    
+    su 
+    su postgres
+    psql
+    #=> alter user postgres with password 'aaaa';
+
+
+
 

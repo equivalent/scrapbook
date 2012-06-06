@@ -5,6 +5,12 @@
       psql --username=postgres
 
 
+# mint ubuntu start login to postgress
+
+
+     psql -d postgres -U postgres --password --host=localhost
+
+
 # create database
     
       CREATE USER tom WITH PASSWORD 'myPassword';
