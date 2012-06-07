@@ -1,4 +1,82 @@
 
+
+## PostgreSQL host problem in Linux Mint 13
+
+
+
+ Working on one project using PostgreSQL and  evrything configured correctly, I kept on getting 
+
+      rake db:migrate
+
+      rake aborted!
+      FATAL:  Peer authentication failed for user "postgres"
+
+
+the reason was that defaultly instaled PostgeSQL on Mint 13 requirest to specify host. 
+So quicksolution in my *database.yml* :
+
+
+    development:
+      adapter: postgresql
+      encoding: unicode
+      database: project_development
+      pool: 5
+      username: postgres
+      password: secret
+      host: localhost   #<<< solution 
+
+
+
+
+
+
+
+
+
+
+##"fuzzystrmatch" module missing in Ubuntu and Mint 13
+
+Working on one PostgreSQL porject I had an issue running *rake db:migrate* 
+
+    PG::Error: ERROR:  could not open extension control file "/usr/share/postgresql/9.1/extension/fuzzystrmatch.control": No such file or directory
+    : create extension fuzzystrmatch
+
+solution 
+
+    sudo apt-get install postgresql-contrib 
+
+than another error ocured:
+
+    PG::Error: ERROR:  permission denied to create extension "fuzzystrmatch"
+    HINT:  Must be superuser to create this extension.
+    : create extension fuzzystrmatch
+
+now this has nothing to do with "sudo" user so running *sudo rake db:migrate* won't help. The reason for this was that the fuzzystrmatch module for postgress requires database super user.
+
+for me the solution was to just change the *database.yml* file to use deffault *postgres* super user
+
+      development:
+        adapter: postgresql
+        encoding: unicode
+        database: project_development
+        username: postgres
+        password: extrasafe
+        host: localhost
+
+but better solution will be ether in postgres config files garant usage of fuzzystrmatch module to regular users.
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## rails hash that treets equally sybols and strings
 
 

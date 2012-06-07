@@ -80,6 +80,7 @@ keywords: postgres psql postgres
     sudo apt-get update
     sudo apt-get install postgresql-9.1 libpq-dev
     sudo apt-get install pgadmin3
+    sudo apt-get install postgresql-contrib 
     
     su 
     su postgres
@@ -89,3 +90,14 @@ keywords: postgres psql postgres
 
 
 
+# disk usage
+
+folder, how much disk space it take
+
+http://www.hscripts.com/tutorials/linux-commands/du.html
+
+    du images    #each item 
+    du -s mages  #total
+    du -h mages  #kapacity in formated bytes
+
+    du -s -h     # formated total

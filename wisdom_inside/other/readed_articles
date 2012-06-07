@@ -1,3 +1,5 @@
+http://forums.pragprog.com/forums/202/topics/10089  fuzzystrmatch you need to sudo apt-get install postgresql-contrib 
+
 http://stackoverflow.com/questions/2450684/rails-send-data-send-file-problem  send_data
 http://thewebfellas.com/blog/2009/8/29/protecting-your-paperclip-downloads  
 
