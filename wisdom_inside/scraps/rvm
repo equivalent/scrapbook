@@ -20,3 +20,6 @@ rvm install 1.9.2 --with-openssl-dir=/usr/local/Cellar/openssl/0.9.8r/bin  --wit
 
 rvm reinstall 1.9.3
 
+rvm remove 1.9.2
+rvm install 1.9.2
+

@@ -1,0 +1,28 @@
+
+
+
+
+
+# devise_invitable
+
+
+in *config/initializers/devise*
+
+     config.mailer_sender = "tomas@bubla.com"
+
+represents the *:from* in mailers
+
+if you got problem with sendmail sending the email resolving 
+
+     Net::SMTPFatalError: 553 5.1.8 <john.smith@gmail.com>... Domain of sender address tomas@bubla.com does not exist
+
+do
+
+     # add to /etc/hosts
+     127.0.1.1 bubla.com
+
+     # and restart
+     sudo /etc/init.d/sendmail restart 
+
+
+that will tell rails to send throuch local sendgrid from tomas user

@@ -53,11 +53,29 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
 
 # rvm
   
-     apt-get install libopenssl-ruby
+     sudo apt-get install libopenssl-ruby
      sudo apt-get install zlib1g-dev
      rvm pkg install openssl
 
+     sudo apt-get install libreadline-dev
+     sudo apt-get install libreadline5-dev libncurses5-dev
+     rvm pkg install readline
+     # if autoconf is doing problem:  rvm --skip-autoreconf pkg install readline
+     #
+
+
+     #include this in Gemfile
+     group :fix do
+       gem 'rb-readline' # fix for mint rvm readline problem http://bit.ly/yHOi2e
+     end
+
      rvm --skip-autoreconf pkg install iconv
+
+
+     #if needed 
+      rvm remove 1.9.2
+      rvm install 1.9.2
+
 
 #gems 
 #
@@ -101,3 +119,14 @@ http://www.hscripts.com/tutorials/linux-commands/du.html
     du -h mages  #kapacity in formated bytes
 
     du -s -h     # formated total
+
+
+
+
+
+
+
+#send mail sendmail
+
+     sudo /etc/init.d/sendmail restart 
+
