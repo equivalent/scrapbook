@@ -130,3 +130,11 @@ http://www.hscripts.com/tutorials/linux-commands/du.html
 
      sudo /etc/init.d/sendmail restart 
 
+
+
+
+# sqlite3 
+
+    sudo apt-get install  sqlite3 
+    sudo apt-get install libsqlite3-dev 
+
