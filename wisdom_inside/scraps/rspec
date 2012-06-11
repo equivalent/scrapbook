@@ -4,6 +4,53 @@ implementation
 http://cheat.errtheblog.com/s/rspec/
 
 
+#rspec attr_accessible and attr_protected
+
+http://stackoverflow.com/questions/9306392/how-to-test-attr-accessible-fields-in-rspec
+
+in *spec/support/be_accessible_matcher.rb *
+
+~~~ruby
+RSpec::Matchers.define :be_accessible do |attribute|
+  match do |response|
+    response.send("#{attribute}=", :foo)
+    response.send("#{attribute}").eql? :foo
+  end
+  description { "be accessible :#{attribute}" }
+  failure_message_for_should { ":#{attribute} should be accessible" }
+  failure_message_for_should_not { ":#{attribute} should not be accessible" }
+end
+~~~
+
+
+      it { should_not be_accessible :field_name }
+      it { should be_accessible :some_field }
+
+
+
+
+#controller 
+
+
+      describe PagesController 
+        it 'should render correctly disabled account page' do
+          get :account_disabled
+
+          response.should be_success  #200
+          response.should render_template('pages/account_disabled')
+          #or
+          response.should redirect_to admin_applications_path
+
+        end
+      end
+
+
+
+
+
+
+
+
 
 #example for initialize method
 
