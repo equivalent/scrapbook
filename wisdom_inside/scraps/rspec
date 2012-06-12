@@ -4,6 +4,27 @@ implementation
 http://cheat.errtheblog.com/s/rspec/
 
 
+
+# rspec validate format of 
+
+rspec validates_format_of
+
+requires gem *shoulda*
+
+    it { should validate_format_of(:password).not_with('aaaaaaaa').with_message(/include numbers, uppercase and lowercase letters/)}
+    it { should validate_format_of(:password).with('aaaaaaA1').with_message(/include numbers, uppercase and lowercase letters/)}
+
+
+
+#rspec have errors
+
+target.should have(<number>).errors_on(:field)
+
+
+http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames
+
+
+
 #rspec attr_accessible and attr_protected
 
 http://stackoverflow.com/questions/9306392/how-to-test-attr-accessible-fields-in-rspec

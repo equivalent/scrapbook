@@ -1,6 +1,78 @@
 
 
 
+# devise edit (change) password 
+
+acording to https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-edit-their-account-without-providing-a-password you don't need to do this if you using Devise *registerable module* but if your scenario is that you just want to create user  and let him chnage password: 
+
+*config/routes.rb*
+
+~~~ruby
+  devise_for :users, :controllers => {:passwords => "passwords"}
+
+  resources :passwords, :only => [:update] do
+    get :change, :on => :collection
+  end
+
+  match '/change-password'=>'passwords#change', :as => 'change_password'
+~~~
+
+*a/c/passwords_controller.rb*
+
+~~~ruby 
+class PasswordsController < ApplicationController
+  before_filter :authenticate_user!
+
+  def change
+    @user = current_user
+    render :edit,:locals => { :resource => @user, :resource_name => "user" }
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    if @user.update_with_password(params[:user])
+      # Sign in the user by passing validation in case his password changed
+      sign_in @user, :bypass => true
+      redirect_to root_path, notice: 'Password successfully changed'
+    else
+      render :edit,:locals => { :resource => @user, :resource_name => "user" }
+    end
+  end
+end
+~~~
+
+*a/v/passwords/change.html.haml* (I'm using *simple_form* gem, syntax is same as *form_for*)
+
+~~~ruby
+= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+  =# devise_error_messages! 
+  =# f.hidden_field :reset_password_token
+
+  .form-inputs
+    = f.input :current_password
+    = f.input :password, :label=>"New password"
+    = f.input :password_confirmation, :label=>"Confirm password"
+
+  .form-actions
+    = f.submit "Change my password", class: 'btn btn-primary'
+    = link_to 'Back', root_path, class: 'btn btn-danger'
+~~~
+
+*a/m/users.rb*
+
+~~~ruby 
+class User < ActiveRecord::Base
+  devise :invitable, :database_authenticatable, :recoverable, :trackable, :validatable, :confirmable, :lockable #it's up to you what you want
+
+  attr_accessible :name, :email, :password, :password_confirmation, :current_password
+
+end
+~~~
+
+sources: https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-edit-their-account-without-providing-a-password , http://stackoverflow.com/questions/6607834/rails-3-devise-manually-change-password
+
+
+
 
 
 # devise_invitable

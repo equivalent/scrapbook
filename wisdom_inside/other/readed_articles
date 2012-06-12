@@ -1,3 +1,11 @@
+https://www.relishapp.com/rspec/rspec-rails/docs/routing-specs
+http://stackoverflow.com/questions/7537112/rails-3-1-rspec-testing-model-validations
+https://github.com/thoughtbot/shoulda
+http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames
+https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-edit-their-account-without-providing-a-password , http://stackoverflow.com/questions/6607834/rails-3-devise-manually-change-password => devise using custom change password I wote about this scrap eq8scrapbook.heroku.com/equivalents_scrap/on_devise
+http://rubydoc.info/github/plataformatec/devise/master/Devise/Models/DatabaseAuthenticatable
+https://github.com/carlhuda/janus/issues/420
+http://twitter.github.com/bootstrap/base-css.html#forms
 http://www.bookofzeus.com/articles/how-to-install-memcached-in-ubuntu/ memcache
 
 http://seeweer.com/2011/06/15/testing-attr_accessible-with-rspec/
