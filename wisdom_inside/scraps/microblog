@@ -1,6 +1,31 @@
+
+
+
+
+
+
+# Rails flash notice Haml
+
+~~~ruby
+ - flash.each do |name, msg|
+    %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+      %a.close{"data-dismiss" => "alert"} ×
+      = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## split string to char array
-
-
 
 ~~~ruby
 "Hello, world!".scan(/./)
