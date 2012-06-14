@@ -1,5 +1,15 @@
 
 
+# adding own validations 
+
+~~~ruby
+  validates_format_of :password, :with  => /^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$/, 
+                      :message=>'Password should include numbers, uppercase and lowercase letters.', :if => :password #keep the if statement !
+~~~
+
+
+
+
 
 # devise edit (change) password 
 

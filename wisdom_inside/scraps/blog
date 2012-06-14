@@ -1,4 +1,99 @@
 
+#todo Rails flash partial trouble 
+
+Today I found my colleague for dispalying flash messages: 
+
+~~~ruby
+- flash.each do |name, msg|
+  %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+    %a.close{"data-dismiss" => "alert"} ×
+    = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+~~~
+
+pretty simple, but we were using this same code in two layouts. So lets remove duplicity and move it to partial.
+
+*app/views/layouts/application.html.haml*
+
+~~~ruby
+!!!
+%html
+  %head
+  %body
+    = render 'layouts/flash'
+~~~
+
+*app/views/layouts/admin.html.haml*
+
+~~~ruby
+!!!
+%html
+  %head
+  %body
+    = render 'layouts/flash'
+~~~
+
+*app/views/layouts/_flash.html.haml*
+
+~~~ruby
+- flash.each do |name, msg|
+  %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+    %a.close{"data-dismiss" => "alert"} ×
+    = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+~~~
+
+Everything looks nice and should work, but when we test it will get:
+
+    ActionView::Template::Error (undefined method `each' for nil:NilClass)
+
+hmm...
+
+so maybe the locale variable is incorrectly passed, lets try this
+
+
+~~~ruby
+= render 'layouts/flash', :locales => {:flash => flash}
+~~~
+
+same error!
+
+    ActionView::Template::Error (undefined method `each' for nil:NilClass)
+
+After googling for a while I found this same problem on Stack Overflow: 
+http://stackoverflow.com/questions/8023396/rails-3-notice-and-error-flash-cannot-be-rendered-in-a-partial
+
+The thing is that rails partial is initializing variable named *flash* and overwriting our *flash* *flash*. So the solution is simple, don't name the partial "flash" 
+
+so change layouts to  
+
+*app/views/layouts/application.html.haml*
+
+~~~ruby
+#...
+    = render 'layouts/notice'
+~~~
+
+*app/views/layouts/admin.html.haml*
+
+~~~ruby
+#...
+    = render 'layouts/notice'
+~~~
+
+and rename *_flash* partial to *_notice* partial
+
+    mv app/views/layouts/_flash.html.haml app/views/layouts/_notice.html.haml
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## PostgreSQL host problem in Linux Mint 13
 
