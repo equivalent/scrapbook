@@ -1,0 +1,28 @@
+
+
+Utf-8 encoding
+
+    # pdf.font_families.update(
+    #   "Baghdad" => {:normal => "#{Prawn::BASEDIR}/data/fonts/Baghdad.ttf",
+    #                 :bold   => "#{path to bold ttf file}"}
+    # ) 
+
+    font("Helvetica", size: 12) do
+    #font("#{Prawn::BASEDIR}/data/fonts/DejaVuSans.ttf") do
+    end
+
+http://stackoverflow.com/questions/2104814/prawn-prawnto-rails-pdf-generation-utf-8
+
+
+#numbering pages
+
+  http://prawn.majesticseacreature.com/docs/0.11.1/Prawn/Document.html#method-i-number_pages
+
+~~~ruby
+number_pages "Page <page>", :page_filter => :all, :start_count_at => 1, :at => [0, 0], :align=>:center
+~~~
+
+center page number at bottom
+
+                                             page 1
+
