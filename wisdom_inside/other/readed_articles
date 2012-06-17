@@ -1,3 +1,28 @@
+http://jeffgardner.org/2011/08/04/rails-string-to-boolean-method/
+http://rdoc.info/github/plataformatec/devise/master/Devise/Controllers/Helpers:after_sign_in_path_foro and  http://stackoverflow.com/questions/3636112/redirect-to-specific-url-after-logging-in   devise redirect ofter login
+
+http://www.quirksmode.org/oddsandends/wbr.html  did you know that there is *wbr* tag ? :) 
+http://stackoverflow.com/questions/8023396/rails-3-notice-and-error-flash-cannot-be-rendered-in-a-partial
+http://www.postgresql.org/docs/9.0/static/datatype-character.html
+
+https://www.relishapp.com/rspec/rspec-rails/docs/routing-specs
+http://stackoverflow.com/questions/7537112/rails-3-1-rspec-testing-model-validations
+https://github.com/thoughtbot/shoulda
+http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames
+https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-edit-their-account-without-providing-a-password , http://stackoverflow.com/questions/6607834/rails-3-devise-manually-change-password => devise using custom change password I wote about this scrap eq8scrapbook.heroku.com/equivalents_scrap/on_devise
+http://rubydoc.info/github/plataformatec/devise/master/Devise/Models/DatabaseAuthenticatable
+https://github.com/carlhuda/janus/issues/420
+http://twitter.github.com/bootstrap/base-css.html#forms
+http://www.bookofzeus.com/articles/how-to-install-memcached-in-ubuntu/ memcache
+
+http://seeweer.com/2011/06/15/testing-attr_accessible-with-rspec/
+http://launchware.com/articles/whats-new-in-edge-scoped-mass-assignment-in-rails-3-1     attr_accessible :role, :as => :admin  and how to access it from controller
+
+http://icebergist.com/posts/restful-admin-namespaced-controller-using-scaffolding  namespaced restfull scaffold
+http://forums.pragprog.com/forums/202/topics/10089  fuzzystrmatch you need to sudo apt-get install postgresql-contrib 
+
+http://stackoverflow.com/questions/2450684/rails-send-data-send-file-problem  send_data
+http://thewebfellas.com/blog/2009/8/29/protecting-your-paperclip-downloads  
 http://www.mongodb.org/display/DOCS/Building+for+Linux#BuildingforLinux-Fedora
 http://rywalker.com/moving-rails-3-and-mongo-db-app-to-heroku
 
@@ -490,5 +515,14 @@ todo http://webdesignerwall.com/tutorials/typographic-contrast-flow
 
 
 todo sass tutorials http://www.youtube.com/playlist?list=PL2CB1F80266E986EA
+
+
+todo http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui
+todo http://37signals.com/svn/posts/3113-how-key-based-cache-expiration-works
+todo http://broadcastingadam.com/2011/05/advanced_caching_in_rails
+
+
+todo important http://twitter.github.com/bootstrap/base-css.html#icons
+todo http://fortawesome.github.com/Font-Awesome/
 
 

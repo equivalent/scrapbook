@@ -5,6 +5,8 @@ rails g migration add_vanity_name_to_user  vanity_name:string
 
 
 add_column :table_name, :column_name, :column_type, {column_options}
+add_column :users, :admin, :boolean, :default => false
+
 add_column :accounts, :ssl_enabled, :integer, :default => 1
 remove_column :table_name, :column_name
 

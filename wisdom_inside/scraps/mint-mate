@@ -71,3 +71,103 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
     http://www.unixmen.com/201204-howto-install-postgresql-on-ubuntu-and-linuxmint/
     sudo apt-get install postgresql  libpq-dev
     sudo apt-get install pgadmin3
+# janus
+
+#inclue this lines on top of .vim/Rakefile #https://github.com/carlhuda/janus/issues/362
+    require 'openssl'
+    OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
+# rvm
+
+    sudo apt-get install libopenssl-ruby
+    sudo apt-get install zlib1g-dev
+    rvm pkg install openssl
+
+    sudo apt-get install libreadline-dev
+    sudo apt-get install libreadline5-dev libncurses5-dev
+    rvm pkg install readline
+# if autoconf is doing problem:  rvm --skip-autoreconf pkg install readline
+#
+
+
+#include this in Gemfile
+    group :fix do
+    gem 'rb-readline' # fix for mint rvm readline problem http://bit.ly/yHOi2e
+    end
+
+    rvm --skip-autoreconf pkg install iconv
+
+
+#if needed 
+    rvm remove 1.9.2
+    rvm install 1.9.2
+
+
+#gems 
+#
+#nokogiri
+    sudo apt-get install libxml2
+    sudo apt-get install libxml2-dev
+    sudo apt-get install libxslt-dev libxml2-dev
+    sudo apt-get install build-essential g++
+
+
+
+#postgresql 
+
+    source: http://netadminlinux.blogspot.co.uk/2011/11/installing-postgresql-91-on-ubuntu-1104.html
+
+    keywords: postgres psql postgres
+
+    sudo apt-get install python-software-properties
+    sudo add-apt-repository ppa:pitti/postgresql
+    sudo apt-get update
+    sudo apt-get install postgresql-9.1 libpq-dev
+    sudo apt-get install pgadmin3
+    sudo apt-get install postgresql-contrib 
+
+    su 
+    su postgres
+    psql
+#=> alter user postgres with password 'aaaa';
+
+
+
+
+# disk usage
+
+    folder, how much disk space it take
+
+    http://www.hscripts.com/tutorials/linux-commands/du.html
+
+    du images    #each item 
+    du -s mages  #total
+    du -h mages  #kapacity in formated bytes
+
+    du -s -h     # formated total
+
+
+
+
+
+
+
+#send mail sendmail
+
+    sudo /etc/init.d/sendmail restart 
+
+
+
+
+# sqlite3 
+
+    sudo apt-get install  sqlite3 
+    sudo apt-get install libsqlite3-dev 
+
+
+
+# memcache (dalli)
+
+    http://www.bookofzeus.com/articles/how-to-install-memcached-in-ubuntu/
+
+    sudo aptitude install memcached

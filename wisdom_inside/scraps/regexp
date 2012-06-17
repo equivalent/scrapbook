@@ -1,4 +1,9 @@
 
+#  Rexp extract content inside body tag
+
+
+    html_string.scan(/<body>(.*)<\/body>/im)
+  
 
 
 # custom links

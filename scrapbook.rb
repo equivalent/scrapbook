@@ -78,6 +78,7 @@ get '/read-articles-backlog' do
     283 => '',
     279 => 'Asset pipeline', 
     255 => '', 
+    254 => 'Kaminary pagination',
     241 => 'Omniauth form scratch', 
     238 => '', 
     235 => 'Implementing omniauth to existing project', 

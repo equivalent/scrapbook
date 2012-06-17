@@ -1,3 +1,38 @@
+# restfull namespaced controller 
+
+http://icebergist.com/posts/restful-admin-namespaced-controller-using-scaffolding
+
+controllers:   *redirect_to([:admin, @category])*
+
+views: 
+
+      form_for(@category) => form_for([:admin, @category])
+      <%= link_to ‘Show’, @category %> => <%= link_to ‘Show’, [:admin, @category] %>
+      categories_path => admin_categories_path
+      edit_category_path(@category) => edit_admin_category_path(@category)
+      new_category_path => new_admin_category_path
+
+example in haml 
+
+~~~ruby
+= form_for([:admin, @user]) do |f|
+  - if @user.errors.any? 
+    #error_explanation
+      %h2 #{pluralize(@user.errors.count, "error")} prohibited this bubala from being saved:
+      %ul
+        - @bubala.errors.full_messages.each do |msg|
+          %li #{ msg }
+
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+
+  .actions
+    = f.submit
+~~~
+
+
 #render
 
 ##partial
