@@ -1,0 +1,11 @@
+
+#CPU limit 
+
+http://unix.stackexchange.com/questions/41032/can-i-tell-pid-haw-much-cpu-power-it-can-take/41035#41035
+
+run pid 9013 on 20% of cpu
+
+    sudo cpulimit -p PID -l MAX_CPU_LEVEL
+    sudo cpulimit -p 9013 -l 20
+
+

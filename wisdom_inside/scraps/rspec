@@ -4,6 +4,53 @@ implementation
 http://cheat.errtheblog.com/s/rspec/
 
 
+#any instance 
+
+    # in controller spec 
+
+    class UsersController
+      def create
+        @user = User.new(params[:user])
+        @user.invite
+      end
+    end
+
+    describe UsersController
+      it 'creates a new user' do
+        user_params = { 'email' => 'user@example.com', 'name' => 'name'}
+        User.any_instance.should_receive(:invite).once.and_return(true)
+        post :create, user: user_params
+      end
+    end
+
+
+#factory attributes for
+
+    user = FactoryGirl.build :user
+    Factory.attributes_for :user
+    {:name=>"User 2", :email=>"user2@example.com", :company=>"some company", :password=>"password123UUU", :password_confirmation=>"password123UUU"} 
+    
+    #in controller spec you can do 
+    it 'redirects to the users index' do
+      post :create, user: attributes_for(:user)
+      response.should redirect_to( admin_users_path)
+    end
+
+
+# another factory exapmle
+
+~~~ruby
+FactoryGirl.define do
+  factory(:user) do 
+    sequence(:name) { |n| "User #{n}" } # User 1  User 2  User 3 ..
+    sequence(:email) { |n| "user#{n}@example.com" }   
+    company 'some company'
+    password 'password123UUU'
+    password_confirmation 'password123UUU'
+  end
+end
+~~~
+
 
 # rspec validate format of 
 
