@@ -1,11 +1,14 @@
-# shortcuts
+# shortcuts fo custom mate
 
-    ctrl + wind           # popup
-    alt + F7              # move window
-    alt + F8              # resize window
+    wind + ctrl           # popup
+    wind + up             # move window       #alt + F7  def
+    wind + down           # resize window     #alt + F8  def
+    wind + 1,2,3          # switch workspace
+    wind + arrows         # switch workspace
+    wind + alt            # move window to workspace
+    wind + alt + arrows   # move window to workspace
 
-
-
+    alt + `  switch app windows
 
 
 
@@ -43,7 +46,7 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
 
 
 
-# ssh, git
+# ssh, git, ruby esentials
 
     ssh-keygen -t rsa
     # 
@@ -51,54 +54,70 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
     sudo apt-get install git 
     sudo apt-get install vim-gnome   
 
+    #rvm
+    curl -L get.rvm.io | bash -s stable
+    rvm pkg install zlib
+    rvm pkg install openssl
+    rvm pkg install iconv
+    rvm pkg install readline
 
+    #nokogiry esential
+    sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
+
+
+
+    #  postgresql
+
+    http://www.unixmen.com/201204-howto-install-postgresql-on-ubuntu-and-linuxmint/
+    sudo apt-get install postgresql  libpq-dev
+    sudo apt-get install pgadmin3
 # janus
-    
-    #inclue this lines on top of .vim/Rakefile #https://github.com/carlhuda/janus/issues/362
+
+#inclue this lines on top of .vim/Rakefile #https://github.com/carlhuda/janus/issues/362
     require 'openssl'
     OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 # rvm
-  
-     sudo apt-get install libopenssl-ruby
-     sudo apt-get install zlib1g-dev
-     rvm pkg install openssl
 
-     sudo apt-get install libreadline-dev
-     sudo apt-get install libreadline5-dev libncurses5-dev
-     rvm pkg install readline
-     # if autoconf is doing problem:  rvm --skip-autoreconf pkg install readline
-     #
+    sudo apt-get install libopenssl-ruby
+    sudo apt-get install zlib1g-dev
+    rvm pkg install openssl
 
-
-     #include this in Gemfile
-     group :fix do
-       gem 'rb-readline' # fix for mint rvm readline problem http://bit.ly/yHOi2e
-     end
-
-     rvm --skip-autoreconf pkg install iconv
+    sudo apt-get install libreadline-dev
+    sudo apt-get install libreadline5-dev libncurses5-dev
+    rvm pkg install readline
+# if autoconf is doing problem:  rvm --skip-autoreconf pkg install readline
+#
 
 
-     #if needed 
-      rvm remove 1.9.2
-      rvm install 1.9.2
+#include this in Gemfile
+    group :fix do
+    gem 'rb-readline' # fix for mint rvm readline problem http://bit.ly/yHOi2e
+    end
+
+    rvm --skip-autoreconf pkg install iconv
+
+
+#if needed 
+    rvm remove 1.9.2
+    rvm install 1.9.2
 
 
 #gems 
 #
-     #nokogiri
-     sudo apt-get install libxml2
-     sudo apt-get install libxml2-dev
-     sudo apt-get install libxslt-dev libxml2-dev
-     sudo apt-get install build-essential g++
-     
+#nokogiri
+    sudo apt-get install libxml2
+    sudo apt-get install libxml2-dev
+    sudo apt-get install libxslt-dev libxml2-dev
+    sudo apt-get install build-essential g++
+
 
 
 #postgresql 
 
-source: http://netadminlinux.blogspot.co.uk/2011/11/installing-postgresql-91-on-ubuntu-1104.html
+    source: http://netadminlinux.blogspot.co.uk/2011/11/installing-postgresql-91-on-ubuntu-1104.html
 
-keywords: postgres psql postgres
+    keywords: postgres psql postgres
 
     sudo apt-get install python-software-properties
     sudo add-apt-repository ppa:pitti/postgresql
@@ -106,20 +125,20 @@ keywords: postgres psql postgres
     sudo apt-get install postgresql-9.1 libpq-dev
     sudo apt-get install pgadmin3
     sudo apt-get install postgresql-contrib 
-    
+
     su 
     su postgres
     psql
-    #=> alter user postgres with password 'aaaa';
+#=> alter user postgres with password 'aaaa';
 
 
 
 
 # disk usage
 
-folder, how much disk space it take
+    folder, how much disk space it take
 
-http://www.hscripts.com/tutorials/linux-commands/du.html
+    http://www.hscripts.com/tutorials/linux-commands/du.html
 
     du images    #each item 
     du -s mages  #total
@@ -135,7 +154,7 @@ http://www.hscripts.com/tutorials/linux-commands/du.html
 
 #send mail sendmail
 
-     sudo /etc/init.d/sendmail restart 
+    sudo /etc/init.d/sendmail restart 
 
 
 
@@ -149,6 +168,6 @@ http://www.hscripts.com/tutorials/linux-commands/du.html
 
 # memcache (dalli)
 
-http://www.bookofzeus.com/articles/how-to-install-memcached-in-ubuntu/
+    http://www.bookofzeus.com/articles/how-to-install-memcached-in-ubuntu/
 
     sudo aptitude install memcached
