@@ -1,0 +1,84 @@
+#mail interceptor
+
+keywords: email mail interceptor
+
+will not send mail to recepient, but to developer insted (in test and devel env)
+
+*lib/development_mail_interceptor.rb*
+
+~~~ruby
+class DevelopmentMailInterceptor
+  def self.delivering_email(message)
+    email = LOCAL_CONFIG.try(:[], 'email')
+
+    if email.blank?
+      message.delivery_method :test
+      Rails.logger.warn "No Email address was specified in the app_config.yml"
+    end
+
+    message.to = email
+    message.cc = nil
+    message.bcc = nil
+    development_information = "[ TO: #{message.to} ]"
+    development_information << " [ CC: #{message.cc} ]" if message.cc
+    development_information << " [ BCC: #{message.bcc} ]" if message.bcc
+
+    message.subject = "[Test] #{message.subject} #{development_information}"
+  end
+end
+~~~
+
+modify *config/application.rb*
+
+~~~ruby
+    # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{Rails.root}/lib #{config.root}/extras)
+~~~
+
+
+*config/initializers/setup_mail.rb*
+
+~~~ruby
+ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development? || Rails.env.test?
+~~~
+
+
+*config/initializers/local_config.rb*
+
+~~~ruby
+LOCAL_CONFIG = YAML.load_file("#{Rails.root}/config/local_config.yml")[Rails.env]
+~~~
+
+*config/local_config.yml* *config/local_config.yml.example*
+
+~~~ruby
+evelopment:
+  email: 'equivalent@domain.com'
+~~~
+
+*.gitignore*
+
+~~~bash
+#add
+config/local_config.yml
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#

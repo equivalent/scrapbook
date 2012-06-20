@@ -164,6 +164,11 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
     sudo apt-get install  sqlite3 
     sudo apt-get install libsqlite3-dev 
 
+#mysql
+
+      sudo apt-get install libmysqlclient-dev mysql-server
+      sudo gem install mysql
+
 
 
 # memcache (dalli)
