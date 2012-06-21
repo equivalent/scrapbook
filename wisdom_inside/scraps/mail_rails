@@ -39,7 +39,7 @@ modify *config/application.rb*
 *config/initializers/setup_mail.rb*
 
 ~~~ruby
-ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development? || Rails.env.test?
+ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
 ~~~
 
 
