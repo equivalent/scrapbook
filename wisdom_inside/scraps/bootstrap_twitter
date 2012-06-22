@@ -1,0 +1,104 @@
+# twitter with combination with rails
+
+
+
+## restfull buttons
+
+~~~ruby
+#  app/helpers/application_helper.rb
+module ApplicationHelper
+  def view_button(resource)
+    link_to resource, :class=>"btn btn-success" do
+      "#{content_tag :i, '',  :class =>"icon-zoom-in icon-white".html_safe} #{I18n.t('buttons.view.title')}".html_safe
+    end
+  end
+
+  def edit_button(resource)
+    link_to [:edit, resource], :class=>"btn btn-info" do
+      "#{content_tag :i, '',  :class =>"icon-edit icon-white".html_safe} #{I18n.t('buttons.edit.title')}".html_safe
+    end
+  end
+
+  def delete_button(resource)
+    link_to resource, :class=>"btn btn-danger",
+                      :data => { :confirm => I18n.t('buttons.delete.confirm',:resource=>resource.class.name.downcase) },
+                      :method=>:delete do
+      "#{content_tag :i, '',  :class =>"icon-trash icon-white".html_safe} #{I18n.t('buttons.delete.title')}".html_safe
+    end
+  end
+end
+~~~
+
+~~~ruby
+#  config/locales/en.yml
+
+en:
+  hello: "Hello world"
+
+  buttons:
+    view:
+      title: 'View'
+    edit:
+      title: 'Edit'
+    delete:
+      title: 'Delete'
+      confirm: "Are you sure you want to delete this %{resource} ?"
+~~~
+
+~~~ruby
+#  spec/helper/application_helper_spec.rb
+require 'spec_helper'
+describe ApplicationHelper do
+  let(:resource){FactoryGirl.create :user}
+
+  describe "view_button" do
+    it 'should link to show path of resource' do
+      expected_path = user_path(resource)
+      helper.view_button(resource).should =~ /href="#{expected_path}"/
+    end
+
+    it 'should not have delete method' do
+      helper.view_button(resource).should_not =~ /method="delete"/
+    end
+
+    it 'have correct classes and word "View"' do
+      helper.view_button(resource).should =~ /.class="btn btn-success"\W*\Wi class="icon-zoom-in icon-white"><\/i>+.View/
+    end
+  end
+
+  describe "edit_button" do
+    it 'should link to edit path of resource' do
+      expected_path = edit_user_path(resource)
+      helper.edit_button(resource).should =~ /href="#{expected_path}"/
+    end
+
+    it 'should not have delete method' do
+      helper.edit_button(resource).should_not =~ /method="delete"/
+    end
+
+    it 'have correct classes and word "Edit"' do
+      helper.edit_button(resource).should =~ /.class="btn btn-info"\W*\Wi class="icon-edit icon-white"><\/i>+.Edit/
+    end
+  end
+
+  describe "delete_button" do
+    it 'should link to edit path of resource' do
+      expected_path = user_path(resource)
+      helper.delete_button(resource).should =~ /href="#{expected_path}"/
+    end
+
+    it 'should have delete method' do
+      helper.delete_button(resource).should =~ /method="delete"/
+    end
+
+    it 'should have confirm question' do
+      helper.delete_button(resource).should =~ /.data-confirm=".*"./
+    end
+
+    it 'have correct classes and word "Edit"' do
+      helper.delete_button(resource).should =~ /.class="btn btn-danger".*\Wi class="icon-trash icon-white"><\/i>+.Delete/
+    end
+  end
+
+end  
+~~~
