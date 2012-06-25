@@ -1,3 +1,58 @@
+
+
+
+#ransack 
+
+https://github.com/ernie/ransack
+
+~~~bash
+gem 'ransack'
+~~~
+
+####controllers
+
+~~~ruby
+  def index
+    @search = User.search(params[:q])
+    @users  = @search.result(:district => true)
+    # @users  = @search.result(:district => true).page(params[:page])  # if you use kaminary for pagination
+    # @users  = UserDecorator.decorate(@users)     # if you are using decorator
+    respond_with @users
+  end
+~~~
+
+
+####builtin helper
+
+~~~ruby
+  %th=sort_link(@search, :name)
+~~~
+
+
+
+#kaminari
+
+keywords: pagination caminari caminary kaminary kamynary 
+
+#### helpers
+
+
+create pagination links 
+
+~~~ruby
+= paginate @users
+~~~
+
+
+
+
+
+
+
+
+=====================================================================
+
+
      gem 'will_paginate', '~> 3.0'
 
 

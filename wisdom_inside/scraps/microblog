@@ -1,6 +1,52 @@
 
 
 
+# HashWithIndifferentAccess
+
+in Rails 
+
+~~~ruby
+h = Hash.new
+h['aaa'] = 'hello'
+
+p h['aaa']
+# hello
+
+p h[:aaa]
+#nil
+
+
+
+hwia = HashWithIndifferentAccess.new
+hwia['aaa'] = 'hello'
+
+p hwia['aaa']
+# hello
+
+p hwia[:aaa]
+# hello
+~~~
+
+*params* in rails controllers are also  indifferent access hash 
+
+
+
+
+
+
+
+
+# default_scope
+
+did you know there is *default_scope* functionality in Rails?
+
+~~~ruby
+class Article
+  default_scope order('published_at')
+end
+~~~
+
+
 
 
 
