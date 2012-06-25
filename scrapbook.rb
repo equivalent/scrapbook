@@ -75,6 +75,8 @@ end
 get '/read-articles-backlog' do
   # todo refactor this
   @railscasts = { 
+    356 => 'Sesssion Hijacking',
+    286 => 'Draper gem',
     283 => '',
     279 => 'Asset pipeline', 
     255 => '', 

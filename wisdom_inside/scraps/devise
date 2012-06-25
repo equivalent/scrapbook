@@ -1,3 +1,19 @@
+# Devise current_user to use Draper
+
+overwrite current_user to use draper decorator
+
+~~~ruby
+def current_user
+  UserDecorator.decorate(super) unless super.nil?
+end
+~~~
+
+source: http://ariejan.net/2012/04/14/decorating-devise-s-current_user-with-draper
+
+
+
+
+
 
 
 # adding own validations 
