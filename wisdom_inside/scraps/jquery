@@ -1,3 +1,21 @@
+# put with jquery ajax
+
+    $.ajax({type:"POST", url:'/users',data: { _method:'PUT', page : {aaa: 'bo'} }, dataType:'json'})
+
+
+      $.ajax({
+          type: "POST",
+          url: '/admin/pages/1.json',
+          data: { _method:'PUT', page : {...} },
+          dataType: 'json',
+          success: function(msg) {
+            alert( "Data Saved: " + msg );
+          }
+      });
+
+
+
+
 
 
 # jquery prevent deffault
