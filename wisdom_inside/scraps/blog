@@ -1,5 +1,147 @@
 
-#todo Rails flash partial trouble 
+
+
+# rspec and haml helpers
+
+
+today I was creating helper to handle bootstrap table:
+
+~~~ruby
+# a/h/table_helper.rb
+#
+module TableHelper
+  def table
+    capture_haml do
+      haml_tag :table, :class=>['table', 'table.table-striped', 'table-bordered', 'table-condensed'] do
+        yield
+      end
+    end
+  end
+end
+~~~
+
+no extra magic, but when I wanted to create rspec on it I keep on getting 
+
+    undefined method `capture_haml' for #<#<Class:0x0000000364cf28>:0x00000003e32e40>
+
+now I found few really descriptive solutions on this close to my problem that should work like 
+http://2rg.tumblr.com/ (find "Including Haml Helpers in an RSpec spec" on site)
+
+ruby~~~
+# spec/spec_helper.rb
+require 'rubygems'
+require 'spork'
+
+Spork.prefork do
+  RSpec.configure do |config|
+    #...
+
+    #Helpers
+    config.include Haml::Helpers , :type => :helper
+    config.include ActionView::Helpers, :type => :helper
+    config.before :each, :type => :helper do
+      init_haml_helpers
+    end
+
+    #...
+  end
+end
+~~~
+
+(my colleague is using above one in similar project, from not too far ago and it's working)
+
+
+from http://blog.wolfman.com/articles/2007/7/14/using-rspec-to-test-haml-helpers  :
+
+~~~ruby
+describe ApplicationHelper do
+ 
+  before :each do
+    helper.extend Haml
+    helper.extend Haml::Helpers
+    helper.send :init_haml_helpers
+  end
+  
+  it do
+    helper.table do 
+     #...
+    end
+  end
+end
+~~~
+
+but in this one I keep on getting 
+
+     undefined local variable or method `init_haml_helpers'
+
+
+
+short story short
+
+~~~ruby
+# spec/spec_helper.rb
+require 'rubygems'
+require 'spork'
+
+Spork.prefork do
+  RSpec.configure do |config|
+    #...
+
+    #Helpers
+    config.include Haml::Helpers , :type => :helper
+
+    #...
+  end
+end
+
+
+# spec/helper/table_helper.rb
+describe TableHelper do
+ 
+  before :each do
+    helper.extend Haml::Helpers
+    init_haml_helpers
+  end
+  
+  it do
+    helper.table do 
+     #...
+    end
+  end
+end
+~~~
+
+
+...and this one  actually work for me.
+
+I'm running ruby-1.9.3-p194 rspec-2.10.0 rails-3.2.6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#@todo Rails flash partial trouble 
 
 Today I found my colleague for dispalying flash messages: 
 
