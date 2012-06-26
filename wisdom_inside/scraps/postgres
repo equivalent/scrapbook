@@ -1,3 +1,12 @@
+# peepcode on postgres
+    postgress -D /var/local/var/pg_db -! /tmp/pglog # -D specify  vher db is saved, -l where log is  saved
+    psql
+      \d  #list databases
+      \d  my_db  #list tables of db 
+      \d  table  #list colums
+    rails new --database=postgres
+    gem 'pg'
+    1255
 
 
 # fedora start postgress
