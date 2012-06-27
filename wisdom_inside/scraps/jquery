@@ -1,3 +1,7 @@
+
+
+
+
 # put with jquery ajax
 
     $.ajax({type:"POST", url:'/users',data: { _method:'PUT', page : {aaa: 'bo'} }, dataType:'json'})
@@ -12,6 +16,44 @@
             alert( "Data Saved: " + msg );
           }
       });
+
+
+## rails autenticity token
+
+post must send autenticity token
+
+http://brandonaaron.net/blog/2009/02/24/jquery-rails-and-ajax
+
+~~~haml
+  #in a/v/l/application.html.haml
+  = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? #http://bit.ly/MSRc6O
+~~~
+
+~~~js
+#in a/a/s/application.js
+// Always send the authenticity_token with ajax
+$(document).ajaxSend(function(event, request, settings) {
+    if ( settings.type == 'post' ) {
+        settings.data = (settings.data ? settings.data + "&" : "")
+            + "authenticity_token=" + encodeURIComponent( AUTH_TOKEN );
+    }
+});
+~~~
+
+same thing in cofee script
+
+~~~ruby
+#in a/a/s/application.js.coffee
+
+# Always send the authenticity_token with ajax
+$(document).ajaxSend (event, request, settings) ->
+  if settings.type == "POST"
+    settings.data = (if settings.data then settings.data + "&" else "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN)
+~~~
+
+
+
+
 
 
 

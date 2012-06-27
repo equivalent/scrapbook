@@ -1,9 +1,15 @@
 Scrapbook
 =========
 
-..is a different way of writing, orginizing and sharing notes, way where you can have notes in remote server accessable at any time and  in local file system at the same time.
+Scrapbook:
 
-core of project is a simple Sinatra based app that isn't using DB at all.
+* is not a blog ! 
+* is not a wiky ! 
+* is not ment to be formal !
+
+* is public backlog of solving problem of one person (developer,
+  sys-admin,...)
+
 
 ...more informations soon 
 

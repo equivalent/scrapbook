@@ -1,4 +1,33 @@
 
+# How to wrap every second elements of array into Haml (HTML) tag
+
+~~~ruby
+- a = ['one', 'two', 'three', 'four']
+- a.each do |element|
+  .my_row
+    = element
+
+# <div class="row">one</div>
+# <div class="row">two</div>
+# <div class="row">three</div>
+# <div class="row">four</div>
+
+- a = ['one', 'two', 'three', 'four']
+- a.each_slice(2) do |row|
+  .my_row
+   - row.each do |element|
+    = element
+
+# <div class="row">onetwo</div>
+# <div class="row">threefour</div>
+~~~
+
+reference: http://stackoverflow.com/questions/2851915/rails-each-loop-insert-tag-every-6-items
+
+
+
+
+
 
 
 # HashWithIndifferentAccess
