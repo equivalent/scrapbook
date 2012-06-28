@@ -1,3 +1,15 @@
+todooo http://www.acm.uiuc.edu/workshops/zsh/prompt/escapes.html
+       http://friedcpu.wordpress.com/2007/07/24/zsh-the-last-shell-youll-ever-need/
+      http://grml.org/zsh/zsh-lovers.html
+
+
+http://stackoverflow.com/questions/4425289/javascript-associative-array-to-json
+http://stackoverflow.com/questions/191881/serializing-to-json-in-jquery  < array to_json  javascript 
+http://cheat.errtheblog.com/s/jasmine/
+http://www.derekhammer.com/2012/02/18/testing-coffeescript-for-rails-with-jasmine.html
+http://stackoverflow.com/questions/4662641/how-do-i-verify-jquery-ajax-events-with-jasmine  *expect($.ajax.mostRecentCall.args[0]["url"]).toEqual("/products/123");
+http://a-developer-life.blogspot.co.uk/2011/06/jasmine-part-2-spies-and-mocks.html
+
 http://stackoverflow.com/questions/2851915/rails-each-loop-insert-tag-every-6-items   # how to render tag on every n-th element in cycle
 
 http://brandonaaron.net/blog/2009/02/24/jquery-rails-and-ajax
@@ -522,6 +534,14 @@ documentations
 https://github.com/jnicklas/carrierwave
 https://github.com/markevans/dragonfly/
 
+
+
+
+railscastssss
+---------------
+
+http://railscasts.com/episodes/286-draper
+http://railscasts.com/episodes/261-testing-javascript-with-jasmine
 
 
 todo (to be read)

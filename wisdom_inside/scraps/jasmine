@@ -1,0 +1,42 @@
+http://pivotallabs.com/users/jdean/blog/articles/1778-writing-and-running-jasmine-specs-with-rails-3-1-and-coffeescript
+http://railscasts.com/episodes/261-testing-javascript-with-jasmine?view=asciicast
+http://www.derekhammer.com/2012/02/18/testing-coffeescript-for-rails-with-jasmine.html
+http://cheat.errtheblog.com/s/jasmine/
+
+# installing
+
+
+#### step1
+
+~~~ruby
+group :development, :test do
+  gem 'jasmine'
+  gem "jasminerice"
+end
+~~~
+
+#### step2
+
+    jasmine init
+
+    curl http://cloud.github.com/downloads/velesin/jasmine-jquery/jasmine-jquery-1.2.0.js > spec/javascripts/helpers/jasmine_jquery-1.2.0.js
+
+#### step 3
+
+     vim spec/javascripts/spec.js
+
+     //= require application
+     //= require_tree .
+
+     vim spec/javascripts/spec.css
+
+     /*
+     *= require application
+     */
+
+   
+
+#### step 4
+
+    rails s 
+    0.0.0.0/jasmine
