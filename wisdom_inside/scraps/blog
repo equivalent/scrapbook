@@ -1,4 +1,55 @@
 
+# regular expression on several lines
+
+in ruby you can do several line regular expression, like this one by "ridgerunner" found on [StackOverflow](http://stackoverflow.com/questions/5719353/how-do-i-fix-this-multiline-regular-expression-in-ruby)
+
+~~~ruby
+re = / # Match a MARKDOWN CODE section.
+    (\r?\n)              # $1: CODE must be preceded by blank line
+    (                    # $2: CODE contents
+      (?:                # Group for multiple lines of code.
+        (?:\r?\n)+       # Each line preceded by a newline,
+        (?:[ ]{4}|\t).*  # and begins with four spaces or tab.
+      )+                 # One or more CODE lines
+      \r?\n              # CODE folowed by blank line.
+    )                    # End $2: CODE contents
+    (?=\r?\n)            # CODE folowed by blank line.
+    /x
+result = subject.gsub(re, '\1<pre>\2</pre>')
+~~~
+
+the thing is that at the end of expression ridgerunner is passing the "x" option 
+    /.*/x         extended: ignore whitespace in pattern
+
+[reference](http://www.ralfebert.de/blog/ruby/regex_cheat_sheet/)
+
+However, if you need regular expression with full support for white spaces, you can do other kind of regular expression comments,
+
+      /\d(?# my ultra evil comment
+      )/
+
+example form one helper I wrote
+
+~~~ruby
+html.should =~
+ /^<div class='box'>\s*(?# box div open tag
+   )<h4\s*class='box-header\s*round-top'>\s*(?# h4 open tag
+     )<i\s*class='box-icon\s*ultra-cool'><\/i>\s*(?# box icon
+     )foo Bar\s*(?# :title content 
+     )<a\s*class='box-btn'\s*title='close'>\s*<i\s*class='icon-remove'><\/i>\s*<\/a>\s*(?#remove button
+     )<a\s*class='box-btn'\s*title='toggle'>\s*<i\s*class='icon-minus'><\/i>\s*<\/a>\s*(?#minus button
+   )<\/h4>\s*(?#  h4 close tag
+   )<div class='box-container-toggle'>\s*(?# open div.box-container-toggle
+     )<div\s*class='box-content'\s?>\s*(?# open div.box-content
+       )#{text}\s*(?# # yield block
+     )<\/div>\s*(?# close div.box-content
+   )<\/div>\s*(?# close div.box-container-toggle
+ )<\/div>$/
+~~~
+
+
+
+
 
 
 
