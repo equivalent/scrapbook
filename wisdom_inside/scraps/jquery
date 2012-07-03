@@ -1,3 +1,7 @@
+# filter and find
+
+    $('div').find('a')   // will look for children in whole structure
+    $('div').filter('a') // will look for direct chldren
 
 
 
