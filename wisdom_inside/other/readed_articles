@@ -6,9 +6,12 @@ http://aestheticallyloyal.com/public/optimize-legibility/
 https://developer.mozilla.org/en/CSS/text-rendering
 
 
-todooo http://www.acm.uiuc.edu/workshops/zsh/prompt/escapes.html
-       http://friedcpu.wordpress.com/2007/07/24/zsh-the-last-shell-youll-ever-need/
-      http://grml.org/zsh/zsh-lovers.html
+http://friedcpu.wordpress.com/2007/07/24/zsh-the-last-shell-youll-ever-need/
+http://www.acm.uiuc.edu/workshops/zsh/prompt/escapes.html
+  https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git
+    
+
+TODO : http://grml.org/zsh/zsh-lovers.html
 
 
 http://stackoverflow.com/questions/4425289/javascript-associative-array-to-json
