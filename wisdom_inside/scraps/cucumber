@@ -1,0 +1,4 @@
+    #features/support/env.rb
+    $LOAD_PATH << File.expand_path('../../../lib/', __FILE__)
+    require 'codebraker'
+    
