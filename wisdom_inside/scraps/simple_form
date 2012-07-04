@@ -1,0 +1,12 @@
+ruby~~~
+= simple_form_for @search,:method=>'get', :url=>users_path do |f|
+  .form-inputs
+    = f.input :name
+
+    #ransack search
+    = f.input :name_cont
+    = f.input :created_at_cont, :as => :date, :include_blank => true, :priority => nil
+    = f.input :created_at_cont, :as => :date, :include_blank => true, :priority => nil, :input_html =>{ :class=>'datepicker' }
+  .form-actions
+    = f.submit 'Search', class: 'btn-primary'
+~~~
