@@ -1,3 +1,10 @@
+
+deasbel selection of text-> wont render ugly blue selection where you dont want to
+
+    .disableSelection()
+
+
+
 # filter and find
 
     $('div').find('a')   // will look for children in whole structure
