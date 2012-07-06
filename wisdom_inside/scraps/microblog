@@ -1,5 +1,66 @@
 
 
+# jasmine confirmation/alert dialog stub
+
+if you have javascript functionality with confirmation dialog over it (e.g. delete link with confirmation) and you want to test the result after user click positive option (OK) with Jasmine, you need to stub (spy on) confirmation dialog like this 
+
+~~~js
+#app/assets/javascript/dialogs.js.cofee
+
+widgetClose = (e) ->
+  if confirm("are you surre")
+     #... do something
+~~~
+
+
+#spec/javascript/dialogs.js.coffee
+describe 'click on remove button', ->
+  it 'should do some stuff' , ->
+    #spyOn(window,"alert")
+    spyOn(window,"confirm").andReturn(true)  #stub confirm dialog and simulate click OK
+    $('.box-btn').trigger('click')  #triger drop
+    #...
+~~~
+
+
+
+
+ Mock Devise current_user in helper specs
+
+~~~ruby
+
+module WidgetHelper 
+  def render_widgets_for_column
+    # ....
+    current_user.widget_preferences  #Devise gem current user
+    #....
+    return some_content
+  end
+end
+
+describe WidgetHelper do
+
+  describe 'render_widgets_for_column' do 
+    it 'should .... ' do
+      mocked_user = double('User', widget_preferences: {foo: bar} )
+      helper.stub(:current_user){mocked_user}
+
+      helper.render_widgets_for_column.should ....
+    end
+  end
+
+end
+
+~~~
+
+
+
+
+
+
+
+
+
 
 
 # How to wrap every second elements of array into Haml (HTML) tag
