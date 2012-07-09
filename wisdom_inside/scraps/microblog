@@ -1,3 +1,38 @@
+# passing block to partial
+
+I was looking for something like this
+
+~~~haml
+# app/views/posts/show.html.haml
+= render 'box_top_nav' do
+  'something else'
+~~~
+
+~~~haml 
+# app/views/posts/_box_top_nav.html.haml
+%div 
+  .something
+    'something'
+= yield
+~~~
+
+
+...pass block to partial and render it. Example above  won't work of course, but this will
+
+~~~haml
+# app/views/posts/show.html.haml
+= render :layout => 'box_top_nav' do
+  'something'
+~~~
+
+
+
+(reference1){http://stackoverflow.com/questions/2951105/rails-render-partial-with-block}
+
+
+
+
+
 
 
 # jasmine confirmation/alert dialog stub
