@@ -1,3 +1,6 @@
+http://stackoverflow.com/questions/156362/what-is-the-difference-between-include-and-extend-in-ruby
+http://blog.jayfields.com/2006/12/ruby-instance-and-class-methods-from.html extend and include on class methods ruby
+
 http://samuelschroeder.com/2008/05/13/rspec-and-rails-partials/
 
 http://rubydoc.info/github/kucaahbe/rspec2-rails-views-matchers/master/RSpec/Matchers:have_tag ... is depricated, use have_selector
