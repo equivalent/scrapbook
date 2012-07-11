@@ -1,3 +1,26 @@
+# passing hash to link to 
+
+you can pass hash to link_to
+
+~~~haml
+  %li= link_to 'Export All', {:controller=>controller_name,:action=>'index', :format=>:xls, :all=>'true'}
+~~~
+
+     /users.xls?all=true
+
+
+sometimes you want to render same params (e.g. export search resoult)
+
+~~~haml
+  %li= link_to('Export Page', params.merge({:format=>:xls, :controller => controller_name, :action => "index"}))
+~~~
+
+    /users.xls?q%5Bname_cont%5D=tom&q%5Bs%5D=email+asc
+
+[source](http://stackoverflow.com/questions/5286637/pass-all-params-forward)
+
+
+
 # passing block to partial
 
 I was looking for something like this
