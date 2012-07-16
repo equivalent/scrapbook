@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
+require 'yaml'
 
 require 'redcarpet'
 require 'coderay'
@@ -74,24 +75,7 @@ end
 
 get '/read-articles-backlog' do
   # todo refactor this
-  @railscasts = { 
-    356 => 'Sesssion Hijacking',
-    286 => 'Draper gem',
-    283 => '',
-    279 => 'Asset pipeline', 
-    255 => '', 
-    254 => 'Kaminary pagination',
-    241 => 'Omniauth form scratch', 
-    238 => '', 
-    235 => 'Implementing omniauth to existing project', 
-    233 => 'janrain rpx authentication with other provider', 
-    209 => 'devise authentication', 
-    205 => '',
-    194 => '', 
-    126 => '',
-    81  => '', 
-    11  => ''
-  }
+  @books =  YAML.load_file("#{settings.w_files_path}other/readed_books.yml")
   @readed_articles = read_w_file('other/readed_articles')
   @html_id='read_backlog'
   haml :readed_articles

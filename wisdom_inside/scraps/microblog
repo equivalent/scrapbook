@@ -1,3 +1,75 @@
+# current full url or full path in views and controllers
+
+~~~ruby
+    p request.fullpath
+    "/foo/2/histories"
+
+    p request.url
+    "http://localhost:3000/foo/2/histories"
+~~~
+
+(REFERENCE)[http://stackoverflow.com/questions/2165665/how-to-get-current-url-in-rails]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# access view/helper methods in controller
+
+
+~~~ruby
+class UsersController < ApplicationController
+  def destroy
+    #...
+    undo_link = view_context.link_to("undo", some_path)
+    falsh[:notice] = "bla bla #{undo_link}"
+    # ...
+  end
+end
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# rails 3 partial render allias
+
+~~~ruby
+= render 'addresses/search_fields', :f=>f
+# is same (and shorter) than
+= render  partial: 'addresses/search_fields', locals: {:f=>f}
+~~~
+
+
+
+
+
+
+
+
+
+
 
 
 # passing block to partial

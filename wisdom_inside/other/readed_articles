@@ -1,3 +1,4 @@
+http://37signals.com/svn/posts/2608-ryans-talk-at-future-of-web-apps-2010-london/
 http://stackoverflow.com/questions/156362/what-is-the-difference-between-include-and-extend-in-ruby
 http://blog.jayfields.com/2006/12/ruby-instance-and-class-methods-from.html extend and include on class methods ruby
 
@@ -513,18 +514,11 @@ rdoc for rails":http://stackoverflow.com/questions/1202060/how-do-i-generate-rdo
 "Google & meta keywords":http://googlewebmastercentral.blogspot.com/2009/09/google-does-not-use-keywords-meta-tag.html,
 "prawn":http://prawn.heroku.com/ , 
 "named scopes are dead":http://www.railway.at/2010/03/09/named-scopes-are-dead/
-totaly old:
+
+unsorted stuff:
+
 http://stakeventures.com/articles/2007/11/26/how-to-turn-your-rails-site-into-an-oauth-provider
 
-
-
-
-
-----------------------------------------------------------------------------
-
-
-stack owerflow  
------------------
 
 http://stackoverflow.com/questions/4881680/rspec-autotest-error-on-mac-os-x
 http://stackoverflow.com/questions/3852759/does-rake-dbpopulate-work-in-rails-3
@@ -545,11 +539,6 @@ http://stackoverflow.com/questions/2920594/tell-git-not-to-merge-binary-file    
 http://stackoverflow.com/questions/5313105/rspec-test-fails-missing-template-format-issue
 http://stackoverflow.com/questions/470702/css-selector-for-input-type
 
-
-
-
-documentations
----------------
 https://github.com/jnicklas/carrierwave
 https://github.com/markevans/dragonfly/
 
@@ -559,10 +548,24 @@ https://github.com/markevans/dragonfly/
 railscastssss
 ---------------
 
+356 => 'Sesssion Hijacking',
 http://railscasts.com/episodes/286-draper
+283
+279
 http://railscasts.com/episodes/261-testing-javascript-with-jasmine
+http://railscasts.com/episodes/255-undo-with-paper-trail
+254 => 'Kaminary pagination',
+241 => 'Omniauth form scratch', 
+238
+235 => 'Implementing omniauth to existing project', 
+233 => 'janrain rpx authentication with other provider', 
 http://railscasts.com/episodes/213-calendars
-
+209 => 'devise authentication', 
+205 
+194
+126
+81
+11
 
 todo (to be read)
 ----------------

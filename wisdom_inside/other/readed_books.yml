@@ -1,0 +1,98 @@
+  
+books:
+  abp_html5:
+    alt:
+      'HTML5 For Web Designers [AbookApart]'
+    url: 
+      'http://www.abookapart.com/products/html5-for-web-designers'
+    picture: 
+      'http://i.imgur.com/HwyMR.jpg'
+  abp_css3:
+    url:
+      'http://www.abookapart.com/products/css3-for-web-designers'
+    picture: 
+      'http://i.imgur.com/02GIx.jpg'
+    alt:
+      'CSS3 for web designers [AbookApart]'
+  progit_book:
+    url:
+      'http://progit.org'
+    picture:
+      'http://i.imgur.com/viq3y.jpg'
+    alt:
+      'ProGit book'
+  agile_book:
+    url: 'http://pragprog.com/book/rails3/agile-web-development-with-rails'
+    picture: 'http://imgur.com/fCaBt.jpg'
+    alt: 'Agile Web Development with Rails (3rd edition) book'
+  
+  php_mysql_apache:
+    picture:
+      'http://i.imgur.com/Xvmt1.jpg'
+    alt:
+      'PHP5 Apache MySQL web development book'
+
+screencasts:
+  ruby_walktrought:
+    name: 'The Ruby 1.9 Walkthrough'
+    url: 'https://cooperpress.com/19walkthrough'
+    picture: 'https://cooperpress.com/images/promo.jpg'
+
+  youtube_mongo:
+    name: 'Introduction to MongoDB - Part III, MongoMapper & Rails'
+    url: 'http://www.youtube.com/watch?v=4HrBNucPYuM'
+    #picture:  nil
+    alt: 'http://www.teachmetocode.com'
+
+  screencasts_org_sass2:
+    name: 'Introduction to Sass: Part 2'
+    url:  'http://screencasts.org/episodes/introduction-to-sass-part-2'
+    alt: 'at screencasts.org'
+
+  screencasts_org_sass1:
+    name: 'Introduction to Sass: Part 1'
+    url:  'http://screencasts.org/episodes/introduction-to-sass'
+    alt: 'at screencasts.org'
+
+  peepcode_haml_sass:
+    name: 'Peepcode Haml & Sass'
+    url:  'https://peepcode.com/products/haml-and-sass'
+    picture: 'https://peepcode.com/system/covers/haml-and-sass.png'
+    alt: 'Peepcon screencast on Haml, Sass'
+
+  peepcode_rayan_singer:
+    name: 'Play by Play: Ryan Singer (UI)'
+    url: 'https://peepcode.com/products/ryan-singer-ux'
+    picture:  'https://peepcode.com/system/covers/ryan-singer-ux.png'
+    alt: 'peepcode screencast on UI workflow '
+      
+  peepcode_rspec_controller:
+    name: "RSpec controllers"
+    url:  'https://peepcode.com/products/rspec-controllers-and-tools'
+    picture: 'https://peepcode.com/system/covers/rspec-controllers-and-tools.png'
+
+  peepcode_rspec_model:
+    name: 'RSpec models'
+    url:  'https://peepcode.com/products/rspec-mocks-and-models'
+    picture: 'https://peepcode.com/system/covers/rspec-mocks-and-models.png'
+
+  peepcode_rspec_basics:
+    name: 'RSpec basics'
+    url:  'https://peepcode.com/products/rspec-basics'
+    pciture: 'https://peepcode.com/system/covers/rspec-basics.png'
+
+  peepcode_rspec_basics:
+    name: 'GIT'
+    url:  'https://peepcode.com/products/git'
+    picture: 'https://peepcode.com/system/covers/git.png'
+    alt: 'Peepcode on GIT'
+  pragprog_metaprograming:
+    name: 'The Ruby Object Model and Metaprogramming'
+    url:   'http://pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming'
+    picture: 'http://imagery.pragprog.com/products/122/v-dtrubyom_xlargecover.jpg'
+    alt: 'Realy good cast demostrating how are objects actually working '
+
+
+
+
+
