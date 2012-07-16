@@ -1,3 +1,130 @@
+# rails delegate on polymorphic association
+
+
+~~~ruby
+class Address < ActiveRecord::Base
+  belongs_to :addressable, :polymorphic => true
+  attr_accessible :phone
+
+  # address got column phone
+end
+~~~
+
+
+~~~ruby
+class Client < ActiveRecord::Base
+  has_one :address, :as => :addressable
+  delegate :phone, :to => :address, :prefix => true, :allow_nil => true
+end
+~~~
+
+
+### before delegation (just polymorphic association)
+
+    a = Client.new
+    a.address
+    #=>#<Address id: nil, ....
+    a.address.phone
+    #=> nil
+    a.address_phone
+    #NoMethodError: undefined method
+
+
+### after delegation
+
+    a = Client.new
+    a.address
+    #=>#<Address id: nil, ....
+    a.address.phone
+    #=> nil
+    a.address_phone
+    #=> nil
+
+
+
+
+
+
+
+
+
+
+
+
+http://apidock.com/rails/Module/delegate
+
+
+
+
+
+
+
+
+
+
+# searching (greping) availible methods
+
+ever had a problem in Rails that you wasn't sure if your instance/class have certain method? ...so you did :
+
+~~~ruby
+user.methods
+~~~
+
+and hundred methods rolled up?
+
+recently my colleague showed me I can do 
+
+~~~ruby
+user.methods.grep /phone/
+~~~
+
+this also works with:
+
+~~~ruby
+User.methods.grep /first/
+~~~
+
+
+
+
+
+# passing hash to link to 
+
+you can pass hash to link_to
+
+~~~haml
+  %li= link_to 'Export All', {:controller=>controller_name,:action=>'index', :format=>:xls, :all=>'true'}
+~~~
+
+     /users.xls?all=true
+
+
+sometimes you want to render same params (e.g. export search resoult)
+
+~~~haml
+  %li= link_to('Export Page', params.merge({:format=>:xls, :controller => controller_name, :action => "index"}))
+~~~
+
+    /users.xls?q%5Bname_cont%5D=tom&q%5Bs%5D=email+asc
+
+[source](http://stackoverflow.com/questions/5286637/pass-all-params-forward)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # regular expression on several lines
 
