@@ -1,6 +1,10 @@
 !@#vim
 
 
+
+u U                          # in visual mode  lovercase (downcase) and upercase
+
+
 combo
 ======
 d't														#zmaze vsetko od current ridku az po mark t 

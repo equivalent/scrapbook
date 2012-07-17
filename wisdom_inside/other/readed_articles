@@ -1,3 +1,5 @@
+https://github.com/ryanb/cancan
+http://stackoverflow.com/questions/4141739/generators-and-migrations-in-plugins-rails-3 # good help for rails generators and rails gem that generate files
 http://37signals.com/svn/posts/2608-ryans-talk-at-future-of-web-apps-2010-london/
 http://stackoverflow.com/questions/156362/what-is-the-difference-between-include-and-extend-in-ruby
 http://blog.jayfields.com/2006/12/ruby-instance-and-class-methods-from.html extend and include on class methods ruby
@@ -563,6 +565,7 @@ http://railscasts.com/episodes/213-calendars
 209 => 'devise authentication', 
 205 
 194
+192  http://railscasts.com/episodes/192-authorization-with-cancan
 126
 81
 11

@@ -1,3 +1,40 @@
+
+
+#migration for polymorphic table
+
+class CreateAddressesTable < ActiveRecord::Migration
+  def change
+    create_table :addresses do |t|
+      t.references :addressable, :polymorphic => true
+      t.string :postcode
+      t.timestamps
+    end
+  end
+end
+
+#will create:
+Address(id: integer, addressable_id: integer, addressable_type: string,...)
+
+#join index in polymorphic table
+
+class CreateIndexForAddressesTable < ActiveRecord::Migration
+  def self.up
+    add_index :addresses, [:addressable_type, :addressable_id],:unique => true
+  end
+
+  def self.down
+    remove_index :addresses, [:addressable_type, :addressable_id]
+  end
+end
+
+
+
+
+
+
+
+
+
 rails generate scaffold game name:string       
 rails g scaffold game name:string  --no-stylesheet
 rails g scaffold --help                        

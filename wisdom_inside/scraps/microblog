@@ -1,3 +1,25 @@
+#loading gem from path 
+
+in Gemfile you can load gems from github like 
+
+    gem 'bootswatch-rails', git: "git://github.com/maxim/bootswatch-rails.git"
+
+but you can also load from path
+
+    gem 'my_gem', path: "/tmp/demo_gem/my_gem"
+
+this is use-full when you are creating new gem, and you want to try it out in your app without  commiting
+
+
+
+
+
+
+
+
+
+
+
 # current full url or full path in views and controllers
 
 ~~~ruby
