@@ -1,3 +1,6 @@
+https://github.com/ryanb/cancan/wiki/CanCan-2.0
+https://github.com/ryanb/cancan/wiki/Defining-Abilities
+https://github.com/ryanb/cancan/tree/2.0
 https://github.com/ryanb/cancan
 http://stackoverflow.com/questions/4141739/generators-and-migrations-in-plugins-rails-3 # good help for rails generators and rails gem that generate files
 http://37signals.com/svn/posts/2608-ryans-talk-at-future-of-web-apps-2010-london/
@@ -517,11 +520,19 @@ rdoc for rails":http://stackoverflow.com/questions/1202060/how-do-i-generate-rdo
 "prawn":http://prawn.heroku.com/ , 
 "named scopes are dead":http://www.railway.at/2010/03/09/named-scopes-are-dead/
 
-unsorted stuff:
+
+
+Sorted stuff
+================
+
+
+
+stackoverflowwwwwwwwwwww
+-----------------------
 
 http://stakeventures.com/articles/2007/11/26/how-to-turn-your-rails-site-into-an-oauth-provider
 
-
+http://stackoverflow.com/questions/7019834/cancan-skip-authorization-check-for-devise-authentication
 http://stackoverflow.com/questions/4881680/rspec-autotest-error-on-mac-os-x
 http://stackoverflow.com/questions/3852759/does-rake-dbpopulate-work-in-rails-3
 http://stackoverflow.com/questions/1139762/gitignore-file-not-ignoring
@@ -547,7 +558,7 @@ https://github.com/markevans/dragonfly/
 
 
 
-railscastssss
+railscastsssssssssss
 ---------------
 
 356 => 'Sesssion Hijacking',
