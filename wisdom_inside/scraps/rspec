@@ -1,3 +1,50 @@
+shared examples
+-------------------
+
+spec/support/shared_example.rb
+
+~~~ruby
+shared_examples_for "index action" do
+  describe 'GET index' do
+    before { get :index }
+
+    it 'should be success' do
+      response.should be_success
+    end
+  end
+end
+~~~
+
+~~~ruby
+describe ClientsController do
+ it_behaves_like "index action"
+
+  describe "get index" do
+    #...something different, non shared
+  end 
+end
+
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 expectation
 implementation
 
