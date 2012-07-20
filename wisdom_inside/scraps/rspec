@@ -1,3 +1,24 @@
+#shoulda 
+
+http://cheat.errtheblog.com/s/rspec_shoulda/
+
+~~~ruby
+describe User do
+  it{ should validate_presence_of :name}
+  it{ should belong_to :client }
+
+  describe 'uniqueness validations' do
+    before {create :division}
+    it{ should validate_uniqueness_of(:name).scoped_to(:client_id) }
+  end
+end
+~~~
+
+
+
+
+
+
 shared examples
 -------------------
 
