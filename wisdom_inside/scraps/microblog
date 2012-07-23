@@ -1,3 +1,40 @@
+# RSpec described_class
+
+you can rewrite...
+
+~~~ruby
+describe User do
+  it "should do something with User class" do
+    User.first.should be_present
+  end
+end
+~~~
+
+...with described_class...
+
+~~~ruby
+describe User do
+  it "should do something with User class" do
+    described_class.first.should be_present
+  end
+end
+~~~
+
+...this way you learn to write more flexible specs.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #loading gem from path 
 
 in Gemfile you can load gems from github like 

@@ -1,3 +1,7 @@
+http://eggsonbread.com/2010/09/06/my-cucumber-best-practices-and-tips/
+http://blog.firsthand.ca/2010/09/other-rspec-methods-subject-specify-and.html
+http://eggsonbread.com/2010/03/28/my-rspec-best-practices-and-tips/
+
 https://github.com/ryanb/cancan/wiki/CanCan-2.0
 https://github.com/ryanb/cancan/wiki/Defining-Abilities
 https://github.com/ryanb/cancan/tree/2.0
@@ -552,9 +556,11 @@ http://stackoverflow.com/questions/2920594/tell-git-not-to-merge-binary-file    
 http://stackoverflow.com/questions/5313105/rspec-test-fails-missing-template-format-issue
 http://stackoverflow.com/questions/470702/css-selector-for-input-type
 
+githubbbbbbbbbbbbbbbbbbbbbbbbb & gems: 
+
 https://github.com/jnicklas/carrierwave
 https://github.com/markevans/dragonfly/
-
+https://github.com/pcreux/rspec-set
 
 
 
@@ -616,4 +622,4 @@ todo http://broadcastingadam.com/2011/05/advanced_caching_in_rails
 todo important http://twitter.github.com/bootstrap/base-css.html#icons
 todo http://fortawesome.github.com/Font-Awesome/
 
-
+todo : http://pure-rspec-scotruby.heroku.com/
