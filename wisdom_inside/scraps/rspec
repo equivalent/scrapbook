@@ -1,3 +1,32 @@
+
+# rspec validates_with
+
+~~~ruby
+class RssLinkExistenceValidator < ActiveModel::Validator
+  def validate(record)
+    #....
+  end
+end
+
+class RssFeed < ActiveRecord::Base
+
+   validates_with RssLinkExistenceValidator
+end
+~~~
+
+~~~ruby
+  it{described_class.validators.map(&:class).include? RssLinkExistenceValidator}
+
+~~~
+
+
+
+
+
+
+
+
+
 #shoulda 
 
 http://cheat.errtheblog.com/s/rspec_shoulda/
