@@ -1,3 +1,37 @@
+# url_for tricks 
+
+~~~ruby
+  class UsersController < ApplicationController
+  def index 
+    url_for( :controller => 'users', :action => 'new')
+    # http://0.0.0.0:3000/users/new
+    url_for( :controller => 'users')
+    # http://0.0.0.0:3000/users
+  end
+end
+~~~
+
+current url
+
+~~~ruby
+  class UsersController < ApplicationController
+  def index
+    url_for
+    # http://0.0.0.0:3000/users
+  end
+
+  def new
+    url_for
+    # http://0.0.0.0:3000/users/new
+  end
+end
+~~~
+
+keywords: current path current_path current url
+
+
+
+
 # RSpec described_class
 
 you can rewrite...
