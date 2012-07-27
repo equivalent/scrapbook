@@ -2,6 +2,7 @@
 git repository on usb
 ----------------------
 
+http://blog.costan.us/2009/02/synchronizing-git-repositories-without.html
 
         mkdir /path/to/usb/stick/repository.git
         git clone --local --bare . /path/to/usb/stick/repository.git
@@ -10,7 +11,16 @@ git repository on usb
 
         git clone file:///path/to/usb/stick/repository.git
 
-http://blog.costan.us/2009/02/synchronizing-git-repositories-without.html
+if you get  error via cloning
+
+        Invalid cross-device link
+
+add also option 
+
+        --no-hardlinks
+
+"You can use the git clone --no-hardlinks option to tell git to take a copy of the files rather than attempt to symlink over to the mounted USB drive."  by [WiredBob](http://blog.costan.us/2009/02/synchronizing-git-repositories-without.html#c2100313269010531565)
+
 
 
 
