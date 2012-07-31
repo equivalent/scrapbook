@@ -1,3 +1,29 @@
+# httpasswd like authentication in rails
+
+class UserController < ApplicationController
+   http_basic_authenticate_with :name => "dhh", :password => "secret", :except => :index
+
+end
+
+http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Basic.html
+
+keywords: authencication, httpasswd htpasswrd httpwd httpaccess password login
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # url_for tricks 
 
 ~~~ruby
