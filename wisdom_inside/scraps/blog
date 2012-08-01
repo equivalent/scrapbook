@@ -1,3 +1,77 @@
+
+# RSpec stack level too deep error when mocking incorectly
+
+
+have you ever run into this RSpec problem ?
+
+       Failure/Error: Unable to find matching line from backtrace
+       SystemStackError:
+         stack level too deep
+
+Thin error magically appears and disappear depending if you run *rspec spec* or *rspec spec/some_dir*, and it always works when I try to run rspec on one file causing this problem.
+First it seems to me like RSpec bug and  took me while to figure what I was doing wrong.
+
+
+~~~ruby
+describe SomeModel do
+  context 'when rss_url not parsable' do
+    before{Feedzirra::Feed.should_receive(:fetch_and_parse).at_least(1).with(record.rss_url).and_return('')}
+    it{record.errors_on(:rss_url).should include "Couldn't parse RSS url"}
+  end
+end
+~~~
+
+Do you see the problem ? (hint: ignore anything to do with Feedzira, concentrate on RSpec syntax)
+
+### answer: 
+
+I'm trying to stub **Feedzirra::Feed** in before statement (which I actually can do) is just I'm also checking **should_recive** which I is shouldn't do in **before** hook
+
+so this will work properly
+
+~~~ruby 
+
+# should_receive in it statemet works
+describe SomeModel do
+  context 'when rss_url not parsable' do
+    it do
+      Feedzirra::Feed.should_receive(:fetch_and_parse).at_least(1).with(record.rss_url).and_return('')
+      record.errors_on(:rss_url).should include "Couldn't parse RSS url"
+    end
+  end
+end
+
+~~~
+
+so remember if you need to stub something in **before** block, never do it through should_receive, anything with word *"should"* belongs to it statement
+
+~~~ruby
+  # stubing works
+  context 'when rss_url not parsable' do
+    before{  Feedzirra::Feed.stub(:fetch_and_parse).with(record.rss_url).and_return('') }
+    it{ record.errors_on(:rss_url).should include "Couldn't parse RSS url"}
+  end
+~~~
+
+
+
+
+keywords: SystemStackError RSpec stack level too deep mock
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # rails delegate on polymorphic association
 
 
