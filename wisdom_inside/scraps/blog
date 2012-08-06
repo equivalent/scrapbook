@@ -1,3 +1,55 @@
+#  undefined method `capture_haml' it helper specs with haml
+
+
+it one helper I got 
+  
+~~~ruby
+  def some_helper
+    capture_haml do
+      haml_concat 'foo'
+    end
+  end
+~~~
+
+and I keep getting RSpec error
+
+     undefined method `capture_haml'
+
+the reason is that haml isn't loaded in helper spec yet
+
+
+~~~ruby 
+require "spec_helper"
+
+describe WidgetHelper do
+  before :each do
+    helper.extend Haml::Helpers
+    init_haml_helpers
+  end
+
+  it 'should correctly run my helper with capture haml' do
+    ...
+  end
+end
+~~~
+
+and you may also need to include haml helpers in rspec config
+
+~~~ruby
+
+  RSpec.configure do |config|
+    # ...
+
+    #haml helper
+    config.include Haml::Helpers, :type => :helper
+
+    # ...
+  end
+~~~
+
+
+
+
 
 # RSpec stack level too deep error when mocking incorectly
 
