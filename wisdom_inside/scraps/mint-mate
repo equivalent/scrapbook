@@ -1,3 +1,15 @@
+
+
+
+# imagemagic 
+
+image magic is installed but
+to make rmagick running you must 
+
+     sudo apt-get install libmagickwand-dev 
+
+source: http://imdavidzhang.com/post/27236328147/hunting-for-the-right-imagemagick-headers-to-use-with
+
 # shortcuts fo custom mate
 
     wind + ctrl           # popup
