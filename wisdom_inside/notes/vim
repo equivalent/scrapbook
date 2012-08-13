@@ -1,6 +1,9 @@
 !@#vim
 
 
+:sort u                      #remove duplicates
+
+
 
 u U                          # in visual mode  lovercase (downcase) and upercase
 

@@ -1,5 +1,9 @@
 
+https://github.com/thoughtbot/shoulda-matchers#activemodel-matchers
 stolen cheatchat for shoulda http://cheat.errtheblog.com/s/rspec_shoulda/
+
+it { should_not allow_mass_assignment_of(:author) }
+it { should allow_mass_assignment_of(:something_else) }
 
 Shoulda Rspec Matchers
   For more information on rspec, rspec-rails, shoulda

@@ -1,3 +1,7 @@
+https://github.com/thoughtbot/shoulda-matchers#activemodel-matchers
+http://railscasts.com/episodes/220-pdfkit?view=comments
+http://thinkrelevance.com/blog/2010/06/15/rethinking-pdf-creation-in-ruby
+http://www.rubyinside.com/the-state-of-building-pdf-documents-in-ruby-3408.html
 http://st-on-it.blogspot.co.uk/2008/03/single-table-inheritance-with-nested.html
 http://imdavidzhang.com/post/27236328147/hunting-for-the-right-imagemagick-headers-to-use-with
 
@@ -592,6 +596,7 @@ http://railscasts.com/episodes/255-undo-with-paper-trail
 238
 235 => 'Implementing omniauth to existing project', 
 233 => 'janrain rpx authentication with other provider', 
+http://railscasts.com/episodes/220-pdfkit
 http://railscasts.com/episodes/213-calendars
 209 => 'devise authentication', 
 205 
