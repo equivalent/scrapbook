@@ -1,3 +1,48 @@
+
+# Time.now in current zone
+
+    Time.now
+    # => 2012-08-15 11:07:17 +0100  # this is time in written in datbase
+    Time.zone.now
+    # => Wed, 15 Aug 2012 10:05:55 UTC +00:00  # this is time related to local timezone
+
+
+
+
+
+
+
+
+
+#disable STI
+
+"type" is reserved database word for Single table inheritance type in rails. 
+If you want to disable that in one model do:
+
+~~~ruby
+class MyModel < ActiveRecord::Base
+  #disable STI
+  self.inheritance_column = :_type_disabled
+end
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # httpasswd like authentication in rails
 
 class UserController < ApplicationController

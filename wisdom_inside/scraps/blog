@@ -1,3 +1,53 @@
+
+# Rails ActiveRecord good to know
+
+## rails automatically converts integer to boolean on boolean type column
+
+Let say we have model "Job" with boolean Active Record column "urgent"
+
+      j = Job.new
+      j.urgent        #nil
+
+      J.urgent = true
+      J.urgent        #true
+
+      j.urgent = 0    
+      J.urgent        #false
+
+      j.urgent = 1
+      J.urgent        #true
+
+
+so rails is automatically converting them. Can be handy when migrating old non-rails database to new Ralis project... Good to know :) 
+
+
+## Incorrect database datetime is converted to nil
+
+Let say the database you're migrating has datetime columns by default set to "0000-00-00 00:00:00". This datetime is incorect because months are 0 month and 0 day. Rails won't let you set this and saves nil
+
+    a = Job.new
+
+    a = a.next_action_at = '0000-00-00 00:00:00'
+    a.next_action_at    # nil
+
+As you might know Unix timpestamp is pointing to 1st of January 1970
+
+    Time.at 0 #1970-01-01 01:00:00 +0100
+
+so 
+
+    a.next_action_at = '1970-01-01 00:00:00'
+    a.next_action_at.to_i    # 0
+
+and days before that
+
+    a.next_action_at = '170-08-20 00:00:00'
+    a.next_action_at.to_i    # -56782512000
+    a.next_action_at         # Mon, 20 Aug 0170 00:00:00 UTC +00:00
+
+Good to know :) 
+
+
 #  undefined method `capture_haml' it helper specs with haml
 
 
