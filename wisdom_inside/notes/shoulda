@@ -1,10 +1,14 @@
-# stolen from http://cheat.errtheblog.com/s/rspec_shoulda/
 ://github.com/thoughtbot/shoulda-matchers#activemodel-matchers
 
+
+it{ should belong_to(:status).class_name('Option') }
 
 it { should_not allow_mass_assignment_of(:author) }
 it { should allow_mass_assignment_of(:something_else) }
 
+
+
+# these belove stolen from http://cheat.errtheblog.com/s/rspec_shoulda/
 
 houlda Rspec Matchers
   For more information on rspec, rspec-rails, shoulda
