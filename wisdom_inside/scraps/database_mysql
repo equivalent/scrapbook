@@ -1,3 +1,16 @@
+
+mysql select uniq (distinct, non-duplicate) items with SELECT DISTINCT
+
+   SELECT DISTINCT type
+
+
+
+--------------------------------------------------------------------
+
+
+
+
+
     mysql -u root -p
 
 

@@ -1,3 +1,25 @@
+# Devise logount/session expire in development mode
+
+Devise.setup do |config|
+  #.....
+  config.timeout_in = Rails.env.development? ? 1.day : 30.minutes
+  #.....
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Devise current_user to use Draper
 
 overwrite current_user to use draper decorator

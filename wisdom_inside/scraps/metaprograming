@@ -1,0 +1,34 @@
+metaprograming exapmples
+
+
+
+
+# dynamically define sti
+
+class Option < ActiveRecord::Base
+
+  # many STI
+
+  def self.stis 
+    %w[Alert Foo Bar]
+  end
+
+  stis.each do |class_name|
+    new_class = Class.new(Option) do
+      def self.model_name
+        Option.model_name
+      end
+    end
+    eval "#{class_name} = new_class"
+  end
+end
+
+
+    Option::Alert
+    Option::Foo
+    Option::Bar
+
+
+----------------------------------------------------------------
+
+

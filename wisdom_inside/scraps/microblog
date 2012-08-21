@@ -1,4 +1,49 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Rails pluck
+
+
+Fetch only one column SQL query 
+
+    Option.select("DISTINCT type").pluck(:type)
+    #  =>   SELECT type FROM `options
+
+
+Fetch only one column with unique values SQL query 
+
+    Option.select("DISTINCT type").pluck(:type)
+    # =>   SELECT DISTINCT type, type FROM `options`
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------
+
+
 # Time.now in current zone
 
     Time.now
