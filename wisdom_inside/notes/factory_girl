@@ -1,4 +1,16 @@
 
+get valid_attributes without not accessable ones
+
+http://stackoverflow.com/questions/5103572/factorygirl-attributes-for-not-giving-me-associated-attributes
+
+(FactoryGirl.build :contact).attributes.symbolize_keys.reject { |key, value| !Contact.attr_accessible[:default].collect { |attribute| attribute.to_sym }.include?(key) }
+
+
+
+
+
+
+
 
 describe 'something' do
   let(:tomas) { Factory.create :person }
