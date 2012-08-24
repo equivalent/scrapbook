@@ -1,3 +1,8 @@
+http://twitter.github.com/bootstrap/base-css.html#icons  and http://fortawesome.github.com/Font-Awesome/ twitter bootstrap icons 
+https://developers.google.com/webmasters/control-crawl-index/docs/getting_started
+http://support.google.com/webmasters/bin/answer.py?hl=en&answer=70897#3  indexing, crawling and serving results  google
+http://support.google.com/webmasters/bin/answer.py?hl=en&answer=35769  Best practices to help Google find, crawl, and index your site 
+
 http://wekeroad.com/2012/03/13/my-week-with-the-hypermedia-cowboys/
 http://blog.steveklabnik.com/tekpub-productions.html
 http://steveklabnik.github.com/hypermedia-presentation/#1
@@ -658,7 +663,6 @@ todo http://37signals.com/svn/posts/3113-how-key-based-cache-expiration-works
 todo http://broadcastingadam.com/2011/05/advanced_caching_in_rails
 
 
-todo important http://twitter.github.com/bootstrap/base-css.html#icons
-todo http://fortawesome.github.com/Font-Awesome/
 
 todo : http://pure-rspec-scotruby.heroku.com/
+todo: http://delicious.com/erich.kaderka/api
