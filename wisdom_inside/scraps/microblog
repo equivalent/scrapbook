@@ -1,4 +1,15 @@
 
+# execute SQL inside migrations
+
+You can execute direct SQL in migrations with *execute* method
+
+~~~ruby
+Class DoSomethingMigration < ActiveRecord::Migration
+  def up 
+    execute "Update categories set ......"
+  end
+#...
+~~~
 
 
 
