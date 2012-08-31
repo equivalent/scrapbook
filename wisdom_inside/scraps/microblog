@@ -1,4 +1,23 @@
 
+# constantize and clasify
+
+
+    "Document".constantize # => Document(id: integer ...) 
+    "document".classify    # => "Document"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # execute SQL inside migrations
 
 You can execute direct SQL in migrations with *execute* method
