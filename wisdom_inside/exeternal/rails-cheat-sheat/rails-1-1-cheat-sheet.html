@@ -1,0 +1,1540 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+  <title>Rails 1.1 Cheat Sheet - nano RAILS: development, testing and hosting tidbits</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Ruby on Rails in practice. Rails development tips, Rails Testing and Rails Hosting.">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/Nanorails">
+  <link href="rails-1-1-cheat-sheet_files/brighthouse.css" rel="stylesheet" type="text/css">
+  <script src="rails-1-1-cheat-sheet_files/test.js" type="text/javascript"></script>
+
+  <script src="rails-1-1-cheat-sheet_files/prototype.js" type="text/javascript"></script>
+  <script src="rails-1-1-cheat-sheet_files/code_highlighter.js" type="text/javascript"></script>
+  <script src="rails-1-1-cheat-sheet_files/javascript.js" type="text/javascript"></script>
+  <script src="rails-1-1-cheat-sheet_files/css.js" type="text/javascript"></script>
+  <script src="rails-1-1-cheat-sheet_files/html.js" type="text/javascript"></script>
+  <script src="rails-1-1-cheat-sheet_files/ruby.js" type="text/javascript"></script>
+  <script type="text/javascript" src="rails-1-1-cheat-sheet_files/pin2r9hbd5.js"></script>
+
+</head><body>
+  <div id="wrapper">
+    <div id="blog-header">
+      <div id="header-content">
+        <h1><a href="http://blog.nanorails.com/">nano RAILS: development, testing and hosting tidbits</a></h1>
+        <h2>Ruby on Rails in practice</h2>
+      </div>
+      <div id="search-wrapper">
+        <div id="search">
+          <form method="get" id="search_form" action="/search" name="sform">
+          	<input class="search_input" value="Search nanoRAILS" name="q" id="q" onfocus="if (this.value == 'Search nanoRAILS') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search nanoRAILS';}" type="text">
+          	<input id="searchsubmit" value="Search" type="hidden">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="main-wrapper">
+      <div id="main-content">
+        
+  
+
+
+      <script type="text/javascript"><!--
+      google_ad_client = "pub-0342797650501429";
+      google_alternate_ad_url = "http://blog.nanorails.com/468x60.html";
+      google_ad_width = 468;
+      google_ad_height = 60;
+      google_ad_format = "468x60_as";
+      google_ad_type = "text";
+      google_ad_channel ="1172064303";
+      google_color_border = "FFFFFF";
+      google_color_bg = "FFFFFF";
+      google_color_link = "0066CC";
+      google_color_text = "0066CC";
+      google_color_url = "32CF00";
+      //--></script>
+      <script type="text/javascript" src="rails-1-1-cheat-sheet_files/show_ads.js"></script>
+  <div class="entry">
+    <h1>Ruby on Rails 1.1 Reference</h1>
+
+<h2>Create a rails application</h2>
+
+<pre><code>$ rails app_name
+</code></pre>
+
+<p>Options:</p>
+
+<ul>
+<li><strong>-d, –database=xxx</strong> specify which database to use (mysql oracle postgresql sqlite2 sqlite3 ), defaults to <em>mysql</em></li>
+<li><strong>-r, –ruby-path=</strong> specify the path to ruby, if not set, the scripts use <em>env</em> to find ruby</li>
+<li><strong>-f, –freeze</strong> freezes Rails into the <code>vendor/rails</code> directory</li>
+</ul>
+
+<h2>API Documentation</h2>
+
+<pre><code>$ gem_server
+</code></pre>
+
+<p>Open a web browser with the address <code>localhost:8088</code></p>
+
+<h2>Rake</h2>
+
+<p>is the make of ruby - the <strong>R</strong> uby m <strong>AKE</strong>. Rails defines a number of tasks to help you:</p>
+
+<pre><code>rake db:fixtures:load          # Load fixtures into the current environment&amp;#8217;s database. 
+                               # Load specific fixtures using FIXTURES=x,y
+rake db:migrate                # Migrate the database through scripts in db/migrate. Target 
+                               # specific version with VERSION=x
+rake db:schema:dump            # Create a db/schema.rb file that can be portably used against 
+                               # any DB supported by AR
+rake db:schema:load            # Load a schema.rb file into the database
+rake db:sessions:clear         # Clear the sessions table
+rake db:sessions:create        # Creates a sessions table for use with 
+                               # CGI::Session::ActiveRecordStore
+rake db:structure:dump         # Dump the database structure to a SQL file
+rake db:test:clone             # Recreate the test database from the current environment&amp;#8217;s 
+                               # database schema
+rake db:test:clone_structure   # Recreate the test databases from the development structure
+rake db:test:prepare           # Prepare the test database and load the schema
+rake db:test:purge             # Empty the test database
+
+rake doc:app                   # Build the app HTML Files
+rake doc:clobber_app           # Remove rdoc products
+rake doc:clobber_plugins       # Remove plugin documentation
+rake doc:clobber_rails         # Remove rdoc products
+rake doc:plugins               # Generate documation for all installed plugins
+rake doc:rails                 # Build the rails HTML Files
+rake doc:reapp                 # Force a rebuild of the RDOC files
+rake doc:rerails               # Force a rebuild of the RDOC files
+
+rake log:clear                 # Truncates all *.log files in log/ to zero bytes
+
+rake rails:freeze:edge         # Lock this application to latest Edge Rails. Lock a specific 
+                               # revision with REVISION=X
+rake rails:freeze:gems         # Lock this application to the current gems (by unpacking them 
+                               # into vendor/rails)
+rake rails:unfreeze            # Unlock this application from freeze of gems or edge and return 
+                               # to a fluid use of system gems
+rake rails:update              # Update both scripts and public/javascripts from Rails
+rake rails:update:javascripts  # Update your javascripts from your current rails install
+rake rails:update:scripts      # Add new scripts to the application script/ directory
+
+rake stats                     # Report code statistics (KLOCs, etc) from the application
+
+rake test                      # Test all units and functionals
+rake test:functionals          # Run tests for functionalsdb:test:prepare
+rake test:integration          # Run tests for integrationdb:test:prepare
+rake test:plugins              # Run tests for pluginsenvironment
+rake test:recent               # Run tests for recentdb:test:prepare
+rake test:uncommitted          # Run tests for uncommitteddb:test:prepare
+rake test:units                # Run tests for unitsdb:test:prepare
+
+rake tmp:cache:clear           # Clears all files and directories in tmp/cache
+rake tmp:clear                 # Clear session, cache, and socket files from tmp/
+rake tmp:create                # Creates tmp directories for sessions, cache, and sockets
+rake tmp:sessions:clear        # Clears all files in tmp/sessions
+rake tmp:sockets:clear         # Clears all ruby_sess.* files in tmp/sessions
+</code></pre>
+
+<h2>Scripts</h2>
+
+<pre><code>script/about            # Information about environenment
+script/breakpointer     # starts the breakpoint server
+script/console          # interactive Rails Console
+script/destroy          # deletes files created by generators
+script/generate         # -&gt; generators
+script/plugin           # -&gt; Plugins
+script/runner           # executes a task in the rails context
+script/server           # launches the development server
+                        # http://localhost:3000
+
+script/performance/profiler     # profile an expenive method
+script/performance/benchmarker  # benchmark different methods
+
+script/process/reaper
+script/process/spawner
+</code></pre>
+
+<h2>Generators</h2>
+
+<pre><code>ruby script/generate model ModellName
+ruby script/generate controller ListController show edit
+ruby script/generate scaffold ModelName ControllerName 
+ruby script/generate migration AddNewTable
+ruby script/generate plugin PluginName
+ruby script/generate mailer Notification lost_password signup
+ruby script/generate web_service ServiceName api_one api_two
+ruby script/generate integration_test TestName
+ruby script/generate session_migration
+</code></pre>
+
+<p>Options</p>
+
+<pre><code>-p, &amp;#8211;pretend                    Run but do not make any changes.
+-f, &amp;#8211;force                      Overwrite files that already exist.
+-s, &amp;#8211;skip                       Skip files that already exist.
+-q, &amp;#8211;quiet                      Suppress normal output.
+-t, &amp;#8211;backtrace                  Debugging: show backtrace on errors.
+-h, &amp;#8211;help                       Show this help message.
+-c, &amp;#8211;svn                        Modify files with subversion. (Note: svn must be in path)
+</code></pre>
+
+<h2>Plugins</h2>
+
+<pre><code>script/plugin discover          # discover plugin repositories
+script/plugin list              # list all available plugins
+script/plugin install where     # install the Ã¢â‚¬Å¾whereÃ¢â‚¬Å“ plugin
+script/plugin install -x where  # install where plugin as SVN external
+script/plugin install http://invisible.ch/projects/plugins/where
+script/plugin update            # update installed plugins
+script/plugin source            # add a source repository
+script/plugin unsource          # removes a source repository
+script/plugin sources           # lists source repositories
+</code></pre>
+
+<p>A searchable directory of plugins can be found at <a href="http://www.agilewebdevelopment.com/">AgileDevelopment</a>.</p>
+
+<h1>Models</h1>
+
+<h2>Model Relations</h2>
+
+<p>There are four ways of associating models. <strong>has_one</strong>, <strong>has_many</strong>, <strong>belongs_to</strong> and <strong>has_and_belongs_to_many</strong></p>
+
+<p><img src="rails-1-1-cheat-sheet_files/assocs.png" alt="Assocs"></p>
+
+<pre><code>def Order &lt; ActiveRecord::Base
+  has_many :line_items
+  belongs_to :customer   # there's a column "customer_id" in the db table
+end
+
+def LineItem &lt; ActiveRecord::Base
+  belongs_to :order # there's a column "order_id" in the db table
+end
+
+def Customer &lt; ActiveRecord::Base
+  has_many :orders
+  has_one :address
+end
+
+def Address &lt; ActiveRecord::Base
+  belongs_to :customer
+end
+
+belongs_to  :some_model,
+        :class_name  =&gt; &amp;#8216;MyClass&amp;#8217;,      # specifies other class name
+        :foreign_key =&gt; &amp;#8216;my_real_id&amp;#8217;,   # and primary key 
+        :conditions  =&gt; &amp;#8216;column = 0&amp;#8217;    # only finds when this condition met 
+
+has_one :some_model, 
+        # as belongs_to and additionally:
+        :dependent   =&gt; :destroy        # deletes associated object
+        :order       =&gt; &amp;#8216;name ASC&amp;#8217;      # SQL fragment for sorting
+
+has_many :some_model
+        # as has_one and additionally:
+        :dependent =&gt; :destroy          # deletes all dependent data
+                                        # calling each objects destroy
+        :dependent =&gt; :delete_all       # deletes all dependent data
+                                        # without calling the destroy methods
+        :dependent =&gt; :nullify          # set association to null, not 
+                                        # destroying objects
+        :group =&gt; &amp;#8216;name&amp;#8217;                # adds GROUP BY fragment
+        :finder_sql =&gt; &amp;#8216;select &amp;#8230;.&amp;#8217;    # instead of the Rails finders
+        :counter_sql =&gt; &amp;#8216;select &amp;#8230;&amp;#8217;    # instead of the Rails counters
+</code></pre>
+
+<p><img src="rails-1-1-cheat-sheet_files/habtm.png" alt="Habtm"></p>
+
+<pre><code>def Category &lt; ActiveRecord::Base 
+  has_and_belongs_to_many :products
+end
+def Product &lt; ActiveRecord::Base
+  has_and_belongs_to_many :categories  
+end
+</code></pre>
+
+<p>Table <code>categories_products</code> with <code>category_id</code> and <code>product_id</code> (without id column)</p>
+
+<h3>Association Join Models</h3>
+
+<p><img src="rails-1-1-cheat-sheet_files/through-model.png" alt="Through Model"></p>
+
+<pre><code>class Author &lt; ActiveRecord::Base
+  has_many :authorships
+  has_many :books, :through =&gt; :authorships
+end
+
+class Authorship &lt; ActiveRecord::Base
+  belongs_to :author
+  belongs_to :book
+end
+
+class Book &lt; ActiveRecord::Base
+  has_one :authorship
+end
+
+@author = Author.find :first
+@author.authorships.collect { |a| a.book } # selects all books that the author's 
+                                           # authorships belong to.
+@author.books                              # selects all books by using the Authorship
+                                           # join model
+</code></pre>
+
+<p>Also works through has_many associations:</p>
+
+<pre><code>class Firm &lt; ActiveRecord::Base
+  has_many   :clients
+  has_many   :invoices, :through =&gt; :clients
+  has_many   :paid_invoices, :through =&gt; :clients, :source =&gt; :invoice
+end
+
+class Client &lt; ActiveRecord::Base
+  belongs_to :firm
+  has_many   :invoices
+end
+
+class Invoice &lt; ActiveRecord::Base
+  belongs_to :client
+end
+
+@firm = Firm.find :first
+@firm.clients.collect { |c| c.invoices }.flatten # select all invoices for all clients
+                                                 # of the firm
+@firm.invoices                                   # selects all invoices by going through
+                                                 # the Client join model.
+</code></pre>
+
+<h2>Validations</h2>
+
+<pre><code>validates_presence_of :firstname, :lastname     # must be filled out
+
+validates_length_of :password,
+                    :minimum =&gt; 8           # more than 8 characters
+                    :maximum =&gt; 16          # shorter than 16 characters
+                    :in =&gt; 8..16            # between 8 and 16 characters
+                    :too_short =&gt; &amp;#8216;way too short&amp;#8217;    
+                    :too_long =&gt; &amp;#8216;way to long&amp;#8217;
+
+validates_acceptance_of :eula               # Must accept a condition
+                        :accept =&gt; &amp;#8216;Y&amp;#8217;      # default: 1 (ideal for a checkbox)
+
+validates_confirmation_of :password     
+# the fields password and password_confirmation must match
+
+validates_uniqueness_of :user_name              # user_name has to be unique
+                        :scope =&gt; &amp;#8216;account_id&amp;#8217;  # Condition: 
+                                                # account_id = user.account_id
+
+validates_format_of :email          # field must match a regular expression
+                    :with =&gt; /^([^@\s]+)@((?:[-a-z0-9]+&amp;#46;)+[a-z]{2,})$/i
+
+validates_numericality_of   :value                  # value is numeric
+                            :only_integer =&gt; true   
+                            :allow_nil =&gt; true      
+
+validates_inclusion_in  :gender,    # value is in enumeration
+                        :in =&gt; %w( m, f )
+
+validates_exclusion_of  :age            # value is not in Enumeration
+                        :in =&gt; 13..19   # don&amp;#8217;t want any teenagers
+
+validates_associated :relation  
+# validates that the associated object is valid
+</code></pre>
+
+<p>Options for all validations above:</p>
+
+<pre><code>:message =&gt; &amp;#8216;my own errormessage&amp;#8217;   # eigene Fehlermeldung
+:on      =&gt; :create                 # or :update (validates only then)
+:if      =&gt; &amp;#8230;                     # call method oder Proc
+</code></pre>
+
+<h2>Calculations</h2>
+
+<pre><code>Person.average :age
+Person.minimum :age
+Person.maximum :age
+Person.sum :salary, :group =&gt; :last_name
+</code></pre>
+
+<h2>Find</h2>
+
+<pre><code>find(42)        # object with ID 42
+find([37, 42])  # Array with the objects with id 37, 42
+find :all
+find :first, 
+     :conditions =&gt; [ &amp;#8220;name = ?&amp;#8221;, &amp;#8220;Hans&amp;#8221; ]   # finds the first record with 
+                                             # the matching condition
+</code></pre>
+
+<p>more parameters for find:</p>
+
+<pre><code>:order =&gt; &amp;#8216;name DESC&amp;#8217;       # sql fragment for sorting
+:offset =&gt; 20               # starts with entry 20
+:limit =&gt; 10                # only return 10 objects
+:group =&gt; &amp;#8216;name&amp;#8217;            # sql fragment GROUP BY
+:joins =&gt; &amp;#8216;LEFT JOIN &amp;#8230;&amp;#8217;   # additional LEFT JOIN (rarely used)
+:include =&gt; [:account, :friends]    # LEFT OUTER JOIN with these model
+:include =&gt; { :groups =&gt; { :members=&gt; { :favorites } } } 
+:select =&gt; [:name, :adress]     # instead of SELECT * FROM
+:readonly =&gt; true               # objects are write protected
+</code></pre>
+
+<h2>Scope</h2>
+
+<pre><code>Developer.with_scope(:find =&gt; { :conditions =&gt; &amp;#8220;salary &gt; 10000&amp;#8221;, :limit =&gt; 10 }) do
+  Developer.find(:all)     # =&gt; SELECT * FROM developers WHERE (salary &gt; 10000) LIMIT 10
+
+  # inner rule is used. (all previous parameters are ignored)
+  Developer.with_exclusive_scope(:find =&gt; { :conditions =&gt; &amp;#8220;name = &amp;#8216;Jamis&amp;#8217;&amp;#8221; }) do
+    Developer.find(:all)   # =&gt; SELECT * FROM developers WHERE (name = &amp;#8216;Jamis&amp;#8217;)
+  end
+
+  # parameters are merged
+  Developer.with_scope(:find =&gt; { :conditions =&gt; &amp;#8220;name = &amp;#8216;Jamis&amp;#8217;&amp;#8221; }) do
+    Developer.find(:all)   # =&gt; SELECT * FROM developers WHERE 
+                           # (( salary &gt; 10000 ) AND ( name = &amp;#8216;Jamis&amp;#8217; )) LIMIT 10
+  end
+end
+</code></pre>
+
+<p>for more details and examples, see:</p>
+
+<ul>
+<li><a href="http://www.codyfauser.com/articles/2006/02/01/using-with_scope-to-refactor-messy-finders">http://www.codyfauser.com/articles/2006/02/01/using-with_scope-to-refactor-messy-finders</a></li>
+<li><a href="http://blog.caboo.se/articles/2006/02/22/nested-with_scope">http://blog.caboo.se/articles/2006/02/22/nested-with_scope</a></li>
+</ul>
+
+<h2>Callbacks</h2>
+
+<p>During the life cycle of an active record object, you can hook into 9 events:</p>
+
+<ul>
+<li>(-) save</li>
+<li>(-) valid?</li>
+<li>(1) before_validation</li>
+<li>(2) before_validation_on_create</li>
+<li>(-) validate</li>
+<li>(-) validate_on_create</li>
+<li>(4) after_validation</li>
+<li>(5) after_validation_on_create</li>
+<li>(6) before_save</li>
+<li>(7) before_create</li>
+<li>(-) create</li>
+<li>(8) after_create</li>
+<li>(9) after_save</li>
+</ul>
+
+<p>Examples:</p>
+
+<pre><code>class Subscription &lt; ActiveRecord::Base
+  before_create :record_signup
+private
+  def record_signup
+    self.signed_up_on = Date.today
+  end
+end
+
+class Firm &lt; ActiveRecord::Base
+  # Destroys the associated clients and people when the firm is destroyed
+  before_destroy { |record| Person.destroy_all "firm_id = #{record.id}"   }
+  before_destroy { |record| Client.destroy_all "client_of = #{record.id}" }
+end
+</code></pre>
+
+<h2>Observers</h2>
+
+<p>The Observer classes let's you extract the functionality of the callbacks:</p>
+
+<pre><code>class CommentObserver &lt; ActiveRecord::Observer
+  def after_save(comment)
+    Notifications.deliver_comment("admin@do.com", "New comment was posted", comment)
+  end
+end
+</code></pre>
+
+<p>Store observers in app/model/model_observer.rb</p>
+
+<p>Enable observer by putting this in <em>config/environment.rb</em></p>
+
+<pre><code>config.active_record.observers = :comment_observer, :signup_observer
+</code></pre>
+
+<h2>Migration</h2>
+
+<pre><code>ruby sript/generate migration AddTables
+</code></pre>
+
+<p>Creates a file <code>db/migrations/001_add_tables</code>. The methods "up" and "down" change the db schema</p>
+
+<pre><code>def self.up     # brings db schema to the next version 
+  create_table :table, :force =&gt; true do |t|
+    t.column :name, :string
+    t.column :age, :integer, { :default =&gt; 42 }
+    t.column :description, :text
+    # :string, :text, :integer, :float, :datetime, :timestamp, :time, :date, 
+    # :binary, :boolean
+  end
+  add_column :table, :column, :type
+  rename_column :table, :old_name, :new_name 
+  change_column :table, :column, :new_type
+  execute &amp;#8220;SQL Statement&amp;#8221;
+  add_index :table, :column, :unique =&gt; true, :name =&gt; &amp;#8216;some_name&amp;#8217;
+  add_index :table, [ :column1, :column2 ]
+end
+
+def self.down   # rollbacks changes
+  rename_column :table, :new_name, :old_name
+  remove_column :table, :column
+  drop_table :table
+  remove_index :table, :column
+end
+</code></pre>
+
+<p>To execute the migration:</p>
+
+<pre><code>rake db:migrate
+rake db:migrate VERSION=14
+rake db:migrate RAILS_ENV=production
+</code></pre>
+
+<h2>Unit Test</h2>
+
+<pre><code>rake test:units
+</code></pre>
+
+<p>The following assertions are available:</p>
+
+<pre><code>assert_kind_of Class, @var  # same class
+assert @var                 # not nil
+assert_equal 1, @p.id       # equality
+@product.destroy
+assert_raise(ActiveRecord::RecordNotFound) { Product.find( @product.id ) }
+</code></pre>
+
+<h1>Controllers</h1>
+
+<h2>Controller methods</h2>
+
+<p>Each public method in a controller is callable by the (standard) URL scheme /controller/action</p>
+
+<pre><code>class WorldController &lt; ApplicationController
+def hello
+  render :text =&gt; &amp;#8216;Hello world&amp;#8217;
+end
+</code></pre>
+
+<p>Parameters are stored in the params hash:</p>
+
+<pre><code>/world/hello/1?foo=bar
+id = params[:id]     # 1
+foo = params[:foo]   # bar
+</code></pre>
+
+<p>Instance variables defined in the the controllers methods are available to the corresponding view templates:</p>
+
+<pre><code>def show
+  @person = Person.find( params[:id])
+end
+</code></pre>
+
+<p>Distinguish the type of response accepted:</p>
+
+<pre><code>def index
+  @posts = Post.find :all
+
+  respond_to do |type|
+    type.html # using defaults, which will render weblog/index.rhtml
+    type.xml  { render :action =&gt; &amp;#8220;index.rxml&amp;#8221; }
+    type.js   { render :action =&gt; &amp;#8220;index.rjs&amp;#8221; }
+  end
+end
+</code></pre>
+
+<h2>Render</h2>
+
+<p>Usually the view template with the same name as the controller method is used to render the results</p>
+
+<p><em>Action</em></p>
+
+<pre><code>render :action =&gt; &amp;#8216;some_action&amp;#8217;   # the default. Does not need to be specified
+                                   # in a controller method called &amp;#8220;some_action&amp;#8221;
+render :action =&gt; &amp;#8216;another_action&amp;#8217;, :layout =&gt; false
+render :action =&gt; &amp;#8216;some_action&amp;#8217;, :layout =&gt; &amp;#8216;another_layout&amp;#8217;
+</code></pre>
+
+<p><em>Partials</em></p>
+
+<p>Partials are stored in files called “_subformname” ( _error, _subform, _listitem)</p>
+
+<pre><code>render :partial =&gt; &amp;#8216;subform&amp;#8217;
+render :partial =&gt; &amp;#8216;error&amp;#8217;, :status =&gt; 500
+render :partial =&gt; &amp;#8216;subform&amp;#8217;, :locals =&gt; { :variable =&gt; @other_variable }
+render :partial =&gt; &amp;#8216;listitem&amp;#8217;, :collection =&gt; @list
+render :partial =&gt; &amp;#8216;listitem&amp;#8217;, :collection =&gt; @list, :spacer_template =&gt; &amp;#8216;list_divider&amp;#8217;
+</code></pre>
+
+<p><em>Template</em></p>
+
+<p>Like rendering an action, but finds the template based on the template root (app/views)</p>
+
+<pre><code>render :template =&gt; &amp;#8216;weblog/show&amp;#8217;  # renders app/views/weblog/show
+</code></pre>
+
+<p><em>File</em></p>
+
+<pre><code>render :file =&gt; &amp;#8216;/path/to/some/file.rhtml&amp;#8217;
+render :file =&gt; &amp;#8216;/path/to/some/filenotfound.rhtml&amp;#8217;, status =&gt; 404, :layout =&gt; true
+</code></pre>
+
+<p><em>Text</em></p>
+
+<pre><code>render :text =&gt; &amp;#8220;Hello World&amp;#8221;
+render :text =&gt; &amp;#8220;This is an error&amp;#8221;, :status =&gt; 500
+render :text =&gt; &amp;#8220;Let&amp;#8217;s use a layout&amp;#8221;, :layout =&gt; true
+render :text =&gt; &amp;#8216;Specific layout&amp;#8217;, :layout =&gt; &amp;#8216;special&amp;#8217;
+</code></pre>
+
+<p><em>Inline Template</em></p>
+
+<p>Uses ERb to render the “miniature” template</p>
+
+<pre><code>render :inline =&gt; &amp;#8221;&lt;%= 'hello , ' * 3 + 'again' %&gt;&amp;#8221;
+render :inline =&gt; &amp;#8221;&lt;%= 'hello ' + name %&gt;&amp;#8221;, :locals =&gt; { :name =&gt; &amp;#8220;david&amp;#8221; }
+</code></pre>
+
+<p><em>Nothing</em></p>
+
+<pre><code>render :nothing
+render :nothing, :status =&gt; 403    # forbidden
+</code></pre>
+
+<p><em>RJS</em></p>
+
+<pre><code>def refresh
+  render :update do |page|
+    page.replace_html  &amp;#8216;user_list&amp;#8217;, :partial =&gt; &amp;#8216;user&amp;#8217;, :collection =&gt; @users
+    page.visual_effect :highlight, &amp;#8216;user_list&amp;#8217;
+  end
+end
+</code></pre>
+
+<p><em>Change the content-type:</em></p>
+
+<pre><code>render :action =&gt; &amp;#8220;atom.rxml&amp;#8221;, :content_type =&gt; &amp;#8220;application/atom+xml&amp;#8221;
+</code></pre>
+
+<h2>URL Routing</h2>
+
+<p>In config/routes.rb</p>
+
+<pre><code>map.connect &amp;#8221;, :controller =&gt; &amp;#8216;posts&amp;#8217;, :action =&gt; &amp;#8216;list&amp;#8217; # default
+map.connect &amp;#8216;:action/:controller/:id&amp;#8217;
+map.connect &amp;#8216;tasks/:year/:month&amp;#8217;, :controller =&gt; &amp;#8216;tasks&amp;#8217;, 
+                                  :action =&gt; &amp;#8216;by_date&amp;#8217;,
+                                  :month =&gt; nil, :year =&gt; nil,
+                                  :requirements =&gt; {:year =&gt; /\d{4}/, 
+                                                    :month =&gt; /\d{1,2}/ }
+</code></pre>
+
+<h2>Filter</h2>
+
+<p>Filters can change a request before or after the controller. They
+can for example be used for authentication, encryption or compression.</p>
+
+<pre><code>before_filter :login_required, :except =&gt; [ :login ]
+before_filter :autenticate, :only =&gt; [ :edit, :delete ]
+after_filter :compress
+</code></pre>
+
+<p>It’s also possible to use a Proc for a really small filter action:</p>
+
+<pre><code> before_filter { |controller| false if controller.params[&amp;#8220;stop_action&amp;#8221;] }
+</code></pre>
+
+<p>Change the order of your filters by using <code>prepend_before_filter</code> and <code>prepend_after_filter</code> (like <code>prepend_before_filter :some_filter</code> which will put the <code>some_filter</code> at the beginning of the filter chain)</p>
+
+<p>If you define a filter in a super class, you can skip it in the subclass:</p>
+
+<pre><code>skip_before_filter :some_filter
+skip_after_filter :some_filter
+</code></pre>
+
+<h2>Session / Flash</h2>
+
+<p>To save data across multiple requests, you can use either the <em>session</em> or the <em>flash</em> hashes. A flash stores a value (normally text) until the next request, while a session stores data during the complete session.</p>
+
+<pre><code>session[:user] = @user
+flash[:message] = &amp;#8220;Data was saved successfully&amp;#8221;
+
+&lt;%= link_to "login", :action =&gt; &amp;#8216;login&amp;#8217; unless session[:user] %&gt;
+&lt;% if flash[:message] %&gt;
+&lt;div&gt;&lt;%= h flash[:message] %&gt;&lt;/div&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<h3>Session management</h3>
+
+<p>It’s possible to turn off session management:</p>
+
+<pre><code>session :off                        # turn session managment off                        
+session :off, :only =&gt; :action      # only for this :action
+session :off, :except =&gt; :action    # except for this action
+session :only =&gt; :foo,              # only for :foo when doing HTTPS
+        :session_secure =&gt; true 
+session :off, :only =&gt; :foo,        # off for foo, if uses as Web Service
+        :if =&gt; Proc.new { |req| req.parameters[:ws] }
+</code></pre>
+
+<h2>Cookies</h2>
+
+<p><em>Setting</em></p>
+
+<pre><code>cookies[:user_name] = &amp;#8220;david&amp;#8221; # =&gt; Will set a simple session cookie
+cookies[:login] = { :value =&gt; &amp;#8220;XJ-122&amp;#8221;, :expires =&gt; Time.now + 3600} 
+    # =&gt; Will set a cookie that expires in 1 hour
+</code></pre>
+
+<p><em>Reading</em></p>
+
+<pre><code>cookies[:user_name] # =&gt; &amp;#8220;david&amp;#8221;
+cookies.size         # =&gt; 2
+</code></pre>
+
+<p><em>Deleting</em></p>
+
+<pre><code>cookies.delete :user_name
+</code></pre>
+
+<p>All the option symbols for setting cookies are:</p>
+
+<ul>
+<li>value - the cookie’s value or list of values (as an array).</li>
+<li>path - the path for which this cookie applies.  Defaults to the root of the application.</li>
+<li>domain - the domain for which this cookie applies.</li>
+<li>expires - the time at which this cookie expires, as a +Time+ object.</li>
+<li>secure - whether this cookie is a secure cookie or not (default to false).
+Secure cookies are only transmitted to HTTPS servers.</li>
+</ul>
+
+<h1>Views</h1>
+
+<h2>View Templates</h2>
+
+<p>All view templates are stored in <code>app/views/controllername</code>. The extension determines what kind of template format is used:</p>
+
+<ul>
+<li><em>rhtml</em> Ruby HTML (using ERB)</li>
+<li><em>rxml</em> Ruby XML (using Builder)</li>
+<li><em>rjs</em> Ruby JavaScript </li>
+</ul>
+
+<p>All instance variables of the controller are available to the view. In addition, the following special objects can be accessed:</p>
+
+<ul>
+<li><em>headers</em> The Headers of the outgoing response</li>
+<li><em>request</em> The incoming request object</li>
+<li><em>response</em> The outgoing response object</li>
+<li><em>params</em> The parameter hash</li>
+<li><em>session</em> The session hash</li>
+<li><em>controller</em> The current controller</li>
+</ul>
+
+<h2>HTML</h2>
+
+<p>HTMl mixed with Ruby using tags. All of Ruby is available for programming</p>
+
+<pre><code>&lt;% %&gt;   # executes the Ruby code
+&lt;%= %&gt;  # executes the Ruby code and displays the result
+
+&lt;ul&gt;
+&lt;% @products.each do |p| %&gt;
+  &lt;li&gt;&lt;%= h @p.name %&gt;&lt;/li&gt;
+&lt;% end %&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>The output of anything in &lt;%= %&gt; tags is directly copied to
+the HTML output stream. To secure against HTML injection, use the h()
+function to <em>html_escape</em> the output</p>
+
+<h2>RXML</h2>
+
+<p>Creates XML files </p>
+
+<pre><code>xml.instruct!               # &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+xml.comment! &amp;#8220;a comment&amp;#8221;    # &lt;!-- a comment --&gt;
+xml.feed &amp;#8220;xmlns&amp;#8221; =&gt; &amp;#8220;http://www.w3.org/2005/Atom&amp;#8221; do
+  xml.title &amp;#8220;My Atom Feed&amp;#8221;
+  xml.subtitle h(@feed.subtitle), &amp;#8220;type&amp;#8221; =&gt; &amp;#8216;html&amp;#8217;
+  xml.link url_for( :only_path =&gt; false, 
+                    :controller =&gt; &amp;#8216;feed&amp;#8217;,
+                    :action =&gt; &amp;#8216;atom&amp;#8217; )
+  xml.updated @updated.iso8601
+  xml.author do
+    xml.name &amp;#8220;Jens-Christian Fischer&amp;#8221;
+    xml.email &amp;#8220;jcfischer@gmail.com&amp;#8221;
+  end
+  @entries.each do |entry|
+    xml.entry do
+      xml.title entry.title
+      xml.link &amp;#8220;href&amp;#8221; =&gt; url_for ( :only_path =&gt; false,
+                                   :controller =&gt; &amp;#8216;entries&amp;#8217;,
+                                   :action =&gt; &amp;#8216;show&amp;#8217;,
+                                   :id =&gt; entry )
+      xml.id entry.urn
+      xml.updated entry.updated.iso8601
+      xml.summary h(entry.summary)
+    end
+  end
+end
+</code></pre>
+
+<p>for more details see: <a href="http://rubyforge.org/projects/builder/">http://rubyforge.org/projects/builder/</a></p>
+
+<h2>RJS</h2>
+
+<p>In addition to HTML and XML templates, Rails also understands <strong>JavaScript Templates</strong>. They allow you to easily create complex alterations of the displayed page. You can manipulate a <em>page</em> element with the following methods:</p>
+
+<p><em>select</em> Select a DOM element for further processing</p>
+
+<pre><code>page.select(&amp;#8216;pattern&amp;#8217;) # selects an item on the page through a CSS pattern
+                       # select(&amp;#8216;p&amp;#8217;), select(&amp;#8216;p.welcome b&amp;#8217;)
+page.select(&amp;#8216;div.header em&amp;#8217;).first.hide
+page.select(&amp;#8216;#items li&amp;#8217;).eacj do |value|
+  value.hide
+end
+</code></pre>
+
+<p><em>insert_html</em> Inserts content into the DOM at a specific position</p>
+
+<pre><code>page.insert_html :position, id, content
+</code></pre>
+
+<p>position can be one of the following:</p>
+
+<ul>
+<li><code>:top</code></li>
+<li><code>:bottom</code></li>
+<li><code>:before</code></li>
+<li><code>:after</code></li>
+</ul>
+
+<p>Examples: </p>
+
+<pre><code>page.insert_html :bottom, &amp;#8216;list&amp;#8217;, &amp;#8217;&lt;li&gt;last item&lt;/li&gt;&amp;#8217;
+page.insert_html :before, &amp;#8216;tasks&amp;#8217;, :partial =&gt; &amp;#8216;task&amp;#8217;
+</code></pre>
+
+<p><em>replace_html</em> Replaces the innerHTML of the specified DOM element</p>
+
+<pre><code>page.replace_html &amp;#8216;title&amp;#8217;, &amp;#8220;This is the new title&amp;#8221;
+page.replace_html &amp;#8216;person-45&amp;#8217;, :partial =&gt; &amp;#8216;person&amp;#8217;, :object =&gt; @person
+</code></pre>
+
+<p><em>replace</em> Replaces the “outer HTML”, (i.e. the entire element) of the specified DOM element</p>
+
+<pre><code>page.replace &amp;#8216;task&amp;#8217;, :partial =&gt; &amp;#8216;task&amp;#8217;, :object =&gt; @task
+</code></pre>
+
+<p><em>remove</em> Removes the specified DOM element</p>
+
+<pre><code>page.remove &amp;#8216;edit-button&amp;#8217;
+</code></pre>
+
+<p><em>hide</em> Hides the specified DOM element</p>
+
+<pre><code>page.hide &amp;#8216;some-element&amp;#8217;
+</code></pre>
+
+<p><em>show</em> Shows the specified DOM element</p>
+
+<pre><code>page.show &amp;#8216;some-element&amp;#8217;
+</code></pre>
+
+<p><em>toggle</em> Toggle the visibility of a DOM element</p>
+
+<pre><code>page.toggle &amp;#8216;some-element&amp;#8217;
+</code></pre>
+
+<p><em>alert</em> Display an alert box</p>
+
+<pre><code>page.alert &amp;#8216;Hello world&amp;#8217;
+</code></pre>
+
+<p><em>redirect_to</em> Redirects the browser to a given location </p>
+
+<pre><code>page.redirect_to :controller =&gt; &amp;#8216;blog&amp;#8217;, :action =&gt; &amp;#8216;show&amp;#8217;, :id =&gt; @post
+</code></pre>
+
+<p><em>call</em> Calls another JavaScript function</p>
+
+<pre><code>page.call foo, 1, 2
+</code></pre>
+
+<p><em>assign</em> Assigns a value to a JS variable</p>
+
+<pre><code>page.assign &amp;#8220;foo&amp;#8221;, 42
+</code></pre>
+
+<p><em>&lt;&lt;</em> Writes raw JavaScript to the page</p>
+
+<pre><code>page &lt;&lt; "alert('hello world);"
+</code></pre>
+
+<p><em>delay</em> Delays the code in the block by a number of seconds</p>
+
+<pre><code>page.delay(10) do 
+   page.visual_effect :fade, 'notice'
+end
+</code></pre>
+
+<p><em>visual_effect</em> Calls a Scriptaculous effect</p>
+
+<pre><code>page.visual_effect :highlight, 'notice', :duration =&gt; 2
+</code></pre>
+
+<p><em>sortable</em> Create a sortable element</p>
+
+<pre><code>page.sortable &amp;#8216;my_list&amp;#8217;, :url =&gt; { :action =&gt; &amp;#8216;order&amp;#8217; }
+</code></pre>
+
+<p><em>dragable</em> Create a dragable element</p>
+
+<pre><code>page.dragable &amp;#8216;my_image&amp;#8217;, :revert =&gt; true
+</code></pre>
+
+<p><em>drop_receiving</em> Create an element for receiving drops</p>
+
+<pre><code>page.drop_recieving &amp;#8216;my_cart&amp;#8217;, :url =&gt; { :controller =&gt; &amp;#8216;cart&amp;#8217;, :action =&gt; &amp;#8216;add&amp;#8217; }
+</code></pre>
+
+<h2>Helpers</h2>
+
+<p>Small functions, usually used for displaying data, can be extracted to helpers. Each view has it’s own helper class (in <em>app/helpers</em>). Common functionality is stored in <em>app/helpers/application_helper.rb</em></p>
+
+<h2>Links</h2>
+
+<pre><code>link_to &amp;#8220;Name&amp;#8221;, :controller =&gt; &amp;#8216;post&amp;#8217;, :action =&gt; &amp;#8216;show&amp;#8217;, :id =&gt; @post.id
+link_to &amp;#8220;Delete&amp;#8221;, { :controller =&gt; &amp;#8220;admin&amp;#8221;,
+  :action =&gt; &amp;#8220;delete&amp;#8221;,
+  :id =&gt; @post },
+{ :class =&gt; &amp;#8216;css-class&amp;#8217;,
+  :id =&gt; &amp;#8216;css-id&amp;#8217;,
+  :confirm =&gt; &amp;#8220;Are you sure?&amp;#8221; }
+
+image_tag &amp;#8220;spinner.png&amp;#8221;, :class =&gt; &amp;#8220;image&amp;#8221;, :alt =&gt; &amp;#8220;Spinner&amp;#8221;
+
+mail_to &amp;#8220;info@invisible.ch&amp;#8221;, &amp;#8220;send mail&amp;#8221;, 
+      :subject =&gt; &amp;#8220;Support request by #{@user.name}&amp;#8221;,
+        :cc =&gt; @user.email,
+        :body =&gt; &amp;#8216;&amp;#8230;.&amp;#8217;,
+        :encoding =&gt; &amp;#8220;javascript&amp;#8221;
+
+stylesheet_link_tag &amp;#8220;scaffold&amp;#8221;, &amp;#8220;admin&amp;#8221;, :media =&gt; &amp;#8220;all&amp;#8221;
+</code></pre>
+
+<h2>HTML Forms</h2>
+
+<h3>Form</h3>
+
+<pre><code>&lt;%= form_tag { :action =&gt; :save }, { :method =&gt; :post } %&gt;
+</code></pre>
+
+<p>creates a form tag with the specified action, makes it a <strong>post</strong> request.</p>
+
+<p>Use <code>:multipart =&gt; true</code> to define a Mime-Multipart form (for file uploads)</p>
+
+<h3>Text fields</h3>
+
+<pre><code>&lt;%= text_field :modelname, :attribute_name, options  %&gt;
+</code></pre>
+
+<p>creates a text input field of the form:</p>
+
+<pre><code>&lt;input type="text" name="modelname[attribute_name]" id="attributename" /&gt;
+</code></pre>
+
+<p>Example:</p>
+
+<pre><code>text_field &amp;#8220;post&amp;#8221;, &amp;#8220;title&amp;#8221;, &amp;#8220;size&amp;#8221; =&gt; 20
+    &lt;input  type="text" id="post_title" name="post[title]" 
+            size="20" value="#{@post.title}" /&gt;
+
+&lt;%= hidden_field ... %&gt;
+</code></pre>
+
+<p>creates a hidden field </p>
+
+<pre><code>&lt;%= password_field ... %&gt;
+</code></pre>
+
+<p>creates a password field (all input shown as stars)</p>
+
+<pre><code>&lt;%= file_field ... %&gt;
+</code></pre>
+
+<p>creates a file field</p>
+
+<h3>Textarea</h3>
+
+<pre><code>&lt;%= text_area ... %&gt;
+</code></pre>
+
+<p>creates a text area. Example:</p>
+
+<pre><code>text_area &amp;#8220;post&amp;#8221;, &amp;#8220;body&amp;#8221;, &amp;#8220;cols&amp;#8221; =&gt; 20, &amp;#8220;rows&amp;#8221; =&gt; 40
+    &lt;textarea cols="20" rows="40" id="post_body" name="post[body]"&gt;
+        #{@post.body}
+    &lt;/textarea&gt;
+</code></pre>
+
+<h3>Radio Button</h3>
+
+<pre><code>&lt;%= radio_button :modelname, :attribute, :tag_value, options %&gt;
+</code></pre>
+
+<p>creates a radio button. </p>
+
+<p>Example:</p>
+
+<pre><code>radio_button &amp;#8220;post&amp;#8221;, &amp;#8220;category&amp;#8221;, &amp;#8220;rails&amp;#8221;
+radio_button &amp;#8220;post&amp;#8221;, &amp;#8220;category&amp;#8221;, &amp;#8220;java&amp;#8221;
+    &lt;input type="radio" id="post_category" name="post[category]" value="rails" 
+           checked="checked" /&gt;
+    &lt;input type="radio" id="post_category" name="post[category]" value="java" /&gt;
+</code></pre>
+
+<h3>Check Box</h3>
+
+<pre><code>&lt;%= check_box :modelname, :attribute, options, on_value, off_value %&gt;
+</code></pre>
+
+<p>Example:</p>
+
+<pre><code>check_box &amp;#8220;post&amp;#8221;, &amp;#8220;validated&amp;#8221;   # post.validated? returns 1 or 0
+    &lt;input type="checkbox" id="post_validate" name="post[validated]" 
+           value="1" checked="checked" /&gt;
+    &lt;input name="post[validated]" type="hidden" value="0" /&gt;
+
+check_box &amp;#8220;puppy&amp;#8221;, &amp;#8220;gooddog&amp;#8221;, {}, &amp;#8220;yes&amp;#8221;, &amp;#8220;no&amp;#8221;
+    &lt;input type="checkbox" id="puppy_gooddog" name="puppy[gooddog]" value="yes" /&gt;
+    &lt;input name="puppy[gooddog]" type="hidden" value="no" /&gt;
+</code></pre>
+
+<h3>Options</h3>
+
+<p>Create a select tag. Pass an array of choices</p>
+
+<pre><code>&lt;%= select :variable, :attribute, choices, options, html_options %&gt;
+
+select  &amp;#8220;post&amp;#8221;,         
+        &amp;#8220;person_id&amp;#8221;,    
+        Person.find_all.collect {|p| [ p.name, p.id ] },
+        { :include_blank =&gt; true } 
+
+ &lt;select name="post[person_id]"&gt;
+   &lt;option&gt;&lt;/option&gt;
+   &lt;option value="1" selected="selected"&gt;David&lt;/option&gt;
+   &lt;option value="2"&gt;Sam&lt;/option&gt;
+   &lt;option value="3"&gt;Tobias&lt;/option&gt;
+ &lt;/select&gt;
+
+&lt;%= collection_select :variable, :attribute, choices, :id, :value %&gt;
+</code></pre>
+
+<h3>Date Time</h3>
+
+<pre><code>&lt;%= date_select :variable, :attribute, options %&gt;
+&lt;%= datetime_select :variable, :attribute, options %&gt;
+</code></pre>
+
+<p>Examples:</p>
+
+<pre><code>date_select &amp;#8220;post&amp;#8221;, &amp;#8220;written_on&amp;#8221;
+date_select &amp;#8220;user&amp;#8221;, &amp;#8220;birthday&amp;#8221;, :start_year =&gt; 1910
+date_select &amp;#8220;user&amp;#8221;, &amp;#8220;cc_date&amp;#8221;, :start_year =&gt; 2005,
+                               :use_month_numbers =&gt; true,
+                               :discard_day =&gt; true,
+                               :order =&gt; [:year, :month]
+
+datetime_select &amp;#8220;post&amp;#8221;, &amp;#8220;written_on&amp;#8221;
+</code></pre>
+
+<h3>End Form Tag</h3>
+
+<pre><code>&lt;%= end_form_tag %&gt;
+</code></pre>
+
+<h2>Layouts</h2>
+
+<p>A layout defines the <em>surroundings</em> of an HTML page. It’s the place to define common look &amp; feel. Layouts live in <code>app/views/layouts</code></p>
+
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Form: &lt;%= controller.action_name %&gt;&lt;/title&gt;
+    &lt;%= stylesheet_link_tag 'scaffold' %&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;%= yield %&gt;   # the content will show up here
+  &lt;/body&gt;
+&lt;/html&gt;
+
+&amp;#8212;-
+
+class MyController &lt; ApplicationController
+  layout "standard", :except =&gt; [ :rss, :atom ]
+&amp;#8230;
+end
+
+&amp;#8212;-
+
+class MyOtherController &lt; ApplicationController
+  layout :compute_layout
+
+  # this method computes the name of the layout to use
+  def compute_layout
+    return "admin" if session[:role] == "admin"
+    "standard"
+  end
+  ...
+end
+</code></pre>
+
+<p>Layouts have access to the instance variables of the controller so you can pass values "up"</p>
+
+<h2>Partials</h2>
+
+<p>Partials are building blocks for creating views. They allow re-use of commonly used display blocks. They are stored in files:</p>
+
+<pre><code>render :partial =&gt; &amp;#8216;product&amp;#8217;
+</code></pre>
+
+<p>loads the partial in  <code>_form.rthml</code> and passed the instance variable <code>@product</code> to it. The partial can access it using <code>@product</code></p>
+
+<pre><code>render :partial =&gt; &amp;#8216;product&amp;#8217;, :locals =&gt; { :product =&gt; @bought }
+</code></pre>
+
+<p>loads the same partial but assigns a different instance variable to it.</p>
+
+<pre><code>render :partial =&gt; &amp;#8216;product&amp;#8217;, :collection =&gt; @product_list
+</code></pre>
+
+<p>renders the partial for each element in <code>@product_list</code> and assigns <code>@product</code> to each element. An iteration counter will automatically be made available to the template with a name of the form <code>partial_name_counter</code> (in the above example: <code>product_counter</code>).</p>
+
+<h2>Components</h2>
+
+<p>To reuse both controller logic and views, use them as “components”</p>
+
+<pre><code>render_component :controller =&gt; &amp;#8216;posts&amp;#8217;, :action =&gt; &amp;#8216;last_posts&amp;#8217;
+</code></pre>
+
+<p>That calls <code>last_posts</code> in the PostsController. Use </p>
+
+<pre><code>render :layout =&gt; false, &amp;#8230;
+</code></pre>
+
+<p>or</p>
+
+<pre><code>layout &amp;#8220;xxx&amp;#8221;, :except =&gt; &amp;#8216;last_posts&amp;#8217;
+</code></pre>
+
+<p>to render this action without a layout</p>
+
+<h2>Functional Testing</h2>
+
+<pre><code>rake test:functional
+</code></pre>
+
+<h3>Requests</h3>
+
+<pre><code>get :action # a get request of the specificed action
+get :action, :id =&gt; 1,
+         { session_hash }, # optional session variables
+         { flash_hash }    # optional messages in the flash
+
+post :action, :foo =&gt; { :value1 =&gt; &amp;#8216;abc&amp;#8217;, :value2 =&gt; &amp;#8216;123&amp;#8217; },
+              { :user_id =&gt; 17 },
+              { :message =&gt; &amp;#8216;success&amp;#8217; }
+
+get, post, put, delete, head 
+
+assert_response :success
+# possible parameters are:
+#   :success   
+#   :redirect  
+#   :missing
+#   :error
+</code></pre>
+
+<h3>Redirects</h3>
+
+<pre><code>assert_redirected_to :action =&gt; :other_action
+assert_redirected_to :controller =&gt; &amp;#8216;foo&amp;#8217;, :action =&gt; &amp;#8216;bar&amp;#8217;
+assert_redirected_to http://www.invisible.ch
+</code></pre>
+
+<h3>Rendered with template</h3>
+
+<pre><code>assert_template &amp;#8220;post/index&amp;#8221;
+</code></pre>
+
+<h3>Variable assignments</h3>
+
+<pre><code>assert_nil assigns(:some_variable)
+assert_not_nil assigns(:some_variable)
+assert_equal 17, assigns(:posts).size
+</code></pre>
+
+<h3>Rendering of specific tags</h3>
+
+<pre><code>assert_tag :tag =&gt; &amp;#8216;body&amp;#8217;
+assert_tag :content =&gt; &amp;#8216;Rails Seminar&amp;#8217;
+assert_tag :tag =&gt; &amp;#8216;div&amp;#8217;, :attributes =&gt; { :class =&gt; &amp;#8216;index_list&amp;#8217; }
+assert_tag :tag =&gt; &amp;#8216;head&amp;#8217;, :parent =&gt; { :tag =&gt; &amp;#8216;body&amp;#8217; }
+assert_tag :tag =&gt; &amp;#8216;html&amp;#8217;, :child =&gt; { :tag =&gt; &amp;#8216;head&amp;#8217; }
+assert_tag :tag =&gt; &amp;#8216;body&amp;#8217;, :descendant =&gt; { :tag =&gt; &amp;#8216;div&amp;#8217; }
+assert_tag :tag =&gt; &amp;#8216;ul&amp;#8217;,
+           :children =&gt; { :count =&gt; 1..3,
+                      :only =&gt; { :tag =&gt; &amp;#8216;li&amp;#8217; } }
+</code></pre>
+
+<h2>AJAX</h2>
+
+<p>Be sure to include the javascript libraries in the layout</p>
+
+<pre><code>&lt;%= javascript_include_tag :defaults %&gt;
+</code></pre>
+
+<h3>Linking to remote action</h3>
+
+<pre><code>&lt;%= link_to_remote "link", :update =&gt; &amp;#8216;some_div&amp;#8217;, 
+                           :url =&gt; { :action =&gt; &amp;#8216;show&amp;#8217;, :id =&gt; post.id } %&gt;
+
+&lt;%= link_to_remote "link", :url =&gt; { :action =&gt; &amp;#8216;create&amp;#8217;,
+                           :update =&gt; { :success =&gt; &amp;#8216;good_div&amp;#8217;, 
+                                        :failure =&gt; &amp;#8216;error_div&amp;#8217; },
+                           :loading =&gt; &amp;#8216;Element.show(&amp;#8216;spinner&amp;#8217;),
+                           :complete =&gt; &amp;#8216;Element.hide(&amp;#8216;spinner&amp;#8217;) } %&gt;
+</code></pre>
+
+<h3>Callbacks</h3>
+
+<pre><code>:loading        Called when the remote document is being loaded with data 
+                by the browser.
+:loaded         Called when the browser has finished loading the remote document.
+:interactive    Called when the user can interact with the remote document, 
+                even though it has not finished loading.
+:success        Called when the XMLHttpRequest is completed, and the HTTP 
+                status code is in the 2XX range.
+:failure        Called when the XMLHttpRequest is completed, and the HTTP 
+                status code is not in the 2XX range.
+:complete       Called when the XMLHttpRequest is complete (fires after 
+                success/failure if they are present).
+</code></pre>
+
+<p>You can also specifiy reactions to return codes directly:</p>
+
+<pre><code>link_to_remote word,
+    :url =&gt; { :action =&gt; &amp;#8220;action&amp;#8221; },
+    404 =&gt; &amp;#8220;alert(&amp;#8216;Not found&amp;#8230;? Wrong URL&amp;#8230;?&amp;#8217;)&amp;#8221;,
+    :failure =&gt; &amp;#8220;alert(&amp;#8216;HTTP Error &amp;#8217; + request.status + &amp;#8216;!&amp;#8217;)&amp;#8221;
+</code></pre>
+
+<h3>AJAX Forms</h3>
+
+<p>Create a form that will submit via an XMLHttpRequest instead of a
+POST request. The parameters are passed exactly the same way (so the
+controller can use the <code>params</code> method to access the
+parameters). Fallback for non JavaScript enabled browsers can be
+specified by using the :action methods in the :html option.</p>
+
+<pre><code>form_remote_tag :html =&gt; { :action =&gt; url_for(:controller =&gt; &amp;#8216;controller&amp;#8217;, 
+                                              :action =&gt; &amp;#8216;action&amp;#8217;), 
+                           :method =&gt; :post }
+</code></pre>
+
+<h3>Autocompleting textfield</h3>
+
+<p>In View:</p>
+
+<pre><code>&lt;%= text_field_with_auto_complete :model, :attribute %&gt;
+</code></pre>
+
+<p>In Controller:</p>
+
+<pre><code>auto_complete_for :model, :attribute
+</code></pre>
+
+<h3>Observe Field</h3>
+
+<pre><code>&lt;label for="search"&gt;Search term:&lt;/label&gt; 
+&lt;%= text_field_tag :search %&gt; 
+&lt;%= observe_field(:search, 
+                  :frequency =&gt; 0.5, 
+                  :update =&gt; :results, 
+                  :url =&gt; { :action =&gt; :search }) %&gt; 
+&lt;div id="results"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>Optionally specify:</p>
+
+<pre><code>:on =&gt; :blur    # trigger for event (default :changed or :clicked) 
+:with =&gt; &amp;#8230;    # a JavaScript expression to specify what value is sent
+                # defaults to &amp;#8220;value&amp;#8221;
+:with =&gt; &amp;#8216;bla&amp;#8217;  # &amp;#8220;&amp;#8216;bla&amp;#8217; = value&amp;#8221;
+:with =&gt; &amp;#8216;a=b&amp;#8217;  # &amp;#8220;a=b&amp;#8221;
+</code></pre>
+
+<h3>Observe Form</h3>
+
+<p>Same semantics as <code>observe_field</code></p>
+
+<h3>Periodically call Remote</h3>
+
+<pre><code>&lt;%= periodically_call_remote(:update =&gt; &amp;#8216;process-list&amp;#8217;, 
+                             :url =&gt; { :action =&gt; :ps }, 
+                             :frequency =&gt; 2 ) %&gt;
+</code></pre>
+
+<h1>Configuring your application</h1>
+
+<p>A lot of things can be configured in the <code>config/environment.rb</code> file. This list is not exhaustive:</p>
+
+<h2>Session configuration</h2>
+
+<pre><code>config.action_controller.session_store = :active_record_store 
+# one of :active_record_store, :drb_store, 
+# :mem_cache_store, or :memory_store or your own class
+
+
+ActionController::Base.session_options[:session_key] = &amp;#8216;my_app&amp;#8217;
+    # use an application specific session_key
+ActionController::Base.session_options[:session_id] = &amp;#8216;12345&amp;#8217;
+    # use this session_id. Will be created if not specified
+ActionController::Base.session_options[:session_expires] = 3.minute.from_now  
+    # how long before a session expires?
+ActionController::Base.session_options[:new_session] = true
+    # force the creation of a new session
+ActionController::Base.session_options[:session_secure] = true
+    # only use sessions over HTTPS
+ActionController::Base.session_options[:session_domain] = &amp;#8216;invisible.ch&amp;#8217;
+    # Specify which domain this session is valid for (default: hostname of server)
+ActionController::Base.session_options[:session_path] = &amp;#8216;/my_app&amp;#8217;
+    # the path for which this session applies.  Defaults to the 
+    # directory of the CGI script
+</code></pre>
+
+<h2>Caching configuration</h2>
+
+<pre><code>ActionController::Base.fragment_cache_store = :file_store, &amp;#8220;/path/to/cache/directory&amp;#8221;
+</code></pre>
+
+<h1>Appendix</h1>
+
+<h2>Sources</h2>
+
+<ul>
+<li><em>Agile Web Development with Rails</em></li>
+<li>The Rails-Users mailing list</li>
+<li>The Rails Source code</li>
+</ul>
+
+<h2>License</h2>
+
+<p>Part of the course materials for the Ruby On Rails Workshop by InVisible GmbH.</p>
+
+<p>InVisible GmbH<br>
+Langgrütstrasse 172<br>
+8047 Zürich<br>
++41 44 401 09 30<br></p>
+
+<p>http://www.invisible.ch<br>
+mailto:info@invisible.ch<br></p>
+
+<p><!--Creative Commons License--><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/"><img alt="Creative Commons License" src="rails-1-1-cheat-sheet_files/somerights20.png" border="0"></a><br>Dieser Inhalt ist unter einer <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons-Lizenz</a> lizenziert.<!--/Creative Commons License-->
+<rdf:rdf xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                                        <work rdf:about="">
+                                            <license rdf:resource="http://creativecommons.org/licenses/by-sa/2.5/">
+                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text">
+                                        </dc:type>
+                                        <license rdf:about="http://creativecommons.org/licenses/by-sa/2.5/"><permits rdf:resource="http://web.resource.org/cc/Reproduction"><permits rdf:resource="http://web.resource.org/cc/Distribution"><requires rdf:resource="http://web.resource.org/cc/Notice"><requires rdf:resource="http://web.resource.org/cc/Attribution"><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"><requires rdf:resource="http://web.resource.org/cc/ShareAlike"></requires></permits></requires></requires></permits></permits></license></license></work></rdf:rdf></p>
+
+<p><strong>update</strong>: This version of the reference is from May 06.  You may find an updated version on <a href="http://blog.invisible.ch/files/rails-reference-1.1.html">InVisible</a></p>
+  </div>
+      <script type="text/javascript"><!--
+      google_ad_client = "pub-0342797650501429";
+      google_alternate_ad_url = "http://blog.nanorails.com/468x60.html";
+      google_ad_width = 468;
+      google_ad_height = 60;
+      google_ad_format = "468x60_as";
+      google_ad_type = "text";
+      google_ad_channel ="1172064303";
+      google_color_border = "FFFFFF";
+      google_color_bg = "FFFFFF";
+      google_color_link = "0066CC";
+      google_color_text = "0066CC";
+      google_color_url = "32CF00";
+      //--></script>
+      <script type="text/javascript" src="rails-1-1-cheat-sheet_files/show_ads.js"></script>
+
+
+
+      </div>
+    </div>      
+    <div id="sidebar">
+      <div id="about-box">
+        <h3>About</h3>
+        <img src="rails-1-1-cheat-sheet_files/psq.png" alt="Pascal's Picture">
+        <p>Pascal is a Technologist, with a passion for usability, development, testing, and System Administration.</p>
+        <p>This is a chronicle of his adventures with Ruby, Rails, web technologies and his quest for <a href="http://blog.nanorails.com/articles/category/just-enough">"Just Enough is More"</a></p>
+      </div>
+      <div class="sidebar-node">
+        <div id="textlinkads"><h3>Sponsors</h3><ul><li> <a href="http://bytes.com/topic/ruby/answers/">Rails Forum - Join Today!</a> </li><li> <a href="http://www.netidnow.com/">How to create a website</a> </li><li> <a href="http://www.findyourartschool.com/ep/photography-schools.php">Photography Schools</a> </li><li> <a href="http://www.datarecovery.net/">Hard Drive Recovery</a> </li><li> <a href="http://www.e-zsoft.com/">dvd to ipod</a> </li><li> <a href="http://www.top10webhosting.com/dedicated.php">Top dedicated hosts</a> </li><li><a href="http://www.text-link-ads.com/?ref=14245">Monetize your blog</a></li></ul><br><a href="http://www.text-link-ads.com/packageDetail.php?packageID=40785">Buy links here</a></div>
+      </div>
+      <div class="sidebar-node">
+        <h3>Feeds</h3>
+      <a href="http://feeds.feedburner.com/Nanorails"><img src="rails-1-1-cheat-sheet_files/Nanorails.gif" style="border: 0pt none ;" alt="" height="26" width="88"></a><br>
+      <img src="rails-1-1-cheat-sheet_files/feed-icon16x16.png" alt="" style="border: 0pt none ;">
+      <a href="http://feeds.feedburner.com/Nanorails" title="Subscribe to NanoRAILS articles" rel="alternate" type="application/rss+xml">Articles</a>
+      <br>
+      <img src="rails-1-1-cheat-sheet_files/feed-icon16x16.png" alt="" style="border: 0pt none ;">
+      <a href="http://feeds.feedburner.com/NanorailsComments" title="Subscribe to comments" rel="alternate" type="application/rss+xml">Comments</a>
+
+
+      </div>
+
+<div class="sidebar-node" id="twitter_div">
+<h3>Twitter updates</h3>
+<ul id="twitter_update_list"><li><span>is drinking Chateau Lagrange - Saint-Julien (2000) <a href="http://winesorganizer.com/w/3j">http://winesorganizer.com/w/3j</a> absolutely awesome!</span> <a style="font-size: 85%;" href="http://twitter.com/psq/statuses/3141693280">about 3 hours ago</a></li><li><span>better filter filter out bacteria and viruses, but what about chemicals? <a href="http://low.cc/xG3hI">http://low.cc/xG3hI</a></span> <a style="font-size: 85%;" href="http://twitter.com/psq/statuses/3141293764">about 4 hours ago</a></li><li><span>The ever so interesting Seth <a href="http://low.cc/LU0D0">http://low.cc/LU0D0</a>  Lots is repeat, but always good and interesting</span> <a style="font-size: 85%;" href="http://twitter.com/psq/statuses/3067354942">4 days ago</a></li><li><span>is drinking Carrascal - 45% Malbec - 35% Merlot - 20% Cabernet Sauvignon (2005) <a href="http://winesorganizer.com/w/A8">http://winesorganizer.com/w/A8</a> quite an awesome Malbec!  ...</span> <a style="font-size: 85%;" href="http://twitter.com/psq/statuses/2885973098">8 days ago</a></li><li><span><a href="http://low.cc/HuHsZ">http://low.cc/HuHsZ</a> behind the scene at TED.  Fascinating :)</span> <a style="font-size: 85%;" href="http://twitter.com/psq/statuses/2665731871">20 days ago</a></li></ul>
+<a href="http://twitter.com/psq" id="twitter-link">follow me on Twitter</a>
+</div>
+
+      <div class="sidebar-node">
+        <h3>Favorites</h3>
+        <ul>
+          <li><a href="http://blog.nanorails.com/pages/rails-1-1-cheat-sheet">Rails 1.1 Cheat Sheet</a></li>
+          <li><a href="http://blog.nanorails.com/articles/2006/07/11/installing-rails-on-mac-os-x-tiger">Installing Rails on Mac OS X Tiger</a></li>
+          <li><a href="http://blog.nanorails.com/articles/2006/07/14/a-better-rails-debugger-ruby-debug">A better Rails debugger: ruby-debug</a></li>
+          <li><a href="http://blog.nanorails.com/articles/2006/07/01/remote-ubuntu-dapper-drake-install">Remote Ubuntu Dapper Drake Install</a></li>
+
+          <li><a href="http://blog.nanorails.com/articles/2006/06/30/installing-ubuntu-dapper-on-parallels-running-on-tiger">Installing Ubuntu Dapper on Parallels running on Tiger</a></li>
+          <li><a href="http://mephisto-themes.nanorails.com/gallery">Mephisto Gallery</a></li>
+          <li><a href="http://blog.nanorails.com/pages/web_books">Reading list</a></li>
+          <li><a href="http://blog.nanorails.com/archives">Archives</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-node">
+        <h3>Recent Comments</h3>
+        <div>
+            <ul>
+              
+              
+                <li><a href="http://blog.nanorails.com/articles/2006/5/12/can-you-host-a-modified-gpl-software-and-not-release-it">Can you host a modified GPL software and not release it?</a> by 
+                
+                  <a href="http://blog.nanorails.com/">Pascal</a>
+                
+                </li>
+              
+                <li><a href="http://blog.nanorails.com/articles/2006/5/12/can-you-host-a-modified-gpl-software-and-not-release-it">Can you host a modified GPL software and not release it?</a> by 
+                
+                  <a href="http://find.brentshepherd.com/">Brent Shepherd</a>
+                
+                </li>
+              
+                <li><a href="http://blog.nanorails.com/articles/2007/8/28/upgrading-a-macbook-pro-hard-disk">Upgrading a MacBook Pro Hard Disk</a> by 
+                
+                  <a href="http://blog.nanorails.com/">Pascal</a>
+                
+                </li>
+              
+                <li><a href="http://blog.nanorails.com/articles/2006/6/30/installing-ubuntu-dapper-on-parallels-running-on-tiger">Installing Ubuntu Dapper on Parallels running on Tiger</a> by 
+                
+                  <a href="http://blog.nanorails.com/">Pascal</a>
+                
+                </li>
+              
+                <li><a href="http://blog.nanorails.com/articles/2007/8/28/upgrading-a-macbook-pro-hard-disk">Upgrading a MacBook Pro Hard Disk</a> by 
+                
+                  Pablo Suarez Cruzado
+                
+                </li>
+              
+            </ul>
+        </div>
+      </div>
+      <div class="sidebar-node">
+        <h3>Recent Posts</h3>
+        <div>
+            <ul>
+              
+              
+                <li><a href="http://blog.nanorails.com/articles/2008/12/17/closing-comments">closing comments</a></li>
+              
+                <li><a href="http://blog.nanorails.com/articles/2008/11/8/merb-1-0">merb 1.0</a></li>
+              
+                <li><a href="http://blog.nanorails.com/articles/2008/9/24/index-your-datamapper-models-with-xapian">Index your DataMapper Models with Xapian</a></li>
+              
+                <li><a href="http://blog.nanorails.com/articles/2008/2/18/ann-rails-undo-redo">ANN: rails-undo-redo</a></li>
+              
+                <li><a href="http://blog.nanorails.com/articles/2008/2/18/git-submodules-and-capistrano">git, submodules and Capistrano</a></li>
+              
+            </ul>
+        </div>
+      </div>
+      <div class="sidebar-node">
+        <h3>My other sites</h3>
+        <ul>
+          <li><a href="http://winesorganizer.com/" title="Organize your wine bottles"> Track, find, drink your wine</a></li>
+          <li><a href="http://quotesorganizer.com/" title="Your quotes, organized."> Your quotes, organized </a></li>
+          <li><a href="http://low.cc/" title="Short URLs, with stats"> Short URLs, with stats: low.cc</a></li>
+          <li><a href="http://homerecipes.org/" title="Home Recipes">Home Recipes</a></li>
+          <li><a href="http://sidebusiness.biz/" title="Start a Side Business">Start a Side Business</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-node">
+        <h3>License</h3>
+      <!--Creative Commons License--><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" src="rails-1-1-cheat-sheet_files/somerights20.png" border="0"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 License</a>.<!--/Creative Commons License--><!-- <rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      		<Work rdf:about="">
+      			<license rdf:resource="http://creativecommons.org/licenses/by/2.5/" />
+      		</Work>
+      		<License rdf:about="http://creativecommons.org/licenses/by/2.5/"><permits rdf:resource="http://web.resource.org/cc/Reproduction"/><permits rdf:resource="http://web.resource.org/cc/Distribution"/><requires rdf:resource="http://web.resource.org/cc/Notice"/><requires rdf:resource="http://web.resource.org/cc/Attribution"/><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/></License></rdf:RDF> -->
+
+      </div>
+
+    </div>
+    <div id="main-bottom-space">&nbsp;</div>
+  </div>
+  <div id="footer">
+    <p>Based on <a href="http://www.height1percent.com/pages/brighthouse/">Brighthouse</a> theme by <a href="http://www.height1percent.com/">Richard White</a></p>
+    <!--ul>
+      <li>Valid <a href="http://validator.w3.org/check?uri=referer">XHTML 1.0</a></li>
+      <li>Valid <a href="http://jigsaw.w3.org/css-validator/validator?uri=http://blog.nanorails.com/pages/rails-1-1-cheat-sheet/">CSS</a></li>
+    </ul-->
+  </div>
+  <!-- Start of StatCounter Code -->
+  <script type="text/javascript">
+  <!--
+  var sc_project=1413011;
+  var sc_invisible=1;
+  var sc_partition=11;
+  var sc_security="4c7ba240";
+  //-->
+  </script>
+  <script type="text/javascript" src="rails-1-1-cheat-sheet_files/counter_xhtml.js"></script><noscript><div
+class="statcounter"><a class="statcounter"
+href="http://www.statcounter.com/"><img class="statcounter"
+src="http://c12.statcounter.com/counter.php?sc_project=1413011&java=0&security=4c7ba240&invisible=1"
+alt="best counter" /></a></div></noscript>
+  <!-- End of StatCounter Code -->
+  <script src="rails-1-1-cheat-sheet_files/urchin.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+  _uacct = "UA-251458-4";
+  urchinTracker();
+  </script>
+<script type="text/javascript" src="rails-1-1-cheat-sheet_files/blogger.js"></script>
+<script type="text/javascript" src="rails-1-1-cheat-sheet_files/psq.json"></script>
+</body></html>
