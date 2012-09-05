@@ -22,6 +22,8 @@
 
 [Shoulda matchers](https://github.com/thoughtbot/shoulda-matchers#activemodel-matchers)
 
+[RSpec expectation](https://github.com/rspec/rspec-expectations)
+
 [Markdown syntax](http://daringfireball.net/projects/markdown/syntax)
 
 [Bourbon](http://thoughtbot.com/bourbon/)
