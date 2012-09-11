@@ -1,3 +1,58 @@
+# RSpec on Rails callback presence
+
+let say we have this model (e.g.: described in [this](http://stackoverflow.com/questions/7361036/rspec2-testing-a-before-validation-method) StackOverflow question)
+
+    class Part < ActiveRecord::Base
+      before_validation :strip_whitespace
+
+    protected
+      def strip_whitespace
+        self.title = self.title.strip
+      end
+    end
+
+the proper way to write the spec is to separately write spec on **strip_whitespace** method and then just check if model class have callback set on it, like this: 
+
+    describe Part do
+      let(:record){ described_class.new }
+
+      it{ described_class._validation_callbacks.select{|cb| cb.kind.eql?(:before)}.collect(&:filter).should include(:strip_whitespace) }
+
+      #private methods
+      describe :strip_whitespace do
+        subject{record.send(:strip_whitespace)} # send() because calling private method
+        before{ record.stub(:title).and_return('    foo    ')
+        it "should strip white spaces" do
+          subject.should eq 'foo'
+          # or even shorter
+          should eq 'foo'
+        end
+      end
+    end
+
+if you need to skip callback behavior in some scenarios use
+
+   before{ Part.skip_callback(:validation, :before, :strip_whitespace)}
+   before{ Part.set_callback( :validation, :before, :strip_whitespace)}
+
+other links 
+http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html#label-Debugging+callbacks
+http://stackoverflow.com/questions/7361036/rspec2-testing-a-before-validation-method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Rails ActiveRecord good to know
 
