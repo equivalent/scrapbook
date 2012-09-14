@@ -1,3 +1,36 @@
+# Load factories properly 
+
+I had one factory which was creating resource from another factory.
+
+    FactoryGirl.define do
+      factory :verification do
+        verifier_id User.last || FactoryGirl.create(:user)
+        verified_at Time.now
+        item  FactoryGirl.create(document)
+      end
+    end
+
+
+on verifier ( User resource) factory was created correctly but the item (Document resource) factory was throwing 
+
+    Factory not registered: document (ArgumentError)
+
+I was googling for a while and found [this](http://stackoverflow.com/questions/8409787/factorygirl-factory-not-registered-user-argumenterror) post. Basically the solution is to do something like this in your spec/spec_helper.rb file
+
+    require 'factory_girl_rails'
+    FactoryGirl.factories.clear
+    FactoryGirl.find_definitions
+
+
+
+
+
+
+
+
+
+
+
 # RSpec on Rails callback presence
 
 let say we have this model (e.g.: described in [this](http://stackoverflow.com/questions/7361036/rspec2-testing-a-before-validation-method) StackOverflow question)
