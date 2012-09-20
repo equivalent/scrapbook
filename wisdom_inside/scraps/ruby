@@ -1,6 +1,51 @@
+
+
+
+
 #ruby 1.9.2
 
 notes from ryby 1.9.2 walktrough
+
+
+## new labda syntax
+
+lambda is object representation of block
+
+~~~ruby
+->x{x - 1}  
+#same as 
+lambda{|x| -  1}
+
+
+lambda{|x,y,z| x + y + z - 1}
+->(x,y,z}{x + y + z - 1}  
+
+~~~
+
+calling lambda
+
+~~~ruby
+
+a = ->{x + 1}.call(3)
+#=> 4
+a = ->{x + 1}.(3)
+#=> 4
+a = ->{x + 1}.[3]
+#=> 4
+
+
+a = ->{x + 1} === 3
+#=> 4
+#the last one can be used in case
+
+a = lambda{|x| x == 'foo'}
+case 'foo'
+  when a
+    p 'is fooo'
+  else
+    p 'not foo'
+end
+~~~
 
 ##encoding
 

@@ -1,0 +1,60 @@
+require 'rubygems'
+require 'spork'
+
+Spork.prefork do
+  ENV["RAILS_ENV"] ||= 'test'
+  require File.expand_path("../../config/environment", __FILE__)
+  require 'rspec/rails'
+  require 'rspec/autorun'
+  require 'draper/test/rspec_integration'
+  require 'capybara/rspec'
+  require 'database_cleaner'
+
+  DatabaseCleaner.clean_with :truncation
+  DatabaseCleaner.strategy = :transaction
+
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+  RSpec.configure do |config|
+    config.filter_run :focus => true
+    config.filter_run_excluding :skip => true
+    config.run_all_when_everything_filtered = true
+
+    # Randomize specs
+    config.order = 'random'
+
+    # config.include Rails.application.routes.url_helpers, :type => :view
+    # config.include ViewMacros, :type => :view
+
+    # Devise Helpers
+    config.include Devise::TestHelpers, :type => :controller
+    config.include Devise::TestHelpers, :type => :helper
+    config.extend ControllerMacros, :type => :controller
+
+    #haml helper
+    config.include Haml::Helpers, :type => :helper
+
+    config.include FactoryGirl::Syntax::Methods      #this loads factory girl methods build() create() attributes_for()
+    config.use_transactional_fixtures = true
+    config.infer_base_class_for_anonymous_controllers = false
+
+    config.before :all do
+      DatabaseCleaner.clean_with :truncation
+    end
+  end
+end
+
+Spork.each_run do
+  require 'factory_girl_rails'
+  FactoryGirl.factories.clear
+  FactoryGirl.find_definitions
+
+  # Force reload of models and decorators
+  Dir["#{Rails.root}/app/models/**/*.rb", "#{Rails.root}/app/decorators/**/*.rb"].each { |file| load file }
+
+  # Reload factories
+  # Dir.glob("#{Rails.root}/spec/factories/*.rb").each { |file| load "#{file}" }
+
+  DatabaseCleaner.clean
+end
+
