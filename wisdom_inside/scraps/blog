@@ -1,3 +1,86 @@
+# passing CoffeeScript variable to ERB
+
+in rails 3.1 and up, you can use CoffeeScript by default. 
+
+*app/assets/javascript/my.coffee*
+
+    foo = 123
+    alert foo
+
+you can also pass ERB variables to CoffeeScript files with by just extending file extension to .erb
+
+*app/assets/javascript/my.coffee.erb*
+
+    foo = <%= 120 + 3 %>
+    alert foo
+
+you can easily use Rails url helpers in your coffee script files by extending files with url helpers
+
+*app/assets/javascript/my.coffee.erb*
+
+    <% environment.context_class.instance_eval { include Rails.application.routes.url_helpers } %>
+    foo = "<%= root_path %>
+    alert foo
+
+**note:** more info on this find it [this StackOverflow question](http://stackoverflow.com/questions/7451517/using-a-rails-helper-method-within-a-javascript-asset)
+
+I was wondering, "is there way to pass CoffeeScript variable into ERB method ?" 
+The answer is: no ...not directly
+
+Let say you want to call member action on Documents controller with AJAX
+
+you can do it this way 
+   
+*app/assets/javascript/my.coffee*
+
+      document_id = 123
+      $.ajax 'documents/' + document_id + '/my_member_action',
+        type: 'get'
+        dataType: 'json'
+        data:
+          foo: "foo"
+          bar: "bar"
+        success: (data) ->
+          #..
+
+but better idea is Rails way:
+
+*app/assets/javascript/my.coffee.erb*
+
+      <% environment.context_class.instance_eval { include Rails.application.routes.url_helpers } %>
+      document_id = 123
+      url = "<%= my_member_action_documents_path( id: "document_id") %>".replace(/document_id/, document_id)
+      $.ajax url,
+        type: 'get'
+        dataType: 'json'
+        data:
+          foo: "foo"
+          bar: "bar"
+        success: (data) ->
+          #..
+
+I'll generate my  *my_member_action_documents_path* string with *id = "document_id"* ...
+
+     documents/document_id/my_member_action
+
+... and than I'll replace it with value inside CoffeeScript variable *document_id*
+
+     documents/123/my_member_action
+
+
+The main advantage of using Rails paths is your javascirpt assets is that when routes changes, many times developers forget to change JavaScript files. Many applications don't have tests on JavaScript, and so this way your code will blow up with NoMethodError
+
+
+
+
+
+
+
+
+
+
+
+
 # Load factories properly 
 
 I had one factory which was creating resource from another factory.
