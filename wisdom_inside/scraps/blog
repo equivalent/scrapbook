@@ -1,3 +1,52 @@
+# Factory girl causing rake db:migrate failure
+
+I got this factory:
+
+~~~ruby
+# spec/factories/posts.rb 
+
+FactoryGirl.define do
+  factory :post do
+    title   "My ultra cool post"
+    content "Lorem ipsum"
+    association :author, :factory => :user
+
+    trait :owned_by_provider do
+      some_other_description  'Foo'
+      providers  [ FactoryGirl.create( :provider )]
+    end
+  end
+end
+~~~
+
+...on migrated database it was working correctly, however on clean database (without migrations) throwing this error:
+
+    rake db:migrate RAILS_ENV=test
+    rake aborted!
+    Mysql2::Error: Table 'cool_project_developtent.providers' doesn't exist: SHOW FULL FIELDS FROM `providers`
+
+The solution is to put association in *{}* lambda block so it won't get evaluated during rake initialization...
+
+
+FactoryGirl.define do
+  factory :post do
+    title   "My ultra cool post"
+    content "Lorem ipsum"
+    association :author, :factory => :user
+
+    trait :owned_by_provider do
+      some_other_description  'Foo'
+      providers {  [ FactoryGirl.create( :provider )] }
+    end
+  end
+end
+~~~
+
+
+
+
+
+
 # passing CoffeeScript variable to ERB
 
 in rails 3.1 and up, you can use CoffeeScript by default. 
