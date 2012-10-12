@@ -1,4 +1,30 @@
 
+
+
+
+# Validate presence of boolean field
+
+if you got boolean field e.g.: *approved* and you want to require it's presence...
+
+    validates_presence_of :approved
+
+...will cause an issue when value is *false* (*nil* and *false* are valuated as not present) 
+
+solution:
+
+    validates :approved, :inclusion => {:in => [true, false]}
+
+
+
+
+
+
+
+
+
+
+
+
 # constantize and clasify
 
 

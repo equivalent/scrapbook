@@ -1,6 +1,9 @@
 ://github.com/thoughtbot/shoulda-matchers#activemodel-matchers
 
 
+it {should ensure_inclusion_of(:approved).in_array([true, false]) }
+
+
 it{ should belong_to(:status).class_name('Option') }
 
 it { should_not allow_mass_assignment_of(:author) }
