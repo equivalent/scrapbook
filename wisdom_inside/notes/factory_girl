@@ -1,11 +1,44 @@
 
+FactoryGirl trait
+
+    factory :client do
+      sequence(:name) { |n| "Client #{n}"}
+
+      trait :foobar do
+        name 'Foo Bar'
+      end
+
+      trait :with_registries do
+        registry_ids { [FactoryGirl.create(:registry ).id] }
+      end
+
+      trait :owned_by_some_user do
+        association :owner, factory: [:user, with_another_trait]
+      end
+    end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------
+
 get valid_attributes without not accessable ones
 
 http://stackoverflow.com/questions/5103572/factorygirl-attributes-for-not-giving-me-associated-attributes
 
 (FactoryGirl.build :contact).attributes.symbolize_keys.reject { |key, value| !Contact.attr_accessible[:default].collect { |attribute| attribute.to_sym }.include?(key) }
 
-
+------------------------------------------------------
 
 
 
