@@ -1,6 +1,38 @@
 
 
 
+# How to get values of enabled checked checkboxes with jQuery
+
+    $('input:checked:not(:disabled)').serializeArray().map(function(x){return x.value})
+
+
+
+
+
+
+
+
+
+# JavaScript way to do Ruby's  collect (map)
+
+let say I have JavaScript Array of Objects:
+
+    [Object { name= "document[client_ids][]",  value="2"}, Object { name="document[client_ids][]",  value="3"}]
+
+I want to collect values. In Ruby I would just do...
+
+   [obj, obj].collect{|x| x.value}
+
+in JavaScript I must do 
+
+    [obj, obj].map(function(x){return x.value})  => ["2", "3"]
+
+
+
+
+
+
+
 
 # Validate presence of boolean field
 
