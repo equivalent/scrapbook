@@ -66,17 +66,7 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
     sudo apt-get install git 
     sudo apt-get install vim-gnome   
 
-    #rvm
-    curl -L get.rvm.io | bash -s stable
-    rvm pkg install zlib
-    rvm pkg install openssl
-    rvm pkg install iconv
-    rvm pkg install readline
-
-    #nokogiry esential
-    sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
-
-
+ 
 
     #  postgresql
 
@@ -91,6 +81,9 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
 
 # rvm
 
+    curl -L get.rvm.io | bash -s stable
+
+    sudo apt-get install build-essential 
     sudo apt-get install libopenssl-ruby
     sudo apt-get install zlib1g-dev
     rvm pkg install openssl
@@ -98,11 +91,25 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
     sudo apt-get install libreadline-dev
     sudo apt-get install libreadline5-dev libncurses5-dev
     rvm pkg install readline
-# if autoconf is doing problem:  rvm --skip-autoreconf pkg install readline
-#
+    # if autoconf is doing problem:  rvm --skip-autoreconf pkg install readline
+
+    libopenssl-ruby ruby1.8-dev
+
+    rvm pkg install zlib
+    rvm pkg install openssl
+    rvm pkg install iconv
+    rvm pkg install readline
+
+    #nokogiry esential
+    sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
+
+    # curb esentials
+    sudo apt-get install libcurl3 libcurl3-gnutls libcurl4-openssl-dev libcurl4-gnutls-dev
+
 
 
 #include this in Gemfile
+
     group :fix do
     gem 'rb-readline' # fix for mint rvm readline problem http://bit.ly/yHOi2e
     end
@@ -188,3 +195,17 @@ or mirror http://dl.dropbox.com/u/13874095/STONE/applykace/ubuntu-fix-for-touchp
     http://www.bookofzeus.com/articles/how-to-install-memcached-in-ubuntu/
 
     sudo aptitude install memcached
+
+
+
+# secure delete
+
+    sudo apt-get install secure-delete
+
+    srm      wipe existing files
+    sfill    wipe free space
+    sswap    wipe the swap space
+    sdmem    wipe the RAM
+
+http://delightlylinux.wordpress.com/2012/06/14/secure-delete/
+keywords: securely remove files overwrite
