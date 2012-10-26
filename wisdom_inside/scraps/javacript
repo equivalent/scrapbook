@@ -1,0 +1,8 @@
+
+
+
+# custom DOM trigger 
+
+$(document).on('helpMe', function() { alert('help')});
+
+$(document).trigger('helpMe');
