@@ -1,6 +1,36 @@
 
 
 
+# how to set default value to instance method in Rails
+
+~~~ruby
+after_initialize :set_foo_def_value
+
+def set_foo_def_value
+  @foo ||= []
+end
+~~~
+
+[source](http://stackoverflow.com/questions/328525/what-is-the-best-way-to-set-default-values-in-activerecord)
+
+
+--------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # How to get values of enabled checked checkboxes with jQuery
 
     $('input:checked:not(:disabled)').serializeArray().map(function(x){return x.value})
