@@ -1,3 +1,22 @@
+# How to findo out if value in JavaScript array
+
+    a = ['foo', 'bar', 'jar']
+    a.indexOf('sushi') # => -1
+    a.indexOf('bar') # => 1
+
+    a.indexOf(something) > -1
+
+however!! , IE doesn't have a full support... so you need to either define function yourself or if you are using jQuery, use its
+
+    $.inArray(value, array)
+
+
+[source](http://stackoverflow.com/questions/1181575/javascript-determine-whether-an-array-contains-a-value)
+
+
+
+-------------------------------------------------
+
 
 
 
