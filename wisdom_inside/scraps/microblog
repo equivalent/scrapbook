@@ -1,3 +1,16 @@
+
+
+# List of gems, gem version
+
+if you are using bundler 
+
+    bundle list | grep spork
+
+
+
+
+--------------------------------------------------------------
+
 # How to findo out if value in JavaScript array
 
     a = ['foo', 'bar', 'jar']
