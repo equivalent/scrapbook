@@ -1,5 +1,66 @@
 
 
+
+
+------------------------------------------------
+
+
+
+
+
+
+
+
+
+# How to run cucumber spork
+
+    spork
+    cucumber --drb
+
+and you getting 
+
+    WARNING: No DRb server is running. Running features locally:
+
+you need to run in separate window ...
+
+    spork cucumber
+
+Apparently *spork* command is just for *RSpec*s [source](https://github.com/cucumber/cucumber/issues/250#issuecomment-5141978)
+
+
+--------------------------------------------------2012-11-05
+
+
+
+
+
+
+
+
+
+
+
+
+# Erase/clear gems in RVM gemset
+
+If you manage to screw up your RVM gemset (which is not hard to do) you can erase them with command
+
+     rvm gemset empty
+
+
+-----------------------------------------------------2012-11-01
+
+
+
+
+
+
+
+
+
+
+
+
 # List of gems, gem version
 
 if you are using bundler 
@@ -9,7 +70,11 @@ if you are using bundler
 
 
 
---------------------------------------------------------------
+--------------------------------------------------------------2012-10-01
+
+
+
+
 
 # How to findo out if value in JavaScript array
 
@@ -28,7 +93,12 @@ however!! , IE doesn't have a full support... so you need to either define funct
 
 
 
--------------------------------------------------
+-------------------------------------------------2012-10-01
+
+
+
+
+
 
 
 
@@ -46,7 +116,7 @@ end
 [source](http://stackoverflow.com/questions/328525/what-is-the-best-way-to-set-default-values-in-activerecord)
 
 
---------------------------------------
+--------------------------------------2012-10-01
 
 
 
@@ -68,9 +138,7 @@ end
     $('input:checked:not(:disabled)').serializeArray().map(function(x){return x.value})
 
 
-
-
-
+----------------------------------------------------
 
 
 
@@ -93,6 +161,7 @@ in JavaScript I must do
 
 
 
+----------------------------------------------------
 
 
 
@@ -115,6 +184,7 @@ solution:
 
 
 
+----------------------------------------------------
 
 
 
@@ -127,6 +197,7 @@ solution:
 
 
 
+----------------------------------------------------
 
 
 
@@ -158,6 +229,7 @@ Class DoSomethingMigration < ActiveRecord::Migration
 
 
 
+----------------------------------------------------
 
 
 
@@ -207,6 +279,7 @@ Fetch only one column with unique values SQL query
 
 
 
+----------------------------------------------------
 
 
 #disable STI
@@ -231,6 +304,7 @@ end
 
 
 
+----------------------------------------------------
 
 
 
@@ -257,6 +331,7 @@ keywords: authencication, httpasswd htpasswrd httpwd httpaccess password login
 
 
 
+----------------------------------------------------
 
 
 
@@ -296,6 +371,7 @@ end
 keywords: current path current_path current url
 
 
+----------------------------------------------------
 
 
 # RSpec described_class
@@ -331,6 +407,7 @@ end
 
 
 
+----------------------------------------------------
 
 
 
@@ -355,6 +432,7 @@ this is use-full when you are creating new gem, and you want to try it out in yo
 
 
 
+----------------------------------------------------
 
 
 # current full url or full path in views and controllers
@@ -380,6 +458,7 @@ this is use-full when you are creating new gem, and you want to try it out in yo
 
 
 
+----------------------------------------------------
 
 
 
@@ -405,6 +484,7 @@ end
 
 
 
+----------------------------------------------------
 
 
 
@@ -429,6 +509,7 @@ end
 
 
 
+----------------------------------------------------
 
 
 # passing block to partial
@@ -467,6 +548,7 @@ I was looking for something like this
 
 
 
+----------------------------------------------------
 
 # jasmine confirmation/alert dialog stub
 
@@ -491,9 +573,10 @@ describe 'click on remove button', ->
 ~~~
 
 
+----------------------------------------------------
 
 
- Mock Devise current_user in helper specs
+# Mock Devise current_user in helper specs
 
 ~~~ruby
 
@@ -526,6 +609,7 @@ end
 
 
 
+----------------------------------------------------
 
 
 
@@ -559,6 +643,7 @@ reference: http://stackoverflow.com/questions/2851915/rails-each-loop-insert-tag
 
 
 
+----------------------------------------------------
 
 
 
@@ -593,6 +678,7 @@ p hwia[:aaa]
 
 
 
+----------------------------------------------------
 
 
 
@@ -608,6 +694,7 @@ end
 ~~~
 
 
+----------------------------------------------------
 
 
 
@@ -627,6 +714,7 @@ end
 
 
 
+----------------------------------------------------
 
 
 
@@ -707,6 +795,7 @@ or
 
 
 
+----------------------------------------------------
 
 
 
@@ -751,3 +840,5 @@ this will create local bundle copy with gems and evrything needed
             .DS_Store                  
         ▸ plugins/     
 
+
+----------------------------------------------------
