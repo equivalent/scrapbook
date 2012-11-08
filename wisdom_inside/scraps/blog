@@ -1,3 +1,50 @@
+
+
+-----------------------------------------------------------------
+
+
+# Working with SimpleForm collection_radio_buttons helper
+
+date:2012-11-08
+
+Today I needed to do collection of options for search form, but I didn't want the html include unnecessary stuff that SimpleForm gives, so I decided to use [recomended](https://github.com/plataformatec/simple_form#collection-radio-buttons) collection_radio_buttons helper.
+
+
+note: I'm using this in combination with [Ransack](https://github.com/ernie/ransack), that's why the *q* parameter, ...oh and the syntax is HAML
+
+    = simple_form_for @search, method: 'get', url: documents_path do |f|
+      = f.collection_radio_buttons :latest_true, [[0, 'All'] ,[1, 'Latest only']], :first, :last, {collection_wrapper_tag: :div, collection_wrapper_class: 'latest_or_all_documents_radio', checked: (params['q'] ? params['q']['latest'] : 0)  }
+
+
+[simple form reference for collection_radio_buttons helper](http://rubydoc.info/github/plataformatec/simple_form/master/SimpleForm/ActionViewExtensions/Builder#collection_radio_buttons-instance_method)
+  
+     (Object) collection_radio_buttons(attribute, collection, value_method, text_method, options = {}, html_options = {}) 
+
+
+generated html: 
+
+    <div class="latest_or_all_documents_radio">
+      <span>
+        <input id="q_latest_true_0" name="q[latest_true]" value="0" type="radio">
+        <label class="collection_radio_buttons" for="q_latest_true_0">All</label>
+      </span>
+      <span>
+        <input checked="checked" id="q_latest_true_1" name="q[latest_true]" value="1" type="radio">
+        <label class="collection_radio_buttons" for="q_latest_true_1">Latest only</label>
+      </span>
+    </div>
+
+
+
+
+---------------------------------------------------------------
+
+
+
+
+
+
+
 # Factory girl causing rake db:migrate failure
 
 I got this factory:
