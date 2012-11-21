@@ -14,6 +14,7 @@
 
 # How to run cucumber spork
 
+
     spork
     cucumber --drb
 
@@ -28,7 +29,10 @@ you need to run in separate window ...
 Apparently *spork* command is just for *RSpec*s [source](https://github.com/cucumber/cucumber/issues/250#issuecomment-5141978)
 
 
---------------------------------------------------2012-11-05
+
+date: 2012-11-14
+
+--------------------------------------------------
 
 
 
@@ -43,12 +47,14 @@ Apparently *spork* command is just for *RSpec*s [source](https://github.com/cucu
 
 # Erase/clear gems in RVM gemset
 
+
 If you manage to screw up your RVM gemset (which is not hard to do) you can erase them with command
 
      rvm gemset empty
 
+date 2012-11-05
 
------------------------------------------------------2012-11-01
+-----------------------------------------------------
 
 
 
@@ -68,9 +74,9 @@ if you are using bundler
     bundle list | grep spork
 
 
+date: 2012-10-01
 
-
---------------------------------------------------------------2012-10-01
+--------------------------------------------------------------
 
 
 
@@ -92,8 +98,9 @@ however!! , IE doesn't have a full support... so you need to either define funct
 [source](http://stackoverflow.com/questions/1181575/javascript-determine-whether-an-array-contains-a-value)
 
 
+date: 2012-10-01
 
--------------------------------------------------2012-10-01
+-------------------------------------------------
 
 
 
@@ -116,7 +123,9 @@ end
 [source](http://stackoverflow.com/questions/328525/what-is-the-best-way-to-set-default-values-in-activerecord)
 
 
---------------------------------------2012-10-01
+date: 2012-10-01
+
+--------------------------------------
 
 
 
@@ -137,6 +146,7 @@ end
 
     $('input:checked:not(:disabled)').serializeArray().map(function(x){return x.value})
 
+date: 2012-10-00
 
 ----------------------------------------------------
 
@@ -159,7 +169,7 @@ in JavaScript I must do
 
 
 
-
+date: 2012-09-00
 
 ----------------------------------------------------
 
@@ -183,6 +193,7 @@ solution:
 
 
 
+date: 2012-09-00
 
 ----------------------------------------------------
 
@@ -196,6 +207,7 @@ solution:
     "document".classify    # => "Document"
 
 
+date: 2012-08-00
 
 ----------------------------------------------------
 
@@ -223,6 +235,7 @@ Class DoSomethingMigration < ActiveRecord::Migration
 
 
 
+date: 2012-08-00
 
 
 
@@ -256,14 +269,18 @@ Fetch only one column with unique values SQL query
 
 
 
-
-
-
-
-
-
+date: 2012-08-00
 
 ---------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 
 # Time.now in current zone
@@ -276,10 +293,24 @@ Fetch only one column with unique values SQL query
 
 
 
+date: 2012-07-00
 
 
 
 ----------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #disable STI
@@ -300,6 +331,7 @@ end
 
 
 
+date: 2012-07-00
 
 
 
@@ -330,6 +362,7 @@ keywords: authencication, httpasswd htpasswrd httpwd httpaccess password login
 
 
 
+date: 2012-06-00
 
 ----------------------------------------------------
 
@@ -368,8 +401,10 @@ current url
 end
 ~~~
 
-keywords: current path current_path current url
 
+
+date: 2012-06-00
+keywords: current path current_path current url
 
 ----------------------------------------------------
 
@@ -402,7 +437,7 @@ end
 
 
 
-
+date: 2012-04-00
 
 
 
@@ -429,6 +464,7 @@ this is use-full when you are creating new gem, and you want to try it out in yo
 
 
 
+date: 2012-04-00
 
 
 
@@ -721,16 +757,27 @@ end
 
 
 
-## split string to char array
+# split string to char array
 
 ~~~ruby
 "Hello, world!".scan(/./)
 # => ["H", "e", "l", "l", "o", ",", " ", "w", "o", "r", "l", "d", "!"]
 ~~~
 
+date: 2011-00-00
+
+----------------------------------------------------
 
 
-## print random number in formated string
+
+
+
+
+
+
+
+
+# print random number in formated string
 
 ### with with 4 char format
 
@@ -764,7 +811,24 @@ much cooler approach
     "0010"
     "0300"
 
-## removing whitespaces from string
+
+date 2011-00-00
+
+--------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+# removing whitespaces from string
 
     s = " a x  e \n"
     s.strip
@@ -773,7 +837,17 @@ much cooler approach
     #=> " a x  e "
 
 
-## remove nonasci characters from string 
+
+
+
+
+date: 2011-00-00
+
+----------------------------------------------
+
+
+
+# remove nonasci characters from string 
 
 If you wan't to remove nonasci characters from string like 
 
@@ -791,8 +865,7 @@ or
 
 
 
-
-
+date: 2011-00-00
 
 
 ----------------------------------------------------
@@ -801,26 +874,15 @@ or
 
 
 
-## oweride instance method that is asigned to alredy existing method
 
 
-content is  method dynamicly created from ActiveRecord on comment table of Comment instance (content is column in db of table comments)
-
-    Comment.new(:content => "\naaa\r")
-
-now I want to remove new line chars from the string. The fastest solution is like this: 
-
-    class Comment
-      def content
-        raw_content = super
-        raw_content.delete("\n\r")
-      end
-    end
-
-now this isn't best practice solution. I should create new method like *dislpay_content*  and just call *content.delete* there but there are som temporary refactore situations where this works ok
 
 
-## install gems to local application directory
+
+
+
+
+# Install gems to local application directory
 
     bundle install --path vendor/bundle
 
@@ -840,5 +902,7 @@ this will create local bundle copy with gems and evrything needed
             .DS_Store                  
         ▸ plugins/     
 
+
+date: 2011-11-00
 
 ----------------------------------------------------
