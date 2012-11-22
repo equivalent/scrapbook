@@ -1316,9 +1316,10 @@ it's much cleaner than seting constant in enviromests files
 
 
 
-## How to access routing helper inside model
+# How to access routing helper inside model
 
 in model
+
 ~~~ruby
 
 def some_methode
