@@ -1,4 +1,15 @@
+# Any element that class starts with "foo"
 
+
+    .wrapper-div [class*="foo"] {
+      height: 299px;
+    }
+
+any element that has class foo1, foo2, fooZ
+
+    <div class="wrapper">
+      <div class="foor"></div>
+    </div>
 
 
 
