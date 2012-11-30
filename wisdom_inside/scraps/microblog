@@ -1,3 +1,17 @@
+# how to skip validations if something
+
+class User < ActiveRecord::Base
+  validates_presence_of :email, unless: :guest?
+  validates_uniqueness_of :username, allow_blank: true
+
+end
+
+
+date: 2012-11-30
+references: [railscast 393](http://railscasts.com/episodes/393-guest-user-record)
+
+-----------------------------------------
+
 # Any element that class starts with "foo"
 
 
@@ -12,6 +26,7 @@ any element that has class foo1, foo2, fooZ
     </div>
 
 
+date: 2012-11-29
 
 ------------------------------------------------
 
