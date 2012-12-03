@@ -1,3 +1,28 @@
+
+# Active suport concern, or how to create Rails model module
+
+    #app/lib/m.rb
+    module M
+      extend ActiveSupport::Concern
+
+      included do
+        scope :disabled, where(:disabled => true)
+      end
+
+      module ClassMethods
+        #...
+      end
+    end
+
+    #app/model/bar.rb
+    class Bar
+      include M
+    end
+
+reference: http://api.rubyonrails.org/classes/ActiveSupport/Concern.html
+
+---------------------------------------------------------
+
 # how to skip validations if something
 
 class User < ActiveRecord::Base
