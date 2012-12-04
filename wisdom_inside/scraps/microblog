@@ -1,4 +1,23 @@
 
+
+-------------------------------------------------------------------
+
+# how to do SQL OR in AREL
+
+    admins = User.where(:kind => :admin)
+    authors = User.where(:kind => :author)
+
+    admins = admins.where_values.reduce(:and)
+    authors = authors.where_values.reduce(:and)
+
+    User.where(admins.or(authors)).to_sql
+    # => "SELECT \"users\".* FROM \"users\"  WHERE ((\"users\".\"kind\" = 'admin' OR \"users\".\"kind\" = 'author'))"
+
+
+reference: http://stackoverflow.com/questions/7976358/activerecord-arel-or-condition
+
+-------------------------------------------------------------------
+
 # Active suport concern, or how to create Rails model module
 
     #app/lib/m.rb
