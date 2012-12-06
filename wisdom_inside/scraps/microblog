@@ -1,4 +1,21 @@
 
+# Convert params attribute to bollean
+
+Useful way to convert radio button param values (which are string) to boolean
+
+    ActiveRecord::ConnectionAdapters::Column.value_to_boolean(arg)
+    arg =1        # true
+    arg =0        # false
+    arg ='t'      # true
+    arg ='f'      # false
+    arg ='true'   # true
+    arg ='false'  # false
+
+-----------------------------------------------------------------
+
+# Extract tar bz file 
+
+    tar xvjf filename.tar.bz2
 
 -------------------------------------------------------------------
 

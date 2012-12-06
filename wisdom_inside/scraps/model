@@ -1,3 +1,30 @@
+
+
+
+# filtering callbacks 
+
+a = DocumentName._save_callbacks.select{|cb| cb.kind.eql?(:after) }.collect(&:filter)
+
+
+# filtering callbacks  that have conditon methods
+
+a = DocumentName._save_callbacks.select{|cb| cb.kind.eql?(:after) and cb.options[:if].include? :my_super_evil_method_true?}.collect(&:filter)
+a = DocumentName._save_callbacks.select{|cb| cb.kind.eql?(:after) and cb.options[:unless].include? :my_super_evil_method_true?}.collect(&:filter)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # defining dynamic methods from array
 #
 

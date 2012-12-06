@@ -1,0 +1,49 @@
+
+
+wkhtmltopdf is a dependancy for Ruby gem [pdfkit](https://github.com/pdfkit/PDFKit). It works really well on Desk
+
+    wkhtmltopdf: cannot connect to X server"
+
+##Instalation
+
+Download [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/downloads/list) and extract to `/usr/bin/wkhtmltopdf-amd64` Don't install from Ubuntu sources, that version won't generate links and you'll have to deal with same problems as with this version version
+
+    cd /usr/bin/
+    sudo wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2
+    sudo tar xvjf wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2
+    sudo chmod a+x wkhtmltopdf-amd64   #don't rename yet !!
+    sudo rm wkhtmltopdf-0.*   # the .tar.bz2 file
+    
+    #dependency
+    sudo apt-get install openssl build-essential xorg libssl-dev libicu48
+
+( **Note:** try to run `wkhtmltopdf-amd64 http://www.google.com test.pdf` if it succeed, you don't need next steps. Just `sudo mv /usr/bin/wkhtmltopdf-amd64 /usr/bin/wkhtmltopdf`)
+
+wkhtmltopdf require working X server, so in server case we need to install virtual' x server
+
+    sudo apt-get install xvfb
+
+create `/usr/bin/wkhtmltopdf.sh` and put these in:
+     
+    xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf-amd64 $*
+
+now 
+
+    sudo ln -s /usr/bin/wkhtmltopdf.sh /usr/bin/wkhtmltopdf 
+    sudo chmod a+x /usr/bin/wkhtmltopdf.sh
+
+if you want to keep `/usr/bin` clean and rather prefer **RVM** or **rbenv** folder
+
+    ln -s /usr/bin/wkhtmltopdf.sh ~/.rbenv/bin/shims/wkhtmltopdf  # for rbenv
+    ln -s /usr/bin/wkhtmltopdf.sh ~/.rvm/bin/wkhtmltopdf  # for RVM
+
+###Problems
+   
+*  Xvfb is killing computer? make sure the `wkhtmltopdf.sh` isn't calling itself in a loop (inside it should be `/usr/bin/wkhtmltopdf-amd64` not `/usr/bin/wkhtmltopdf` )
+
+###Usefull links
+
+*  http://drupal.org/node/870058
+*  http://stackoverflow.com/questions/3468234/rails-3-wkhtmltopdf-command-failed-when-using-pdfkit-to-create-pdf-documents
+*  https://bugs.launchpad.net/ubuntu/+source/qt4-x11/+bug/989915
+

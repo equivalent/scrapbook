@@ -1,5 +1,9 @@
 ://github.com/thoughtbot/shoulda-matchers#activemodel-matchers
 
+it do 
+  lambda{trigger}.should change(DocumentNameOwnership, :count).by(2)
+end
+
 
 it {should ensure_inclusion_of(:approved).in_array([true, false]) }
 
