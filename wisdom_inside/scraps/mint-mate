@@ -1,5 +1,13 @@
 
+# when lid closed do nothing
 
+*  Open Configuration Editor (mateconf-editor)
+*  Goto: apps/mate-power-manager/buttons
+*  Change lid-ac from "blank" to "nothing"
+*  Open up Screensaver Preferences / Power Management at the bottom.
+*  Click make as default (Make sure "When laptop lid is closed" to "do nothing")o
+
+source http://superuser.com/questions/466899/mint-13-does-nothing-when-laptop-lid-is-closed
 
 # imagemagic 
 
