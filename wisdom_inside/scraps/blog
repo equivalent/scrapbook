@@ -1,4 +1,76 @@
 
+# Removing associations won't trigger after_destroy callback
+
+
+Let say you have a model 
+
+~~~ruby
+class Foo < ActiveRecord::Base
+  belongs_to :bar
+
+  after_destroy :be_happy
+
+  def be_happy
+    p 'Happpyyyy ! "
+  end
+
+end
+
+class Bar < ActiveRecord::Base
+  has_many :foos
+end
+~~~
+
+...so when you do 
+
+~~~ruby
+    bar = Bar.last
+    bar.foos = []
+~~~
+
+... you remove all foos associations, and expect that `be_happy` is triggered.
+
+Unfortunately this isn't true. As you can read [here](http://guides.rubyonrails.org/association_basics.html#association-callbacks), Rails is removing association directly by association_id. So you aren't actually destroying individual records, but directly removing them from Database.
+
+There is a way around, by using [Association callbacks](http://guides.rubyonrails.org/association_basics.html#association-callbacks).
+
+~~~ruby
+    class Foo < ActiveRecord::Base
+      belongs_to :bar
+
+      after_destroy :be_happy
+
+      def be_happy
+        p 'Happpyyyy ! "
+      end
+
+    end
+
+
+    class Bar < ActiveRecord::Base
+      has_many :foos, after_remove: :make_associations_happy
+
+      def make_associations_happy(foo)
+        foo.be_happy
+      end
+    end
+~~~
+
+resources: [SO has many association don't call after destroy](http://stackoverflow.com/questions/11340378/activerecord-has-many-association-doesnt-call-after-destroy-when-setting-a-coll) , [Rails association callbacks](http://guides.rubyonrails.org/association_basics.html#association-callbacks)
+date: 2012-12-07
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Working with SimpleForm collection_radio_buttons helper
 
