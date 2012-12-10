@@ -1,4 +1,30 @@
 
+
+
+
+----------------------------------------------------------
+
+# merging/joining scopes  from associated models
+
+    class Invoice < ActiveRecord::Base
+      has_many :orders
+      scope :are_latest, lambda{ joins(:orders).merge(Order.are_latest) } #if you calling .count in chain, make sure the sql was trigered
+    end
+
+    class Order
+      belongs_to :Invoice
+      scope :are_latest, lambda{ order(:id) }
+    end
+
+
+date: 2012-12-10
+
+
+
+
+----------------------------------------------------------
+
+
 # Convert params attribute to bollean
 
 Useful way to convert radio button param values (which are string) to boolean
@@ -11,11 +37,16 @@ Useful way to convert radio button param values (which are string) to boolean
     arg ='true'   # true
     arg ='false'  # false
 
+
+date: 2012-12-07
+
 -----------------------------------------------------------------
 
 # Extract tar bz file 
 
     tar xvjf filename.tar.bz2
+
+date: 2012-12-06
 
 -------------------------------------------------------------------
 
@@ -30,8 +61,20 @@ Useful way to convert radio button param values (which are string) to boolean
     User.where(admins.or(authors)).to_sql
     # => "SELECT \"users\".* FROM \"users\"  WHERE ((\"users\".\"kind\" = 'admin' OR \"users\".\"kind\" = 'author'))"
 
+this way you can create scope with OR like this 
+
+    scope :with_owner_ids_or_global, lambda{ |owner_class, *ids|
+      with_ids = where(owner_id: ids.flatten).where_values.reduce(:and)
+      with_glob = where(owner_id: nil).where_values.reduce(:and)
+      where(owner_type: owner_class.model_name).where(with_ids.or( with_glob ))
+    }
+
+    User.with_owner_ids_or_global(Developer, 1, 2)
+    # ...WHERE `users`.`owner_type` = 'Developer' AND ((`users`.`owner_id` IN (1,2) OR `users`.`owner_id` IS NULL))
+
 
 reference: http://stackoverflow.com/questions/7976358/activerecord-arel-or-condition
+date: 2012-12-05
 
 -------------------------------------------------------------------
 
