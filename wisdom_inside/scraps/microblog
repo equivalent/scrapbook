@@ -1,4 +1,15 @@
 
+#  how to do NOT NULL in Arel
+
+    Foo.includes(:bar).where(Bar.arel_table[:id].not_eq(nil))
+
+source: http://stackoverflow.com/questions/4252349/rail-3-where-condition-using-not-null
+date: 2012-12-11
+
+
+
+
+
 
 
 

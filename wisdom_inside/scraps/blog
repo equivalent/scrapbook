@@ -1,3 +1,52 @@
+# jQuery check if radio button is checked
+
+     # approach 1
+     $('.global_ownerships input[type=radio][value=true][checked=checked]')
+     $('.global_ownerships input[type=radio][value=false][checked=checked]')
+
+     # approach 2
+     $('input[type=radio][value=false]').is(':checked')
+     $('input[type=radio][value=true]').is(':checked')
+
+
+
+date: 2012-12-11
+
+---------------------------------------------------------------
+
+# accessing object instance variables from string in coffeescript and javascript
+
+Let say I have CoffeeScript (or just JavaScript) class and I want to dynamically access instance variables from string. You can use JavaScript [eval](), however that is not recommended ( [SO question on this topic](http://stackoverflow.com/questions/1199110/whats-a-more-secure-alternative-for-eval-when-i-just-want-to-call-a-function), [Eval is evil article](http://blogs.msdn.com/b/ericlippert/archive/2003/11/01/53329.aspx) )
+
+Fortunately JavaScript provides *square bracket* way of accessing variables and methods
+
+    class DocumentNameForm
+      constructor: (@name) ->
+        @my_foo  = $(".foo input")
+        @my_bar  = $(".bar input")
+
+      watch_for_change: ->
+        instance = this
+        for option in ['foo', 'bar']
+          do (option) ->
+            console.log  "my_#{option}"          #just debugging
+            console.log instance["my_#{option}"] #just debugging
+
+            #easy enough 
+
+            instance["my_#{option}"].change ->
+              $(this).attr('disabled', 'disabled')
+
+
+if you need to call dynamically call method from string you can do it as described in [this SO answer](http://stackoverflow.com/questions/1199110/whats-a-more-secure-alternative-for-eval-when-i-just-want-to-call-a-function)
+
+    object["set" + $fieldID].call(object, $fieldValue);
+    object["set" + $fieldID].apply(object, [$fieldValue]);
+
+
+date: 2012-12-11
+
+-----------------------------------------------------------
 
 # Removing associations won't trigger after_destroy callback
 
