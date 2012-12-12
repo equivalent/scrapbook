@@ -1,3 +1,21 @@
+
+
+# what is good about array.extract_options! ?
+
+    a = [1, 2, {:a => :b}]
+    my_options = a.extract_options!
+    # my_options == {:a=>:b}
+    a
+    #=> [1, 2]
+
+
+
+resources: [extract options API](http://apidock.com/rails/ActiveSupport/CoreExtensions/Array/ExtractOptions/extract_options!)
+
+date: 2012-12-12
+
+------------------------------------------------------------------
+
 # jQuery check if radio button is checked
 
      # approach 1
