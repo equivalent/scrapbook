@@ -1,3 +1,40 @@
+# Rake task not loading modles,...or dumb-ass you forget about environment
+
+One beautiful freazing Thursday morning in London, I decided that I'll do one quick MySQL performance test for Rails application. It was really simple test and for preparation I had to do is to populate some dummy data to my test database with rake task.
+
+So in my `lib/tasks/foo.rake`
+
+    require 'factory_girl'
+    desc 'just dummy data'
+    task :foo do
+
+      FactoryGirl.find_definitions
+      70000.times do
+        FactoryGirl.create  :document_ownership, :specific_client
+        FactoryGirl.create  :document_ownership, :all_clients
+      end
+    end
+
+simple enough. But no matter how hard I try to do `rake foo` it was throwing 
+
+    uninitialized constant DocumentOwnership  # or any other model name
+
+
+So ? Laughing now?  ... Yes I forgot to add enviroment !!!
+
+    #...
+    task :foo => :environment do
+      #...
+
+basically `:environment` will tell my rake what config files to load, therfore it will load my models as well
+
+date: 2012-12-13
+
+
+
+
+
+------------------------------------------------------------------
 
 
 # what is good about array.extract_options! ?
