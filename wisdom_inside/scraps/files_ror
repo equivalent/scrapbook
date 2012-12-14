@@ -1,5 +1,18 @@
 
-     ::Rails.root.to_s.
+
+## rename file
+
+    Dir.glob(folder_path + "/*").sort.each do |f|
+      File.rename(f, folder_path + "/" + filename.capitalize + File.extname(f))
+    end
+
+
+
+
+## root
+
+
+     Rails.root.to_s.
 
 
 ## reading and writing to from file
