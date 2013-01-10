@@ -244,3 +244,13 @@ http://www.if-not-true-then-false.com/2010/install-openoffice-org-on-fedora-cent
 
 keywords: oppenoffice open office libre
 
+
+
+
+# audio m-audio oxygen 61 usb keyboard + lmms 
+
+http://www.passback.org.uk/music/fedora-music-intro/
+
+    yum install qjackctl
+    
+    System -> Administration -> Users and Group  add your user to `jackuser` group  ... and aftrer that LOGOUT and log back your user in 
