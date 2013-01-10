@@ -1,4 +1,19 @@
 
+
+# get element tag name 
+
+     $('#document_document_name_id').prop("tagName")
+     #=> select
+
+source: http://stackoverflow.com/questions/5347357/jquery-get-selected-element-tag-name
+
+date: 2013-01-10
+
+
+------------------------------------
+
+
+
 #  how to do NOT NULL in Arel
 
     Foo.includes(:bar).where(Bar.arel_table[:id].not_eq(nil))

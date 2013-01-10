@@ -1,3 +1,23 @@
+# yield rspec example
+
+~~~ruby
+describe Thing do
+  def given_thing_with(options)
+    yield Thing.new do |thing|
+      thing.set_status(options[:status])
+    end
+  end
+
+  it 'should do something' do
+    given_thing_with(:status => 'ok') do |thing|
+      thing.do_stuff( 1, true, :move => 'left')
+    end
+  end
+end
+~~~
+
+
+
 # How test model attr_accessible with rspec
 
 ~~~ruby

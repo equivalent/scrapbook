@@ -1,4 +1,29 @@
 
+
+# mime types
+
+    # config/initializers/mime_types.rb
+
+    Mime::Type.register "application/vnd.ms-excel", :xls
+    #Mime::Type.register "application/pdf", :pdf    #should be already in rials
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 assets 
 =========
 

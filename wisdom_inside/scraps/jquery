@@ -1,4 +1,18 @@
 
+
+# get element tag name 
+
+     $('#document_document_name_id').prop("tagName")
+     #=> select
+
+source: http://stackoverflow.com/questions/5347357/jquery-get-selected-element-tag-name
+
+
+------------------------------------
+
+
+
+
 deasbel selection of text-> wont render ugly blue selection where you dont want to
 
     .disableSelection()
