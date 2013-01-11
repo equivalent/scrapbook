@@ -1,0 +1,85 @@
+this is a question that I asked on stack owerflow, it demonstrate how you can use AR object as a hash key and alternatives
+
+http://stackoverflow.com/questions/14279913/can-i-use-ar-object-as-hash-key-or-should-i-use-object-id-instead
+
+
+Because of Ruby awesomeness it is possible to use any object as key 
+
+    document = Document.find 1
+    o = Hash.new
+    o[1] = true
+    o[:coool] = 'it is'
+    o[document] = true
+    # an it works
+
+    o[document]
+    #=> true
+
+but just because it is possible doesn't mean is good practice
+  
+However I have situation where in my controller I need to set something similar, so I can loop trough it in view
+    
+    #controller
+    @users_with_things = Hash.new
+    Things.accessible_by(some_curent_user_logic).each do |thing|
+      @user_with_things[thing.user] ||= Array.new
+      @user_with_things[thing.user] <<  thing.id
+    end 
+
+    #view
+    - @users_with_things.each do |user, thing_ids|
+      %input{type: :checkbox, name: "blank[user_#{user.id}]", value: 1, class: "select_groups", :'data-resource-ids' => "[#{thing_ids.join(',')}]", :'data-user-type' => user.type }
+
+
+The reason why I want to do it this way is because I don't want to call from my view `User.find_by_id`  (want to make it clean)
+
+    #controller
+    @users_with_things = Hash.new
+    Things.accessible_by(some_curent_user_logic).each do |thing|
+      @user_with_things[thing.user.id] ||= Array.new
+      @user_with_things[thing.user.id] <<  thing.id
+    end 
+
+    #view
+    - @users_with_things.each do |user_id, thing_ids|
+      - user = User.find user_id
+      %input{type: :checkbox, name: "blank[user_#{user.id}]", value: 1, class: "select_groups", :'data-resource-ids' => "[#{thing_ids.join(',')}]", :'data-user-type' => user.type }
+
+
+
+So my 1st question is: **is it ok to use ActiveRecord object as Hash key in situation like this**
+
+I can imagine several scenarios where this may go wrong (sessions, when object changes in model and so on) however this is just for rendering in a view
+
+##Alternative !
+
+so this is one way to do it, the other may be like this 
+
+    #controller
+    @users_with_things = Hash.new
+    Things.accessible_by(some_curent_user_logic).each do |thing|
+      @user_with_things[thing.user.object_id] ||= Array.new
+      @user_with_things[thing.user.object_id] <<  thing.id
+    end 
+
+    #view
+    - @users_with_things.each do |user_object_id, thing_ids|
+      - user = ObjectSpace._id2ref(user_object_id)  #this will find user object from object_id
+      %input{type: :checkbox, name: "blank[user_#{user.id}]", value: 1, class: "select_groups", :'data-resource-ids' => "[#{thing_ids.join(',')}]"", :'data-user-type' => user.type }    
+
+...which is even more, hardcore. However it is way around if for some reason `hash[ARobject] = :something` would create big memory cluster for some reason 
+
+question 2 : **is it good idea to do it this way ?**
+
+----------------------------------
+
+to be complete there is also another alternative and that is 
+
+    # ...
+    @user_with_thing[ [thing.user.id, thing.user.type] ] << thing_id
+    # ...
+
+so basically array object will be key
+
+    @user_with_thing[ [1, 'Admin'] ] 
+    #=> [1,2,3]

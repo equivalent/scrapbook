@@ -1,3 +1,44 @@
+# CoffeeScript and global classes
+
+By default everything is global in JavaScript unless you use var. CoffeeScript fix this. But what if you want to access class declarated with CoffeeScript from Fire bug console ?
+
+declaration like this wont work
+
+     # app/assets/javascript/document_form.coffee
+     Class DocumentForm
+
+firebug output:
+
+     >>> DocumentForm
+     ReferenceError: DocumentForm is not defined[Break On This Error]
+     DocumentForm
+
+
+but if you do 
+
+
+     Class window.DocumentForm
+     >>> DocumentForm
+     DocumentForm()
+
+
+...if you don't want to expose your class to be global, but rather want the instance,  you can do this
+
+     # app/assets/javascript/document_form.coffee
+     Class DocumentForm
+     window.documentForm = new DocumentForm
+
+
+
+
+date: 2013-01-11
+
+
+
+
+
+
+
 # attribute selectors 
 
     ul li

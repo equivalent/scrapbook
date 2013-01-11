@@ -1,4 +1,34 @@
 
+# custom validator example :
+
+~~~ruby
+class PossessionSelectorPresenceValidator < ActiveModel::Validator
+  def validate(record)
+    possession_selector = record.possession_selector
+
+    if possession_selector.blank?
+      record.errors[:possession_selector] << "Please specify viewers of #{record.class.model_name.human}"
+    else
+      selector_class = possession_selector.constantize
+      owner_plural_form = selector_class.model_name.underscore.pluralize
+      unless record.send(owner_plural_form).any?
+        record.errors[owner_plural_form] << "Please specify #{selector_class.model_name.human.pluralize}"
+      end
+    end
+  end
+end
+~~~
+
+validates_with PossessionSelectorPresenceValidator
+
+date: 2013-01-11
+
+
+
+
+
+
+
 
 
 ###costum validations
