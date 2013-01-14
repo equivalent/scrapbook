@@ -1,3 +1,30 @@
+# Rails "read attribute"
+
+~~~ruby
+ a= Document.last
+ a[:name])   #=> "foooo"
+ a.read_attribute(:name)   #=> "foooo"
+ a.write_attribute(:name, 'bar')   #=> DB field become "bar"
+~~~
+
+usage
+
+~~~ruby
+define_method :name do
+  if something = true
+    #..
+  else
+    self.read_attribute(:name)
+  end
+end
+
+~~~
+
+
+
+
+
+
 # CoffeeScript and global classes
 
 By default everything is global in JavaScript unless you use var. CoffeeScript fix this. But what if you want to access class declarated with CoffeeScript from Fire bug console ?
