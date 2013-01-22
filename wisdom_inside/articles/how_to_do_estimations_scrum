@@ -1,0 +1,71 @@
+this is email that I sent to my superiors when we were discussing how to do project estimations, I think is a good article for small teams
+
+sensitive data was replaced with ******
+
+if you find SCRUM interesting check more  metodologies at https://tutsplus.com/tutorial/scrum-the-story-of-an-agile-team/
+
+
+Hello,
+
+referring to the discussions that we had in ******** this are notes on SCRUM and estimating projects and how I think we should do it
+
+in the beginning I want  to repeat that I'm no expert in it. These notes I had put together referring to  my experience in Agile web-development SCRUM team, what I read in articles and best practices  that  my previous job "Scrum Master" was explaining  to me.
+
+When it comes to SCRUM and Kanban, their full potential  is valuable only when you have more  developers, because other way you'll end up with one developer doing 1/3 of his work time  "SCRUM master job".
+
+Another thing is that SCRUM is design in coexistence with Extreme Programing
+* deploy the smallest working bit of software as soon as possible => do github code reviews several times a day will be noneffective with **** developers),
+*  currently we are developing larger sets of software that are kind-of separated of each other => we are not colliding with each other work
+
+
+But there are some core things we could use on daily bases that I think will be useful (mainly to see in what state the project is )
+
+1/ estimating use story points
+
+once a week we (developers) will  book meeting room for 30minutes (anyone else is welcome but only developers will be allowed to say points)
+and we will "break down" large task into small subtasks  and write down our estimations into shared Google Spreadsheet
+
+why Google spreadsheet
+there are many SCRUM tools and applications  (in my  last job we were using JIRA http://www.atlassian.com/software/jira/overview ) but in the end we will end up with more time spent configuring and managing the application rather than doing effective work
+
+example for Google doc:   https://docs.google.com/spreadsheet/ccc?key=0AgGwLia5a95idFpMaFZSVVBzVDFtc1hjeU5QWDNkUXc#gid=0
+
+in the example overall unfinished work was estimated to 14 points. Let say that we discovered that 1 point takes 4 hours to do so we end up with 56 hours of work.
+
+Why 1point equals to 4 hours ? 
+this is a factor that can be calculated from "current week" easiest task (1point task).  Let say that this 1point task took us 4 hours to do, that mean 1 point = 4 hours. We can keep track of week point value and summary of points done in this week, and that way tell how effective was the week, month, year
+
+Yes this is not perfect, because this way we will end up with flexible timing, however it's much better than guessing.
+This is the main and core concept of SCRUM that most development companies are working with ( some teams don't use points to calculate hours but uses hours as their estimations straight away, but in my experiences those estimations are way too optimistic)
+
+In few weeks we wont even need hours, if I say "well the new calendar with Clients birthdays will take  70 points" everyone will translate it in their mind to "wow that is complex time consuming task" and if I say "12 points"  well happy to see it next week :)
+
+2/ sticky notes, story board
+
+each story ticket (as seen in the google doc) has a ticket number and name, this is written down on a sticky note and placed on a story board
+
+example of "story board " https://docs.google.com/spreadsheet/ccc?key=0AgGwLia5a95idFpMaFZSVVBzVDFtc1hjeU5QWDNkUXc#gid=1
+
+*  pending  - tickets that needs to be done
+* progress - in progress
+* in review - in Github pull request   ( developers should create pull requests on their changes, not to check each other but so developers  have better knowledge what was implemented)
+* done        -  revived and prepared for next staging deployment
+* deployed - on staging server
+
+
+physical sticky notes are in different colors to represent how crucial is the task, or if it's just a "task" or "story (bigger task) " or "bug"
+
+it may seem unnecessary addition, however to see visual progress is major key to be SCRUM efficient     (mainly from psychology perspective)
+story must be physical cannot be digital => real sticky notes made from paper :)  on real wall
+
+
+resources needed:
+ * white board 
+     *  yes we can use let say one of the glass walls in the tech. office , but it will be much better to me mobile for meetings
+ * pack  of sticky notes  ...with different colors :)
+ *  shared Google spreadsheet
+
+
+Conclusion: in the end we will spend maybe hour or two of working week on doing estimations that we could spend developing, ... so yes, for developing software it will be less efficient however this way everyone will have actual estimation how long will it take to develop part of application, rather then guessing
+
+
