@@ -1,4 +1,18 @@
 
+# complex scope example 
+
+    class Document
+      scope :with_latest_super_owner, lambda{ |o|
+        raise "must be client or user instance" unless [User, Client].include?(o.class)
+        joins(:document_versions, document_creator: :document_creator_ownerships).
+        where(document_creator_ownerships: {owner_type: o.class.model_name, owner_id: o.id}).
+        where(document_versions: {latest: true}).group('documents.id')
+      }
+    end
+    # it can get kinda complex :)
+
+
+
 
 
 # filtering callbacks 
