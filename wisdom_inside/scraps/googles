@@ -1,0 +1,19 @@
+
+date: 2013-02-18
+
+## problem: 
+
+    Could not find net-scp-1.0.6 in any of the sources
+
+on Ubuntu 12.04 (Linux Mint 13), ruby ruby-2.0.0-rc2 + rvm, rails 3.2.12
+
+## solution
+
+    bundle update
+    bundle install
+
+## reason
+
+This is probably caused by fog gem dependancy. Refering to [this discussion](https://github.com/fog/fog/pull/1562)  net-scp -v 1.0.6 was yanked from RubyGems.org
+
+so doing just `gem install fog -v 1.0.6` wont do the trick
