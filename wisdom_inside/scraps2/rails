@@ -1,0 +1,58 @@
+
+
+---------------------------------------------------------------------
+# scopes
+
+    class Document
+      scope :with_latest_super_owner, lambda{ |o|
+        raise "must be client or user instance" unless [User, Client].include?(o.class)
+        joins(:document_versions, document_creator: :document_creator_ownerships).
+        where(document_creator_ownerships: {owner_type: o.class.model_name, owner_id: o.id}).
+        where(document_versions: {latest: true}).group('documents.id')
+      }
+      #they can get kinda complex :)
+    end
+
+
+
+## join scopes 
+
+    class Document
+      scope :active,     lambda{ joins(:notifications).merge(Notification.active) }
+    end
+
+
+date: 2013-02-22
+
+---------------------------------------------------------------------
+
+#disable STI 
+
+~~~ruby
+class Document < ActiveRecord::Base
+  self.inheritance_column = :_type_disabled #disable STI
+end
+~~~
+
+date: 2013-02-22
+key : disable dissable sti single table inheritance
+
+---------------------------------------------------------------------
+
+# load YAML file config  only for development
+
+~~~ruby
+if Rails.env.development?
+  begin
+    LOCAL_CONFIG = YAML.load_file("#{Rails.root}/config/local_config.ymlz")[Rails.env] || {}
+  rescue
+    Rails.logger.warn "No config/local_config.yml not found"
+    LOCAL_CONFIG = {}
+  end
+end
+~~~
+
+date: 2013-02-22
+keys: enviroment, yaml configuration, 
+
+---------------------------------------------------------------------
