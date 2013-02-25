@@ -1,4 +1,66 @@
 
+# get all classes that are inheriting from  this class
+
+    #a/m/document_notification.rb
+    class DocumentNotification < Notification
+    end
+
+    #a/m/notification.rb
+    class Notification < ActiveRecord::Base
+    end
+
+    # console
+    Notification.send :subclasses
+    #=> [DocumentNotification, SomeOtherNotification]
+    
+    DocumentNotification.superclass
+    #=> [Notification]
+
+    Notification.superclass
+    #=> [DocumentNotification]
+    # => ActiveRecord::Base 
+
+
+date: 2013-02-25
+keys: sti list of classes, 
+rails 3.2.12
+
+
+
+#Rails mail mail interceptor 
+
+stop sending mails in development
+
+    #  lib/development_mail_interceptor.rb
+    class DevelopmentMailInterceptor
+      def self.delivering_email(message)
+        email = LOCAL_CONFIG.try(:[], 'email')
+
+        if email.blank?
+          message.delivery_method :test
+          Rails.logger.warn "No Email address was specified in the app_config.yml"
+        end
+
+        message.to = email
+        message.cc = nil
+        message.bcc = nil
+        development_information = "[ TO: #{message.to} ]"
+        development_information << " [ CC: #{message.cc} ]" if message.cc
+        development_information << " [ BCC: #{message.bcc} ]" if message.bcc
+
+        message.subject = "[Test] #{message.subject} #{development_information}"
+      end
+    end
+
+
+    #config/initializers/setpu_mail.rb
+    ActionMailer::Base.smtp_settings = {
+      :address              => "smtp.something.com",
+      :openssl_verify_mode  => 'none'
+    }
+
+    ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+
 
 ---------------------------------------------------------------------
 # scopes
@@ -41,16 +103,29 @@ key : disable dissable sti single table inheritance
 
 # load YAML file config  only for development
 
-~~~ruby
-if Rails.env.development?
-  begin
-    LOCAL_CONFIG = YAML.load_file("#{Rails.root}/config/local_config.ymlz")[Rails.env] || {}
-  rescue
-    Rails.logger.warn "No config/local_config.yml not found"
-    LOCAL_CONFIG = {}
-  end
-end
-~~~
+config 
+
+    # config/local_config.rb
+    if Rails.env.development?
+      begin
+        LOCAL_CONFIG = YAML.load_file("#{Rails.root}/config/local_config.yml")[Rails.env] || {}
+      rescue
+        Rails.logger.warn "No config/local_config.yml not found"
+        LOCAL_CONFIG = {}
+      end
+    end
+
+yml file
+
+    # config/initializers/local_config.yml
+    development:
+      email: 'equivalent@eq8.eu'
+
+
+in model
+
+    LOCAL_CONFIG.try(:[], 'email')
+
 
 date: 2013-02-22
 keys: enviroment, yaml configuration, 
