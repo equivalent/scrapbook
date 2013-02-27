@@ -1,4 +1,13 @@
 
+# easy way to get whole alphabet
+
+    ('a'..'z') #range object of chars from a-z
+    ('a'..'z').to_a #array of chars from a-z
+
+    ('a'..'z').to_a.in_groups_of(9,false)
+    # => [["a", "b", "c", "d", "e", "f", "g", "h", "i"], ["j", "k", "l", "m", "n", "o", "p", "q", "r"], ["s", "t", "u", "v", "w", "x", "y", "z"]
+
+key: abcd
 
 # get element tag name 
 
