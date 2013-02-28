@@ -26,8 +26,38 @@ keys: sti list of classes,
 rails 3.2.12
 
 
+---------------------------------------------------------------------
 
-#Rails mail mail interceptor 
+#Rails whole url in rails mailer view
+
+to get the full url (with host) in mail view you need to use 
+
+    # a/v/some_mailer/foo.html.haml
+    = link_to 'some', document_url(@document)
+
+not just 
+
+    # a/v/some_mailer/foo.html.haml
+    = link_to 'some', @document
+
+to have the correct configuration of path:
+
+     # c/e/development.rb
+     #...
+      # Mail url
+      config.action_mailer.default_url_options = { 
+        :host => 'localhost',
+        :port => 3000
+      }
+
+resources: [so1](http://stackoverflow.com/questions/2257365/rails-generate-a-full-url-in-an-actionmailer-view)
+date: 2013-02-28
+keys: mailer full url absolute mail view
+rails:  3.2.12
+
+
+
+#Rails mail interceptor 
 
 stop sending mails in development
 
@@ -53,7 +83,7 @@ stop sending mails in development
     end
 
 
-    #config/initializers/setpu_mail.rb
+    #config/initializers/setup_mail.rb
     ActionMailer::Base.smtp_settings = {
       :address              => "smtp.something.com",
       :openssl_verify_mode  => 'none'
