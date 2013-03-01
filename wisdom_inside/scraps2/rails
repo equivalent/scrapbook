@@ -1,4 +1,11 @@
 
+# Rails arel to do not equal where statement
+
+    DocumentVersion.where( DocumentVersion.arel_table[:id].not_eq(self.id) )
+
+
+---------------------------------------------------------------------
+
 # get all classes that are inheriting from  this class
 
     #a/m/document_notification.rb
