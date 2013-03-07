@@ -1,7 +1,20 @@
 
-# Rails arel to do not equal where statement
+
+
+
+
+# Rails arel 
+
+https://github.com/rails/arel
+
+**to do not equal where statement**
 
     DocumentVersion.where( DocumentVersion.arel_table[:id].not_eq(self.id) )
+
+**lover than**
+
+    Event.arel_table[:start_at].lt(Time.now).to_sql
+     => "`events`.`start_at` < '2013-03-05 10:38:22'" 
 
 
 ---------------------------------------------------------------------

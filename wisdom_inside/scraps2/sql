@@ -1,0 +1,5 @@
+
+
+#select notifications that weren't sent
+
+     select notifications.id, (select count(*) from deliveries where deliveries.owner_type = 'Notification' and deliveries.owner_id = notifications.id) as total from notifications having total = 0 

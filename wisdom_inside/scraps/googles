@@ -1,4 +1,38 @@
 
+
+date: 2013-03-06
+
+    $ rake my_custom_rake
+    rake aborted!
+    uninitialized constant User
+
+the reason for this is that you're not passing environment in your rake file
+
+
+    #lib/tasks/my_custom_rake.rake
+
+    desc "my custom functionality"
+    task :my_custom_rake do
+      User.all.each do |foo|
+      #....
+      end
+    end
+
+should be 
+
+    desc "my custom functionality"
+    task :my_custom_rake => :environment do
+      User.all.each do |foo|
+      #....
+      end
+    end
+
+
+
+--------------------------------------
+
+
+
 date: 2013-02-18
 
 ## problem: 
