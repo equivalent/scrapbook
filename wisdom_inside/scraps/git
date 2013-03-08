@@ -1,4 +1,14 @@
 
+
+
+rebase to master subranch of branch
+
+    git rebase --onto master jobs tlds
+
+
+
+
+
 git repository on usb
 ----------------------
 
