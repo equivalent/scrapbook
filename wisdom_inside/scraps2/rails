@@ -1,6 +1,13 @@
+# custom Logger 
 
+    NotificationLogger = Logger.new( File.open("#{Rails.root.to_s}/log/#{Rails.env}_notifications.log", 'a') )
+    NotificationLogger.info 'Hello World!'
 
+you can add the first line to e.g.: `config/application.rb` and call the second line anywhere 
 
+date: 2013-03-12
+rails: 3.2.12
+keys:  custom logger logging rails log
 
 
 # Rails arel 
