@@ -1,4 +1,15 @@
 
+# fix for ubuntu 12.04 wifi on eee pc
+
+http://ubuntuforums.org/showthread.php?t=1727945
+http://ubuntuforums.org/showthread.php?t=1813808
+
+    sudo rmmod -f ath9k
+    sudo modprobe ath9k nohwcrypt=1
+
+
+
+
 #mount iso in ubuntu 
 
 ~~~bash
