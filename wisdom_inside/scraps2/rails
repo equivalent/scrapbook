@@ -1,3 +1,13 @@
+
+# Rails path 
+
+    Rails.root.join(*%w[spec fixtures files uploads])  + 'a'
+    => #<Pathname:/Users/tomi/git/memo/spec/fixtures/files/uploads/a> 
+
+date: 2013-03-13
+keys: rails root path route to file 
+rails: 3.2.12
+
 # custom Logger 
 
     NotificationLogger = Logger.new( File.open("#{Rails.root.to_s}/log/#{Rails.env}_notifications.log", 'a') )
