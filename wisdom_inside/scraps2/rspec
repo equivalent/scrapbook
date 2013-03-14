@@ -1,0 +1,26 @@
+
+
+#configure rspec and spork
+
+Gemfile
+
+    # Gemfile
+    group :development, :test do
+      gem 'rspec-rails'
+    end
+
+    gem 'factory_girl_rails', group: [:development, :staging, :test], require: false
+
+    group :test do
+      gem 'spork-rails'
+      gem 'shoulda-matchers'
+      gem 'cucumber-rails', require: false
+      gem 'database_cleaner'
+      gem 'capybara'
+    end
+
+tell RSpect to use drb server (spork) by default
+
+    # .rspec
+    --colour --drb
+
