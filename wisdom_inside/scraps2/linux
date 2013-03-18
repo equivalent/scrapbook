@@ -1,1 +1,6 @@
 
+# replace string in multiple file
+
+    sed  -i 's/what/with_what/g' app/*/*.rb
+    sed  -i 's/lambda/->/g' app/*/*.rb
+
