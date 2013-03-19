@@ -1,3 +1,9 @@
+## default translation text
+
+    I18n.t("some_translation.key", :default => "fallback text")
+
+rails 3.2.12
+date 2013-03-19
 
 # easy way to get whole alphabet
 
