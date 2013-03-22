@@ -1,5 +1,24 @@
+# Handlebars helper isSelected()
 
+ handlebars helper for determine which option was selected in select box
 
+helper
+
+    # a/a/javascript/app.coffee
+    Handlebars.registerHelper 'isSelected', (id, select_element) ->
+      return 'selected="selected"' if ( $(select_element).val().toString() == id.toString())
+
+template
+
+    #a/a/javascripts/templates/documnet.hbs
+    <option value=""></option>
+    {{#each this}}
+      <option value="{{id}}" {{isSelected id "select#document_document_name_id"}}>{{name}}</option>
+    {{/each}}
+
+note: I tried this with pure Handlebars not as part of Ember.js
+rails 3.2.12
+date: 2013-03-22
 
 # Get url variables
 
