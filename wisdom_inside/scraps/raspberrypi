@@ -1,0 +1,6 @@
+
+
+# youtube on raspberry pi
+
+    sudo apt-get install gnash
+    sudo apt-get install browser-plugin-gnash

@@ -2,6 +2,8 @@
 
 # how to have different storage in test enviroment for carrierwave
 
+using initializer
+
     # config/initializers/carrierwave.rb
     if Rails.env.test? or Rails.env.cucumber?
       CarrierWave.configure do |config|
@@ -11,6 +13,41 @@
     else
       CarrierWave.configure do |config|
         config.storage = :fog
+      end
+    end
+
+but better solution is with module
+
+
+
+# factory girl of model using carrierwave
+
+    FactoryGirl.define do
+      factory :archive_file do
+        association :archive
+        title "MyString"
+        description "MyText"
+
+        trait :with_file do
+          after(:build) do |af|
+            af[:file] = 'dummy.txt'
+          end
+        end
+      end
+    end
+
+    FactoryGirl.build :archive_file, with_file
+
+or better 
+
+    # Read about factories at https://github.com/thoughtbot/factory_girl
+    include ActionDispatch::TestProcess
+    FactoryGirl.define do
+      factory :photo do
+        association :event
+        association :entry
+        photo { fixture_file_upload(Rails.root.join(*%w[spec fixtures files example.jpg]), 'image/jpg') }
+        description "MyString"
       end
     end
 
