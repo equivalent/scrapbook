@@ -1,3 +1,9 @@
+# jQuery is option
+
+    $('input#global').is(':checkbox')
+    $('input#global').is(':checked')
+    $('input#global').is(':disabled')
+
 # Handlebars helper isSelected()
 
  handlebars helper for determine which option was selected in select box
