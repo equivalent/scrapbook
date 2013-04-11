@@ -1,3 +1,27 @@
+# jQuery example how  to properly watch if chekbox was chceked and if so check other checkboxes
+
+coffescript:
+
+    $('input:checkbox[data-toggle-checkboxes]').change ->
+      target = $(@).data('target')
+      boxes  = $(@).closest('form').find('input:checkbox[name="' + target + '"]').prop('checked', $(@).is(':checked'))
+
+html:
+
+    <form>
+      <input type="checkbox" value="1" name="toggle" id="toggle" data-toggle-checkboxes="true" data-target="ids[]">
+
+      <input type="checkbox" value="4" name="ids[]" id="ids_">
+      <input type="checkbox" value="5" name="ids[]" id="ids_">
+      <input type="checkbox" value="6" name="ids[]" id="ids_">
+    </form>
+
+
+jQuery: 1.9
+Rails : 3.2
+date: 2013-04-11
+credits: Delwynd, with my small changes
+
 # jQuery is option
 
     $('input#global').is(':checkbox')
