@@ -1,3 +1,23 @@
+https://gist.github.com/yortz/718055 carrierwave wattermarks and lot of more options
+https://github.com/rheaton/carrierwave-video
+
+
+
+
+# wattermarks
+
+Process files as they are uploaded:
+
+    process :resize_to_fill => [850, 315]
+    process :convert => 'png'
+    process :watermark
+
+    def watermark
+      manipulate! do |img|
+        logo = Magick::Image.read("#{Rails.root}/app/assets/images/watermark.png").first
+        img = img.composite(logo, Magick::NorthWestGravity, 15, 0, Magick::OverCompositeOp)
+      end
+    end
 
 
 # how to have different storage in test enviroment for carrierwave
