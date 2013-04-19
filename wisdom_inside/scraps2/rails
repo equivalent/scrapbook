@@ -1,3 +1,25 @@
+-----------------------------------------------------------------
+
+# adding own pluralizations 
+
+
+    ActiveSupport::Inflector.inflections do |inflect|
+      inflect.plural /ox$/i, '\1en'
+      inflect.singular /ox$en/i, '\1'
+    end
+
+    ActiveSupport::Inflector.inflections.plurals
+    ActiveSupport::Inflector.inflections.uncountable
+
+usage 
+
+    = pluralize @recipes.size 'unread recipe
+
+
+from: Rails recipe book
+Rails 3.2.12
+
+----------------------------------------------------------------------------------
 
 # Rails path 
 
