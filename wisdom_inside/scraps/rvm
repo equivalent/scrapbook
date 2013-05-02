@@ -1,7 +1,14 @@
+# rvmrc
+
+    vim ./.rvmrc
 
     rvm --create use ruby-1.9.2@heroku
     rvm --create use ruby-1.9.2@testing
 
+
+# rvm command to detect current gemset path
+
+    rvm gemdir
 
 #list of availible gemsets #
 
