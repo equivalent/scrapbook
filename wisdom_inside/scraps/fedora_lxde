@@ -3,6 +3,24 @@
 currently I'm using fedora & lxde on my eee pc, so here are some hints
 
 
+
+
+# when lid is closed settings
+
+
+    sudo vim /etc/systemd/logind.conf
+
+and add or uncoment 
+
+     HandleLidSwitch=ignore
+
+
+source: [Fedora 17 and 18: How to disable auto suspend when laptop lid is closed](http://nottooamused.wordpress.com/2012/12/29/fedora-17-and-18-how-to-disable-auto-suspend-when-laptop-lid-is-closed/)
+
+
+
+
+
 # temperature monitoring in conole
 
      sudo yum install lm_sensors
