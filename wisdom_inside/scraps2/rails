@@ -88,6 +88,28 @@ https://github.com/rails/arel
     Candy.for_user_or_global(User.last)
     #=> SELECT `candies`.* FROM `candies` INNER JOIN `candy_ownerships` ON `candy_ownerships`.`candy_id` = `candies`.`id` WHERE (`candies`.`deleted_at` IS NULL) AND (((`candies`.`type` = 'WorldwideCandies' OR (`candies`.`type` = 'ClientCandies' AND `candy_ownerships`.`owner_id` = 19 AND `candy_ownerships`.`owner_type` = 'Client')) OR (`candies`.`type` = 'UserCandies' AND `candy_ownerships`.`owner_id` = 121 AND `candy_ownerships`.`owner_type` = 'User')))
 
+
+
+### Select Clients that have more that have existing registries
+
+   class Client < ActiveRecord::Base
+     has_many :registries
+
+     scope :with_existing_registries, ->{ Client.joins(:registries).where(Registry.arel_table[:client_id].eq( Client.arel_table[:id]) ).uniq }
+  end
+  class Registry < ActiveRecord::Base
+    belongs_to :client
+  end
+  
+so 
+    
+    registry = Registry.create
+    client_without = Client.create
+    client_with_reg = Client.create( registries: [registry]
+    Client.with_existing_registries
+    # => [client_with_reg]
+
+
 http://stackoverflow.com/a/16014142/473040
 https://github.com/rails/arel/tree/master/lib/arel/nodes
 
