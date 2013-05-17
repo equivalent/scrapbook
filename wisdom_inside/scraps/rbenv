@@ -7,3 +7,5 @@
     git pull
 
     rbenv install 2.0.0-p195
+
+source http://hathaway.cc/2012/07/how-to-get-the-latest-ruby-versions-for-rbenvruby-build/
