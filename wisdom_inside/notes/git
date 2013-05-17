@@ -1,3 +1,55 @@
+
+
+git add -p    #promt add 
+git log --oneline --graph
+
+
+git log -p -2 #shows diff & limits only last 2 entris
+git log --stats   #shows how many lines were modified and other statistics
+git log --pretty=format:"%h %s" --graph  #will format log to nice graph like gitk
+git log --since=2.weeks
+git log --committer=foobar   #anly committermmits from one author
+
+
+
+###adding files to last commit ###
+
+    git commit -m "somethong"
+    git add forgottenfile
+    git commit --amend
+
+
+### removing file from stage(unstaging staged files)  ###
+
+    git add .
+    git reset HEAD filenameiwanttoexclude
+
+
+### remote ###
+
+    git remote -v
+    #origin  git:github.com/equivalent8...
+ 
+*adding another remote*
+
+    git remote add pb git://github.com/paulboone/ticgit.git
+    git remote -v
+    #origin  git:github.com/equivalent8...
+    #pb  git:github.com/paulboone...
+    git fetch pb
+    
+fetch is just pulling data from remote server but NOT merging it with my current work on a project (its not overwriting it). You have to merge it manually.
+
+
+
+.
+
+
+
+
+
+
+
 !@#git  gitignore
 
 git rm --cached <filename>          #untrack file, nezmazo z local ale zmaze zo serveru
