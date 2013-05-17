@@ -1,0 +1,9 @@
+
+
+
+#updating rbenv ruby definitions
+
+    cd ~/.rbenv/plugins/ruby-build
+    git pull
+
+    rbenv install 2.0.0-p195
