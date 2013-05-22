@@ -1,3 +1,74 @@
+
+# how to stub out Rails scope while keeping rest of code functionality 
+
+
+let say we have a class 
+
+    class BackupDecorator
+      def ability
+       #some logic to do with CanCan or other access restricting gem
+      end 
+
+      def do_something
+        Backup.where( document_id: [1,2,3, nil] ).accessible_by(ability)
+      end
+
+    end
+
+To write spec **without constructiong ability** you could just do something like this 
+
+    require 'spec_helper'
+    describe BackupDecorator
+      let(:buckup){ FactoryGirl.create :buckup }
+      let(:backup_decorator){BackupDecorator.decorate(buckup)}
+
+      describe 'do_something'
+        subject{ backup_decorator.do_something }
+
+        it 'should get backups for  global and individual documents' do
+          res = double(:res)
+
+          Backup.should_receive(:where).with( [1,2,3, nil]).and_return(res)
+          res.should_receive(:accessible_by).with(backup_decorator.ability).return(['something'])
+          should eq ['something']
+        end
+      end
+    end
+
+
+or maybe something with 
+
+    Backup.should_receive(:where).with( [1,2,3, nil]).and_call_original
+
+but in both cases this is hardcore-ishly narrowing  your expectation. For small method like this it's ok. But let say I have method with eight chained scopes what then ?
+
+In specs like this I don't really  care about what will `accessible_by` scope return (I have ability class specs for that). All I want to test if global and individal documents are included. So pretty much I would like to skip that `accessible_by` scope and let rest of the code do it's job
+
+skip `accessible_by` scope:
+
+      describe 'do_something'
+        subject{ backup_decorator.do_something }
+        let(:backup_for_doc_1){  FactoryGirl.create :backup, document_id: 1 }
+        let(:backup_for_global){ FactoryGirl.create :backup, document_id: nil }
+
+        before do
+          BackupDecorator.stub_chain(:accessible_by) { BackupDecorator.order(:id) } #ignore accessible by
+        end
+
+        it 'should get buckups for  global and individual documents' do
+          should include backup_for_doc_1
+          should include backup_for_global
+        end
+      end
+
+
+date: 2013-05-22
+rails: 3.2.13
+
+
+--------------------------------------------------
+
+
 # Rails "read attribute"
 
 ~~~ruby

@@ -89,6 +89,10 @@ https://github.com/rails/arel
     #=> SELECT `candies`.* FROM `candies` INNER JOIN `candy_ownerships` ON `candy_ownerships`.`candy_id` = `candies`.`id` WHERE (`candies`.`deleted_at` IS NULL) AND (((`candies`.`type` = 'WorldwideCandies' OR (`candies`.`type` = 'ClientCandies' AND `candy_ownerships`.`owner_id` = 19 AND `candy_ownerships`.`owner_type` = 'Client')) OR (`candies`.`type` = 'UserCandies' AND `candy_ownerships`.`owner_id` = 121 AND `candy_ownerships`.`owner_type` = 'User')))
 
 
+http://stackoverflow.com/a/16014142/473040
+https://github.com/rails/arel/tree/master/lib/arel/nodes
+
+
 
 ### Select Clients that have more that have existing registries
 
@@ -100,6 +104,15 @@ https://github.com/rails/arel
   class Registry < ActiveRecord::Base
     belongs_to :client
   end
+
+
+however when you think about it `Client.joins(:registries).uniq` already do that job by it's own
+
+
+     # ...
+     scope :with_existing_registries, ->{ Client.joins(:registries).uniq }
+     #...
+
   
 so 
     
@@ -109,9 +122,9 @@ so
     Client.with_existing_registries
     # => [client_with_reg]
 
+date: 2013-05-22
+rails: 3.2.12
 
-http://stackoverflow.com/a/16014142/473040
-https://github.com/rails/arel/tree/master/lib/arel/nodes
 
 ---------------------------------------------------------------------------
 
