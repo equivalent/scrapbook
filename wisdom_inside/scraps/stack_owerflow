@@ -1,0 +1,65 @@
+
+# s3cmd tool error: incomplete format
+
+When I run 
+ 
+    $ s3cmd
+
+I get 
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        An unexpected error has occurred.
+      Please report the following lines to:
+       s3tools-bugs@lists.sourceforge.net
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
+    Problem: ValueError: incomplete format
+    S3cmd:   1.0.1
+    
+    Traceback (most recent call last):
+      File "/usr/bin/s3cmd", line 2006, in <module>
+        main()
+      File "/usr/bin/s3cmd", line 1795, in main
+        cfg = Config(options.config)
+      File "/usr/lib/python2.7/site-packages/S3/Config.py", line 88, in __init__
+        self.read_config_file(configfile)
+      File "/usr/lib/python2.7/site-packages/S3/Config.py", line 105, in read_config_file
+        cp = ConfigParser(configfile)
+      File "/usr/lib/python2.7/site-packages/S3/Config.py", line 142, in __init__
+        self.parse_file(file, sections)
+      File "/usr/lib/python2.7/site-packages/S3/Config.py", line 170, in parse_file
+        print_value = (data["value"][:2]+"...%d_chars..."+data["value"][-1:]) % (len(data["value"]) - 3)
+    ValueError: incomplete format
+    
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        An unexpected error has occurred.
+        Please report the above lines to:
+       s3tools-bugs@lists.sourceforge.net
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+I found out where is the problem.
+
+I was configuring s3cmd over `s3cmd --config`
+
+s3cmd had asked me to set up encrypted passphraze/password  for GPG
+
+    $ s3cmd --configure
+    ...
+    Encryption password is used to protect your files from reading
+    by unauthorized persons while in transfer to S3
+    Encryption password 
+
+I had set up really strong password including non A-Z chars (as `%`). `s3cmd --configure` didn't escape thos chars, therefore my configuration file was generated like this:
+
+    cat ~/.s3cfg
+    ...
+    gpg_passphrase = examplepassword123%%
+    ...
+
+if anyone else have this kind of problem: to solve this remove s3cmd config file and run config again and set up password/passpraze with a-z A-Z 0-9 chars only
+
+     rm ~/.s3cfg
+     s3cmd --configure
+
+date: 2013-05-23
+http://stackoverflow.com/questions/16512312/s3cmd-tool-error-incomplete-format
