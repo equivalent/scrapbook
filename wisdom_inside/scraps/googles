@@ -1,5 +1,26 @@
 
 
+# Column is ambiguous
+
+
+    Mysql2::Error: Column 'id' in order clause is ambiguous: SELECT `document_versions`.`id`   ........    ORDER BY id
+
+
+this means you have more `order by id` when there are joined tables and MySQL don't know which table `id` you mean
+
+easy fix
+
+from:
+
+    DocumentVersion.complex_join_scope.order(:id)
+
+to:
+
+    DocumentVersion.complex_join_scope.order(DocumentVersion.arel_table[:id]
+
+date: 2013-05-24
+rails: 3.2.13
+
 # Rails devise table  fields and removing confirmable devise module
 
 when you generate devise in new app you'll generate migration file 

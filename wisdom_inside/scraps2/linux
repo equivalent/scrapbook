@@ -1,4 +1,8 @@
 
+# ubuntu, lubuntu, mint set us as default layout
+
+    setxkbmap -layout us
+
 #set up postfix 
 
     sudo apt-get install postfix
