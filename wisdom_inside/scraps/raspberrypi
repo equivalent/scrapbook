@@ -4,3 +4,15 @@
 
     sudo apt-get install gnash
     sudo apt-get install browser-plugin-gnash
+
+
+# 7zip
+
+   sudo apt-get install p7zip
+
+
+    Use the -v option (v is for volume) -v100m will split the archive into chunks of 100MB.
+    7z -v option supports b k m g (bytes, kilobytes, megabytes, gigabytes)
+
+    -p password
+
