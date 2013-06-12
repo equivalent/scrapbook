@@ -1,3 +1,52 @@
+
+# nested controller parent class name and nested controller resource
+
+
+let say you have
+
+    0.0.0.0:3000/blogs/123/tag_lists
+
+initialize 
+
+    class TagListsController < ApplicationController
+      before_filter :set_polymorphic_parent_resource
+
+      def index
+        p  @parent_resource.class # Blog
+        p  @parent_resource.id    # 123
+      end
+
+    private
+      def set_polymorphic_parent_resource
+        request.path_parameters.each do |key, value|
+          if key =~ /_id\z/
+            resource_name = key.to_s.gsub(/_id\z/, "")
+            @parent_resource = resource_name.classify.constantize.find_by_guid!(value)
+          end
+        end
+      end
+    end
+
+another way is 
+
+    class TagListsController < ApplicationController
+      before_filter :load_resource
+      
+      def create
+        redirect_to @resource
+      end
+      
+    private
+      def load_resource
+        resource, id = request.path.split('/')[1, 2] 
+        @resource = resource.singularize.classify.constantize.find(id)
+      end
+    end
+
+
+date: 2013-06-12
+rails: 3.2.13
+
 -----------------------------------------------------------------
 
 # adding own pluralizations 

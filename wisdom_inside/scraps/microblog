@@ -1,3 +1,22 @@
+# class accessor
+
+    class Point < ActiveRecord::Base
+      cattr_accessor :best_language_id
+    end
+
+    class ApplicationController < ActionController::Base
+      before_filter :set_best_language
+
+      def set_best_language
+        Point.best_language_id = session[:best_language_id]
+        Point.best_language_id ||= current_project.default_language.id
+      end
+    end
+
+date: 2013-06-11
+rails 3.2.13
+source: http://stackoverflow.com/a/17039652/473040
+
 ## default translation text
 
     I18n.t("some_translation.key", :default => "fallback text")
