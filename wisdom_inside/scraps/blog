@@ -1,3 +1,210 @@
+# Ruby logical and binary operators and how to not get screwed by their variations
+
+...or: Sheldon Cooper presents: "Fun with Ruby logical and binary operators!" :)
+
+In Ruby like any other programing language you have logical operators such as `&&`, `||` or their word representation `and` `or`
+
+`and` is basically alias to `&&` and `or` is alias to `||`. If you're following community [ruby style guide](https://github.com/bbatsov/ruby-style-guide), like I'm trying to do, you should be just using `&&` and `||`. To be honest I personally prefer to type `and` and `or`, plus I agree  with just 97% with the style guide content, but there is a benefit to sacrifice certain conveniences in the name of clean code ( [another argument for && and ||](http://www.rubyinside.com/and-or-ruby-3631.html) ] ).
+
+Back to our topic.
+So in Ruby you can do:
+
+     true and false
+     #=> false
+
+     true or false
+     #=> true
+
+     true && false
+     #=> false
+
+     true || false
+     #=> true
+
+So far nothing fancy
+Ruby has also binary operanors like `&` and `|`
+
+     true & false
+     #=> false
+
+     true | false
+     #=> true
+
+
+Still boring, I know but bear with me.
+Most of Rubyst know that you can do fancy stuff like this:
+
+    5 || 2
+    # => 5     # Value on the left side is present so return it
+
+    nil || 2
+    #=> 2     # Value on the left side is nil so return right side
+
+    a = nil || 2
+    #=> 2     # Value on the left side is nil so set variable with right side
+    a
+    #=> 2
+
+    b = nil
+    #=> nil
+
+    b
+    #=> nil
+
+    b ||= 4
+    #=> 4     # similar to b = nil || 4
+
+    b
+    #=> 4
+
+    b ||= 22
+    #=> 4     # similar to b = 4 || 22
+
+    b
+    #=> 4
+
+...but not lot of them know you can do stuff like this:
+
+    5 && 2
+    #=> 2
+ 
+    2 && 10
+    #=> 10
+
+    [20] && [40]
+    # => [40]
+
+    'string' && 1.23
+    #=> 1.01
+
+Basically when I'm comparing  two value objects (numbers, strings ...) with `&&` or `and` I'm saying: "Give me the other value than the one that".
+
+You could think about `&&`  as a reverse `||` operator in this contcept. Same apply for comparing `nil`:
+
+    nil && 2 
+    #=> nil
+
+    2 && nil
+    #=> nil
+
+Getting interesting. You can do `&&=` similar as you can do `||=` and guess what, it behaves exactly the opposit way
+
+    a = 10
+    # => 10
+
+    a &&= 5
+    # => 5
+
+    a
+    # => 5
+
+    a &&= nil
+    # => nil
+
+
+
+## Don't confuse ruby array operators alike methods with ruby logical operators !!
+
+The main reason why I event started to write this article is Ruby array method `&`. Yes I'm saying method not operator and to prove this try:
+
+    [] & [10]
+    # => []
+
+    [].& [10]
+    # => []
+
+    "aaa".& 10
+    # NoMethodError: undefined method `&' for "aaa":String
+
+...of course you can do 
+
+    true.& false
+    # => false
+
+...but you cannot do:
+
+    true.&& false
+    # SyntaxError:
+
+...and the reason for that the `&` is a method, that  behaves as a binary operator when called upon  boolean object. While `&&` is "the real thing" operator. People who understand Ruby well are bored to death if reading this article. The reason for that is they know you can define method with any ascii-char name (except some cases) :
+
+    "aaa".& 10
+    # still NoMethodError: undefined method `&' for "aaa":String
+
+    class String
+      # monkey patch. Don't do this in real world, use ruby mixins insted
+      def &(right_side)
+        # do something meaningfull
+        right_side
+      end
+    end
+
+    "aaa".& 10
+    # => 10     # ta-da!
+
+
+...and since `ruby 1.9.x` with any utf-8 name:
+
+    class Float
+      # monkey patch. Don't do this in real world, use ruby mixins insted
+      def self.π  # this wont work in ruby 1.8.x
+        3.14
+      end
+    end
+
+
+So if you were ever playing with console and did something like this:
+
+   [1,2,3,4] & [2,3]
+   # => [2,3]
+
+you were actually doing 
+
+   [1,2,3,4].&([2,3])
+   # => [2,3]
+
+[Ruby reference for Array "&" instance method](http://ruby-doc.org/core-2.0/Array.html#method-i-26)
+
+Same goes for `+`, `-`, etc.
+
+   [1,2,3,4] - [2,3]
+   # => [1,4]
+
+   [1,2,3,4].-([2,3])
+   # => [1,4]
+
+   [1,2] + [3]
+   # => [1,2,3]
+
+   [1,2].+([3])
+   # => [1,2,3]
+
+So when you write ` object & object ` or ` object | object` you shouldn't think about the syntax as binary operator that  magically behaves differently when comparing two non-boolean objects (e.g.: array objects), but as a method that behaves as a binary operator when called upon boolean objects (e.g.: `true & false`) and as a method that return values exist in both arrays (e.g.: `[1,2] & [2]`)
+
+
+ruby: 2.0.0p195
+source: http://www.tutorialspoint.com/ruby/ruby_operators.htm , http://ruby-doc.org/core-2.0/Array.html#method-i-26 http://stackoverflow.com/questions/17190996/are-rubys-logical-operator-methods-like-binary-operators
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # how to stub out Rails scope while keeping rest of code functionality 
 
