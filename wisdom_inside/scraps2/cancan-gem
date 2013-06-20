@@ -1,0 +1,53 @@
+# Filter out matching can can abilities in RSpec
+
+if you are building large application with lot of scenarios what certain user/role can and cannot do based on [cancan gem](https://github.com/ryanb/cancan/tree/2.0), you will find it quite difficult to debug messy ability output. Here is how I do it in RSpec
+
+
+    describe Ability do
+
+      let(:user)    { User.create name: 'Tomi' }
+      let(:ability) { Ability.new(user) }
+
+      it 'just debug abilities' do
+        controller_name = 'countries'
+
+        ability.instance_variable_get('@rules').select do |rule|
+          rule.instance_variable_get('@subjects').select{|s| s.to_s.match /#{controller_name}/}.any?
+        end.each{|rule| p rule }
+
+      end
+    end
+
+and now when running this 
+
+    rspec spec/models/ability_spec.rb
+    #<CanCan::Rule:0x007f2f802de748 @match_all=false, @base_behavior=true, @actions=[:crate, :read], @subjects=[:countries], @conditions={}, @block=nil>
+    #<CanCan::Rule:0x007f2f802ddaa0 @match_all=false, @base_behavior=true, @actions=[:update, :destroy], @subjects=[:countries], @conditions={:id=>[1,2,3]}, @block=nil>
+
+
+# Overriding cancan ability roles
+
+cancan is read constructiong role list in order, that means that you can overwrite your abilities:
+
+in this scenario user isn't restricted, he can update/destroy any country:
+
+     can [:update, :destroy], :countries, id: [1,2,3]
+     can :access :countries
+
+in this scenario user can destroy/update only countries with certain id
+
+     can :access :countries
+     can [:update, :destroy], :countries, id: [1,2,3]
+
+so benefit is that you can stack roles for certain users: 
+
+     can [:update, :destroy], :countries, id: [1,2,3]    #regular user
+     can :access :countries  if admin?
+
+but this will fail:
+
+     can :access :countries  if admin?  # even when admin I'll be restricted by next line
+     can [:update, :destroy], :countries, id: [1,2,3]    #regular user
+
+
+
