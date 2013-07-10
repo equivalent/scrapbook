@@ -1,3 +1,8 @@
+# detect if class includes mixin / module
+
+    User.ancestors.include?(MyModule)
+
+
 # class accessor
 
     class Point < ActiveRecord::Base
