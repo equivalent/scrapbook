@@ -1,3 +1,14 @@
+# %w %i %q
+
+    %i(a b c)
+    # => [:a, :b, :c]
+
+    %w(a b c)
+    # => ['a', 'b', 'c']
+
+    %q( a"a"aa)
+    " a\"a\"aa"
+
 # detect if class includes mixin / module
 
     User.ancestors.include?(MyModule)
