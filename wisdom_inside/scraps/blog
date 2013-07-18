@@ -1,3 +1,119 @@
+# Don't put devise into Rails concern
+
+...or OMG my devise is authenticating everyone
+
+
+Your application with Devise based authentication successfully grow. So you decided to clean bunch of stuff into (rails concerns)[http://api.rubyonrails.org/classes/ActiveSupport/Concern.html] (you should really do that when your file have more than 100 lines). So here is our model:
+
+
+    ### lang:ruby
+    class User < ActiveRecord::Base
+      devise :invitable, :database_authenticatable, :recoverable, :trackable, :validatable, :lockable, :timeoutable
+
+      include User::SomeOtherConcern
+
+      #devise stuff
+
+      def active_for_authentication?
+        # devise method that will disallow user to login if false
+        closed? ? false : super
+      end
+
+      def inactive_message
+        closed? ? :account_closed : super
+      end
+
+      def closed?
+        #boolean flag that will determine if user account was closed manually by admin, for demonstration let everyone be closed
+        true
+      end
+
+      # .... some other code
+    end
+
+good stuff so far so let's create concern for the Devise gem stuff. The new Rails convention is to put your concerns to `app/models/concerns/` folder however my concern is related to just one model,  therefore it makes more sence  to put it in  a folder with the same name as model, in this case `app/models/user/`
+
+so lets `vim app/model/user/devise_authentication_concern.rb` and put this code in it:
+
+    ### lang:ruby
+    module User::DeviseAuthenticationConcern
+      extend ActiveSupport::Concern
+
+      included
+        devise :invitable, :database_authenticatable, :recoverable, :trackable, :validatable, :lockable, :timeoutable
+      end
+
+      def active_for_authentication?
+        return false if closed?
+      end
+
+      def inactive_message
+        closed? ? :account_closed : super
+      end
+
+    end
+
+and refactor our user model `app/models/user.rb` to
+
+    ### lang:ruby
+    class User < ActiveRecord::Base
+
+      include User::DeviseAuthenticationConcern
+      include User::SomeOtherConcern
+
+      def closed?
+        true
+      end
+
+      # .... some other code
+    end
+
+Pretty pretty !
+
+If you try it out (without test) nothing seems to be broken....except: even closed users can log in :(
+Hmm. Well long (debugging) story short, turns out that Devise modules and your concern  module will be loaded in wrong order (your concern methods first Devise last => Devise will override yours), therefore our concern is useless.
+
+You have to keep the `devise :invitable, :database_authenticatable, :recoverable, :trackable, :validatable, :lockable, :timeoutable` inside your User model (even if you try `def self.included(base)`  in your concern, it wont work)
+
+so the final functional code:
+
+model `app/models/user.rb`
+
+    ### lang:ruby
+    class User < ActiveRecord::Base
+
+      devise :invitable, :database_authenticatable, :recoverable, :trackable, :validatable, :lockable, :timeoutable # first
+
+      include User::DeviseAuthenticationConcern  # second
+      include User::SomeOtherConcern
+
+      def closed?
+        true
+      end
+
+      # .... some other code
+    end
+
+model concern `app/models/user/devise_authentication_concern.rb`
+
+    ### lang:ruby
+    module User::DeviseAuthenticationConcern
+      extend ActiveSupport::Concern
+
+      def active_for_authentication?
+        return false if closed?
+      end
+
+      def inactive_message
+        closed? ? :account_closed : super
+      end
+    end
+
+ta-da
+
+
+
+
 # Ruby logical and binary operators and how to not get screwed by their variations
 
 ...or: Sheldon Cooper presents: "Fun with Ruby logical and binary operators!" :)
