@@ -1,4 +1,24 @@
 
+# multiply string in vim 
+
+just in visual mode highlite string row, pres '/' and type `s/mystring/&&`
+
+    mystirng
+
+    :'<,'>s/mystring/&&'  # vim command line
+
+    mystirngmystirng
+
+more `&` sings you use more duplication you get
+
+
+    :'<,'>s/mystring/&&&&&&&&'  # vim command line
+
+    mystringmystringmystringmystringmystringmystringmystringmystringmystring
+
+
+
+
 #Charset problem with vim and ruby 
 
 if you ever have this problem 
