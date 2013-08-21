@@ -1,0 +1,17 @@
+
+
+# Fragment caching
+
+
+  <% cache('all_available_products') do %>
+    All available products:
+  <% end %>
+
+exipire this with
+
+    expire_fragment('all_available_products')  # in controller
+
+
+# clear flush cache
+
+    Rails.cache.clear
