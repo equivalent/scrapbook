@@ -1,3 +1,30 @@
+# model caching solutions
+
+
+
+### cache scenario: cache find(id)
+
+    class Event < ActiveRecord::Base
+      after_commit :flush_cache
+
+      def self.cached_find(id)
+        Rails.cache.fetch([name, id]) { find(id) }
+      end
+
+      def flush_cache
+        Rails.cache.delete([self.class.name, id])
+      end
+    end
+
+    e = Event.cached_find(2)
+    e.delete # this will flush cache
+
+
+
+
+
+
+
 
 
 # Fragment caching
