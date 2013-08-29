@@ -1,5 +1,35 @@
 
 
+# how to remove commit from github
+
+    git push -f origin HEAD^:master     # last commit
+    git push -f origin HEAD^^:master    # last two commit
+    git push -f origin HEAD^^^:master   # last three commit
+
+That should "undo" the push.
+
+http://stackoverflow.com/questions/448919/how-can-i-remove-a-commit-on-github
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 rebase to master subranch of branch
 
