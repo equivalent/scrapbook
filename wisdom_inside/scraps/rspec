@@ -1,3 +1,38 @@
+
+
+# global factory girl traits
+
+    # spec/factories/application.rb  
+    FactoryGirl.define do
+      # define factory girl defaults
+      trait :cached_in_past do
+        after :create do |d|
+          d.update_column :cached_at, 2.days.ago
+        end
+      end
+    end
+
+note: you don't have to name this `application.rb` any name will be fine
+
+    # spec/factories/user.rb
+    FactoryGirl.define do
+      factory :user do
+        sequence(:name)  { |n| "user #{n}" }
+        city: 'London'
+      end
+    end
+
+
+usage 
+
+    FactoryGirl.create :user, :cached_in_past
+
+
+links: https://github.com/thoughtbot/factory_girl/issues/528
+
+
+
+
 # yield rspec example
 
 ~~~ruby
