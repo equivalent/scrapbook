@@ -1,0 +1,9 @@
+
+# remove element from xml/html
+
+f = Nokogiri::XML.fragment(str)
+
+f.search('.//img').remove
+f.to_xml
+
+source: http://stackoverflow.com/questions/1708504/how-do-i-remove-a-node-with-nokogiri
