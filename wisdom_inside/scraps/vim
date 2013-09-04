@@ -1,4 +1,18 @@
 
+# vim substitude
+
+
+## rename class name to method name
+
+
+    StaticDocumentForm
+    :s/[A-Z]/_\l\0/g
+    _static_document_form
+
+I'm to lazy to figure out the leading underscore :)
+
+
+
 # multiply string in vim 
 
 just in visual mode highlite string row, pres '/' and type `s/mystring/&&`
