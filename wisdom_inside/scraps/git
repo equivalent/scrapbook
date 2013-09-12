@@ -16,21 +16,6 @@ http://stackoverflow.com/questions/448919/how-can-i-remove-a-commit-on-github
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 rebase to master subranch of branch
 
     git rebase --onto master jobs tlds
@@ -39,8 +24,7 @@ rebase to master subranch of branch
 
 
 
-git repository on usb
-----------------------
+#git repository on usb
 
 http://blog.costan.us/2009/02/synchronizing-git-repositories-without.html
 

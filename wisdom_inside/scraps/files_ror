@@ -1,4 +1,4 @@
-
+Dir[File.dirname(__FILE__)+"/support/**/*.rb"].each {|f| p  require f}   
 
 ## rename file
 
