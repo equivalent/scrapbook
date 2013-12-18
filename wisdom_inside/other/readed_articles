@@ -1,3 +1,42 @@
+http://blog.mitchcrowe.com/blog/2012/04/14/10-most-underused-activerecord-relation-methods/
+
+http://stackoverflow.com/questions/1560150/what-is-db-development-structure-sql-in-a-rails-project
+http://www.saturnflyer.com/blog/jim/2010/09/14/always-check-in-schema-rb/
+
+http://www.igvita.com/2007/03/15/block-helpers-and-dry-views-in-rails/
+s
+http://apidock.com/rails/ActionView/Helpers/TextHelper/concat
+
+http://javascript.crockford.com/code.html
+
+http://css-tricks.com/return-false-and-prevent-default/
+
+http://stackoverflow.com/questions/14959841/how-to-make-a-ruby-method-to-pass-output-parameters-change-the-value-of-referen
+
+http://stackoverflow.com/questions/3567981/how-do-mysql-indexes-work/3568214#3568214
+http://www.mysqlperformanceblog.com/2009/10/16/how-not-to-find-unused-indexes/
+http://dev.mysql.com/doc/refman/5.5/en/how-to-avoid-table-scan.html
+http://stackoverflow.com/questions/2386852/mysql-low-cardinality-selectivity-columns-how-to-index
+http://dev.mysql.com/doc/refman/5.5/en/multiple-column-indexes.html
+http://stackoverflow.com/questions/707874/differences-between-index-primary-unique-fulltext-in-mysql
+http://www.mysqlperformanceblog.com/2009/10/16/how-not-to-find-unused-indexes/
+http://webmonkeyuk.wordpress.com/2010/09/22/what-makes-a-good-mysql-index-part-1-column-size/
+http://webmonkeyuk.wordpress.com/2010/09/27/what-makes-a-good-mysql-index-part-2-cardinality/
+http://stackoverflow.com/questions/4561292/how-to-clear-query-cache-in-mysql
+http://www.mysqlperformanceblog.com/2009/09/12/3-ways-mysql-uses-indexes/
+http://dev.mysql.com/doc/refman/5.1/en/query-cache.html
+http://stackoverflow.com/questions/181894/mysql-force-not-to-use-cache-for-testing-speed-of-query
+
+http://dev.mysql.com/doc/refman/5.0/en/multiple-column-indexes.html
+http://stackoverflow.com/questions/13298545/how-to-specify-a-multiple-column-index-correctly-in-rails
+http://stackoverflow.com/questions/3658859/when-to-add-what-indexes-in-a-table-in-rails
+https://tomafro.net/2009/08/using-indexes-in-rails-index-your-associations
+
+https://github.com/mperham/dalli/issues/397  # dalli delete_matched
+https://github.com/Phobos98/dalli-delete-matched # dalli delete_matched
+http://www.moleculardensity.net/blog/posts/2 # dalli delete_matched
+
+
 http://www.youtube.com/watch?v=A5rmG2j4Lk8
 http://www.youtube.com/watch?v=QKwWPQ1Orzs
 
