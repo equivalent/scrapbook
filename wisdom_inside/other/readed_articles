@@ -2,6 +2,10 @@ http://blog.lucascaton.com.br/index.php/2010/10/25/how-to-test-mailers-in-rails-
 
 http://www.youtube.com/watch?v=uaSiV0TFgLI  Cascadia Ruby 2013 Ruby Systems Programming by Andy Delcambre
 
+http://www.jaynathan.org/2013/02/using-font-awesome-with-rails-asset-pipeline/
+https://coderwall.com/p/1uqvkq
+http://www.holovaty.com/writing/aws-domain-redirection/
+http://stackoverflow.com/questions/19663344/how-to-deliver-fonts-from-a-non-standard-directory-using-asset-pipeline
 
 http://technicalpickles.com/posts/capybara-and-domains/
 
@@ -57,6 +61,7 @@ https://github.com/mperham/dalli/issues/397  # dalli delete_matched
 https://github.com/Phobos98/dalli-delete-matched # dalli delete_matched
 http://www.moleculardensity.net/blog/posts/2 # dalli delete_matched
 
+>>>>>>> 8a16c507ed186e0c9060d89f522f721374977045
 
 http://www.youtube.com/watch?v=A5rmG2j4Lk8
 http://www.youtube.com/watch?v=QKwWPQ1Orzs
