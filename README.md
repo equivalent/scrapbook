@@ -1,22 +1,9 @@
 Scrapbook
 =========
 
-Scrapbook:
+at this point this project is dead and was moved to newer [Scrabook2](https://github.com/equivalent/scrapbook2)
 
-* is not a blog ! 
-* is not a wiky ! 
-* is not ment to be formal !
+There are still some usefull information you can use from this old scrobook so it will stay live forever, but I recommend to use the new one 
 
-* is public backlog of solving problem of one person (developer,
-  sys-admin,...)
+mirror http://eq8scrapbook.heroku.com
 
-
-...more informations soon 
-
-demo at http://eq8scrapbook.heroku.com
-
-
-
-#project is under construction
-
-.
