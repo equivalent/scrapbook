@@ -1,11 +1,12 @@
 Scrapbook
 =========
 
-############################################################################################
-##                                                                                        ##
-##   Project no longer active ! Check the new https://github.com/equivalent/scrapbook2    ##
-##                                                                                        ##
-############################################################################################
+
+    ############################################################################################
+    ##                                                                                        ##
+    ##   Project no longer active ! Check the new https://github.com/equivalent/scrapbook2    ##
+    ##                                                                                        ##
+    ############################################################################################
 
 
 at this point this project is dead and was moved to newer [Scrabook2](https://github.com/equivalent/scrapbook2)
