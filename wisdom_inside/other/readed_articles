@@ -1,3 +1,14 @@
+http://blog.bigbinary.com/2012/01/08/alias-vs-alias-method.html
+
+http://vladigleba.com/blog/2014/03/21/deploying-rails-apps-part-3-configuring-unicorn/
+http://www.justinappears.com/blog/2-no-downtime-deploys-with-unicorn/
+
+http://docs.travis-ci.com/user/encryption-keys/
+https://codeclimate.com/repos/538c841d6956806f8f056a80/coverage_setup
+
+http://stackoverflow.com/questions/20684846/turbolinks-causing-a-jquery-ujs-has-already-been-loaded-error  ... face-palm; turbolinks require js in head not body
+https://github.com/rails/turbolinks/issues/143
+
 http://guides.rubyonrails.org/configuring.html#rails-environment-settings
 http://boblail.com/post/574808424/extending-rails-configuration
 
