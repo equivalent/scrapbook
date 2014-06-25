@@ -1,3 +1,21 @@
+https://relishapp.com/rspec/docs/upgrade
+http://myronmars.to/n/dev-blog/2014/05/notable-changes-in-rspec-3
+
+http://www.youtube.com/watch?v=CMC3xdAo9RI&feature=youtu.be  mailgun presentation on docker
+https://www.youtube.com/watch?v=_KnmRdK69qM   LXT linxu container explained
+http://rubyrogues.com/161-rr-docker-deploys-with-sam-saffron/
+
+http://aws.amazon.com/blogs/aws/archive-s3-to-glacier/?utm_source=feedburner
+http://aws.amazon.com/glacier/
+http://www.youtube.com/watch?v=_cwpengIjkw#t=321   #amazor glacier s3 screencast
+http://serverfault.com/questions/551493/backing-up-data-stored-on-amazon-s3
+
+http://blog.kabisa.nl/2014/03/26/back-up-postgresql-from-a-rails-project-to-amazon-s3/
+
+http://stackoverflow.com/questions/694115/why-does-ruby-open-uris-open-return-a-stringio-in-my-unit-test-but-a-fileio-in/694413#694413
+
+http://stackoverflow.com/questions/11419536/postgresql-truncation-speed/11423886#11423886
+
 http://blog.bigbinary.com/2012/01/08/alias-vs-alias-method.html
 http://stackoverflow.com/questions/18575235/what-do-multi-processes-vs-multi-threaded-servers-most-benefit-from multi thraed thred puma unicorn
 
